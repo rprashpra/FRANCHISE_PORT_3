@@ -140,6 +140,7 @@
              <tr>
                  <th>TestName</th>
                  <th>Amount</th>
+                 <th>Discount</th>
                  <th>NetAmount</th>
              </tr>
              <tr>
@@ -1918,6 +1919,11 @@
 	        </select>
         </td>
         <td>
+             <select name="discount" style="color:black;border-style:groove;border-radius:30px">
+                 <option>Discount</option>
+             </select>
+        </td>
+        <td>
             <select name="lname" style="color:black;border-style:groove;border-radius:30px">
                   <option>NetAmount</option>
             </select>
@@ -1928,6 +1934,7 @@
     $(document).ready(function () {
         $department = $("select[name='dep']");
         $cname = $("select[name='cname']");
+        $discount = $("select[name='discount']");
         $lname = $("select[name='lname']");
         $department.change(function () {
             if ($(this).val() == "BLOOD SUGAR- FASTING") {
@@ -1935,36 +1942,48 @@
                 $("<option>30</option>").appendTo($cname);
                 $("select[name='lname'] option").remove();
                 $("<option>30</option>").appendTo($lname);
+                $("select[name ='discount'] option").remove();
+                $("<option>0</option>").appendTo($discount);
             }
             if ($(this).val() == "BLOOD SUGAR- POST PRANDIAL") {
                 $("select[name='cname'] option").remove();
                 $("<option>30</option>").appendTo($cname);
                 $("select[name='lname'] option").remove();
                 $("<option>30</option>").appendTo($lname);
+                $("select[name ='discount'] option").remove();
+                $("<option>0</option>").appendTo($discount);
             }
             if ($(this).val() == "BLOOD SUGAR -RANDOM") {
                 $("select[name='cname'] option").remove();
                 $("<option>30</option>").appendTo($cname);
                 $("select[name='lname'] option").remove();
                 $("<option>30</option>").appendTo($lname);
+                $("select[name ='discount'] option").remove();
+                $("<option>0</option>").appendTo($discount);
             }
             if ($(this).val() == "BLOOD SUGAR-FASTING & POSTPRANDIAL") {
                 $("select[name='cname'] option").remove();
                 $("<option>60</option>").appendTo($cname);
                 $("select[name='lname'] option").remove();
                 $("<option>60</option>").appendTo($lname);
+                $("select[name ='discount'] option").remove();
+                $("<option>0</option>").appendTo($discount);
             }
             if ($(this).val() == "GLUCOSE TOLERANCE TEST") {
                 $("select[name='cname'] option").remove();
                 $("<option>250</option>").appendTo($cname);
                 $("select[name='lname'] option").remove();
                 $("<option>250</option>").appendTo($lname);
+                $("select[name ='discount'] option").remove();
+                $("<option>0</option>").appendTo($discount);
             }
             if ($(this).val() == "GLYCOSYLATED HAEMOGLOBIN") {
                 $("select[name = cname] option").remove();
                 $("<option>450</option>").appendTo($cname);
                 $("select[name='lname'] option").remove();
                 $("<option>450</option>").appendTo($lname);
+                $("select[name ='discount'] option").remove();
+                $("<option>0</option>").appendTo($discount);
             }
             if ($(this).val() == "CHOLESTEROL") {
                 $("select[name = cname] option").remove();
@@ -4096,6 +4115,1500 @@
                     $("<option>2300</option>").appendTo($cname);
                     $("select[name = 'lname'] option").remove();
                     $("<option>2300</option>").appendTo($lname);
+                }
+                if ($(this).val() == "TPO - Thyroid Peroxidase Auto Antibodies") {
+                    $("select[name = cname] option").remove();
+                    $("<option>1100</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>1100</option>").appendTo($lname);
+                }
+                if ($(this).val() == "17 OHP - 17 OH PROGESTERONE") {
+                    $("select[name = cname] option").remove();
+                    $("<option>1300</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>1300</option>").appendTo($lname);
+                }
+                if ($(this).val() == "ALPHA FETO PROTEIN (AFP)") {
+                    $("select[name = cname] option").remove();
+                    $("<option>700</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>700</option>").appendTo($lname);
+                }
+                if ($(this).val() == "AMH - ANTI MULLERIAN HORMONE") {
+                    $("select[name = cname] option").remove();
+                    $("<option>1800</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>1800</option>").appendTo($lname);
+                }
+                if ($(this).val() == "BHCG - Beta human Chorionic Gonadotrophin") {
+                    $("select[name = cname] option").remove();
+                    $("<option>600</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>600</option>").appendTo($lname);
+                }
+                if ($(this).val() == "Testosterone Free") {
+                    $("select[name = cname] option").remove();
+                    $("<option>1200</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>1200</option>").appendTo($lname);
+                }
+                if ($(this).val() == "PCOS Profile") {
+                    $("select[name = cname] option").remove();
+                    $("<option>4500</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>4500</option>").appendTo($lname);
+                }
+                if ($(this).val() == "Triple Marker with Risk Chart") {
+                    $("select[name = cname] option").remove();
+                    $("<option>2600</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>2600</option>").appendTo($lname);
+                }
+                if ($(this).val() == "Double Marker Study") {
+                    $("select[name = cname] option").remove();
+                    $("<option>2500</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>2500</option>").appendTo($lname);
+                }
+                if ($(this).val() == "Quadruple test (Maternal-Down`s Syndrome) Screen-2") {
+                    $("select[name = cname] option").remove();
+                    $("<option>2400</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>2400</option>").appendTo($lname);
+                }
+                if ($(this).val() == "TIBC") {
+                    $("select[name = cname] option").remove();
+                    $("<option>100</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>100</option>").appendTo($lname);
+                }
+                if ($(this).val() == "Folate (Folic Acid) - RBC") {
+                    $("select[name = cname] option").remove();
+                    $("<option>950</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>950</option>").appendTo($lname);
+                }
+                if ($(this).val() == "C-Peptide") {
+                    $("select[name = cname] option").remove();
+                    $("<option>1000</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>1000</option>").appendTo($lname);
+                }
+                if ($(this).val() == "PAPPA (Pregnancy Associated Plasma Protein)") {
+                    $("select[name = cname] option").remove();
+                    $("<option>1100</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>1100</option>").appendTo($lname);
+                }
+                if ($(this).val() == "Estriol (E3)- Unconjugated Urine") {
+                    $("select[name = cname] option").remove();
+                    $("<option>1300</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>1300</option>").appendTo($lname);
+                }
+                if ($(this).val() == "Free Androgen Index (FAI)") {
+                    $("select[name = cname] option").remove();
+                    $("<option>2400</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>2400</option>").appendTo($lname);
+                }
+                if ($(this).val() == "Micro Albumin-Urine") {
+                    $("select[name = cname] option").remove();
+                    $("<option>450</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>450</option>").appendTo($lname);
+                }
+                if ($(this).val() == "Insulin Suppression test for C Peptide (7sample)") {
+                    $("select[name = cname] option").remove();
+                    $("<option>6900</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>6900</option>").appendTo($lname);
+                }
+                if ($(this).val() == "Chyluria(Urine triglycerides) GPO-POD") {
+                    $("select[name = cname] option").remove();
+                    $("<option>350</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>350</option>").appendTo($lname);
+                }
+                if ($(this).val() == "Collagen vascular profile") {
+                    $("select[name = cname] option").remove();
+                    $("<option>2800</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>2800</option>").appendTo($lname);
+                }
+                if ($(this).val() == "TRANSFERRIN SATURATION") {
+                    $("select[name = cname] option").remove();
+                    $("<option>750</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>750</option>").appendTo($lname);
+                }
+                if ($(this).val() == "APOLIPO PROTEIN  A1") {
+                    $("select[name = cname] option").remove();
+                    $("<option>550</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>550</option>").appendTo($lname);
+                }
+                if ($(this).val() == "APOLIPO PROTEIN B") {
+                    $("select[name = cname] option").remove();
+                    $("<option>550</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>550</option>").appendTo($lname);
+                }
+                if ($(this).val() == "Cardiac enzymes") {
+                    $("select[name = cname] option").remove();
+                    $("<option>1500</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>1500</option>").appendTo($lname);
+                }
+                if ($(this).val() == "Cardiac enzymes") {
+                    $("select[name = cname] option").remove();
+                    $("<option>1500</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>1500</option>").appendTo($lname);
+                }
+                if ($(this).val() == "BAD Obstetric Profile") {
+                    $("select[name = cname] option").remove();
+                    $("<option>5800</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>5800</option>").appendTo($lname);
+                }
+                if ($(this).val() == "CA 19 - 9 (Pancreatic)") {
+                    $("select[name = cname] option").remove();
+                    $("<option>1200</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>1200</option>").appendTo($lname);
+                }
+                if ($(this).val() == "CEA - Carcino Embryonic Antigen") {
+                    $("select[name = cname] option").remove();
+                    $("<option>800</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>800</option>").appendTo($lname);
+                }
+                if ($(this).val() == "PSA - Prostate Specific Antigen Total") {
+                    $("select[name = cname] option").remove();
+                    $("<option>700</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>700</option>").appendTo($lname);
+                }
+                if ($(this).val() == "CA15.3") {
+                    $("select[name = cname] option").remove();
+                    $("<option>1250</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>1250</option>").appendTo($lname);
+                }
+                if ($(this).val() == "Cortisol Serum (4PM)") {
+                    $("select[name = cname] option").remove();
+                    $("<option>800</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>800</option>").appendTo($lname);
+                }
+                if ($(this).val() == "Cortisol Serum (RANDOM)") {
+                    $("select[name = cname] option").remove();
+                    $("<option>800</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>800</option>").appendTo($lname);
+                }
+                if ($(this).val() == "Cortisol Free Salivary") {
+                    $("select[name = cname] option").remove();
+                    $("<option>800</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>800</option>").appendTo($lname);
+                }
+                if ($(this).val() == "Cortisol Free Urinary 24hrs") {
+                    $("select[name = cname] option").remove();
+                    $("<option>950</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>950</option>").appendTo($lname);
+                }
+                if ($(this).val() == "Dexamathasone High dose suppression -Cortisol") {
+                    $("select[name = cname] option").remove();
+                    $("<option>925</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>925</option>").appendTo($lname);
+                }
+                if ($(this).val() == "OT AIR C/S") {
+                    $("select[name = cname] option").remove();
+                    $("<option>600</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>600</option>").appendTo($lname);
+                }
+                if ($(this).val() == "PUS GRAM STAIN") {
+                    $("select[name = cname] option").remove();
+                    $("<option>250</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>250</option>").appendTo($lname);
+                }
+                if ($(this).val() == "Calcitonin Bone") {
+                    $("select[name = cname] option").remove();
+                    $("<option>1800</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>1800</option>").appendTo($lname);
+                }
+                if ($(this).val() == "PTH - Para Thyroid Hormone Bone") {
+                    $("select[name = cname] option").remove();
+                    $("<option>1500</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>1500</option>").appendTo($lname);
+                }
+                if ($(this).val() == "Vitamin D Total Level (25 Hydroxy Cholecalciferol)") {
+                    $("select[name = cname] option").remove();
+                    $("<option>1500</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>1500</option>").appendTo($lname);
+                }
+                if ($(this).val() == "Bone Marker 1") {
+                    $("select[name = cname] option").remove();
+                    $("<option>3400</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>3400</option>").appendTo($lname);
+                }
+                if ($(this).val() == "Bone Marker 2") {
+                    $("select[name = cname] option").remove();
+                    $("<option>4400</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>4400</option>").appendTo($lname);
+                }
+                if ($(this).val() == "ADA Level") {
+                    $("select[name = cname] option").remove();
+                    $("<option>750</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>750</option>").appendTo($lname);
+                }
+                if ($(this).val() == "Beta 2 Micro Globulin - B2MG") {
+                    $("select[name = cname] option").remove();
+                    $("<option>1500</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>1500</option>").appendTo($lname);
+                }
+                if ($(this).val() == "BETA 2GLYCOPROTEIN -IGG") {
+                    $("select[name = cname] option").remove();
+                    $("<option>1500</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>1500</option>").appendTo($lname);
+                }
+                if ($(this).val() == "BETA 2 GLYCOPROTEIN -IGM") {
+                    $("select[name = cname] option").remove();
+                    $("<option>1500</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>1500</option>").appendTo($lname);
+                }
+                if ($(this).val() == "Bicarbonates") {
+                    $("select[name = cname] option").remove();
+                    $("<option>230</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>230</option>").appendTo($lname);
+                }
+                if ($(this).val() == "CCP Antibody to Cyclic Citrullinated Peptide") {
+                    $("select[name = cname] option").remove();
+                    $("<option>2000</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>2000</option>").appendTo($lname);
+                }
+                if ($(this).val() == "Dengue Profile (Dengue NS1 Antigen + Ig G & IgM)") {
+                    $("select[name = cname] option").remove();
+                    $("<option>800</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>800</option>").appendTo($lname);
+                }
+                if ($(this).val() == "IgG for H Pylori") {
+                    $("select[name = cname] option").remove();
+                    $("<option>1600</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>1600</option>").appendTo($lname);
+                }
+                if ($(this).val() == "MYOGLOBIN URINE") {
+                    $("select[name = cname] option").remove();
+                    $("<option>1200</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>1200</option>").appendTo($lname);
+                }
+                if ($(this).val() == "Urine Osmolality 24hrs") {
+                    $("select[name = cname] option").remove();
+                    $("<option>500</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>500</option>").appendTo($lname);
+                }
+                if ($(this).val() == "ACID PHOSPHATASE - PROSTATIC") {
+                    $("select[name = cname] option").remove();
+                    $("<option>300</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>300</option>").appendTo($lname);
+                }
+                if ($(this).val() == "Acid Phosphatase - Total") {
+                    $("select[name = cname] option").remove();
+                    $("<option>300</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>300</option>").appendTo($lname);
+                }
+                if ($(this).val() == "ALKALINE PHOSPHATASE") {
+                    $("select[name = cname] option").remove();
+                    $("<option>180</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>180</option>").appendTo($lname);
+                }
+                if ($(this).val() == "Blood Glucose 2 Hours Post Prandial (Lunch)") {
+                    $("select[name = cname] option").remove();
+                    $("<option>55</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>55</option>").appendTo($lname);
+                }
+                if ($(this).val() == "Blood Glucose 2 Hours Post Prandial (Dinner)") {
+                    $("select[name = cname] option").remove();
+                    $("<option>55</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>55</option>").appendTo($lname);
+                }
+                if ($(this).val() == "GLUCOSE POSTPRANDIAL WITH URINE SUGAR") {
+                    $("select[name = cname] option").remove();
+                    $("<option>80</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>80</option>").appendTo($lname);
+                }
+                if ($(this).val() == "FASTING BLOOD GLUCOSE (FBS) WITH URINE SUGAR") {
+                    $("select[name = cname] option").remove();
+                    $("<option>80</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>80</option>").appendTo($lname);
+                }
+                if ($(this).val() == "Blood Glucose 2 Hours Post Prandial (Dinner)-urine Sug strip") {
+                    $("select[name = cname] option").remove();
+                    $("<option>80</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>80</option>").appendTo($lname);
+                }
+                if ($(this).val() == "GFR - Glomerular Filteration Rate") {
+                    $("select[name = cname] option").remove();
+                    $("<option>500</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>500</option>").appendTo($lname);
+                }
+                if ($(this).val() == "GTT (vein blood) - 2 samples") {
+                    $("select[name = cname] option").remove();
+                    $("<option>150</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>150</option>").appendTo($lname);
+                }
+                if ($(this).val() == "GTT (vein blood) - 3 samples") {
+                    $("select[name = cname] option").remove();
+                    $("<option>200</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>200</option>").appendTo($lname);
+                }
+                if ($(this).val() == "GTT (vein blood) - 4 samples") {
+                    $("select[name = cname] option").remove();
+                    $("<option>250</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>250</option>").appendTo($lname);
+                }
+                if ($(this).val() == "Micro Albumin Creatine Ratio") {
+                    $("select[name = cname] option").remove();
+                    $("<option>500</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>500</option>").appendTo($lname);
+                }
+                if ($(this).val() == "MICRO ALBUMIN URINE 24 HRS") {
+                    $("select[name = cname] option").remove();
+                    $("<option>500</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>500</option>").appendTo($lname);
+                }
+                if ($(this).val() == "OGCT") {
+                    $("select[name = cname] option").remove();
+                    $("<option>200</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>200</option>").appendTo($lname);
+                }
+                if ($(this).val() == "Inorganic phosphorous - Urine(24 hrs)") {
+                    $("select[name = cname] option").remove();
+                    $("<option>120</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>120</option>").appendTo($lname);
+                }
+                if ($(this).val() == "Inorganic phosphorus - Urine (RANDAM)") {
+                    $("select[name = cname] option").remove();
+                    $("<option>120</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>120</option>").appendTo($lname);
+                }
+                if ($(this).val() == "SODIUM -URINE 24HRS") {
+                    $("select[name = cname] option").remove();
+                    $("<option>120</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>120</option>").appendTo($lname);
+                }
+                if ($(this).val() == "POTASSIUM -URINE 24HRS") {
+                    $("select[name = cname] option").remove();
+                    $("<option>120</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>120</option>").appendTo($lname);
+                }
+                if ($(this).val() == "URINE PROTEIN CREATININE RATIO") {
+                    $("select[name = cname] option").remove();
+                    $("<option>450</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>450</option>").appendTo($lname);
+                }
+                if ($(this).val() == "PROTEIN URINE RANDAM") {
+                    $("select[name = cname] option").remove();
+                    $("<option>120</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>120</option>").appendTo($lname);
+                }
+                if ($(this).val() == "RP1") {
+                    $("select[name = cname] option").remove();
+                    $("<option>650</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>650</option>").appendTo($lname);
+                }
+                if ($(this).val() == "RP2") {
+                    $("select[name = cname] option").remove();
+                    $("<option>1700</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>1700</option>").appendTo($lname);
+                }
+                if ($(this).val() == "RP3") {
+                    $("select[name = cname] option").remove();
+                    $("<option>220</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>220</option>").appendTo($lname);
+                }
+                if ($(this).val() == "UREA POST DIALYSIS") {
+                    $("select[name = cname] option").remove();
+                    $("<option>120</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>120</option>").appendTo($lname);
+                }
+                if ($(this).val() == "UREA PRE DIALYSIS") {
+                    $("select[name = cname] option").remove();
+                    $("<option>120</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>120</option>").appendTo($lname);
+                }
+                if ($(this).val() == "UREA URINE 24HRS") {
+                    $("select[name = cname] option").remove();
+                    $("<option>90</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>90</option>").appendTo($lname);
+                }
+                if ($(this).val() == "URIC ACID URINE") {
+                    $("select[name = cname] option").remove();
+                    $("<option>150</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>150</option>").appendTo($lname);
+                }
+                if ($(this).val() == "Uric Acid Urinary (Random / 24 hr)") {
+                    $("select[name = cname] option").remove();
+                    $("<option>250</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>250</option>").appendTo($lname);
+                }
+                if ($(this).val() == "Urinary Micro Protein (24 hr)") {
+                    $("select[name = cname] option").remove();
+                    $("<option>350</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>350</option>").appendTo($lname);
+                }
+                if ($(this).val() == "Egfr (1-12yrs)") {
+                    $("select[name = cname] option").remove();
+                    $("<option>500</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>500</option>").appendTo($lname);
+                }
+                if ($(this).val() == "Urinary Phosphorous (24 hr)") {
+                    $("select[name = cname] option").remove();
+                    $("<option>250</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>250</option>").appendTo($lname);
+                }
+                if ($(this).val() == "Urinary Potassium ( 24 hr)") {
+                    $("select[name = cname] option").remove();
+                    $("<option>250</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>250</option>").appendTo($lname);
+                }
+                if ($(this).val() == "Urinary Sodium (24 hr)") {
+                    $("select[name = cname] option").remove();
+                    $("<option>250</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>250</option>").appendTo($lname);
+                }
+                if ($(this).val() == "Urinary Microalbumin (24 hr)") {
+                    $("select[name = cname] option").remove();
+                    $("<option>450</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>450</option>").appendTo($lname);
+                }
+                if ($(this).val() == "Urine Osmolality (24 hr)") {
+                    $("select[name = cname] option").remove();
+                    $("<option>500</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>500</option>").appendTo($lname);
+                }
+                if ($(this).val() == "OSMOLALITY SERUM") {
+                    $("select[name = cname] option").remove();
+                    $("<option>900</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>900</option>").appendTo($lname);
+                }
+                if ($(this).val() == "Urine Protein Creatinine Ratio (Random)") {
+                    $("select[name = cname] option").remove();
+                    $("<option>40</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>40</option>").appendTo($lname);
+                }
+                if ($(this).val() == "Phosplipid IgG & IgM") {
+                    $("select[name = cname] option").remove();
+                    $("<option>0</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>0</option>").appendTo($lname);
+                }
+                if ($(this).val() == "ANA IMF-IMMUNOFLUORESCENCE") {
+                    $("select[name = cname] option").remove();
+                    $("<option>700</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>700</option>").appendTo($lname);
+                }
+                if ($(this).val() == "Testosterone Total") {
+                    $("select[name = cname] option").remove();
+                    $("<option>650</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>650</option>").appendTo($lname);
+                }
+                if ($(this).val() == "HBA1C -GLYCOSYLATED HB") {
+                    $("select[name = cname] option").remove();
+                    $("<option>550</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>550</option>").appendTo($lname);
+                }
+                if ($(this).val() == "LIPID PROFILE*") {
+                    $("select[name = cname] option").remove();
+                    $("<option>0</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>0</option>").appendTo($lname);
+                }
+                if ($(this).val() == "LFT(LIVER FUNCTION TEST)") {
+                    $("select[name = cname] option").remove();
+                    $("<option>550</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>550</option>").appendTo($lname);
+                }
+                if ($(this).val() == "ANTI PHOSPHOLIPID ANTIBODY, IGG") {
+                    $("select[name = cname] option").remove();
+                    $("<option>850</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>850</option>").appendTo($lname);
+                }
+                if ($(this).val() == "BILIRUBIN TOTAL") {
+                    $("select[name = cname] option").remove();
+                    $("<option>50</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>50</option>").appendTo($lname);
+                }
+                if ($(this).val() == "BILIRUBIN DIRECT") {
+                    $("select[name = cname] option").remove();
+                    $("<option>50</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>50</option>").appendTo($lname);
+                }
+                if ($(this).val() == "BILIRUBIN INDIRECT") {
+                    $("select[name = cname] option").remove();
+                    $("<option>50</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>50</option>").appendTo($lname);
+                }
+                if ($(this).val() == "ANGIOTENSIN CONVERTING ENZYME (ACE)") {
+                    $("select[name = cname] option").remove();
+                    $("<option>1050</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>1050</option>").appendTo($lname);
+                }
+                if ($(this).val() == "BILIRUBIN DIRECT") {
+                    $("select[name = cname] option").remove();
+                    $("<option>50</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>50</option>").appendTo($lname);
+                }
+                if ($(this).val() == "NON-HDL CHOLESTEROL") {
+                    $("select[name = cname] option").remove();
+                    $("<option>0</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>0</option>").appendTo($lname);
+                }
+                if ($(this).val() == "LIVER FUNCTION TEST-LFT") {
+                    $("select[name = cname] option").remove();
+                    $("<option>0</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>0</option>").appendTo($lname);
+                }
+                if ($(this).val() == "FBS with urine sugar") {
+                    $("select[name = cname] option").remove();
+                    $("<option>70</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>70</option>").appendTo($lname);
+                }
+                if ($(this).val() == "PPBSUS") {
+                    $("select[name = cname] option").remove();
+                    $("<option>60</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>60</option>").appendTo($lname);
+                }
+                if ($(this).val() == "eGFR") {
+                    $("select[name = cname] option").remove();
+                    $("<option>500</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>500</option>").appendTo($lname);
+                }
+                if ($(this).val() == "PHOSPHORUS,INORGANIC (Serum)") {
+                    $("select[name = cname] option").remove();
+                    $("<option>110</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>110</option>").appendTo($lname);
+                }
+                if ($(this).val() == "UNBOUND IRON BINDING CAPACITY (UIBC)") {
+                    $("select[name = cname] option").remove();
+                    $("<option>450</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>450</option>").appendTo($lname);
+                }
+                if ($(this).val() == "GALACTOSE NEONATAL SCREEN") {
+                    $("select[name = cname] option").remove();
+                    $("<option>450</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>450</option>").appendTo($lname);
+                }
+                if ($(this).val() == "URINE - PROTEIN") {
+                    $("select[name = cname] option").remove();
+                    $("<option>550</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>550</option>").appendTo($lname);
+                }
+                if ($(this).val() == "GASTRIN SERUM ") {
+                    $("select[name = cname] option").remove();
+                    $("<option>1350</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>1350</option>").appendTo($lname);
+                }
+                if ($(this).val() == "VITAMIN D 1,25 DIHYDROXY") {
+                    $("select[name = cname] option").remove();
+                    $("<option>3000</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>3000</option>").appendTo($lname);
+                }
+                if ($(this).val() == "KAPPA LIGHT CHAIN -URINE 24 HRS") {
+                    $("select[name = cname] option").remove();
+                    $("<option>3000</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>3000</option>").appendTo($lname);
+                }
+                if ($(this).val() == "LAMBDA LIGHT CHAIN - 24 HR URINE") {
+                    $("select[name = cname] option").remove();
+                    $("<option>3000</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>3000</option>").appendTo($lname);
+                }
+                if ($(this).val() == "ANTI TPO") {
+                    $("select[name = cname] option").remove();
+                    $("<option>1100</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>1100</option>").appendTo($lname);
+                }
+                if ($(this).val() == "PTT") {
+                    $("select[name = cname] option").remove();
+                    $("<option>350</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>350</option>").appendTo($lname);
+                }
+                if ($(this).val() == "General Random Blood Sugar (GRBS)") {
+                    $("select[name = cname] option").remove();
+                    $("<option>55</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>55</option>").appendTo($lname);
+                }
+                if ($(this).val() == "PRO BNP") {
+                    $("select[name = cname] option").remove();
+                    $("<option>1800</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>1800</option>").appendTo($lname);
+                }
+                if ($(this).val() == "RBS 1.1/2 HRS AFTER BREAK FAST") {
+                    $("select[name = cname] option").remove();
+                    $("<option>55</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>55</option>").appendTo($lname);
+                }
+                if ($(this).val() == "RBS-1.1/2HRS AFTER LUNCH") {
+                    $("select[name = cname] option").remove();
+                    $("<option>55</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>55</option>").appendTo($lname);
+                }
+                if ($(this).val() == "SERUM URIC ACID/BUN/CREATININE") {
+                    $("select[name = cname] option").remove();
+                    $("<option>390</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>390</option>").appendTo($lname);
+                }
+                if ($(this).val() == "URINE COTININE") {
+                    $("select[name = cname] option").remove();
+                    $("<option>100</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>100</option>").appendTo($lname);
+                }
+                if ($(this).val() == "Calcitonin") {
+                    $("select[name = cname] option").remove();
+                    $("<option>2100</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>2100</option>").appendTo($lname);
+                }
+                if ($(this).val() == "FUS") {
+                    $("select[name = cname] option").remove();
+                    $("<option>20</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>20</option>").appendTo($lname);
+                }
+                if ($(this).val() == "PPUS") {
+                    $("select[name = cname] option").remove();
+                    $("<option>20</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>20</option>").appendTo($lname);
+                }
+                if ($(this).val() == "GRBS") {
+                    $("select[name = cname] option").remove();
+                    $("<option>50</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>50</option>").appendTo($lname);
+                }
+                if ($(this).val() == "Nicotine Drug Test") {
+                    $("select[name = cname] option").remove();
+                    $("<option>600</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>600</option>").appendTo($lname);
+                }
+                if ($(this).val() == "Cotinine Drug Test") {
+                    $("select[name = cname] option").remove();
+                    $("<option>600</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>600</option>").appendTo($lname);
+                }
+                if ($(this).val() == "CREATININE (URINE)") {
+                    $("select[name = cname] option").remove();
+                    $("<option>250</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>250</option>").appendTo($lname);
+                }
+                if ($(this).val() == "CHOLINESTERASE)") {
+                    $("select[name = cname] option").remove();
+                    $("<option>1000</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>1000</option>").appendTo($lname);
+                }
+                if ($(this).val() == "BIO AVAILABLE TESTOSTERONE") {
+                    $("select[name = cname] option").remove();
+                    $("<option>2700</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>2700</option>").appendTo($lname);
+                }
+                if ($(this).val() == "CARDIOLIPIN ANTIBODIES PANEL") {
+                    $("select[name = cname] option").remove();
+                    $("<option>2400</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>2400</option>").appendTo($lname);
+                }
+                if ($(this).val() == "BETA 2 GLYCOPROTEIN PANEL SERUM") {
+                    $("select[name = cname] option").remove();
+                    $("<option>3400</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>3400</option>").appendTo($lname);
+                }
+                if ($(this).val() == "CARDIOLIPIN ANTIBODY IgA") {
+                    $("select[name = cname] option").remove();
+                    $("<option>950</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>950</option>").appendTo($lname);
+                }
+                if ($(this).val() == "CARDIOLIPIN ANTIBODY IgG") {
+                    $("select[name = cname] option").remove();
+                    $("<option>950</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>950</option>").appendTo($lname);
+                }
+                if ($(this).val() == "CARDIOLIPIN ANTIBODY IgM") {
+                    $("select[name = cname] option").remove();
+                    $("<option>950</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>950</option>").appendTo($lname);
+                }
+                if ($(this).val() == "RA EXTENDED PANEL") {
+                    $("select[name = cname] option").remove();
+                    $("<option>3000</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>3000</option>").appendTo($lname);
+                }
+                if ($(this).val() == "METANEPHRINES,PLASMA") {
+                    $("select[name = cname] option").remove();
+                    $("<option>6000</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>6000</option>").appendTo($lname);
+                }
+                if ($(this).val() == "ANTI SPERM ANTIBODY, SERUM") {
+                    $("select[name = cname] option").remove();
+                    $("<option>800</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>800</option>").appendTo($lname);
+                }
+                if ($(this).val() == "Metanephrine-Free, Plasma ELISA") {
+                    $("select[name = cname] option").remove();
+                    $("<option>5000</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>5000</option>").appendTo($lname);
+                }
+                if ($(this).val() == "INTERLEUKIN-6 (IL-6)") {
+                    $("select[name = cname] option").remove();
+                    $("<option>3200</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>3200</option>").appendTo($lname);
+                }
+                if ($(this).val() == "Haemoglobinuria Urine") {
+                    $("select[name = cname] option").remove();
+                    $("<option>350</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>350</option>").appendTo($lname);
+                }
+                if ($(this).val() == "Anti-NMO (NEUROMYELITIS OPTICA ) ANTIBODY / AQUAPORIN 4") {
+                    $("select[name = cname] option").remove();
+                    $("<option>4900</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>4900</option>").appendTo($lname);
+                }
+                if ($(this).val() == "ANTI-MOG (MYELIN OLIGODENDROCYTE GLYCOPROTEIN), SERUM") {
+                    $("select[name = cname] option").remove();
+                    $("<option>6500</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>6500</option>").appendTo($lname);
+                }
+                if ($(this).val() == "Protein Electrophoresis Reflex Immunofixation-Serum") {
+                    $("select[name = cname] option").remove();
+                    $("<option>2300</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>2300</option>").appendTo($lname);
+                }
+                if ($(this).val() == "Neonatal TSH") {
+                    $("select[name = cname] option").remove();
+                    $("<option>450</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>450</option>").appendTo($lname);
+                }
+                if ($(this).val() == "BILE ACIDS TOTAL") {
+                    $("select[name = cname] option").remove();
+                    $("<option>1350</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>1350</option>").appendTo($lname);
+                }
+                if ($(this).val() == "CELL BLOCK") {
+                    $("select[name = cname] option").remove();
+                    $("<option>500</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>500</option>").appendTo($lname);
+                }
+                if ($(this).val() == "IMMUNOGLOBULIN SUBCLASS 4") {
+                    $("select[name = cname] option").remove();
+                    $("<option>6500</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>6500</option>").appendTo($lname);
+                }
+                if ($(this).val() == "HOMA-IR INSULIN RESISTANCE INDEX") {
+                    $("select[name = cname] option").remove();
+                    $("<option>920</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>920</option>").appendTo($lname);
+                }
+                if ($(this).val() == "Electrolytes-Urine") {
+                    $("select[name = cname] option").remove();
+                    $("<option>450</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>450</option>").appendTo($lname);
+                }
+                if ($(this).val() == "ALUMINUM-SERUM") {
+                    $("select[name = cname] option").remove();
+                    $("<option>2500</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>2500</option>").appendTo($lname);
+                }
+                if ($(this).val() == "Iodine, Serum") {
+                    $("select[name = cname] option").remove();
+                    $("<option>2500</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>2500</option>").appendTo($lname);
+                }
+                if ($(this).val() == "Urine Toxicology Test") {
+                    $("select[name = cname] option").remove();
+                    $("<option>4000</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>4000</option>").appendTo($lname);
+                }
+                if ($(this).val() == "Potassium-Urine") {
+                    $("select[name = cname] option").remove();
+                    $("<option>170</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>170</option>").appendTo($lname);
+                }
+                if ($(this).val() == "Creatinine Urine") {
+                    $("select[name = cname] option").remove();
+                    $("<option>140</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>140</option>").appendTo($lname);
+                }
+                if ($(this).val() == "Osmolarity-Urine") {
+                    $("select[name = cname] option").remove();
+                    $("<option>690</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>690</option>").appendTo($lname);
+                }
+                if ($(this).val() == "Osmolarity-Serum") {
+                    $("select[name = cname] option").remove();
+                    $("<option>690</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>690</option>").appendTo($lname);
+                }
+                if ($(this).val() == "VALPROIC ACID") {
+                    $("select[name = cname] option").remove();
+                    $("<option>800</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>800</option>").appendTo($lname);
+                }
+                if ($(this).val() == "BETA 2 GLYCOPROTEIN IGG,IGM") {
+                    $("select[name = cname] option").remove();
+                    $("<option>3000</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>3000</option>").appendTo($lname);
+                }
+                if ($(this).val() == "2D ECHO") {
+                    $("select[name = cname] option").remove();
+                    $("<option>1500</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>1500</option>").appendTo($lname);
+                }
+                if ($(this).val() == "ECG") {
+                    $("select[name = cname] option").remove();
+                    $("<option>200</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>200</option>").appendTo($lname);
+                }
+                if ($(this).val() == "TMT(TREAD MILL TEST)") {
+                    $("select[name = cname] option").remove();
+                    $("<option>1500</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>1500</option>").appendTo($lname);
+                }
+                if ($(this).val() == "ECHO/TMT") {
+                    $("select[name = cname] option").remove();
+                    $("<option>2600</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>2600</option>").appendTo($lname);
+                }
+                if ($(this).val() == "ME-MEDICAL EXAMINATION DR P K KATTI") {
+                    $("select[name = cname] option").remove();
+                    $("<option>500</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>500</option>").appendTo($lname);
+                }
+                if ($(this).val() == "2DECHO") {
+                    $("select[name = cname] option").remove();
+                    $("<option>1500</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>1500</option>").appendTo($lname);
+                }
+                if ($(this).val() == "URINE ANALYSIS") {
+                    $("select[name = cname] option").remove();
+                    $("<option>120</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>120</option>").appendTo($lname);
+                }
+                if ($(this).val() == "STOOL ANALYSIS") {
+                    $("select[name = cname] option").remove();
+                    $("<option>150</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>150</option>").appendTo($lname);
+                }
+                if ($(this).val() == "URINE MICROSCOPY") {
+                    $("select[name = cname] option").remove();
+                    $("<option>60</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>60</option>").appendTo($lname);
+                }
+                if ($(this).val() == "CSF - Analysis") {
+                    $("select[name = cname] option").remove();
+                    $("<option>400</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>400</option>").appendTo($lname);
+                }
+                if ($(this).val() == "ASPIRATED FLUID ANALYSIS") {
+                    $("select[name = cname] option").remove();
+                    $("<option>400</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>400</option>").appendTo($lname);
+                }
+                if ($(this).val() == "PLEURAL FLUID ANALYSIS") {
+                    $("select[name = cname] option").remove();
+                    $("<option>700</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>700</option>").appendTo($lname);
+                }
+                if ($(this).val() == "ASCITIC FLUID ANALYSIS") {
+                    $("select[name = cname] option").remove();
+                    $("<option>450</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>450</option>").appendTo($lname);
+                }
+                if ($(this).val() == "SEMEN ANALYSIS") {
+                    $("select[name = cname] option").remove();
+                    $("<option>700</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>700</option>").appendTo($lname);
+                }
+                if ($(this).val() == "SEMEN FRUCTOSE") {
+                    $("select[name = cname] option").remove();
+                    $("<option>200</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>200</option>").appendTo($lname);
+                }
+                if ($(this).val() == "URINE BILE PIGMENT AND SALT") {
+                    $("select[name = cname] option").remove();
+                    $("<option>0</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>0</option>").appendTo($lname);
+                }
+                if ($(this).val() == "ASICITIC FLUID ROUTINE COMPREHENSIVE") {
+                    $("select[name = cname] option").remove();
+                    $("<option>0</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>0</option>").appendTo($lname);
+                }
+                if ($(this).val() == "PERITONEAL FLUID ANALYSIS") {
+                    $("select[name = cname] option").remove();
+                    $("<option>400</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>400</option>").appendTo($lname);
+                }
+                if ($(this).val() == "PERICARDIAL FLUID ANALYSIS") {
+                    $("select[name = cname] option").remove();
+                    $("<option>400</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>400</option>").appendTo($lname);
+                }
+                if ($(this).val() == "Fluid Analysis") {
+                    $("select[name = cname] option").remove();
+                    $("<option>700</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>700</option>").appendTo($lname);
+                }
+                if ($(this).val() == "STOOL MICROSCOPY") {
+                    $("select[name = cname] option").remove();
+                    $("<option>100</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>100</option>").appendTo($lname);
+                }
+                if ($(this).val() == "URINE ROUTINE") {
+                    $("select[name = cname] option").remove();
+                    $("<option>100</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>100</option>").appendTo($lname);
+                }
+                if ($(this).val() == "Bence Jones Proteins Urinary (Qualitative)") {
+                    $("select[name = cname] option").remove();
+                    $("<option>500</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>500</option>").appendTo($lname);
+                }
+                if ($(this).val() == "BRONCHIAL LAVAGE ANALYSIS") {
+                    $("select[name = cname] option").remove();
+                    $("<option>350</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>350</option>").appendTo($lname);
+                }
+                if ($(this).val() == "Bile Salt & Bile Pigment") {
+                    $("select[name = cname] option").remove();
+                    $("<option>100</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>100</option>").appendTo($lname);
+                }
+                if ($(this).val() == "CSF Protein") {
+                    $("select[name = cname] option").remove();
+                    $("<option>250</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>250</option>").appendTo($lname);
+                }
+                if ($(this).val() == "CSF Sugar") {
+                    $("select[name = cname] option").remove();
+                    $("<option>250</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>250</option>").appendTo($lname);
+                }
+                if ($(this).val() == "SPUTUM AFB C/S") {
+                    $("select[name = cname] option").remove();
+                    $("<option>1000</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>1000</option>").appendTo($lname);
+                }
+                if ($(this).val() == "URINE C/S") {
+                    $("select[name = cname] option").remove();
+                    $("<option>600</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>600</option>").appendTo($lname);
+                }
+                if ($(this).val() == "TZANCK SMEAR") {
+                    $("select[name = cname] option").remove();
+                    $("<option>300</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>300</option>").appendTo($lname);
+                }
+                if ($(this).val() == "Occult Blood Test (Stool)") {
+                    $("select[name = cname] option").remove();
+                    $("<option>120</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>120</option>").appendTo($lname);
+                }
+                if ($(this).val() == "STOOL PH") {
+                    $("select[name = cname] option").remove();
+                    $("<option>100</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>100</option>").appendTo($lname);
+                }
+                if ($(this).val() == "Urine Pregnancy Test (Qualitative)") {
+                    $("select[name = cname] option").remove();
+                    $("<option>150</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>150</option>").appendTo($lname);
+                }
+                if ($(this).val() == "SPECIFIC GRAVITY 24 HRS") {
+                    $("select[name = cname] option").remove();
+                    $("<option>100</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>100</option>").appendTo($lname);
+                }
+                if ($(this).val() == "Synovial Fluid Analysis.") {
+                    $("select[name = cname] option").remove();
+                    $("<option>600</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>600</option>").appendTo($lname);
+                }
+                if ($(this).val() == "Urine Glucose") {
+                    $("select[name = cname] option").remove();
+                    $("<option>50</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>50</option>").appendTo($lname);
+                }
+                if ($(this).val() == "Urine Albumin") {
+                    $("select[name = cname] option").remove();
+                    $("<option>50</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>50</option>").appendTo($lname);
+                }
+                if ($(this).val() == "Stool for Reducing Substance") {
+                    $("select[name = cname] option").remove();
+                    $("<option>150</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>150</option>").appendTo($lname);
+                }
+                if ($(this).val() == "Fecal Calprotectin") {
+                    $("select[name = cname] option").remove();
+                    $("<option>2300</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>2300</option>").appendTo($lname);
+                }
+                if ($(this).val() == "STOOL HANGING DROPS") {
+                    $("select[name = cname] option").remove();
+                    $("<option>150</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>150</option>").appendTo($lname);
+                }
+                if ($(this).val() == "URINE FOR FUNGAL HYPHAE") {
+                    $("select[name = cname] option").remove();
+                    $("<option>150</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>150</option>").appendTo($lname);
+                }
+                if ($(this).val() == "CT  BRAIN WITH CONTRAST") {
+                    $("select[name = cname] option").remove();
+                    $("<option>4000</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>4000</option>").appendTo($lname);
+                }
+                if ($(this).val() == "CT ABDOMEN") {
+                    $("select[name = cname] option").remove();
+                    $("<option>5500</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>5500</option>").appendTo($lname);
+                }
+                if ($(this).val() == "CT ANGIOGRAPHY -BRAIN") {
+                    $("select[name = cname] option").remove();
+                    $("<option>8500</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>8500</option>").appendTo($lname);
+                }
+                if ($(this).val() == "CT CONTRAST") {
+                    $("select[name = cname] option").remove();
+                    $("<option>1100</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>1100</option>").appendTo($lname);
+                }
+                if ($(this).val() == "CT NECK ANGIOGRAM") {
+                    $("select[name = cname] option").remove();
+                    $("<option>8500</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>8500</option>").appendTo($lname);
+                }
+                if ($(this).val() == "CT PERIPHERAL ANGIOGRAM") {
+                    $("select[name = cname] option").remove();
+                    $("<option>8500</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>8500</option>").appendTo($lname);
+                }
+                if ($(this).val() == "CT PNS AXIAL") {
+                    $("select[name = cname] option").remove();
+                    $("<option>2300</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>2300</option>").appendTo($lname);
+                }
+                if ($(this).val() == "CT RENAL ANGIOGRAM") {
+                    $("select[name = cname] option").remove();
+                    $("<option>8500</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>8500</option>").appendTo($lname);
+                }
+                if ($(this).val() == "CT CHEST WITH CONTRAST") {
+                    $("select[name = cname] option").remove();
+                    $("<option>5000</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>5000</option>").appendTo($lname);
+                }
+                if ($(this).val() == "CT SCAN DUPLICATE FILM") {
+                    $("select[name = cname] option").remove();
+                    $("<option>0</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>0</option>").appendTo($lname);
+                }
+                if ($(this).val() == "CT SCAN EXTREMITIES") {
+                    $("select[name = cname] option").remove();
+                    $("<option>3000</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>3000</option>").appendTo($lname);
+                }
+                if ($(this).val() == "CT SCAN NECK") {
+                    $("select[name = cname] option").remove();
+                    $("<option>4000</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>4000</option>").appendTo($lname);
+                }
+                if ($(this).val() == "CT SCAN PELVIS") {
+                    $("select[name = cname] option").remove();
+                    $("<option>4000</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>4000</option>").appendTo($lname);
+                }
+                if ($(this).val() == "CT SPINE (CERVICAL /THROASIC/LUMBAR)") {
+                    $("select[name = cname] option").remove();
+                    $("<option>4000</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>4000</option>").appendTo($lname);
+                }
+                if ($(this).val() == "CT PNS AXIAL & CORONALS") {
+                    $("select[name = cname] option").remove();
+                    $("<option>3200</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>3200</option>").appendTo($lname);
+                }
+                if ($(this).val() == "CT pituitary with contrast") {
+                    $("select[name = cname] option").remove();
+                    $("<option>4000</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>4000</option>").appendTo($lname);
+                }
+                if ($(this).val() == "CT Face") {
+                    $("select[name = cname] option").remove();
+                    $("<option>4000</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>4000</option>").appendTo($lname);
+                }
+                if ($(this).val() == "CT Face 3D without contrast") {
+                    $("select[name = cname] option").remove();
+                    $("<option>4000</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>4000</option>").appendTo($lname);
+                }
+                if ($(this).val() == "CT Chest without contrast (for lungs)") {
+                    $("select[name = cname] option").remove();
+                    $("<option>4500</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>4500</option>").appendTo($lname);
+                }
+                if ($(this).val() == "CT Scan Whole Abdomen With Contrast") {
+                    $("select[name = cname] option").remove();
+                    $("<option>7000</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>7000</option>").appendTo($lname);
+                }
+                if ($(this).val() == "CT angiography abdomen Contrast") {
+                    $("select[name = cname] option").remove();
+                    $("<option>9000</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>9000</option>").appendTo($lname);
+                }
+                if ($(this).val() == "CT enteroclysis contrast") {
+                    $("select[name = cname] option").remove();
+                    $("<option>6000</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>6000</option>").appendTo($lname);
+                }
+                if ($(this).val() == "CT ORBIT WITH CONTRAST") {
+                    $("select[name = cname] option").remove();
+                    $("<option>4000</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>4000</option>").appendTo($lname);
+                }
+                if ($(this).val() == "CT ORBITS WITHOUT CONTRAST") {
+                    $("select[name = cname] option").remove();
+                    $("<option>4000</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>4000</option>").appendTo($lname);
+                }
+                if ($(this).val() == "CT Temporal bone –with contrast") {
+                    $("select[name = cname] option").remove();
+                    $("<option>4000</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>4000</option>").appendTo($lname);
+                }
+                if ($(this).val() == "CT Thorax without contrast") {
+                    $("select[name = cname] option").remove();
+                    $("<option>4500</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>4500</option>").appendTo($lname);
+                }
+                if ($(this).val() == "CT Thorax with contrast") {
+                    $("select[name = cname] option").remove();
+                    $("<option>5000</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>5000</option>").appendTo($lname);
+                }
+                if ($(this).val() == "CT Pulmonary Angio with contrast") {
+                    $("select[name = cname] option").remove();
+                    $("<option>8500</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>8500</option>").appendTo($lname);
+                }
+                if ($(this).val() == "CT Venography with contrast") {
+                    $("select[name = cname] option").remove();
+                    $("<option>6000</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>6000</option>").appendTo($lname);
+                }
+                if ($(this).val() == "CT CV Junction with contrast") {
+                    $("select[name = cname] option").remove();
+                    $("<option>4000</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>4000</option>").appendTo($lname);
+                }
+                if ($(this).val() == "CT CV Junction without contrast") {
+                    $("select[name = cname] option").remove();
+                    $("<option>4000</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>4000</option>").appendTo($lname);
+                }
+                if ($(this).val() == "CT CVJ 3D reconstruction without contrast") {
+                    $("select[name = cname] option").remove();
+                    $("<option>3500</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>3500</option>").appendTo($lname);
+                }
+                if ($(this).val() == "Any other CT extras Study Small region") {
+                    $("select[name = cname] option").remove();
+                    $("<option>3500</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>3500</option>").appendTo($lname);
+                }
+                if ($(this).val() == "Any other CT extra Study Large region") {
+                    $("select[name = cname] option").remove();
+                    $("<option>3500</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>3500</option>").appendTo($lname);
+                }
+                if ($(this).val() == "CT ABDOMEN & PELVIS WITH CONTRAST") {
+                    $("select[name = cname] option").remove();
+                    $("<option>7000</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>7000</option>").appendTo($lname);
+                }
+                if ($(this).val() == "CT ELBOW JOINTS") {
+                    $("select[name = cname] option").remove();
+                    $("<option>3500</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>3500</option>").appendTo($lname);
+                }
+                if ($(this).val() == "CT 3D") {
+                    $("select[name = cname] option").remove();
+                    $("<option>1500</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>1500</option>").appendTo($lname);
+                }
+                if ($(this).val() == "CT FILMS(EACH FILMS 250/RS)") {
+                    $("select[name = cname] option").remove();
+                    $("<option>500</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>500</option>").appendTo($lname);
+                }
+                if ($(this).val() == "CT SHOULDER") {
+                    $("select[name = cname] option").remove();
+                    $("<option>3500</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>3500</option>").appendTo($lname);
+                }
+                if ($(this).val() == "CT EXTRIMITIES") {
+                    $("select[name = cname] option").remove();
+                    $("<option>3500</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>3500</option>").appendTo($lname);
+                }
+                if ($(this).val == "CT FOOT") {
+                    $("select[name = cname] option").remove();
+                    $("<option>3500</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>3500</option>").appendTo($lname);
+                }
+                if ($(this).val() == "CT SCAN OF ANKLE") {
+                    $("select[name = cname] option").remove();
+                    $("<option>3500</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>3500</option>").appendTo($lname);
+                }
+                if ($(this).val() == "CT KUB PLAIN") {
+                    $("select[name = cname] option").remove();
+                    $("<option>4000</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>4000</option>").appendTo($lname);
+                }
+                if ($(this).val() == "CT KUB WITH CONTRAST") {
+                    $("select[name = cname] option").remove();
+                    $("<option>5000</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>5000</option>").appendTo($lname);
+                }
+                if ($(this).val() == "CT LEG") {
+                    $("select[name = cname] option").remove();
+                    $("<option>3500</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>3500</option>").appendTo($lname);
+                }
+                if ($(this).val() == "CT BOTH ANKLE") {
+                    $("select[name = cname] option").remove();
+                    $("<option>6000</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>6000</option>").appendTo($lname);
+                }
+                if ($(this).val() == "CT WRIST") {
+                    $("select[name = cname] option").remove();
+                    $("<option>3500</option>").appendTo($cname);
+                    $("select[name = 'lname'] option").remove();
+                    $("<option>3500</option>").appendTo($lname);
                 }
                 if ($(this).val() == "Department") {
                     $("select[name='cname'] option").remove();
