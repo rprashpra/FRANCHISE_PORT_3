@@ -1,14344 +1,4670 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="WebForm1.aspx.cs" Inherits="FRANCHISE_PORT_3.WebForm1" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="WebForm1.aspx.cs" Inherits="FRANCHISE_PORT_1.WebForm1" %>
 
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>SAMPLE</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<style>
-* {
-  box-sizing: border-box;
-}
-
-body {
-  font: 16px Arial;  
-}
-
-/*the container must be positioned relative:*/
-.autocomplete {
-  position: relative;
-  display: inline-block;
-}
-
-input {
-  border: 1px solid transparent;
-  background-color: #f1f1f1;
-  padding: 10px;
-  font-size: 16px;
-}
-
-input[type=text] {
-  background-color: #f1f1f1;
-  width: 100%;
-}
-
-input[type=submit] {
-  background-color: DodgerBlue;
-  color: #fff;
-  cursor: pointer;
-}
-
-.autocomplete-items {
-  position: absolute;
-  border: 1px solid #d4d4d4;
-  border-bottom: none;
-  border-top: none;
-  z-index: 99;
-  /*position the autocomplete items to be the same width as the container:*/
-  top: 100%;
-  left: 0;
-  right: 0;
-}
-
-.autocomplete-items div {
-  padding: 10px;
-  cursor: pointer;
-  background-color: #fff; 
-  border-bottom: 1px solid #d4d4d4; 
-}
-
-/*when hovering an item:*/
-.autocomplete-items div:hover {
-  background-color: #e9e9e9; 
-}
-
-/*when navigating through the items using the arrow keys:*/
-.autocomplete-active {
-  background-color: DodgerBlue !important; 
-  color: #ffffff; 
-}
-</style>
+     <title>SAMPLE</title>
+     <meta charset="utf-8" />
+     <meta name="viewport" content="width=device-width,initial-scale=1" />
+     <link href="Content/css/bootstrap-grid.css" rel="stylesheet" />
+     <link href="Content/css/bootstrap-grid.min.css" rel="stylesheet" />
+     <link href="Css/Form.css" rel="stylesheet" />
+     <link href="Css/Modal.css" rel="stylesheet" />
+     <link rel = "stylesheet" href = "https://www.w3schools.com/lib/w3.css" />
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.2/angular.min.js" />
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.2/angular-csp.css" />
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.2/angular-csp.min.css" />
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.2/angular.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.2/angular.min.js.map"></script>
+     <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js" type="text/javascript"></script>
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" />
+     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+     <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+     <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>  
+     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.1/jquery-ui.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <style>
+        .dropbtn {
+            background-color: lightgray;
+            color: black;
+            padding: 8px;
+            font-size: 14px;
+            border: none;
+            height:10%;
+        }
+        .dropup {
+            position: relative;
+            display: inline-block;
+       }
+       .dropup-content {
+            display: none;
+            position: absolute;
+            background-color:lightgray;
+            width:60%;
+            min-width:60%;
+            bottom: 47.4px;
+            z-index: 2;
+        }
+        .dropup-content a {
+         color: black;
+         padding: 12px 16px;
+         text-decoration:none;
+         display: block;
+      }
+     .dropup-content a:hover {background-color: #ccc}
+    .dropup:hover .dropup-content {
+        display: block;
+     }
+    .dropup:hover .dropbtn {
+        background-color: lightgray;
+    }
+    </style>
+    <style>
+    input[type="file"] {
+        display:block;
+    }
+    .imageRounded {
+        max-height: 75px;
+        border: 2px solid;
+        margin: 10px 10px 0 0;
+        padding: 1px;
+     }
+    </style>
+        <style>
+        .pagination a {
+            color: black;
+            float: left;
+            padding: 8px 16px;
+            text-decoration: none;
+            transition: background-color .3s;
+           }
+            .pagination a.active {
+                background-color: dodgerblue;
+                color: white;
+          }
+        .pagination a:hover:not(.active) {background-color: #ddd;}
+    </style>
+    <style>
+        input[type=text]:focus {
+                background-color: lightblue;
+            }
+    </style>
+    <style>
+        input[type=text] {
+                transition: width 0.4s ease-in-out;
+        }
+    </style>
+  <style>
+        body {
+            font-family: Arial;
+            color: white;
+        }
+        .split {
+            height:100%;
+            width:50%;
+            position:fixed;
+            z-index: 1;
+            top: 0;
+            overflow-x:hidden;
+            padding-top:20px;
+        }
+       .left {
+            left: 0;
+            background-color:#111;
+        }
+      .right {
+            right: 0;
+            background-color: red;
+      }
+        .centered {
+            position:absolute;
+            top:50%;
+            left:50%;
+            transform:translate(-50%, -50%);
+            text-align:center;
+        }
+        .centered img {
+            width:150px;
+            border-radius:50%;
+        }
+  </style>
+  
 </head>
 <body>
-    <form id="form1" autocomplete="off" runat="server">
-    <div class="autocomplete" style="width:300px;">
-    <input id="myInput" type="text" name="TestName" placeholder="TestName" />
-  </div>
-  <input type="submit" />
-        <script>
-            function autocomplete(inp, arr) {
-                /*the autocomplete function takes two arguments,
-                the text field element and an array of possible autocompleted values:*/
-                var currentFocus;
-                /*execute a function when someone writes in the text field:*/
-                inp.addEventListener("input", function (e) {
-                    var a, b, i, val = this.value;
-                    /*close any already open lists of autocompleted values*/
-                    closeAllLists();
-                    if (!val) { return false; }
-                    currentFocus = -1;
-                    /*create a DIV element that will contain the items (values):*/
-                    a = document.createElement("DIV");
-                    a.setAttribute("id", this.id + "autocomplete-list");
-                    a.setAttribute("class", "autocomplete-items");
-                    /*append the DIV element as a child of the autocomplete container:*/
-                    this.parentNode.appendChild(a);
-                    /*for each item in the array...*/
-                    for (i = 0; i < arr.length; i++) {
-                        /*check if the item starts with the same letters as the text field value:*/
-                        if (arr[i].substr(0, val.length).toUpperCase() == val.toUpperCase()) {
-                            /*create a DIV element for each matching element:*/
-                            b = document.createElement("DIV");
-                            /*make the matching letters bold:*/
-                            b.innerHTML = "<strong>" + arr[i].substr(0, val.length) + "</strong>";
-                            b.innerHTML += arr[i].substr(val.length);
-                            /*insert a input field that will hold the current array item's value:*/
-                            b.innerHTML += "<input type='hidden' value='" + arr[i] + "'>";
-                            /*execute a function when someone clicks on the item value (DIV element):*/
-                            b.addEventListener("click", function (e) {
-                                /*insert the value for the autocomplete text field:*/
-                                inp.value = this.getElementsByTagName("input")[0].value;
-                                /*close the list of autocompleted values,
-                                (or any other open lists of autocompleted values:*/
-                                closeAllLists();
-                            });
-                            a.appendChild(b);
-                        }
+    <form id="form1" runat="server">
+        <table class="table table-bordered table-condensed" style="background-color:darkcyan;color:black;border-style:groove;border-radius:30px;width:50%">
+             <tr>
+                 <th>TestName</th>
+                 <th>Amount</th>
+                 <th>NetAmount</th>
+             </tr>
+             <tr>
+                 <td style="width:55%">
+                     <select name="dep" style="color:black;border-style:groove;border-radius:30px;text-transform:fullsize-kana;width:101%" aria-autocomplete="inline" aria-atomic="true">
+		<option>BLOOD SUGAR- FASTING</option>
+		<option>BLOOD SUGAR- POST PRANDIAL</option>
+		<option>BLOOD SUGAR -RANDOM</option>
+        <option>BLOOD SUGAR-FASTING & POSTPRANDIAL</option>
+        <option>GLUCOSE TOLERANCE TEST</option>
+        <option>GLYCOSYLATED HAEMOGLOBIN</option>
+        <option>CHOLESTEROL</option>
+        <option>HDL CHOLESTEROL</option>
+        <option>TRIGLYCERIDES</option>
+        <option>VLDL CHOLESTEROL</option>
+        <option>TOTAL LIPIDS</option>
+        <option>TOTAL  CHOLESTEROL</option>
+        <option>LDL: HDL RATIO</option>
+        <option>DIRECT BILIRUBIN</option>
+        <option>ALBUMIN</option>
+        <option>GLOBULIN</option>
+        <option>TOTAL PROTEIN</option>
+        <option>A/G RATIO</option>
+        <option>Blood Urea Nitrogen</option>
+        <option>BLOOD UREA NITROGEN (BUN)</option>
+        <option>CREATININE</option>
+        <option>URIC ACID</option>
+        <option>SODIUM</option>
+        <option>POTASSIUM</option>
+        <option>CHLORIDE</option>
+        <option>SERUM ELECTROLYTES</option>
+        <option>S G O T [AST]</option>
+        <option>S G P T [ALT]</option>
+        <option>Gamma Glutamyl Transferase GGT</option>
+        <option>Bone Alkaline Phosphatase</option>
+        <option>ACID PHOSPHATASE</option>
+        <option>LDH</option>
+        <option>CK-MB Creatine Kinase -MB Fraction</option>
+        <option>AMYLASE</option>
+        <option>Lipase</option>
+        <option>ALPHA-1-ANTITRYPSIN</option>
+        <option>ALDOLASE</option>
+        <option>MALIC DEHYDROGENASE</option>
+        <option>CALCIUM</option>
+        <option>MAGNESIUM</option>
+        <option>SELENIUM</option>
+        <option>SELENIUM [ URINE ]</option>
+        <option>Lithium</option>
+        <option>IRON</option>
+        <option>TOTAL IRON BINDING CAPACITY (TIBC)</option>
+        <option>FERRITIN</option>
+        <option>MANGANESE  IN BLOOD</option>
+        <option>CSF CHLORIDE</option>
+        <option>SERUM PHOSPHOROUS</option>
+        <option>AMMONIA</option>
+        <option>ZINC [PLASMA]</option>
+        <option>ZINC [URINE]</option>
+        <option>5-Hydroxyindoleacetic Acid (5-HIAA)-24hrs</option>
+        <option>ACETONE SERUM</option>
+        <option>ASCORBIC ACID (VITAMIN C)</option>
+		<option>CAROTENE</option>
+		<option>VITAMIN A ALL TRANSRETINOL</option>
+        <option>VITAMIN B12</option>
+        <option>VITAMIN E</option>
+        <option>THIAMINE</option>
+        <option>Lactate</option>
+        <option>GALACTOSE, TOTAL QUANTITATIVE</option>
+        <option>GLUCOSE-6-P-DEHYDROGENASE</option>
+        <option>FRUCTOSAMINE</option>
+        <option>FIBRINOGEN</option>
+        <option>CRYOGLOBULIN (QUALITATIVE)</option>
+        <option>IMMUNOGLOBULIN  A</option>
+        <option>IMMUNOGLOBULIN  M</option>
+        <option>IMMUNOGLOBULIN  E</option>
+        <option>IMMUNOGLOBULIN  G</option>
+        <option>IMMUNOGLOBULIN  S</option>
+        <option>CERULOPLASMIN</option>
+        <option>PROTEIN</option>
+        <option>BENCE JONES PROTEIN</option>
+        <option>TRANSFERRIN</option>
+        <option>METHAEMOGLOBIN</option>
+        <option>CSF PROTEINS</option>
+        <option>COBALT[SERUM]</option>
+        <option>NICKEL</option>
+        <option>SCADMIUM [SERUM]</option>
+        <option>LEAD- BLOOD</option>
+        <option>COPPER</option>
+        <option>24 HRS GLUCOSE IN URINE</option>
+        <option>URINE SUGAR-FASTING</option>
+        <option>URINE SUGAR - POSTPRANDIAL</option>
+        <option>URINE SUGAR - RANDOM</option>
+        <option>URINE  SUGAR [24 HRS]</option>
+        <option>KETONE BODIES  IN URINE</option>
+        <option>BLOOD IN URINE</option>
+        <option>URINE OSMOLALITY</option>
+        <option>ALBUMIN  IN URINE</option>
+        <option>GLOBULIN  IN URINE</option>
+        <option>CYSTINE</option>
+        <option>URINE FOR MICROALBUMINURIA</option>
+        <option>URINE SODIUM</option>
+        <option>URINE POTASSIUM</option>
+        <option>URINE  CHLORIDES</option>
+        <option>URINE INORGANIC PHOSPHORUS</option>
+        <option>IRON[URINE]</option>
+        <option>SULPHUR</option>
+        <option>URINE PORPHOBILINOGEN</option>
+        <option>UROBILINOGEN</option>
+        <option>URINE HOMOGENTISIC ACID</option>
+        <option>UREA CLEARANCE TEST</option>
+        <option>Creatinine Clearance Test</option>
+        <option>CONCENTRATION TEST- URINE</option>
+        <option>DILUTION TEST-URINE</option>
+        <option>17 KETOSTEROIDS</option>
+        <option>17-KETOGENIC STEROIDS</option>
+        <option>VMA - Vanillyl Mandelic Acid (Urinary)</option>
+        <option>URINARY ALA</option>
+        <option>URINARY PORPHYRIN</option>
+        <option>URINARY LEAD</option>
+        <option>SEROTONIN</option>
+        <option>FAT IN URINE</option>
+        <option>URINARY AMYLASE</option>
+        <option>24HRS URINE UREA  NITROGEN</option>
+        <option>24 HRS. URINARY CREATININE</option>
+        <option>URINARY AMMONIA</option>
+        <option>SPECIFIC GRAVITY TEST-URINE</option>
+        <option>D-XYLOSE IN URINE</option>
+        <option>OXALIC ACID  IN URINE</option>
+        <option>COPPER- URINE SPOT</option>
+        <option>5-HIAA IN URINE</option>
+        <option>GLUCAGON</option>
+        <option>INSULIN</option>
+        <option>T3 - TRIIODOTHYONINE</option>
+        <option>T4 - THYROXINE</option>
+        <option>TSH</option>
+        <option>THYROID FUNCTION TEST</option>
+        <option>FSH - Follicular Stimulating Hormone</option>
+        <option>FSH</option>
+        <option>LH - Leutinizing Hormone</option>
+        <option>E2-ESTRADIOL</option>
+        <option>TESTOSTERONE- TOTAL</option>
+        <option>PROGESTERONE</option>
+        <option>PRL - Prolactin</option>
+        <option>GH - Growth Hormone</option>
+        <option>PARATHYROID HORMONE[PTH]</option>
+        <option>Calcitonin (Thyroid)</option>
+        <option>Cortisol Serum (8AM)</option>
+        <option>17-HYDROXYPROGESTERONE SERUM</option>
+        <option>ADH-ANTI DIURETIC HORMONE/VASOPRESSIN</option>
+        <option>OXYTOCIN</option>
+        <option>ALDOSTERONE [SERUM]</option>
+        <option>ALDOSTERONE[URINE]</option>
+        <option>17-HYDROXY CORTICOSTEROIDS IN URINE</option>
+        <option>CATECHOLAMINES- PLASMA</option>
+        <option>CATECHOLAMINES- 24HRS URINE</option>
+        <option>PREGNANEDIOL</option>
+        <option>MERCURY[BLOOD]</option>
+        <option>MERCURY [URINE]</option>
+        <option>ARSENIC[SERUM]</option>
+        <option>BISMUTH[BLOOD]</option>
+        <option>BISMUTH[URINE]</option>
+        <option>CARBAMAZAPINE</option>
+        <option>PHENOBARBITAL</option>
+        <option>SODIUM VALPROATE</option>
+        <option>THEOPHYLLINE</option>
+        <option>CYCLOSPORIN</option>
+        <option>DIGOXIN (LANOXIN)</option>
+        <option>DIOXIN</option>
+        <option>AMINOGLYCOSIDES</option>
+        <option>VALPORIC ACID</option>
+        <option>PHENYLALANINE</option>
+        <option>TROPONIN - T</option>
+        <option>TROPONIN - I</option>
+        <option>CA - 125</option>
+        <option>PSA Free (Free only)</option>
+        <option>PROTEIN BOUND IODINE[PBI]</option>
+        <option>TSH (ULTRASENSITIVE)</option>
+        <option>TBG -THYROID BINDING GLOBULIN</option>
+        <option>TUBULAR REABSORPTION OF PHOSPHATE TEST[TRP]:</option>
+        <option>CORTISOL STIMULATION TEST</option>
+        <option>NEUTROPHIL ALKALINE PHOSPHATASE[NAP]</option>
+        <option>PSP [PHENOLSULPHONAPHTHALEIN]  TEST</option>
+        <option>MELANOCYTE STIMULATING HORMONE[MSH]</option>
+        <option>SERUM RENIN</option>
+        <option>ERYTHROPOIETIN</option>
+        <option>TRH-THYROTOXIN RELEASING HORMONE</option>
+        <option>METHYL MALONIC ACID</option>
+         <option>THYROID ANTIBODY ESTIMATION</option>
+        <option>ADRENOCORTICAL INHIBITION TEST</option>
+        <option>GONADOTROPIN STIMULATION TEST</option>
+        <option>ACTH- Adreno Cortico Trophic Hormone</option>
+        <option>24 HRS. URINARY PHOSPHORUS</option>
+        <option>URINARY-24HRS CALCIUM</option>
+        <option>URINE CALCIUM/CREATININE RATIO</option>
+        <option>URINE URIC ACID</option>
+        <option>24 HRS URINARY PROTEIN</option>
+        <option>URINARY AMINO ACIDS</option>
+        <option>LDL CHOLESTROL</option>
+        <option>SPE - Protein Electrophoresis (Strip & Graph provided)</option>
+        <option>LIPOPROTEIN ELECTROPHORESIS</option>
+        <option>CADMIUM</option>
+        <option>ZINC</option>
+        <option>ORAL GLUCOSE CHALLENGE TEST</option>
+        <option>TROPONIN - I</option>
+        <option>CA - 125</option>
+        <option>PSA Free (Free only)</option>
+        <option>PROTEIN BOUND IODINE[PBI]</option>
+        <option>BLOOD AND URINE SUGAR POST PRANDIAL</option>
+        <option>BLOOD AND URINE SUGAR RANDOM</option>
+        <option>BLOOD AND URINE SUGAR FASTING</option>
+        <option>BILIRUBIN</option>
+        <option>FREE,TESTOSTERONE</option>
+        <option>VITAMIN D</option>
+        <option>ANTI THYROPEROXIDASE ANTIBODY ( ANTI TPO )</option>
+        <option>ANTI PHOSPHOLIPID ANTIBODY, IGM</option>
+        <option>C3-COMPLIMENT 3</option>
+        <option>FREE T4</option>
+        <option>INSULIN- FASTING</option>
+        <option>NEUTROPHIL ALKALINE PHOSPHATASE[NAP]</option>
+        <option>PSP [PHENOLSULPHONAPHTHALEIN]  TEST</option>
+        <option>MELANOCYTE STIMULATING HORMONE[MSH]</option>
+        <option>SERUM RENIN</option>
+        <option>ERYTHROPOIETIN</option>
+        <option>TRH-THYROTOXIN RELEASING HORMONE</option>
+        <option>METHYL MALONIC ACID</option>
+         <option>THYROID ANTIBODY ESTIMATION</option>
+        <option>ADRENOCORTICAL INHIBITION TEST</option>
+        <option>GONADOTROPIN STIMULATION TEST</option>
+        <option>ACTH- Adreno Cortico Trophic Hormone</option>
+        <option>24 HRS. URINARY PHOSPHORUS</option>
+        <option>URINARY-24HRS CALCIUM</option>
+        <option>URINE CALCIUM/CREATININE RATIO</option>
+        <option>URINE URIC ACID</option>
+        <option>24 HRS URINARY PROTEIN</option>
+        <option>URINARY AMINO ACIDS</option>
+        <option>LDL CHOLESTROL</option>
+        <option>SPE - Protein Electrophoresis (Strip & Graph provided)</option>
+        <option>LIPOPROTEIN ELECTROPHORESIS</option>
+        <option>CADMIUM</option>
+        <option>ZINC</option>
+        <option>ORAL GLUCOSE CHALLENGE TEST</option>
+        <option>TROPONIN - I</option>
+        <option>CA - 125</option>
+        <option>PSA Free (Free only)</option>
+        <option>PROTEIN BOUND IODINE[PBI]</option>
+        <option>BLOOD AND URINE SUGAR POST PRANDIAL</option>
+        <option>BLOOD AND URINE SUGAR RANDOM</option>
+        <option>BLOOD AND URINE SUGAR FASTING</option>
+        <option>BILIRUBIN</option>
+        <option>FREE,TESTOSTERONE</option>
+        <option>VITAMIN D</option>
+        <option>ANTI THYROPEROXIDASE ANTIBODY ( ANTI TPO )</option>
+        <option>ANTI PHOSPHOLIPID ANTIBODY, IGM</option>
+        <option>C3-COMPLIMENT 3</option>
+        <option>FREE T4</option>
+        <option>INSULIN- FASTING</option>
+        <option>INSULIN- PP</option>
+        <option>IRON PROFILE</option>
+        <option>TACROLIMUSII</option>
+        <option>CONSUMABLES</option>
+        <option>CONSUMABLES 2</option>
+        <option>URINE ACR (ALBUMIN CREATININE RATIO)</option>
+        <option>CYSTATIN C</option>
+        <option>24 HRS. URINARY ALBUMIN</option>
+        <option>Chlorides urine(random/24hrs)</option>
+        <option>24 HRS. URINARY POTASSIUM</option>
+        <option>24 HRS. URINARY SODIUM</option>
+        <option>24 HRS. URINARY UREA</option>
+        <option>24 HRS. URINARY URIC ACID</option>
+        <option>24HRS CALCIUM</option>
+        <option>24HRS CPAD FLUID</option>
+        <option>24HRS CREATININE CLEARANCE</option>
+        <option>24HRS METANEPHRINE</option>
+        <option>24HRS UREA CLEARANCE</option>
+        <option>24HRS URINARY 17 KETOSTEROID</option>
+        <option>24HRS URINE CITRATE</option>
+        <option>24HRS URINE KAPPA LIGHT</option>
+        <option>24HRS URINE LAMBDA LIGHT</option>
+        <option>ORAL GLUCOSE CHALLENGE TEST</option>
+        <option>MAGNESIUM URINE(24HRS)</option>
+        <option>24HRS URINE MICROALBUMIN</option>
+        <option>24HRS URINE OXALATE</option>
+        <option>24HRS URINE PORPHOBILINOGEN</option>
+        <option>24HRS URINE VMA</option>
+        <option>24HRS URINE,PROTEIN ELECTROPHORESIS</option>
+        <option>24HRS URINE- ZINC ATOMIC ABOSRPTION</option>
+        <option>24HRS.URINARY CORTISOL</option>
+        <option>24HRS.URINARY PROTEIN</option>
+        <option>Angiotensin-converting enzyme (ACE)</option>
+        <option>ACETONE URINE</option>
+        <option>ALBUMIN/CREATININE RATIO (ACR)</option>
+        <option>ALDOSTERONE,R.I.A</option>
+        <option>COPPER-24HRSURINE-ATOMIC ABSORPTION</option>
+        <option>COPPER-ATOMIC ABSORPTION</option>
+        <option>DHEAs - Dehydroepiandrostenedione Sulphate</option>
+        <option>E3-ESTRIOL</option>
+        <option>Free BHCG</option>
+        <option>FREE LIGHT CHAINS (kappa and lambda)</option>
+        <option>FREE LIGHT CHAINS (kappa and lambda) urine</option>
+        <option>FREE T3</option>
+        <option>FREE (T3 + T4)</option>
+        <option>GCT (Glucose Challenge Test)</option>
+        <option>Glucose Tolerance Test (GTT)- 5 samples</option>
+        <option>Glucose Tolerance test (GTT)- 3 samples</option>
+        <option>FBS</option>
+        <option>POSTPRANDIAL URINE SUGAR</option>
+        <option>PPBS</option>
+        <option>RBS</option>
+        <option>HOMOCYSTEINE - SERUM</option>
+        <option>HOMOCYSTEINE - PLASMA</option>
+        <option>IMMUNOGLOBULIN PROFILE; IGG IGM IGA</option>
+        <option>LDL CHOLESTEROL (DIRECT)</option>
+        <option>LEAD URINE SPOT</option>
+        <option>MICROALBUMIN URINE</option>
+        <option>PROTEIN C ACTIVITY</option>
+        <option>PROTEIN C ACTIVITY</option>
+        <option>TB GOLD-BLOOD</option>
+        <option>UREA</option>
+        <option>UREA,CREATININE(FLUID)</option>
+        <option>URINARY 17-KETOSTEROID</option>
+        <option>URINARY ALBUMIN, RANDOM</option>
+        <option>Urinary Calcium (24 hr)</option>
+        <option>URINARY CHLORIDE</option>
+        <option>Urinary Creatinine (Random / 24 hr)</option>
+        <option>URINARY PROTEIN, RANDOM</option>
+        <option>URINARY SODIUM</option>
+        <option>URINARY-24HRSMETANEPHRINE</option>
+        <option>VITAMIN B1THIAMINE</option>
+        <option>VITAMIN B2 RIBOFLAVIN</option>
+        <option>VITAMIN B6</option>
+		<option>VITAMIN C ASCORBIC ACID</option>
+		<option>VITAMIN D 25-HYDROXY</option>
+        <option>Acetyl Choline Receptor Antibodies(ACHR)</option>
+        <option>ALP WITH BONE FRACTION</option>
+        <option>AMA(M2)ANTI MITOCHONDRIAL ANTIBODY IFA</option>
+        <option>APOLIPO PROTEIN A1/B RATIO</option>
+        <option>Anti Smooth Muscle Antibody (ASMA)</option>
+        <option>BCR-ABL TRANSCRIPT KARYOTYPING</option>
+        <option>BCR-ABL TRANSCRIPT QUANTIFICATION-PCR</option>
+        <option>BETA-2 MICROGLOBULIN</option>
+        <option>BETA-2 MICROGLOBULIN-URINE</option>
+        <option>BORRELIA IGG</option>
+        <option>BORRELIA IGM</option>
+        <option>WERTHIEMS HYSTERECTOMY</option>
+        <option>WHOLE SPINE SCREENING</option>
+        <option>VASOPRESSIN</option>
+        <option>URINE-UREA</option>
+        <option>URINE,CYTOLOGY</option>
+        <option>URINE SPECIFIC GRAVITY</option>
+        <option>URINE REDUCING SUBSTANCES</option>
+        <option>URINE PROTEIN</option>
+        <option>URINE PHOSPHOROUS</option>
+        <option>URINE OCCULT BLOOD</option>
+        <option>URINE KETONE BODIES</option>
+        <option>URINE HAEMOGLOBIN</option>
+        <option>URINE  ZN STAIN</option>
+        <option>TRIPLE TEST(2ND TRIMESTER)</option>
+        <option>Treponema Pallidum Hemagglutination -TPHA</option>
+        <option>TOTAL ALB /GLOB RATIO</option>
+        <option>TOCOPHEROL</option>
+        <option>TNF ALPHA</option>
+        <option>THROAT SWAB</option>
+        <option>THALASSEMIA STUDIES</option>
+        <option>TEGRETOL</option>
+        <option>TB PCR(MYCOTECT)</option>
+        <option>TB PCR UIRNE</option>
+        <option>T TG-TISSUE TRANSGLUTASMINASE-IGA</option>
+        <option>SMOOTH MUSCLE ACTIN</option>
+        <option>SM AB</option>
+        <option>SMA 12</option>
+        <option>Sex Hormone binding Globulin</option>
+        <option>QUANTIFERON TB GOLD</option>
+        <option>PTH - Para Thyroid Hormone</option>
+        <option>PHENYTOIN(EPTOIN)</option>
+        <option>PBS-MICROFILARIA</option>
+        <option>PAPPA</option>
+        <option>OSMOLALITY-OSMOLARITY-URINE</option>
+        <option>OESTROGEN</option>
+        <option>MYOGLOBIN SERUM</option>
+        <option>MYCOBACTERIUM PCR</option>
+        <option>LIPOPROTEIN(A); LP(A)</option>
+        <option>LACTATE DEHYDROGENASE</option>
+        <option>Ionised Calcium</option>
+        <option>INHIBIN A</option>
+		<option>CAROTENE</option>
+		<option>FOLIC ACID</option>
+        <option>CARBON DIOXIDE</option>
+        <option>CARDIAC RISK PROFILE</option>
+        <option>CHOL / HDL RATIO</option>
+        <option>CHROMOGRANIN A</option>
+        <option>CPK Creatine Phospho Kinase</option>
+        <option>HLA FOR CELIAC DISEASE(DQ2 & DQ8)</option>
+        <option>HLA-B27</option>
+        <option>KARYOTYPING - FEMALE</option>
+        <option>KARYOTYPING - HUSBAND & WIFE</option>
+        <option>KARYOTYPING-G BANDING</option>
+        <option>KARYOTYPING-PRODUCTS OF CONCEPTION</option>
+        <option>METABOLIC SCREEN</option>
+        <option>URINARY POTASSIUM</option>
+        <option>PR (PROGESTERONE RECEPTOR)</option>
+        <option>KIDNEY FUNCTION TEST(KFT)</option>
+        <option>FBS & PPBS</option>
+        <option>IP LAB</option>
+        <option>MASTER HEALTH CHECKUP*</option>
+        <option>NT Pro BNP Serum*</option>
+        <option>ELECTROLYTES</option>
+        <option>HDL  CHOLESTEROL</option>
+        <option>TOTAL CHOLESTEROL</option>
+        <option>Heterophilic TSH- Thyroid Stimulating Hormone</option>
+        <option>Anti Thyroglobulin Antibody (Anti Tg)</option>
+        <option>Heterophilic PTH - Para Thyroid Hormone</option>
+        <option>Thyroglobulin (Tg)</option>
+        <option>Thyroid Antibodies (TPO & Anti Tg)</option>
+        <option>TPO - Thyroid Peroxidase Auto Antibodies</option>
+        <option>17 OHP - 17 OH PROGESTERONE</option>
+        <option>ALPHA FETO PROTEIN (AFP)</option>
+        <option>AMH - ANTI MULLERIAN HORMONE</option>
+        <option>BHCG - Beta human Chorionic Gonadotrophin</option>
+        <option>Testosterone Free</option>
+        <option>PCOS Profile</option>
+        <option>Triple Marker with Risk Chart</option>
+        <option>Double Marker Study</option>
+        <option>Quadruple test (Maternal-Down`s Syndrome) Screen-2</option>
+        <option>TIBC</option>
+        <option>Folate (Folic Acid) - RBC</option>
+        <option>C-Peptide</option>
+        <option>PAPPA (Pregnancy Associated Plasma Protein)</option>
+        <option>Estriol (E3)- Unconjugated Urine</option>
+        <option>Free Androgen Index (FAI)</option>
+        <option>Micro Albumin-Urine</option>
+        <option>Insulin Suppression test for C Peptide (7sample)</option>
+        <option>Chyluria(Urine triglycerides) GPO-POD</option>
+        <option>Collagen vascular profile</option>
+        <option>Creatinine Clearance Test</option>
+        <option>TRANSFERRIN SATURATION</option>
+        <option>APOLIPO PROTEIN  A1</option>
+        <option>APOLIPO PROTEIN B</option>
+        <option>Cardiac enzymes</option>
+        <option>BAD Obstetric Profile</option>
+        <option>CA 19 - 9 (Pancreatic)</option>
+        <option>CEA - Carcino Embryonic Antigen</option>
+        <option>PSA - Prostate Specific Antigen Total</option>
+        <option>CA15.3</option>
+        <option>Cortisol Serum (4PM)</option>
+        <option>Cortisol Serum (RANDOM)</option>
+        <option>Cortisol Free Salivary</option>
+        <option>Cortisol Free Urinary 24hrs</option>
+        <option>Dexamathasone High dose suppression -Cortisol</option>
+        <option>OT AIR C/S</option>
+        <option>PUS GRAM STAIN</option>
+        <option>Calcitonin Bone</option>
+        <option>PTH - Para Thyroid Hormone Bone</option>
+        <option>Vitamin D Total Level (25 Hydroxy Cholecalciferol)</option>
+        <option>Bone Marker 1</option>
+        <option>Bone Marker 2</option>
+        <option>ADA Level</option>
+        <option>Beta 2 Micro Globulin - B2MG</option>
+        <option>BETA 2GLYCOPROTEIN -IGG</option>
+        <option>BETA 2 GLYCOPROTEIN -IGM</option>
+        <option>Bicarbonates</option>
+        <option>CCP Antibody to Cyclic Citrullinated Peptide</option>
+        <option>Dengue Profile (Dengue NS1 Antigen + Ig G & IgM)</option>
+        <option>IgG for H Pylori</option>
+        <option>MYOGLOBIN URINE</option>
+        <option>Urine Osmolality 24hrs</option>
+        <option>ACID PHOSPHATASE - PROSTATIC</option>
+        <option>Acid Phosphatase - Total</option>
+        <option>ALKALINE PHOSPHATASE</option>
+        <option>Blood Glucose 2 Hours Post Prandial (Lunch)</option>
+        <option>Blood Glucose 2 Hours Post Prandial (Dinner)</option>
+        <option>GLUCOSE POSTPRANDIAL WITH URINE SUGAR</option>
+        <option>FASTING BLOOD GLUCOSE (FBS) WITH URINE SUGAR</option>
+        <option>Blood Glucose 2 Hours Post Prandial (Dinner)-urine Sug strip</option>
+        <option>GFR - Glomerular Filteration Rate</option>
+        <option>GTT (vein blood) - 2 samples</option>
+        <option>GTT (vein blood) - 3 samples</option>
+        <option>GTT (vein blood) - 4 samples</option>
+        <option>Micro Albumin Creatine Ratio</option>
+        <option>MICRO ALBUMIN URINE 24 HRS</option>
+        <option>OGCT</option>
+        <option>Inorganic phosphorous -Urine(24 hrs)</option>
+        <option>Inorganic phosphorus - Urine (RANDAM)</option>
+        <option>URINE PROTEIN CREATININE RATIO</option>
+        <option>PROTEIN URINE RANDAM</option>
+        <option>RP1</option>
+        <option>RP2</option>
+        <option>RP3</option>
+        <option>UREA POST DIALYSIS</option>
+        <option>UREA PRE DIALYSIS</option>
+        <option>UREA URINE 24HRS</option>
+        <option>URIC ACID URINE</option>
+        <option>Uric Acid Urinary (Random / 24 hr)</option>
+        <option>Urinary Micro Protein (24 hr)</option>
+        <option>Egfr (1-12yrs)</option>
+        <option>Urinary Phosphorous (24 hr)</option>
+        <option>Urinary Potassium ( 24 hr)</option>
+        <option>Urinary Sodium (24 hr)</option>
+        <option>Urinary Microalbumin (24 hr)</option>
+        <option>Urine Osmolality (24 hr)</option>
+        <option>OSMOLALITY SERUM</option>
+        <option>Urine Protein Creatinine Ratio (Random)</option>
+        <option>Phosplipid IgG & IgM</option>
+        <option>ANA IMF-IMMUNOFLUORESCENCE</option>
+        <option>Testosterone Total</option>
+        <option>HBA1C-GLYCOSYLATED HB</option>
+        <option>LIPID PROFILE*</option>
+        <option>LFT(LIVER FUNCTION TEST)</option>
+        <option>ANTI PHOSPHOLIPID ANTIBODY, IGG</option>
+        <option>BILIRUBIN TOTAL</option>
+        <option>BILIRUBIN DIRECT</option>
+         <option>BILIRUBIN INDIRECT</option>
+        <option>ANGIOTENSIN CONVERTING ENZYME (ACE)</option>
+        <option>GNON-HDL CHOLESTEROL</option>
+        <option>LIVER FUNCTION TEST-LFT</option>
+        <option>FBS with urine sugar</option>
+        <option>PPBSUS</option>
+        <option>eGFR</option>
+        <option>PHOSPHORUS,INORGANIC (Serum)</option>
+        <option>UNBOUND IRON BINDING CAPACITY (UIBC)</option>
+        <option>GALACTOSE NEONATAL SCREEN</option>
+        <option>URINE - PROTEIN</option>
+        <option>GASTRIN SERUM</option>
+        <option>VITAMIN D 1,25 DIHYDROXY</option>
+        <option>KAPPA LIGHT CHAIN -URINE 24 HRS</option>
+        <option>LAMBDA LIGHT CHAIN - 24 HR URINE</option>
+        <option>ANTI TPO</option>
+        <option>PTT</option>
+        <option>General Random Blood Sugar (GRBS)</option>
+        <option>PRO BNP</option>
+        <option>RBS 1.1/2 HRS AFTER BREAK FAST</option>
+        <option>RBS-1.1/2HRS AFTER LUNCH</option>
+        <option>SERUM URIC ACID/BUN/CREATININE</option>
+        <option>URINE COTININE</option>
+        <option>Calcitonin</option>
+        <option>FUS</option>
+        <option>PPUS</option>
+        <option>GRBS</option>
+        <option>Nicotine Drug Test</option>
+        <option>Cotinine Drug Test</option>
+        <option>CREATININE (URINE)</option>
+        <option>CHOLINESTERASE</option>
+        <option>BIO AVAILABLE TESTOSTERONE</option>
+        <option>CARDIOLIPIN ANTIBODIES PANEL</option>
+        <option>MELANOCYTE STIMULATING HORMONE[MSH]</option>
+        <option>BETA 2 GLYCOPROTEIN PANEL SERUM</option>
+        <option>CARDIOLIPIN ANTIBODY IgA</option>
+        <option>CARDIOLIPIN ANTIBODY IgG</option>
+        <option>CARDIOLIPIN ANTIBODY IgM</option>
+         <option>RA EXTENDED PANEL</option>
+        <option>METANEPHRINES,PLASMA</option>
+        <option>ANTI SPERM ANTIBODY, SERUM</option>
+        <option>Metanephrine-Free, Plasma ELISA</option>
+        <option>INTERLEUKIN-6 (IL-6)</option>
+        <option>Haemoglobinuria Urine</option>
+        <option>Anti-NMO (NEUROMYELITIS OPTICA ) ANTIBODY / AQUAPORIN 4</option>
+        <option>ANTI-MOG (MYELIN OLIGODENDROCYTE GLYCOPROTEIN), SERUM</option>
+        <option>Protein Electrophoresis Reflex Immunofixation-Serum</option>
+        <option>Neonatal TSH</option>
+        <option>BILE ACIDS TOTAL</option>
+        <option>CELL BLOCK</option>
+        <option>IMMUNOGLOBULIN SUBCLASS 4</option>
+        <option>HOMA-IR INSULIN RESISTANCE INDEX</option>
+        <option>Electrolytes-Urine</option>
+        <option>ALUMINUM-SERUM</option>
+        <option>Iodine, Serum</option>
+        <option>Urine Toxicology Test</option>
+        <option>Potassium-Urine</option>
+        <option>Creatinine Urine</option>
+        <option>Osmolarity-Urine</option>
+        <option>Osmolarity-Serum</option>
+        <option>VALPROIC ACID</option>
+        <option>BETA 2 GLYCOPROTEIN IGG,IGM</option>
+        <option>2D ECHO</option>
+        <option>ECG</option>
+        <option>TMT(TREAD MILL TEST)</option>
+        <option>ECHO/TMT</option>
+        <option>ME-MEDICAL EXAMINATION DR P K KATTI</option>
+        <option>2DECHO</option>
+        <option>URINE ANALYSIS</option>
+        <option>STOOL ANALYSIS</option>
+        <option>URINE MICROSCOPY</option>
+        <option>CSF - Analysis</option>
+        <option>ASPIRATED FLUID ANALYSIS</option>
+        <option>PLEURAL FLUID ANALYSIS</option>
+        <option>ASCITIC FLUID ANALYSIS</option>
+        <option>SEMEN ANALYSIS</option>
+        <option>SEMEN FRUCTOSE</option>
+        <option>URINE BILE PIGMENT AND SALT</option>
+        <option>ASICITIC FLUID ROUTINE COMPREHENSIVE</option>
+        <option>PERITONEAL FLUID ANALYSIS</option>
+        <option>PERICARDIAL FLUID ANALYSIS</option>
+        <option>Fluid Analysis</option>
+        <option>STOOL MICROSCOPY</option>
+        <option>URINE ROUTINE</option>
+        <option>Bence Jones Proteins Urinary (Qualitative)</option>
+        <option>BRONCHIAL LAVAGE ANALYSIS</option>
+        <option>Bile Salt & Bile Pigment</option>
+        <option>CSF Protein</option>
+        <option>CSF Sugar</option>
+        <option>SPUTUM AFB C/S</option>
+        <option>URINE C/S</option>
+        <option>TZANCK SMEAR</option>
+        <option>Occult Blood Test (Stool)</option>
+        <option>STOOL PH</option>
+        <option>Urine Pregnancy Test (Qualitative)</option>
+        <option>SPECIFIC GRAVITY 24 HRS</option>
+        <option>Synovial Fluid Analysis</option>
+        <option>Urine Glucose</option>
+        <option>Urine Albumin</option>
+        <option>Stool for Reducing Substance</option>
+        <option>Fecal Calprotectin</option>
+        <option>STOOL HANGING DROPS</option>
+        <option>URINE FOR FUNGAL HYPHAE</option>
+        <option>CT  BRAIN WITH CONTRAST</option>
+        <option>CT ABDOMEN</option>
+        <option>CT ANGIOGRAPHY -BRAIN</option>
+        <option>CT CONTRAST</option>
+        <option>CT NECK ANGIOGRAM</option>
+        <option>CT PERIPHERAL ANGIOGRAM</option>
+        <option>CT CHEST WITH CONTRAST</option>
+        <option>CT SCAN DUPLICATE FILM</option>
+        <option>CT SCAN EXTREMITIES</option>
+        <option>CT SCAN NECK</option>
+        <option>CT SCAN PELVIS</option>
+        <option>CT PNS AXIAL & CORONALS</option>
+        <option>CT pituitary with contrast</option>
+        <option>CT Face</option>
+        <option>CT Face 3D without contrast</option>
+        <option>CT Chest without contrast (for lungs)</option>
+        <option>CT Scan Whole Abdomen With Contrast</option>
+        <option>CT angiography abdomen Contrast</option>
+        <option>CT enteroclysis contrast</option>
+        <option>CT ORBIT WITH CONTRAST</option>
+        <option>CT ORBITS WITHOUT CONTRAST</option>
+        <option>CT Temporal bone –with contrast</option>
+        <option>CT Temporal bone – without contrast</option>
+        <option>CT Thorax without contrast</option>
+        <option>CT Thorax with contrast</option>
+        <option>CT Pulmonary Angio with contrast</option>
+        <option>CT Venography with contrast</option>
+        <option>CT CV Junction with contrast</option>
+        <option>CT CV Junction without contrast</option>
+        <option>CT CVJ 3D reconstruction without contrast</option>
+        <option>Any other CT extras Study Small region</option>
+        <option>Any other CT extra Study Large region</option>
+        <option>CT ABDOMEN & PELVIS WITH CONTRAST</option>
+        <option>CT ELBOW JOINTS</option>
+        <option>CT 3D</option>
+        <option>CT FILMS(EACH FILMS 250/RS)</option>
+        <option>CT SHOULDER</option>
+        <option>CT EXTRIMITIES</option>
+        <option>CT FOOT</option>
+        <option>CT SCAN OF ANKLE</option>
+		<option>CT KUB PLAIN</option>
+		<option>CT KUB WITH CONTRAST</option>
+        <option>CT LEG</option>
+        <option>CT BOTH ANKLE</option>
+        <option>CT WRIST</option>
+        <option>CT ABDOMEN & PELVIS</option>
+        <option>CT COMPLIMENTARY</option>
+        <option>CT NECK WITH CONTRAST</option>
+        <option>CT ANKLE</option>
+        <option>CT ORBIT CORONAL & AXIAL</option>
+        <option>CT CERVICAL SPINE</option>
+        <option>CT PELVIS</option>
+        <option>CT SINOGRAM</option>
+        <option>CT ANY REGION SCREENING</option>
+        <option>CT SCREENING</option>
+        <option>CT CORRELATION SCREENING</option>
+        <option>CT BRAIN PLAIN</option>
+        <option>CT KNEE SINGLE</option>
+        <option>CT BRAIN</option>
+        <option>FILM CHARGES</option>
+        <option>CT SCAN OF COCAYX & SACRUM</option>
+        <option>CT BRAIN & ORBITS PLAIN</option>
+        <option>CT CHEST & ABDOMEN SCREENING</option>
+        <option>CT HEAD & NECK ANGIO</option>
+        <option>CT PELVIS WITH HIP JOINTS</option>
+        <option>CT NECK</option>
+        <option>CT BRAIN & FACIAL BONES</option>
+        <option>CT SCREENING-1</option>
+        <option>CT PNS SCREENING</option>
+        <option>CT KNEE BOTH</option>
+        <option>CT L S SPINE</option>
+        <option>CT FEMUR</option>
+        <option>PIP KIT FOR CT CHEST</option>
+        <option>PPE KIT CHARGES</option>
+        <option>CT PROCEDURE CHARGES</option>
+        <option>CT PPE KIT CHARGES</option>
+        <option>CT GUIDED FNAC/BIOPSY</option>
+        <option>CT PITUITARY WITHOUT CONTRAST</option>
+        <option>CT WHOLE ABDOMEN WITH CONTRAST</option>
+        <option>CT PNS CORONALS</option>
+        <option>CERVICAL PAP SMEAR</option>
+        <option>FNAC (FINE NEEDLE ASPIRATION CYTOLOGY)</option>
+        <option>ASPIRATION CYTOLOGY FOR CRYSTAL EXAMINATION</option>
+        <option>VAGINAL CYTOLOGY</option>
+        <option>CHROMOSOMAL ANALYSIS(CYTOLOGY/KEROTYPING)</option>
+        <option>FNAC-WITH PROCEDURE</option>
+        <option>URINE CYTOLOGY</option>
+        <option>Body Fluids for Malignant Cells</option>
+        <option>Cytology-Sputum</option>
+        <option>RAPID UREASE TEST</option>
+        <option>usg guided FNAC</option>
+        <option>Cerebrospinal fluid (CSF) Routine Examination</option>
+        <option>ACUTE LEUKEMIA PANEL,BASIC</option>
+        <option>Flow cytometry (Bone marrow)</option>
+		<option>HLA B27 BY PCR</option>
+		<option>HISTOPATHOLOGY EXAM (SMALL)</option>
+        <option>HISTOPATHOLOGY-MEDIUM</option>
+        <option>HISTOPATHOLOGY EXAM (BIG)</option>
+        <option>HISTOPATHOLOGY EXTRA LARGE</option>
+        <option>CYSTECERCOSIS</option>
+        <option>Histo Pathological Examination Ex Large Specimen</option>
+        <option>SYNOVIAL FLUID ANALYSIS</option>
+        <option>Histo  Pathological  Examination - Large Specimen</option>
+        <option>Histo  Pathological  Examination - Medium Specimen</option>
+        <option>Histo  Pathological  Examination - Skin Specimen</option>
+        <option>Histo  Pathological  Examination - Small Specimen</option>
+        <option>IHC-PANEL(UPTO 5 MARKERS)</option>
+        <option>SLIDE & BLOCK SECOND OPINION-2 SLIDE WITH IHC</option>
+        <option>IHC-2 Markers</option>
+        <option>IHC (4-Markers)</option>
+        <option>IHC-Single Marker</option>
+        <option>HISTOPATHOLOGY EXTRA LARGE-1</option>
+        <option>BLOCK SECOND OPINION</option>
+        <option>FISH FOR HER2NEU(PARAFFIN BLOCK)</option>
+        <option>IHC (8 MARKRS)</option>
+        <option>USG GUIDED LIVER BIOPSY WITH HISTOPATHOLOGY REPORTING</option>
+        <option>DIF-BIOPSY</option>
+        <option>BONE MARROW ASPIRATION AND BIOPSY REPORTING ONLY</option>
+        <option>IMMUNOHISTOCHEMISTRY SINGLE MARKER</option>
+        <option>RBC COUNT</option>
+        <option>TOTAL  LEUCOCYTE COUNT ( TLC )</option>
+        <option>DIFFERENTIAL COUNT</option>
+        <option>ERYTHROCYTE SEDIMENTATION RATE (ESR)</option>
+        <option>PCV</option>
+        <option>RED CELL COUNT</option>
+        <option>PLATELET COUNT</option>
+        <option>ABSOLUTE EOSINOPHIL COUNT (AEC)</option>
+        <option>HEMOGLOBIN,TC-DC,ESR</option>
+        <option>PERIPHERAL SMEAR EXAMINATION</option>
+        <option>RETICULOCYTE COUNT</option>
+        <option>MALARIAL PARASITE</option>
+        <option>SMEAR FOR MICROFILARIA</option>
+        <option>SMEAR EXAMINATION FOR LEISHMANIASIS</option>
+        <option>SMEAR EXAMINATION FOR TRYPANOSOMIASIS</option>
+        <option>G6PD ASSAY</option>
+        <option>LE Cells</option>
+        <option>PROTHROMBIN TIME (PT)</option>
+        <option>EUGLOBIN LYSIS TIME</option>
+        <option>BONE MARROW ASPIRATION PROCEDURE WITH REPORTING</option>
+        <option>HEMOGLOBIN SPECTROSCOPY</option>
+        <option>SICKLING TEST</option>
+        <option>PNC SUGAR WATER TEST</option>
+        <option>FOETAL ERYTHROCYTES</option>
+        <option>FOETAL HEMOGLOBIN ESTIMATION</option>
+        <option>TEST FOR Hb C</option>
+        <option>CAPILLARY FRAGILITY TEST</option>
+        <option>PROTAMINE SULPHATE TEST</option>
+        <option>FACTOR VII ASSAY</option>
+        <option>FACTOR IX ACTIVITY</option>
+        <option>FACTOR X ASSAY</option>
+        <option>DONATH LANDSTEINER  ANTIBODY TEST</option>
+        <option>SOLUBILITY TESTS FOR HbS</option>
+        <option>SCHILLING TEST</option>
+        <option>THROMBIN TIME</option>
+        <option>HEMOGLOBIN-H DETECTION</option>
+        <option>TEST FOR HEINZ BODIES</option>
+        <option>COOMBS TEST-DIRECT</option>
+        <option>PNH DETECTION TEST</option>
+        <option>HEAT INSTABILITY TEST</option>
+        <option>ISOPROPANOL PRECIPITATION TEST</option>
+        <option>FLUORESCENT SPOT TEST</option>
+        <option>HAM'S SERUM TEST</option>
+        <option>SUCROSE HEMOLYSIS TEST</option>
+        <option>OXYGEN DISSOCIATION STUDIES</option>
+        <option>HEMOGLOBIN ELECTROPHORESIS</option>
+        <option>OSMOTIC FRAGILITY TEST</option>
+        <option>HESS TEST</option>
+        <option>CLOT RETRACTION</option>
+        <option>COMPLETE BLOOD PICTURE WITH ESR</option>
+        <option>MCV</option>
+        <option>MCH</option>
+        <option>MCHC</option>
+        <option>MALARIA RAPID CARD TEST</option>
+        <option>FACTOR II (PROTHROMBIN) MUTATION DETECTION</option>
+        <option>FACTOR  V   MUTATION DETECTION</option>
+        <option>FACTOR VIII ACTIVITY</option>
+        <option>FOETAL HAEMOGLOBIN</option>
+        <option>COOMBS TEST-INDIRECT</option>
+        <option>MALARIA ANTIGEN</option>
+        <option>TOTAL RBC COUNT</option>
+        <option>ABSOLUTE LYMPHOCYTE COUNT (ALC)</option>
+        <option>ABSOLUTE NEUTROPHIL COUNT (ANC)</option>
+        <option>APTT</option>
+        <option>BLAST CELLS</option>
+        <option>TOTAL GRANULOCYTE COUNT</option>
+        <option>PAP SMEAR- LBC</option>
+        <option>PAP Smear Test</option>
+        <option>MRA/MRV/MRS(PERIPHERAL)</option>
+        <option>LP</option>
+        <option>HPV DNA & PAP SMEAR</option>
+        <option>HPV DNA DETECTION AND TYPING</option>
+        <option>HPV DNA WITH PAP SMEAR-LBC</option>
+        <option>HBV DRUG RESISTANCE</option>
+        <option>HCV GENOTYPING</option>
+        <option>HCV RNA DETECTION (QUALITATIVE)</option>
+        <option>HCV RNA VIRAL LOAD(QUANTITATIVE)</option>
+        <option>HDV RNA PCR</option>
+        <option>HAEMOGLOBIN</option>
+        <option>Total WBC Count</option>
+        <option>COMPLETE HAEMOGRAM</option>
+        <option>Bleeding & Clotting Time</option>
+        <option>D DIMER</option>
+        <option>DIFFERENTIAL LEUKOCYTIC COUNT (DLC)</option>
+        <option>FIBRINOGEN*</option>
+        <option>Lupus Anticoagulant</option>
+        <option>ACTIVATED PARTIAL THROMBOPLASTIN TIME(APTT)</option>
+        <option>Coagulation profile (D-Dimer,Fibronogen,PT,APTT)</option>
+        <option>ABSOLUTE COUNTS (TRICOLOUR FLOW CYTOMETRY)</option>
+        <option>ABSOLUTE BASHOPHIL COUNT (ABC)</option>
+        <option>ABSOLUTE MONOCYTE COUNT (AMC)</option>
+        <option>Blood Group & Rh Factor</option>
+        <option>COMPLETE BLOOD PICTURE</option>
+        <option>Coombs Test Direct</option>
+        <option>HAEMOGLOBIN (HB)</option>
+        <option>Malarial Parasite Smear method</option>
+        <option>Microfilaria</option>
+        <option>PS - Peripheral Smear</option>
+        <option>Reticulocyte count (Automated)</option>
+        <option>Total & Differential Count (TC, DC)</option>
+        <option>SMEAR FOR AFB -SKIN</option>
+        <option>PS FOR MP</option>
+        <option>HB</option>
+        <option>G6PD Qualitative</option>
+        <option>URINE FOR EOSINOPHILS</option>
+        <option>Immature Platelet Fraction</option>
+        <option>Factor V Leiden Mutation</option>
+        <option>Protein C, Functional</option>
+        <option>PROTEIN S, (FREE) ANTIGEN</option>
+        <option>CULTURE & SENSITIVITY ( OTHERS )</option>
+        <option>BLOOD CULTURE SENSITIVITY AEROBIC AUTOMATED</option>
+        <option>CULTURE & SENSITIVITY URINE</option>
+        <option>AFB ZN stain</option>
+        <option>AFB CULTURE ( OTHERS )</option>
+        <option>CULTURE FOR DIPHTHERIA</option>
+        <option>SMEAR FOR AFB SPUTUM</option>
+        <option>SMEAR FOR AFB URINE</option>
+        <option>SMEAR FOR AFB URINE[24HRS]</option>
+        <option>SMEAR FOR AFB PUS</option>
+        <option>HANGING DROP PREPARATION</option>
+        <option>SMEAR FOR AFB-LARYNGEAL SWAB</option>
+        <option>GRAM STAIN</option>
+        <option>SPUTUM GRAM STAIN</option>
+        <option>SCRAPPING FOR FUNGUS</option>
+        <option>SKIN CLIPPING FOR AFB</option>
+        <option>SMEAR FOR DIPHTHERIA (ALBERT'S STAIN)</option>
+        <option>SMEAR FOR GONOCOCCUS</option>
+        <option>SKIN SCRAPPING FOR FUNGUS</option>
+        <option>URETHRAL SWAB FOR GONOCOCCI</option>
+        <option>AFB CULTURE BLOOD</option>
+        <option>AFB CULTURE BODY FLUID</option>
+        <option>AFB CULTURE BY CONVENTIONAL LJ MEDIUM</option>
+        <option>AFB CULTURE PUS</option>
+        <option>AFB CULTURE URINE</option>
+        <option>AFB CYTOLOGY/MALIGNANT CELL</option>
+        <option>AFB LJ SUSCEPTIBILITY- 10 DRUGS</option>
+        <option>AFB LJ SUSCEPTIBILITY- 5 DRUGS</option>
+        <option>TRH-THYROTOXIN RELEASING HORMONE</option>
+        <option>AFB,RAPID CULTURE(VERSATREK)</option>
+         <option>CULTURE FLUID</option>
+        <option>CULTURE FUNGAL</option>
+        <option>CULTURE SEMEN</option>
+        <option>CULTURE SPUTUM</option>
+        <option>CULTURE SWAB</option>
+        <option>CULTURE WATER</option>
+        <option>PUS CULTURE</option>
+        <option>PUS FOR GRAM STAIN</option>
+        <option>ALLERGEN - AMOXYCILLIN</option>
+        <option>ALLERGEN - AMPICILLIN</option>
+        <option>ALLERGEN - COMPREHENSIVE ALLERGY PANEL</option>
+        <option>ALLERGEN - DRUG ALLERGY</option>
+        <option>ALLERGEN - DUST ALLERGY</option>
+        <option>ALLERGEN - FOOD PANEL-2</option>
+        <option>ALLERGEN - FOOD PANEL-3</option>
+        <option>ALLERGEN - FOOD PANEL-7</option>
+        <option>ALLERGEN - MOLD PANEL</option>
+        <option>ALLERGEN PANEL - (NON-VEG & VEG PANEL)</option>
+        <option>ALLERGEN PANEL - ANIMAL MIX</option>
+        <option>ALLERGEN PANEL - INHALANT</option>
+        <option>ALLERGEN PANEL - NONVEG</option>
+        <option>ALLERGEN PANEL - VEG</option>
+        <option>BLOOD CULTURE RAPID</option>
+        <option>VAGINAL CULTURE &SENSITIVITY</option>
+        <option>URINE CULTURE &SENSITIVITY</option>
+        <option>SUDAN STAINING</option>
+        <option>STOOL ROUTINE</option>
+        <option>STOOL FOR OCCULT BLOOD</option>
+        <option>STOOL CULTURE&SENSITIVITY</option>
+        <option>SPUTUM MALIGNANT CELL</option>
+        <option>NAIL FUNGAL</option>
+        <option>MALIGNANT CELL (URINE)</option>
+        <option>MALIGNANT CELL (PLEURAL FLUID)</option>
+        <option>MALIGNANT CELL (BODY FLUID)</option>
+        <option>HIGH SENSITIVE CRP</option>
+        <option>FUNGAL STAIN,NAIL</option>
+        <option>FUNGAL STAIN(KOH)</option>
+        <option>FOOD ALLERGY PANEL</option>
+        <option>ENDOMETRIUM AFB RAPID CULTURE</option>
+        <option>OSTEOCALCIN</option>
+        <option>OSTEOPOROSIS PANEL- 1(MINI)</option>
+        <option>OSTEOPOROSIS PANEL- II(MAXI)</option>
+        <option>Culture & Sensitivity Blood</option>
+        <option>Culture & Sensitivity Fluid , Nasal Swab, Pus, Semen, Stool,</option>
+        <option>Culture & Sensitivity Blood-BACTEC (Aerobic)</option>
+        <option>Catheter Tip/CVP TIP Culture & Sensitivity (Aerobic)</option>
+        <option>ET Culture & Sensitivity (Aerobic)</option>
+        <option>Water Culture</option>
+        <option>Clostridium difficile Toxin A & B</option>
+        <option>Echinococcus detection - Cystic Fluid</option>
+        <option>Fungal Culture</option>
+        <option>Endomysial Antibody</option>
+        <option>ENDOTREACHEL TIP (SWAB )</option>
+        <option>FOLEY S TIP CULTURE</option>
+        <option>MAGNESIUM URINE(24HRS)</option>
+        <option>AFB Culture - MGIT</option>
+        <option>ANA - I M F</option>
+        <option>ANCA</option>
+        <option>Androstenedione</option>
+        <option>Anti G B M Antibody</option>
+        <option>Anti Gliadin Ig A</option>
+        <option>Anti Gliadin Ig G</option>
+        <option>Anti HB core Ag IgM</option>
+        <option>Anti Mitochondrial Antibody (AMA)</option>
+        <option>ANTI MICOBACTERIAL ANTIBODYES-IGG</option>
+        <option>ANTI MICROBACTERIAL ANTIBODYES -IGM</option>
+        <option>ANTI NEUTROPHIL CYTOPLASMIC ANTIBODY(ANCA )</option>
+        <option>Anti Parietal Cell Antibody (APCA)</option>
+        <option>Anti Thrombin III Antigen</option>
+        <option>Antibodies to Hepatitis A Virus IgG</option>
+        <option>HEPATITIS B PROFILE</option>
+        <option>Antibody to Smooth Muscle</option>
+        <option>Benzodiazapine (Qualitative)</option>
+        <option>Bioavailable Testosterone</option>
+        <option>Brucella Antibody Ig M</option>
+        <option>Brucella Antibody-IgG</option>
+        <option>BRUCELLA TUBE AGGLUTINATION TEST</option>
+        <option>CD4/CD8 Count, EDTA</option>
+        <option>Chlamydia Trachomatis DNA PCR</option>
+        <option>Chlamydia Trachomatis IGG</option>
+        <option>Chlamydia Trachomatis IGA</option>
+        <option>Chromogranin A, Serum</option>
+        <option>Cystatin C microbiology</option>
+        <option>Cysticercosis IgG antibody</option>
+        <option>Cytomegalo Virus DNA PCR Viral Load</option>
+        <option>Dihydro Testosterone - DHT</option>
+        <option>Erythropoietin Serum</option>
+        <option>Factor 5 leiden, mutant detection</option>
+        <option>FDP - Fibrin Degradation Particles</option>
+        <option>GAD Antibody</option>
+        <option>GAD-65 (Glutamic Acid Decarboxylase) antibody</option>
+        <option>H L A B27 Level Flow cytometry</option>
+        <option>Haptoglobin</option>
+        <option>Hb Electrophoresis, EDTA</option>
+        <option>TUBERCULIN TEST</option>
+        <option>HbcAb-Total antibodies to Hepatitis B Core Antibody</option>
+        <option>HBV-DNA Detection (Qualitative)</option>
+        <option>UIRNE BENCE JONES PROTEIN</option>
+        <option>Histone antibody</option>
+        <option>HCV PCR Qualitative, Plasma</option>
+        <option>HCV PCR QUANTITATIVE( GENEXPERT )</option>
+        <option>Human Papilloma Virus Cervical scrapping</option>
+        <option>HSV2IGM</option>
+        <option>HSV2IGG</option>
+        <option>HSV 1 IGM</option>
+		<option>HSV-DNA detection for type 1&2</option>
+		<option>TSH Receptor Antibody,Serum</option>
+        <option>IgA for H Pylori</option>
+        <option>IgM for H Pylori</option>
+        <option>IGF-1 (Somatomedin C) Serum</option>
+        <option>IMMUNOFIXATION ELECTROPHORESIS</option>
+        <option>India Ink Preparation</option>
+        <option>KOH PREPARETION</option>
+        <option>Insulin like Growth Factor BP - 3</option>
+        <option>Intrinsic factor antibody</option>
+        <option>Jak 2 mutation</option>
+        <option>LKM1 -Antibodies (Liver profile)</option>
+        <option>Measles (Rubeola) IgG, Serum</option>
+        <option>Measles (Rubeola) IgM, Serum</option>
+        <option>Mumps Ig G Antibodies</option>
+        <option>Mumps Ig M Antibodies, Serum</option>
+        <option>NT-PRO BNP (B Type Natriuretic Pepitide)</option>
+        <option>PLA2 receptor antibody, Serum</option>
+        <option>Procalcitonin</option>
+        <option>Protein C Antigen</option>
+        <option>Protein S Antigen (Free)</option>
+        <option>Scrub Typhus IGM</option>
+        <option>TACROLIMUS LEVELS</option>
+        <option>TB PCR</option>
+        <option>TB-Quantiferon GOLD, Heparin</option>
+        <option>Marijuna (Qualitative)</option>
+        <option>Tissue Transglutaminase Antibody IgA</option>
+        <option>Treponema Pallidum Hemagglutination -TPHA</option>
+        <option>TTG Antibody-IgG</option>
+        <option>Urine for Drug - Opiates (Qualitative)</option>
+        <option>Urine for Drugs - Barbiturate - (Qualitative)</option>
+        <option>Varicella Ig G, Serum</option>
+        <option>Varicella Ig M, Serum</option>
+        <option>Reverse T3</option>
+        <option>ER / PR/ HER2</option>
+        <option>H1N1(swine Flu)</option>
+        <option>Serum Protein Electrophoresis</option>
+        <option>Beta 2 Microglobulin</option>
+        <option>Stone Analysis</option>
+        <option>Acid Fast Bacilli (AFB) stain</option>
+        <option>SPUTUM CULTURE</option>
+        <option>SPUTUM FOR AFB</option>
+        <option>IHC  LYMPHOMA PANEL</option>
+        <option>SPUTUM FOR AFB-1ST DAY</option>
+        <option>SPUTUM FOR AFB-2ND DAY</option>
+        <option>SPUTUM FOR AFB-3RD DAY</option>
+        <option>OT Culture</option>
+        <option>OT-I</option>
+        <option>OT-II</option>
+        <option>OT SWAB CULTURE</option>
+        <option>OT CULTURE 15 NUMBER</option>
+        <option>COVID -19 ANTIBODY IGG</option>
+        <option>COVID -19 ANTIBODY TOTAL</option>
+        <option>COVID -19 ANTIBODY IGG IGM RAPID</option>
+		<option>OT SWAB CULTURE (6 Swabs)</option>
+		<option>OT Swabs Culture 7</option>
+        <option>OT Swab Culture-2</option>
+        <option>ISLET CELL ANTIBODY</option>
+        <option>Helicobacter Pylori Antigen, Rapid Stool Test</option>
+        <option>SARS COV-2 RAPID ANTIGEN TEST</option>
+        <option>TIP C/S</option>
+        <option>CULTURE-AFB (TB CULTURE )</option>
+        <option>CULTURE-AFB WITH DRUG SENSITIVITY</option>
+        <option>CULTURE AND SENSITIVITY,BODY ANAEROBIC</option>
+        <option>CULTURE AND SENSITIVITY BODY FLUIDS</option>
+        <option>Water Culture 8 Samples</option>
+        <option>H1N1 (Swine Flu)</option>
+        <option>HBV DNA VIRAL LOAD</option>
+        <option>HCV RNA VIRAL LOAD</option>
+        <option>HSV 1& 2 Qualitative Real time PCR</option>
+        <option>HIV Viral Load-Real time PCR</option>
+        <option>GENEXPERT MTB</option>
+        <option>MENINGITIS PANEL   -  BACTERIAL</option>
+        <option>MENINGITIS PANEL   -   VIRAL</option>
+        <option>Bacterial and Viral Meningitis Profile</option>
+        <option>SARS CoV-2 RT PCR</option>
+        <option>COVID-19 Virus Qualitative PCR</option>
+        <option>CBNAAT-SARS Cov-2 RT PCR</option>
+        <option>RT PCR HOME COLLECTION</option>
+        <option>MRI SPINE</option>
+        <option>MRI-NECK</option>
+        <option>MRI BOTH JOINTS WITH CONTRAST</option>
+        <option>MRI OF  UPPER & LOWER EXTREMITIES</option>
+        <option>MRI  BRAIN</option>
+        <option>MRI -ABDOMEN/UROGRAM/CHEST/PELVIS/MRCP</option>
+        <option>CERVICAL POLYP</option>
+        <option>MRI BRAIN WITHOUT CONTRAST</option>
+        <option>MRI BRAIN WITH CONTRAST</option>
+        <option>MRI ORBIT WITH CONTRAST</option>
+        <option>MRI PELVIS WITH CONTRAST</option>
+        <option>MRI ABDOMEN WITH CONTRAST</option>
+        <option>MRI BOTH KNEE WITH CONTRAST</option>
+        <option>MRI BOTH SHOLDER WITH CONTRAST</option>
+        <option>MRI PNS WITHOUT CONTRAST</option>
+        <option>MR for Salivary Glands with Sialography</option>
+        <option>MRI NECK WITHOUT CONTRAST</option>
+        <option>MRI NECK WITH CONTRAST</option>
+        <option>MRI SHOULDER WITHOUT CONTRAST</option>
+        <option>MRI Shoulder With contrast</option>
+        <option>MRI shoulder both Joints  Without Contrast</option>
+        <option>MRI Shoulder both joints – With Contrast</option>
+        <option>MRI Wrist Single joint  - Without Contrast</option>
+        <option>MRI Wrist Single joint  - With contrast</option>
+        <option>MRI Wrist both joints  -  Without contrast</option>
+        <option>MRI Wrist Both joints  -  With contrast</option>
+        <option>MRI knee Single joint  -  Without contrast</option>
+        <option>MRI knee Single joint  -  With contrast</option>
+        <option>MRI knee both joints   -  Without contrast</option>
+        <option>MRI knee both joints   -  With contrast</option>
+        <option>MRI Ankle Single joint - Without contrast</option>
+        <option>MRI Ankle single joint - With contrast</option>
+        <option>MRI Ankle both joints  -  With contrast</option>
+        <option>MRI Ankle both joints  -  Without contrast</option>
+        <option>MRI Hip - With contrast</option>
+        <option>MRI Hip – without contrast</option>
+        <option>MRI Pelvis – Without Contrast</option>
+        <option>MRCP</option>
+        <option>MRI Extremities - With contrast</option>
+        <option>MRI Extremities - Without contrast</option>
+        <option>MRI Temporomandibular – B/L - With contrast</option>
+        <option>MRI Temporomandibular – B/L - Without contrast</option>
+        <option>MR Temporal Bone/ Inner ear without contrast</option>
+        <option>MRI Abdomen – Without Contrast</option>
+        <option>MRI Abdomen – With Contrast</option>
+        <option>MRI Breast - With Contrast</option>
+        <option>MRI Breast - Without Contrast</option>
+        <option>MRI Screening - Without Contrast</option>
+        <option>MRI Chest – Without Contrast</option>
+        <option>MRI Chest – With Contrast</option>
+        <option>MRI Cervical/Cervico Dorsal Spine</option>
+        <option>MRI Dynamic Pituitary with contrast</option>
+        <option>MRI Dynamic Pituitary without contrast</option>
+        <option>MRI Elbow Single joint-without contrast</option>
+        <option>MRI Elbow Single joint-with Contrast</option>
+        <option>MRI Arm Single with contrast</option>
+        <option>MRI Arm Single without contrast</option>
+        <option>MRI Forearm Single without contrast</option>
+        <option>MRI Forearm Single with contrast</option>
+        <option>MRI Hand Single without contrast</option>
+        <option>MRI Hand Single with contrast</option>
+        <option>MRI Foot Single without contrast</option>
+        <option>MRI Foot Single with contrast</option>
+        <option>MRI Thigh Single without contrast</option>
+        <option>MRI Thigh Single with contrast</option>
+        <option>MRI Leg Single without contrast</option>
+        <option>MRI Leg Single with contrast</option>
+        <option>MRI Defecography</option>
+        <option>MRI Cervical Spine without contrast</option>
+        <option>MRI Cervical Spine with Contrast</option>
+        <option>MRI Dorsal Spine without Contrast</option>
+        <option>MRI L  S Spine without Contrast</option>
+        <option>MRI L  S Spine with Contrast</option>
+        <option>MRI Whole Spine Screening</option>
+        <option>MRI SI Joint Without Contrast</option>
+        <option>MRI SI Joint With Contrast</option>
+        <option>MRS</option>
+        <option>MRI-Brain- Giddiness Protocal</option>
+        <option>MRI Cerebral Angio only</option>
+        <option>MRI Neck Angio only</option>
+        <option>MRI Head   Neck Angio</option>
+        <option>MRI Venography without contrast</option>
+        <option>MRI Venography with contrast</option>
+        <option>MRI Urography</option>
+        <option>MRI Fistulogram without contrast</option>
+        <option>MRI Fistulogram with contrast</option>
+        <option>MRI Peripheral Angio</option>
+        <option>MRI BRAIN & ORBITS WITH CONTRAST</option>
+        <option>MRI CV Junction with Contrast</option>
+        <option>MRI Stroke Protocol (Head Screen Angio BR Neck)</option>
+        <option>MRI CONTRAST</option>
+        <option>MRI ABDOMEN & PELVIS</option>
+        <option>MRI FILMS(EACH FILMS 250/RS)</option>
+        <option>MRI WHOLE BODY</option>
+        <option>MRI PROSTATE DYNAMIC STUDY</option>
+        <option>MRI BRAIN - SCREENING</option>
+        <option>MRI CERVICAL SPINE SCREENING</option>
+        <option>MRI BRIAN SCREENING</option>
+        <option>MRI BRAIN & NECK ANGIO</option>
+        <option>MRI HIP JOINTS SCREENING</option>
+        <option>MRI DORSAL SPINE WITH CONTRAST</option>
+         <option>MRI BRAIN ANGIO</option>
+        <option>MRI CVJ</option>
+        <option>MRI BRAIN & ORBITS PLAIN</option>
+        <option>MRI SECOND OPINION</option>
+        <option>MRCP COMPLIMENRTY</option>
+        <option>MRI BRIAN EPILEPSY PROTOCOL</option>
+        <option>MRI LS SPINE SCREENING</option>
+        <option>MRI SHOULDER SCREENING</option>
+        <option>MRI JOINTS SCREENING</option>
+        <option>MRI C SPINE SCREENING</option>
+        <option>MRI CARDIAC</option>
+        <option>MRI FILMS(EACH FILMS 250/RS)4 FILMS</option>
+        <option>MRI ORBIT PLAIN</option>
+        <option>MRI SCREENING PELVIS</option>
+        <option>MRI PNS WITH CONTRAST</option>
+        <option>MRI BRACHIAL PLEXUS</option>
+        <option>MRI HAND</option>
+        <option>MRI BOTH HEELS</option>
+        <option>MRI SINGLE HEEL</option>
+        <option>MRI COMPLEMENTRY</option>
+        <option>MRI THORACIC SPINE</option>
+        <option>MRI PITUTORY WITH CONTRAST</option>
+        <option>MRI BRAIN SCREENING</option>
+        <option>MRI SACRUM & COCAYX</option>
+        <option>MRI GLUTEAL REGION-SOFT TISSUE</option>
+        <option>MRI SI JOINT SCREENING</option>
+        <option>MRI MANDIBLE</option>
+        <option>MRI T L SPINE</option>
+        <option>MRI FETAL</option>
+        <option>MRI THORACIC SPINE SCREENING</option>
+        <option>MRI KNEE JOINTS SCREENING</option>
+        <option>MRI ANY ONE REGION STUDY</option>
+        <option>MRI EXTREMITES</option>
+        <option>MRI RENAL ANGIOGRAM</option>
+        <option>MRI THORAX</option>
+        <option>MRI SPECTROSCOPY</option>
+        <option>MRI PNS SCREENING</option>
+        <option>MRI BOTH HAND WITHOUT CONTRAST</option>
+         <option>MRI THIGH BOTH WITHOUT CONTRAST</option>
+        <option>MRI COMPLIMENTARY SCREENING</option>
+        <option>MRI THUMB SINGLE WITHOUT CONTRAST</option>
+        <option>MRI COCOX SCREENING</option>
+        <option>MRI TM JOINT</option>
+        <option>MRI ORBIT SCREENING</option>
+        <option>BLOOD PRESSURE</option>
+        <option>CONSULTATION</option>
+        <option>PHYSIOTHERAPY</option>
+        <option>PULMONARY FUNCTION TEST</option>
+        <option>BRCA 1 & 2 Full Gene Sequencing(With Sanger Validation)</option>
+        <option>AMNIOCENTESIS PROCEDURE</option>
+        <option>KARYOTYPING - AMNIOTIC FLUID</option>
+        <option>INJECTION IM CHARGES</option>
+        <option>DRESSING CHARGES - SMALL</option>
+        <option>DRESSING CHARGES - BIG</option>
+        <option>IV INJECTION</option>
+        <option>IV DRIPS INJECTION</option>
+        <option>CONSULTATION WITH GYNAECOLOGIST</option>
+        <option>FNAC</option>
+        <option>AMNIOCENTESIS - PROCEDURE</option>
+        <option>FISH FOR CHR 13,18,21</option>
+        <option>FISH FOR CHR21</option>
+        <option>MTP PROCEDURE CHARGES</option>
+        <option>HOME COLLECTION CHARGES</option>
+        <option>ENDOSCOPY</option>
+        <option>PROCEDURE CHARGES</option>
+        <option>HOME COLLECTION CHARGES 1</option>
+        <option>QUESTIONNAIRE</option>
+        <option>AMBULANCE CHARGES</option>
+        <option>NERVE CONDUCTION STUDY 2 LIMBS</option>
+        <option>NERVE CONDUCTION STUDY 4 LIMBS</option>
+        <option>PFT - PULMONARY FUNCTION TEST</option>
+        <option>COLONOSCOPY</option>
+        <option>BONE MINERAL DENSITY</option>
+        <option>EYE CHECKUP</option>
+        <option>CARDIAC CONSULTATION</option>
+        <option>DIET REVIEW</option>
+        <option>AUDIOMETRY</option>
+        <option>SERVICE TAX</option>
+        <option>SERVICE CHARGES</option>
+        <option>LIC FMR (BELOW 15 LAC )</option>
+        <option>SBT-13</option>
+        <option>LIC RUA</option>
+        <option>LIC ECG</option>
+        <option>LIC HAEMOGRAM</option>
+        <option>LIC FMR  ABOVE 25 LAC</option>
+        <option>LIC FMR  ABOVE 50 LAC</option>
+        <option>LIC FMR  ABOVE 1CR</option>
+        <option>LIC FMR (BELOW 25  LAC )</option>
+        <option>LIC HB</option>
+        <option>LIC FBS</option>
+        <option>LIC HBA1C</option>
+        <option>LIC  URINE CONTININE</option>
+        <option>Medical Examination 1</option>
+        <option>Medical Examination 2</option>
+        <option>Medical Examination 3</option>
+        <option>ENMG B/L LOWER LOMB</option>
+        <option>GYNAECOLOGIST</option>
+        <option>INJECTION IV CHARGES</option>
+        <option>NEBULIZATION CHARGES</option>
+        <option>ENMG ALL 4 LIMBS</option>
+        <option>COLONOSCOPY PROCEDURE CHARGES</option>
+        <option>HOME COLLECTION CHARGES -RAJAJINAGAR</option>
+        <option>Electroencephalogram (EEG)</option>
+        <option>QUESTIONNAIRE-1</option>
+        <option>PHYSCIAN REPORT 1 &2</option>
+        <option>X RAY REPORT</option>
+        <option>ENDOSCOPY PROCEDURE CHARGES</option>
+        <option>CLO TEST (RAPID UREASE TEST)</option>
+        <option>MEOP</option>
+        <option>COUNSULTATION DR.RAMESH D</option>
+        <option>AMBULANCE CHARGES-1</option>
+        <option>HP SLIDE</option>
+        <option>DISPOSABLE GOWN</option>
+        <option>HOME COLLECTION CHARGES 2</option>
+        <option>SIGMOIDOSCOPY</option>
+        <option>AMBULANCE CHARGES 2</option>
+        <option>HSG PROCEDURE  (Hysterosalpingogram)</option>
+        <option>PP KIT CHARGES</option>
+        <option>USG GUIDED LIVER BIOPSY</option>
+        <option>MEDICAL CERTIFICATE</option>
+        <option>COAXIAL BIOPSY GUN</option>
+        <option>PERNICIOUS ANEMIA PANEL</option>
+        <option>USG GUIDED BIOPSY PROCEDURE</option>
+        <option>USG GUIDED KIDNEY BIOPSY WITH HISTOPATHOLOGY</option>
+        <option>CT GUIDED BIOPSY WITH HISTOPATHOLOGY</option>
+        <option>ADA FLUIED</option>
+        <option>FACIAL NERVE CONDITION STUDY</option>
+        <option>VEP (VISUAL EVOKED POTENTIALS)</option>
+        <option>L P NEEDLE</option>
+        <option>PROCEDURE CHARGES 2</option>
+        <option>HOMECOLLECTION CHARGES-3</option>
+        <option>SKIN PROCEDURE CHARGES</option>
+        <option>ENDOMETRIAL PIPELLING CHARGES</option>
+        <option>CT EACH FILM</option>
+        <option>SKIN BIOPSY CHARGES-1</option>
+        <option>SKIN PROCEDURE CHARGES-2</option>
+        <option>SKIN PROCEDURE CHARGES-3</option>
+        <option>SKIN PROCEDURE CHARGES-4</option>
+        <option>SKIN PROCEDURE CHARGES-1</option>
+        <option>COLLECTION CHARGES-1</option>
+        <option>COLLECTION CHARGES-2</option>
+        <option>COLLECTION CHARGES-3</option>
+        <option>POLYPECTOMY INCLUDING HISTOPATHOLOGY</option>
+        <option>TRUCUT BIOPSY PROCEDURE CHARGES</option>
+        <option>DRIP CHARGES</option>
+        <option>OT CHARGES-(MINOR)</option>
+        <option>SKIN PROCEDURE CHARGES-5</option>
+        <option>DRESSING CHRGES SMALL 01</option>
+        <option>SKIN NEEDLING</option>
+        <option>CONSUMBALES</option>
+        <option>PSYCHIATRY THERAPY SESSION</option>
+        <option>PSYCHIATRY COUPLE THERAPY</option>
+        <option>OXYGEN CHAREGS</option>
+        <option>ANTI NMDA RECEPTOR ANTIBODY</option>
+        <option>PHYSIO-ULTRASOUND IFT SINGLE REGION</option>
+        <option>PHYSIO-ULTRASOUND IFT BILATERAL</option>
+        <option>PHYSIO-LASER PHYSIOTHEREPHY</option>
+        <option>SKIN PRICK TEST</option>
+        <option>2D - ECHO</option>
+        <option>SCROTAL ULTRASOUND</option>
+        <option>BREAST SINGLE ULTRASOUND..</option>
+        <option>EARLY PREGNANCY(BELOW 10 WKS)..</option>
+        <option>PELVIC ULTRASOUND..</option>
+        <option>FOLLICULAR ULTRASOUND..</option>
+        <option>THYROID SCAN..</option>
+        <option>BARIUM SWALLOW..</option>
+        <option>BARIUM UPPER GI SERIES ROUTINE..</option>
+        <option>ROUTINE X RAY..</option>
+        <option>PLAIN XRAY ABDOMEN..</option>
+        <option>X RAY CERVICAL SPINE AP..</option>
+        <option>THORACO LUMBAR SPINE AP & LATERAL..</option>
+        <option>LUMBAR SPINE-AP & LATERAL..</option>
+        <option>XRAY MASTOIDS..</option>
+        <option>XRAY OF PNS..</option>
+        <option>PLAIN XRAY KUB REGION..</option>
+        <option>X RAY OF PELVIS WITH BOTH HIP JOINTS..</option>
+        <option>IVP WITH PLAIN X RAY..</option>
+        <option>X RAY CHEST..</option>
+        <option>X RAY BOTH KNEE AP & LATERAL..</option>
+        <option>X RAY FOOT AP & LATERAL VIEW..</option>
+        <option>X RAY KNEE AP VIEW..</option>
+        <option>X RAY KNEE AP & LATERAL VIEW..</option>
+        <option>X RAY SHOULDER AP VIEW..</option>
+        <option>X RAY SHOULDER AP & LATERAL VIEW..</option>
+        <option>X RAY CERVICAL SPINE AP & LATERAL..</option>
+        <option>XRAY HAND AP VIWE..</option>
+        <option>MAMMOGRAPHY BOTH BREAST..</option>
+        <option>USG ABDOMEN &PELVIS..</option>
+        <option>ANOMALY SCAN..</option>
+        <option>GENITAL SCAN..</option>
+        <option>FOLLICULAR SINGLE SITTING..</option>
+        <option>FOLLICULAR SINGLE SITTING(TVS)..</option>
+        <option>TVS -TRANS VAGINAL SCAN..</option>
+        <option>XRAY LS LAT..</option>
+        <option>XRAY LS AP..</option>
+        <option>XRAY C SPINE AP..</option>
+        <option>XRAY C SPINE LAT..</option>
+        <option>XRAY WRIST JOINTS..</option>
+        <option>ARTERIAL & VENOUS DOPPLER BOTH LOWER LIMB...</option>
+        <option>PENILE DOPPLER..</option>
+        <option>PENILE DOPPLER SCREENING..</option>
+        <option>ULTRASOUND GUIDED FNAC +SMEAR..</option>
+        <option>VENOUS DOPPLER ONE LOWER LIMB..</option>
+        <option>VENOUS DOPPLER FOR BOTH LOWER LIMB..</option>
+        <option>USG  THORAX..</option>
+        <option>MRI BRAIN SCREENING..</option>
+        <option>CT BRAIN..</option>
+        <option>Electroencephalogram (EEG)..</option>
+        <option>USG KUB..</option>
+        <option>CAROTID VERTIBLE DOPPLER..</option>
+        <option>NT SCAN   ABOVE  12 WKS..</option>
+        <option>PORTAL VENOUS DOPPLER..</option>
+        <option>USG BREAST BOTH..</option>
+        <option>ARTERIAL & VENOUS DOPPLER ONE LIMB..</option>
+        <option>XRAY L S SPINE AP LAT..</option>
+        <option>ULTRASOUND SOFT TISSUE..</option>
+        <option>USG GUIDED FNAC/BIOPSY..</option>
+        <option>FOLLICULAR SINGLE SITTING..</option>
+        <option>FOLLICULAR SINGLE SITTING(TVS)..</option>
+        <option>USG SHOULDER..</option>
+        <option>USG SOFT TISSUE..</option>
+        <option>ARTERIAL DOPPLER BOTH LOWER LIMB..</option>
+        <option>XRAY FOOT AP..</option>
+        <option>USG NECK..</option>
+        <option>USG PAROTID..</option>
+        <option>PREGNANCY SCAN -ABOVE 11 WKS..</option>
+        <option>DOPPLER PREGNANCY..</option>
+        <option>FILM CHARGES..</option>
+        <option>OBSTETRIC GROWTH  SCAN  ABOVE 8 MONTH..</option>
+        <option>X RAY HAND AP & LATERAL VIEW..</option>
+        <option>ELBOW X RAY AP/LAT..</option>
+        <option>USG GUIDED PIG TAIL..</option>
+        <option>PHYSICIAN REPORT</option>
+        <option>X RAY L S SPINE FLEXION/EXTENSION..</option>
+        <option>QUESTIONNAIRE-1..</option>
+        <option>MRI SACRUM & COCAYX..</option>
+        <option>MAMMOGRAM SINGLE SIDE..</option>
+        <option>USG KUB..</option>
+        <option>XRAY ROUTINE..</option>
+        <option>XRAY HEELS..</option>
+        <option>CT FORE ARM WITH 3D RECONSTRUCTION</option>
+        <option>XRAY T L SPINE AP LAT..</option>
+        <option>USG BOTH AXIALLA</option>
+        <option>VENOUS DOPPLER FOR SINGLE FOREARAM</option>
+        <option>VENOUS DOPPLER FOR BOTH FOREARAM</option>
+        <option>WIDAL TEST</option>
+        <option>HIV I & II (Screening Test)</option>
+        <option>VDRL</option>
+        <option>MANTOUX TEST</option>
+        <option>HIV1&2(WESTERN BLOT)</option>
+        <option>RA Factor - Rheumatoid Arthritis Factor (Quantitative)</option>
+        <option>HERPES SIMPLEX 1: Ig M</option>
+        <option>HERPES SIMPLEX 2: Ig M</option>
+        <option>Herpes Simplex Virus 1 & 2 - Ig G</option>
+        <option>HERPES SIMPLEX 2: Ig G</option>
+        <option>ANTI DNA ANTIBODY[ELISA]</option>
+        <option>C REACTIVE PROTEIN (CRP)-QUANTITATIVE</option>
+         <option>ANA - Anti Nuclear Antibodies</option>
+        <option>ANTI-NUCLEAR AB.IMMUNOFLUORESENCE</option>
+        <option>BRUCELLA AGGLUTINATION TEST</option>
+        <option>PLeptospira Ig M</option>
+        <option>DENGUE FEVER PROFILE, ELISA</option>
+        <option>WEIL-FELIX TEST</option>
+        <option>MRI BRAIN SCREENING..</option>
+        <option>TYPHI DOT</option>
+        <option>TORCH IGM</option>
+        <option>MUMPS IGM ANTIBODIES</option>
+        <option>MEASLES ANTIBODY TEST</option>
+        <option>RUBELLA ANTIBODY TEST</option>
+        <option>CYTOMEGALOVIRUS TEST</option>
+        <option>Toxoplasma - Ig M</option>
+        <option>Toxoplasma - Ig G</option>
+        <option>THYROID ANTIBODY-THYROGLOBULIN TEST</option>
+        <option>THYROID ANTI MICROSOMAL ANTIBODY</option>
+        <option>HAV- TOTAL & IGM AB</option>
+        <option>HAV- TOTAL & IGM AB</option>
+        <option>HEPATITIS C VIRUS ANTIBODY</option>
+        <option>HEPATITIS C VIRUS ANTIBODY</option>
+        <option>ROSE WALLER TEST</option>
+        <option>C4 - Complement 4</option>
+        <option>ANTISPERM ANTIBODY</option>
+        <option>CASONI'S TEST</option>
+        <option>TOXOPLASMA ANTIBODY</option>
+        <option>ANTIAMOEBIC ANTIBODY</option>
+        <option>SLE SLIDE TEST</option>
+        <option>RPR CARD TEST</option>
+        <option>TUBERCULOSIS Ig M/Ig G TEST</option>
+        <option>Rubella - Ig G</option>
+        <option>Rubella - Ig M</option>
+        <option>CA-15.3</option>
+        <option>CA 19-9 ANTIGEN-BLOOD</option>
+        <option>CA 50 ANTIGEN-BLOOD</option>
+        <option>CA - 125 ANTIGEN-BLOOD</option>
+        <option>CEA - (CARCINO-EMBRYONIC ANTIGEN)</option>
+        <option>CHIKUNGUNYA-IGM</option>
+        <option>Weil Felix</option>
+        <option>ANTI-CCP</option>
+        <option>AMH-MULLERIAN INHIBITING SUBSTANCE</option>
+        <option>CALCIM IONIC SERUM</option>
+        <option>H.PYLORI ANTIBODY ( ANTIBODY TO HELICOBACTER PYLORI)</option>
+        <option>HBSAG(CONFIRMATION&QUANTIFICATION)</option>
+        <option>HBE-AG</option>
+        <option>HEPATIS B CORE ANTIBODY ( HBcAg ANTIBODY )</option>
+        <option>HBCAB-IGM</option>
+        <option>HBE-AB</option>
+        <option>HLA B27</option>
+        <option>MANTOUX TEST</option>
+        <option>MONOSPOT</option>
+        <option>TORCH IgG & IgM ELISA</option>
+        <option>HS CRP - C Reactive Protein (Quantitative)</option>
+        <option>HEPATITIS B "E" ANTIBODY (ANTI HBe)</option>
+        <option>ANTI HBS-TITRE</option>
+        <option>DENGUE IGG*</option>
+        <option>H PYLORI IGG</option>
+        <option>H PYLORI IGM</option>
+        <option>HBA1C</option>
+        <option>HBSAB-SURFACE ANTIGEN</option>
+        <option>HBsAg</option>
+        <option>HAV IGG -CLIA</option>
+        <option>HAV- IGM AB</option>
+        <option>HEPATITIS A VIRUS (HAV), IGG & IGM</option>
+        <option>HERPES SIMPLEX ANTIBODIES I & II (IGG & IGM)</option>
+        <option>HERPES SIMPLEX( I&II) IGM AB.</option>
+        <option>HERPES SIMPLEX(I) IGG AB.</option>
+        <option>HIV 1 DNA QUALITATIVE</option>
+        <option>HIV ANTI-BODY (I & II) & P24 AG</option>
+        <option>HIV DUO ANTIGEN&ANTIBODY SCREEN</option>
+        <option>LEPTOSPIRA DETECTION</option>
+        <option>Leptospira Ig G</option>
+        <option>MEASELES(RUBEOLA)IGM</option>
+        <option>MEASLES-IGG</option>
+        <option>MUMPS-IGG</option>
+        <option>RHEUMATOID FACTOR(QUANTITATIVE)</option>
+        <option>SLE DIAGNOSTIC PANEL</option>
+        <option>SLIDES/BLOCKS OF HPE</option>
+        <option>TORCH PANEL</option>
+        <option>TOXOPLASMA,AVIDITY TEST</option>
+        <option>TUBERCULOSIS(MTB),RT PCR</option>
+        <option> ANA-IFA</option>
+        <option>C-ANCA</option>
+        <option>ANCA-(MPO&PR3)</option>
+        <option>ANTI CARDIOLIPIN ANTIBODY, SCREENING</option>
+        <option>ANTI DNASE B</option>
+        <option>HBV ANTI HBCAG-CORE ANTIGEN-TOTAL</option>
+        <option>ANTI HCV AB,SCREENING</option>
+        <option>ANTI MICROFILARIAL AB</option>
+        <option>ANTI THROMBIN III ACTIVITY (FUNCTIONAL)</option>
+        <option>ANTI THYROGLOBULIN</option>
+        <option>ANTI-HEV-IGM</option>
+        <option>Antibodies to HIV I & II</option>
+        <option>ANTI-HSV (II)-IGG AB</option>
+        <option>ANTI-MYCOBACTERIAL ANTIBODY</option>
+        <option>ANTIHEV-IGG</option>
+        <option>ASO-TITRE</option>
+        <option> ASPERGILLUS FUMIGATES DNA DETECTOR (PCR)</option>
+        <option>AST</option>
+        <option>BNP-B TYPE NATRIURETIC PEPTIDE</option>
+        <option>C-PEPTIDE*</option>
+        <option>VARICELLA ZOSTER VIRUS IGM</option>
+        <option>VARICELLA ZOSTER VIRUS IGG</option>
+        <option>SCL-70 AB</option>
+        <option>SCI-70,ANTIBODY</option>
+        <option>RO & LA AB</option>
+        <option>RNP- AB</option>
+        <option>Phospholipid Ig G</option>
+        <option>NS1 DENGUE ANTIGEN</option>
+        <option>MICROSOMAL (TPO) ANTIBODY</option>
+        <option>ANTI LKM1 ANTIBODYS</option>
+        <option>LA (SS-B) AB</option>
+        <option>INTRINSIC FACTOR ANTIBODY,SERUM</option>
+        <option>IGM BY NEPHELOMETRY</option>
+        <option>IGG BY NEPHELOMETRY</option>
+        <option>IGG BY NEPHELOMETRY</option>
+        <option>RO</option>
+        <option>LKM1-DILUTION</option>
+        <option>IGE- ASPERGILLUS AB</option>
+        <option>IGA BY NEPHELOMETRY</option>
+        <option>HSV 1&2 IGM</option>
+        <option>HSV 1 &2 IGG</option>
+        <option>HEVANTIBODIES(IGG+IGM)</option>
+        <option>HEV-IGM ANTIBODY</option>
+        <option>HEV-ANTI HEV IGG</option>
+        <option>HER-2/ NEU</option>
+        <option>HDV-IGG AB</option>
+        <option>HCV-TOTAL ANTIBODIES CARD TEST</option>
+        <option>HCV-IGM AB</option>
+        <option>HBV DNA(QUALITATIVE)</option>
+        <option>HBV DNA VIRAL LOAD QUANTITATIVE</option>
+        <option>GLIADIN IGA</option>
+        <option>GLIADIN IGG</option>
+        <option>GASTRIC PARIETAL CELL ANTIBODY(GPCA)</option>
+        <option>GAD-65(GLUTAMIC ACID DECARBOXYLASE)ANTIBODY</option>
+        <option>FILARIA AB</option>
+        <option>ENDOMYSIAL AB IGA</option>
+        <option>ENA (EXTRACTABLE NUCLEAR ANTIGEN)</option>
+        <option>ECHINOCOCCUS IGG AB</option>
+        <option>CMV ANTIBODIES (IGG)</option>
+        <option>CMV- Ig G</option>
+        <option>CHLAMYDIA TRACHOMATIS- IGG AB</option>
+        <option>CHLAMYDIA TRACHOMATIS- IGM AB</option>
+        <option>CHLAMYDIA TRACHOMATIS- IGA AB</option>
+        <option>CARDIOLIPIN AB- IGA</option>
+        <option>Anti Cardiolipin Ig G</option>
+        <option>Anti Cardiolipin Ig M</option>
+        <option>C.R.P QUANTITATIVE</option>
+        <option>TORCH IGG</option>
+        <option>CMV- Ig M</option>
+        <option>HEPATITIS A (HAV), IGG</option>
+        <option>HEPATITIS A (HAV), IGM</option>
+        <option>HEPATITIS A (HAV), IGM</option>
+        <option>HEPATITIS PROFILE</option>
+        <option>HCV</option>
+        <option>DENGUE NSI</option>
+        <option>Hbs Ag CLIA</option>
+        <option>HCV Hepatitis C Virus - CLIA</option>
+        <option>HIV Rapid Test</option>
+        <option>Inhalation - India Specific Panel</option>
+        <option>Food - India Specific Panel</option>
+        <option>Pediatric - Specific Panel</option>
+        <option>Anti Ds DNA</option>
+        <option>ANA Profile Immunoblot</option>
+        <option>ANTI DNA ANTIBODY</option>
+        <option>Autoimmune Hepatitis panel</option>
+        <option>Hydroxy Proline (Total and Free Urine)</option>
+        <option>Pyruvate-Pyruvic Acid (Perchioric Acid)</option>
+        <option>C3 - Complement 3</option>
+        <option>Chikungunya Ig M</option>
+        <option>HIV - Confirmation</option>
+        <option>HIV - P24</option>
+        <option>Ig A - Immunoglobulin A Total</option>
+        <option>Ig E - Immunoglobulin E Total</option>
+        <option>Ig G - Immunoglobulin G Total</option>
+        <option>Ig M - Immunoglobulin M Total</option>
+        <option>Phospholipid Ig M</option>
+        <option>Rapid Malarial Parasite Antigen</option>
+        <option>MP QBC</option>
+        <option>NAIL CLIPPING</option>
+        <option>HERPES SIMPLEX VIRUS 2-IGG-CSF</option>
+        <option>HERPES SIMPLEX VIRUS 2-IGM-CSF</option>
+        <option>Herpes Simplex Virus 1 & 2 - Ig M</option>
+        <option>Rubella - Ig G Antibody</option>
+        <option>HAV - Hepatitis A Virus - Ig M-CLIA</option>
+        <option>Hepatitis B Anti Core IgM Antibody</option>
+        <option>Hepatitis B Virus Anti Core IgG Antibody</option>
+        <option>HbeAb - Hepatitis B Envelope - Antibody Ig G</option>
+        <option>HbeAg - Hepatitis B Envelope - Antigen</option>
+        <option>HbsAbs - Hepatitis B Surface Antibodies</option>
+        <option>HbsAg - Hepatitis B Virus Surface Antigen</option>
+        <option>HbsAg - Hepatitis B Virus Surface Antigen Elisa</option>
+        <option>HbsAg - Hepatitis B Virus Surface Antigen Rapid</option>
+        <option>Antibodies to Hepatitis C Virus</option>
+        <option>Antibodies to Hepatitis C Virus E-CLIA</option>
+        <option>HEV - Hepatitis E Virus - Ig M</option>
+        <option>ANTI STREPTOLYSIN O TITRE (ASLO)-QUANTITATIVE</option>
+        <option>Typhidot Ig M</option>
+        <option>Typhidot Ig G</option>
+        <option>Rapid Plasma Reagin - RPR</option>
+        <option>HIV-1 & 2 ANTIBODIES (RAPID TEST)</option>
+        <option>Hepatitis B core IgM antibodies</option>
+        <option>Hepatitis B Envolope Antigen (HBeAg)</option>
+        <option>ASMA</option>
+        <option>P-ANCA</option>
+        <option>ANTI MITOCHONDIARY</option>
+        <option>PR3 (ELISA)</option>
+        <option>Anti MuSK antibody test</option>
+        <option>HIV CLIA</option>
+        <option>HIV P24 ANTIGEN (SCREENING)</option>
+        <option>HIV EARLY DETECTION PANEL</option>
+        <option>HEPATITIS B SURFACE ANTIBODY</option>
+        <option>Beta 2 glycoprotein IgA</option>
+        <option>Beta 2 glycoprotein IgG</option>
+        <option>Beta 2 glycoprotein IgM</option>
+        <option>VDRL TITRE</option>
+        <option>Dengue IgM Rapid Test</option>
+        <option>ISLET CELL ANTIBODY.</option>
+        <option>Amoebic Serology, IgG-Serum</option>
+        <option>HCV ELISA</option>
+        <option>HIV ELISA</option>
+        <option>Phadiatop Test for Allergy</option>
+        <option>SARS-COV-2 (COVID-19)-ELISA-Serum</option>
+        <option>SARS COV2 RAPID ANTIBODY  IGG IGM TEST</option>
+        <option>Anti HSV-1 IgG</option>
+        <option>Anti HSV-1 IgM</option>
+        <option>Anti HSV-2 IgG</option>
+        <option>Anti HSV-2 IgM</option>
+        <option>myositis panel - 11 antigen</option>
+        <option>HCV RAPID</option>
+        <option>ULTRASOUND GUIDED FNAC +SMEAR</option>
+        <option>ULTRASOUND SOFT TISSUE</option>
+        <option>USG  THORAX</option>
+        <option>USG ABDOMEN &PELVIS</option>
+        <option>USG BREAST BOTH</option>
+        <option>USG GUIDED FNAC/BIOPSY</option>
+        <option>USG GUIDED PIG TAIL</option>
+        <option>USG KUB</option>
+        <option>USG NECK</option>
+        <option>USG SOFT TISSUE</option>
+        <option>PREGNANCY ANOMALY SCAN</option>
+        <option>ARTERIAL & VENOUS DOPPLER BOTH LOWER LIMB</option>
+        <option>ARTERIAL & VENOUS DOPPLER ONE LIMB</option>
+        <option>ARTERIAL DOPPLER BOTH LOWER LIMB</option>
+        <option>SCROTAL ULTRASOUND</option>
+        <option>ULTRASOUND SINGLE BREAST</option>
+        <option>CAROTID AND VERTEBRAL DOPPLER</option>
+        <option>DOPPLER PREGNANCY</option>
+        <option>PENILE DOPPLER</option>
+        <option>VENOUS DOPPLER FOR BOTH LOWER LIMB</option>
+        <option>VENOUS DOPPLER ONE LOWER LIMB</option>
+        <option>PREGNANCY SCAN -ABOVE 11 WKS</option>
+        <option>PREGNANCY  EARLY SCAN (BELOW 10 WKS)</option>
+        <option>FOLLICULAR SINGLE SITTING</option>
+        <option>FOLLICULAR SINGLE SITTING(TVS)</option>
+        <option>GENITAL SCAN</option>
+        <option>PREGNANCY NT  SCAN</option>
+        <option>PREGNANCY GROWTH  SCAN  ABOVE 8 MONTH</option>
+        <option>PELVIC ULTRASOUND</option>
+        <option>PENILE DOPPLER SCREENING</option>
+        <option>PORTAL VENOUS DOPPLER</option>
+        <option>THYROID SCAN</option>
+        <option>TVS -TRANS VAGINAL SCAN</option>
+        <option>FOLLICULAR ULTRASOUND</option>
+        <option>RENAL DOPPLER</option>
+        <option>ARTERIAL & VENOUS DOPPLER BOTH UPPER LIMB</option>
+        <option>ARTERIAL & VENOUS DOPPLER ONE UPPER LIMB</option>
+        <option>USG GUIDED FLUID TAPPING</option>
+        <option>USG ABDOMEN</option>
+        <option>USG CHEST</option>
+        <option>USG GUIDED BIOPSY GUN</option>
+        <option>PREGNANCY EARLY SCAN (BELOW 10WKS TWINS )</option>
+        <option>PREGNANCY SCAN-ABOVE 11WKS TWINS</option>
+        <option>TVS -3D/4D SCAN</option>
+        <option>DOPPLER A V FISTULA FOR  SINGLE  UPPER LIMB</option>
+        <option>ARTERIAL DOPPLER SINGLE LOWER LIMB</option>
+        <option>SONOMAMMOGRAPHY -BILATERAL</option>
+        <option>PREGENCY SCAN  WITH 3D</option>
+        <option>SSG-SONO SALPINGOGRAM</option>
+        <option>USG CRANIUM-1</option>
+        <option>USG THYROID</option>
+        <option>3D SCAN EXTRA CHARGES</option>
+        <option>USG BREAST SINGLE</option>
+        <option>ARTERIAL SINGLE UPPER LIMB</option>
+        <option>USG BOTH BREAST MALE</option>
+        <option>USG ABDOMEN & PELVIS WITH DOPPLER</option>
+        <option>CHEST XRAY</option>
+        <option>XRAY AP LATERAL</option>
+        <option>X RAY LEG AP & LATERAL</option>
+        <option>XRAY THORACIS AP & LATERAL</option>
+         <option>XRAY C SPINE LAT</option>
+        <option>XRAY C SPINE AP</option>
+        <option>X RAY SHOULDER AP & LATERAL VIEW</option>
+        <option>X RAY OF L S SPINE FLEXION/EXTENSION</option>
+        <option>X RAY KNEE AP VIEW</option>
+        <option>USG PAROTID</option>
+        <option>X RAY KNEE AP & LATERAL VIEW</option>
+        <option>X RAY HAND AP & LATERAL VIEW</option>
+        <option>X RAY FOOT AP & LATERAL VIEW</option>
+        <option>X RAY WRIST AP / LATERAL</option>
+        <option>X RAY CERVICAL SPINE AP & LATERAL</option>
+        <option>X RAY CERVICAL SPINE AP</option>
+        <option>X RAY BOTH KNEE AP & LATERAL</option>
+        <option>IVP WITH PLAIN X RAY</option>
+        <option>PLAIN XRAY ABDOMEN</option>
+        <option>ROUTINE X RAY</option>
+        <option>ELBOW X RAY AP/LAT</option>
+        <option>X RAY OF LUMBAR SPINE-AP & LATERAL</option>
+        <option>MAMMOGRAM SINGLE SIDE</option>
+        <option>MAMMOGRAPHY BOTH BREAST</option>
+        <option>PLAIN XRAY KUB REGION</option>
+        <option>THORACO LUMBAR SPINE AP & LATERAL</option>
+        <option>BARIUM SWALLOW</option>
+        <option>BARIUM UPPER GI SERIES ROUTIN</option>
+        <option>XRAY REPORT 2ND OPENION</option>
+        <option>XRAY OF DORSAL AP LAT</option>
+        <option>X RAY NECK AP</option>
+        <option>X RAY NECK LAT</option>
+        <option>X RAY FORE ARM AP AND LATERAL</option>
+        <option>XRAY KUB</option>
+        <option>XRAY PELVIS AP</option>
+        <option>XRAY L S LAT</option>
+        <option>XRAY DORSO LIMBER SPINE AP LAT</option>
+        <option>XRAY ROUTINE-1</option>
+        <option>MCU MICTURING  CYSTOURETHROGRAPHY</option>
+        <option>RGU (RETROGRADE URETHROGRAPHY)</option>
+        <option>ASU-ASENDING CYSTO UROTHROGRAM</option>
+        <option>XRAY CERVICAL SPINE LATERAL</option>
+        <option>XRAY BOTH KNEE AP& LAT</option>
+        <option>XRAY HIP JIONTS AP & LAT-1</option>
+        <option>XRAY SOFT TISSUE</option>
+        <option>XRAY ERECT ABDOMEN</option>
+        <option>XRAY CHEST AP LAT</option>
+        <option>XRAY BOTH KNEE AP</option>
+        <option>XRAY BOTH HEEL AP & LAT</option>
+        <option>XRAY BOTH HEELS AP & LAT</option>
+        <option>XRAY BOTH FEET LAT</option>
+        <option>X RAY BOTH HANDS AP/ LATERAL</option>
+        <option>XRAY KNEE AP LAT</option>
+        <option>X RAY DORSAL SPINE LATERAL VIEW</option>
+        <option>BARIUM ENEMA</option>
+        <option>XRAY THIGH AP LAT</option>
+        </select>
+         </td>
+	        <td>
+                <select name="cname" style="color:black;border-style:groove;border-radius:30px">
+		            <option>Amount</option>
+	        </select>
+        </td>
+        <td>
+            <select name="lname" style="color:black;border-style:groove;border-radius:30px">
+                  <option>NetAmount</option>
+            </select>
+        </td>
+             </tr>
+         </table>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $department = $("select[name='dep']");
+                $cname = $("select[name='cname']");
+                $lname = $("select[name='lname']");
+                $department.change(function () {
+                    if ($(this).val() == "BLOOD SUGAR- FASTING") {
+                        $("select[name='cname'] option").remove();
+                        $("<option>30</option>").appendTo($cname);
+                        $("select[name='lname'] option").remove();
+                        $("<option>30</option>").appendTo($lname);
                     }
-                });
-                /*execute a function presses a key on the keyboard:*/
-                inp.addEventListener("keydown", function (e) {
-                    var x = document.getElementById(this.id + "autocomplete-list");
-                    if (x) x = x.getElementsByTagName("div");
-                    if (e.keyCode == 40) {
-                        /*If the arrow DOWN key is pressed,
-                        increase the currentFocus variable:*/
-                        currentFocus++;
-                        /*and and make the current item more visible:*/
-                        addActive(x);
-                    } else if (e.keyCode == 38) { //up
-                        /*If the arrow UP key is pressed,
-                        decrease the currentFocus variable:*/
-                        currentFocus--;
-                        /*and and make the current item more visible:*/
-                        addActive(x);
-                    } else if (e.keyCode == 13) {
-                        /*If the ENTER key is pressed, prevent the form from being submitted,*/
-                        e.preventDefault();
-                        if (currentFocus > -1) {
-                            /*and simulate a click on the "active" item:*/
-                            if (x) x[currentFocus].click();
-                        }
+                    if ($(this).val() == "BLOOD SUGAR- POST PRANDIAL") {
+                        $("select[name='cname'] option").remove();
+                        $("<option>30</option>").appendTo($cname);
+                        $("select[name='lname'] option").remove();
+                        $("<option>30</option>").appendTo($lname);
                     }
-                });
-                function addActive(x) {
-                    /*a function to classify an item as "active":*/
-                    if (!x) return false;
-                    /*start by removing the "active" class on all items:*/
-                    removeActive(x);
-                    if (currentFocus >= x.length) currentFocus = 0;
-                    if (currentFocus < 0) currentFocus = (x.length - 1);
-                    /*add class "autocomplete-active":*/
-                    x[currentFocus].classList.add("autocomplete-active");
-                }
-                function removeActive(x) {
-                    /*a function to remove the "active" class from all autocomplete items:*/
-                    for (var i = 0; i < x.length; i++) {
-                        x[i].classList.remove("autocomplete-active");
+                    if ($(this).val() == "BLOOD SUGAR -RANDOM") {
+                        $("select[name='cname'] option").remove();
+                        $("<option>30</option>").appendTo($cname);
+                        $("select[name='lname'] option").remove();
+                        $("<option>30</option>").appendTo($lname);
                     }
-                }
-                function closeAllLists(elmnt) {
-                    /*close all autocomplete lists in the document,
-                    except the one passed as an argument:*/
-                    var x = document.getElementsByClassName("autocomplete-items");
-                    for (var i = 0; i < x.length; i++) {
-                        if (elmnt != x[i] && elmnt != inp) {
-                            x[i].parentNode.removeChild(x[i]);
-                        }
+                    if ($(this).val() == "BLOOD SUGAR-FASTING & POSTPRANDIAL") {
+                        $("select[name='cname'] option").remove();
+                        $("<option>60</option>").appendTo($cname);
+                        $("select[name='lname'] option").remove();
+                        $("<option>60</option>").appendTo($lname);
                     }
-                }
-                /*execute a function when someone clicks in the document:*/
-                document.addEventListener("click", function (e) {
-                    closeAllLists(e.target);
-                });
-            }
+                    if ($(this).val() == "GLUCOSE TOLERANCE TEST") {
+                        $("select[name='cname'] option").remove();
+                        $("<option>250</option>").appendTo($cname);
+                        $("select[name='lname'] option").remove();
+                        $("<option>250</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "GLYCOSYLATED HAEMOGLOBIN") {
+                        $("select[name = cname] option").remove();
+                        $("<option>450</option>").appendTo($cname);
+                        $("select[name='lname'] option").remove();
+                        $("<option>450</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "CHOLESTEROL") {
+                        $("select[name = cname] option").remove();
+                        $("<option>70</option>").appendTo($cname);
+                        $("select[name='lname'] option").remove();
+                        $("<option>70</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "HDL CHOLESTEROL") {
+                        $("select[name = cname] option").remove();
+                        $("<option>0</option>").appendTo($cname);
+                        $("select[name='lname'] option").remove();
+                        $("<option>0</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "TRIGLYCERIDES") {
+                        $("select[name = cname] option").remove();
+                        $("<option>130</option>").appendTo($cname);
+                        $("select[name='lname'] option").remove();
+                        $("<option>130</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "VLDL CHOLESTEROL") {
+                        $("select[name = cname] option").remove();
+                        $("<option>0</option>").appendTo($cname);
+                        $("select[name='lname'] option").remove();
+                        $("<option>0</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "TOTAL LIPIDS") {
+                        $("select[name = cname] option").remove();
+                        $("<option>400</option>").appendTo($cname);
+                        $("select[name='lname'] option").remove();
+                        $("<option>400</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "TOTAL  CHOLESTEROL") {
+                        $("select[name = cname] option").remove();
+                        $("<option>120</option>").appendTo($cname);
+                        $("select[name='lname'] option").remove();
+                        $("<option>120</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "LDL: HDL RATIO") {
+                        $("select[name = cname] option").remove();
+                        $("<option>50</option>").appendTo($cname);
+                        $("select[name='lname'] option").remove();
+                        $("<option>50</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "DIRECT BILIRUBIN") {
+                        $("select[name = cname] option").remove();
+                        $("<option>150</option>").appendTo($cname);
+                        $("select[name='lname'] option").remove();
+                        $("<option>150</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "ALBUMIN") {
+                        $("select[name = cname] option").remove();
+                        $("<option>200</option>").appendTo($cname);
+                        $("select[name='lname'] option").remove();
+                        $("<option>300</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "GLOBULIN") {
+                        $("select[name = cname] option").remove();
+                        $("<option>0</option>").appendTo($cname);
+                        $("select[name='lname'] option").remove();
+                        $("<option>0</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "TOTAL PROTEIN") {
+                        $("select[name = cname] option").remove();
+                        $("<option>150</option>").appendTo($cname);
+                        $("select[name='lname'] option").remove();
+                        $("<option>150</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "A/G RATIO") {
+                        $("select[name = cname] option").remove();
+                        $("<option>90</option>").appendTo($cname);
+                        $("select[name='lname'] option").remove();
+                        $("<option>90</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "Blood Urea Nitrogen") {
+                        $("select[name = cname] option").remove();
+                        $("<option>120</option>").appendTo($cname);
+                        $("select[name='lname'] option").remove();
+                        $("<option>120</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "BLOOD UREA NITROGEN (BUN)") {
+                        $("select[name = cname] option").remove();
+                        $("<option>120</option>").appendTo($cname);
+                        $("select[name='lname'] option").remove();
+                        $("<option>120</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "CREATININE") {
+                        $("select[name = cname] option").remove();
+                        $("<option>120</option>").appendTo($cname);
+                        $("select[name='lname'] option").remove();
+                        $("<option>120</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "URIC ACID") {
+                        $("select[name = cname] option").remove();
+                        $("<option>150</option>").appendTo($cname);
+                        $("select[name='lname'] option").remove();
+                        $("<option>150</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "SODIUM") {
+                        $("select[name = cname] option").remove();
+                        $("<option>120</option>").appendTo($cname);
+                        $("select[name='lname'] option").remove();
+                        $("<option>120</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "POTASSIUM") {
+                        $("select[name = cname] option").remove();
+                        $("<option>120</option>").appendTo($cname);
+                        $("select[name='lname'] option").remove();
+                        $("<option>120</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "CHLORIDE") {
+                        $("select[name = cname] option").remove();
+                        $("<option>110</option>").appendTo($cname);
+                        $("select[name='lname'] option").remove();
+                        $("<option>110</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "SERUM ELECTROLYTES") {
+                        $("select[name = cname] option").remove();
+                        $("<option>350</option>").appendTo($cname);
+                        $("select[name='lname'] option").remove();
+                        $("<option>350</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "S G O T [AST]") {
+                        $("select[name = cname] option").remove();
+                        $("<option>120</option>").appendTo($cname);
+                        $("select[name='lname'] option").remove();
+                        $("<option>120</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "S G P T [ALT]") {
+                        $("select[name = cname] option").remove();
+                        $("<option>120</option>").appendTo($cname);
+                        $("select[name='lname'] option").remove();
+                        $("<option>120</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "Gamma Glutamyl Transferase GGT") {
+                        $("select[name = cname] option").remove();
+                        $("<option>250</option>").appendTo($cname);
+                        $("select[name='lname'] option").remove();
+                        $("<option>250</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "Bone Alkaline Phosphatase") {
+                        $("select[name = cname] option").remove();
+                        $("<option>1600</option>").appendTo($cname);
+                        $("select[name='lname'] option").remove();
+                        $("<option>1600</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "ACID PHOSPHATASE") {
+                        $("select[name = cname] option").remove();
+                        $("<option>300</option>").appendTo($cname);
+                        $("select[name='lname'] option").remove();
+                        $("<option>300</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "LDH") {
+                        $("select[name = cname] option").remove();
+                        $("<option>550</option>").appendTo($cname);
+                        $("select[name='lname'] option").remove();
+                        $("<option>550</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "CK-MB Creatine Kinase -MB Fraction") {
+                        $("select[name = cname] option").remove();
+                        $("<option>400</option>").appendTo($cname);
+                        $("select[name='lname'] option").remove();
+                        $("<option>400</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "AMYLASE") {
+                        $("select[name = cname] option").remove();
+                        $("<option>450</option>").appendTo($cname);
+                        $("select[name='lname'] option").remove();
+                        $("<option>450</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "Lipase") {
+                        $("select[name = cname] option").remove();
+                        $("<option>600</option>").appendTo($cname);
+                        $("select[name='lname'] option").remove();
+                        $("<option>600</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "ALPHA-1-ANTITRYPSIN") {
+                        $("select[name = cname] option").remove();
+                        $("<option>2000</option>").appendTo($cname);
+                        $("select[name='lname'] option").remove();
+                        $("<option>2000</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "ALDOLASE") {
+                        $("select[name = cname] option").remove();
+                        $("<option>950</option>").appendTo($cname);
+                        $("select[name='lname'] option").remove();
+                        $("<option>950</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "MALIC DEHYDROGENASE") {
+                        $("select[name = cname] option").remove();
+                        $("<option>50</option>").appendTo($cname);
+                        $("select[name='lname'] option").remove();
+                        $("<option>50</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "CALCIUM") {
+                        $("select[name = cname] option").remove();
+                        $("<option>120</option>").appendTo($cname);
+                        $("select[name='lname'] option").remove();
+                        $("<option>120</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "MAGNESIUM") {
+                        $("select[name = cname] option").remove();
+                        $("<option>400</option>").appendTo($cname);
+                        $("select[name='lname'] option").remove();
+                        $("<option>400</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "SELENIUM") {
+                        $("select[name = cname] option").remove();
+                        $("<option>3100</option>").appendTo($cname);
+                        $("select[name='lname'] option").remove();
+                        $("<option>3100</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "SELENIUM [ URINE ]") {
+                        $("select[name = cname] option").remove();
+                        $("<option>3100</option>").appendTo($cname);
+                        $("select[name='lname'] option").remove();
+                        $("<option>3100</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "Lithium") {
+                        $("select[name = cname] option").remove();
+                        $("<option>400</option>").appendTo($cname);
+                        $("select[name='lname'] option").remove();
+                        $("<option>400</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "IRON") {
+                        $("select[name = cname] option").remove();
+                        $("<option>350</option>").appendTo($cname);
+                        $("select[name='lname'] option").remove();
+                        $("<option>350</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "TOTAL IRON BINDING CAPACITY (TIBC)") {
+                        $("select[name = cname] option").remove();
+                        $("<option>350</option>").appendTo($cname);
+                        $("select[name='lname'] option").remove();
+                        $("<option>350</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "FERRITIN") {
+                        $("select[name = cname] option").remove();
+                        $("<option>700</option>").appendTo($cname);
+                        $("select[name='lname'] option").remove();
+                        $("<option>700</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "MANGANESE IN BLOOD") {
+                        $("select[name = cname] option").remove();
+                        $("<option>2500</option>").appendTo($cname);
+                        $("select[name='lname'] option").remove();
+                        $("<option>2500</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "CSF CHLORIDE") {
+                        $("select[name = cname] option").remove();
+                        $("<option>150</option>").appendTo($cname);
+                        $("select[name='lname'] option").remove();
+                        $("<option>150</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "SERUM PHOSPHOROUS") {
+                        $("select[name = cname] option").remove();
+                        $("<option>110</option>").appendTo($cname);
+                    }
+                    if ($(this).val() == "AMMONIA") {
+                        $("select[name = cname] option").remove();
+                        $("<option>500</option>").appendTo($cname);
+                        $("select[name='lname'] option").remove();
+                        $("<option>500</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "ZINC [PLASMA]") {
+                        $("select[name = cname] option").remove();
+                        $("<option>1000</option>").appendTo($cname);
+                        $("select[name='lname'] option").remove();
+                        $("<option>1000</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "ZINC [URINE]") {
+                        $("select[name = cname] option").remove();
+                        $("<option>1000</option>").appendTo($cname);
+                        $("select[name='lname'] option").remove();
+                        $("<option>1000</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "5-Hydroxyindoleacetic Acid (5-HIAA)-24hrs") {
+                        $("select[name = cname] option").remove();
+                        $("<option>2600</option>").appendTo($cname);
+                        $("select[name='lname'] option").remove();
+                        $("<option>2600</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "ACETONE SERUM") {
+                        $("select[name = cname] option").remove();
+                        $("<option>700</option>").appendTo($cname);
+                        $("select[name='lname'] option").remove();
+                        $("<option>700</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "ASCORBIC ACID (VITAMIN C)") {
+                        $("select[name = cname] option").remove();
+                        $("<option>3000</option>").appendTo($cname);
+                        $("select[name='lname'] option").remove();
+                        $("<option>3000</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "CAROTENE") {
+                        $("select[name = cname] option").remove();
+                        $("<option>5500</option>").appendTo($cname);
+                        $("select[name='lname'] option").remove();
+                        $("<option>5500</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "VITAMIN A ALL TRANSRETINOL") {
+                        $("select[name = cname] option").remove();
+                        $("<option>4000</option>").appendTo($cname);
+                        $("select[name='lname'] option").remove();
+                        $("<option>4000</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "VITAMIN B12") {
+                        $("select[name = cname] option").remove();
+                        $("<option>800</option>").appendTo($cname);
+                        $("select[name='lname'] option").remove();
+                        $("<option>800</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "VITAMIN E") {
+                        $("select[name = cname] option").remove();
+                        $("<option>3000</option>").appendTo($cname);
+                        $("select[name='lname'] option").remove();
+                        $("<option>3000</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "THIAMINE") {
+                        $("select[name = cname] option").remove();
+                        $("<option>3300</option>").appendTo($cname);
+                        $("select[name='lname'] option").remove();
+                        $("<option>3300</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "Lactate") {
+                        $("select[name = cname] option").remove();
+                        $("<option>500</option>").appendTo($cname);
+                        $("select[name='lname'] option").remove();
+                        $("<option>500</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "GALACTOSE, TOTAL QUANTITATIVE") {
+                        $("select[name = cname] option").remove();
+                        $("<option>1850</option>").appendTo($cname);
+                        $("select[name='lname'] option").remove();
+                        $("<option>1850</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "GLUCOSE-6-P-DEHYDROGENASE") {
+                        $("select[name = cname] option").remove();
+                        $("<option>0</option>").appendTo($cname);
+                        $("select[name='lname'] option").remove();
+                        $("<option>0</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "FRUCTOSAMINE") {
+                        $("select[name = cname] option").remove();
+                        $("<option>900</option>").appendTo($cname);
+                        $("select[name='lname'] option").remove();
+                        $("<option>900</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "FIBRINOGEN") {
+                        $("select[name = cname] option").remove();
+                        $("<option>0</option>").appendTo($cname);
+                        $("select[name='lname'] option").remove();
+                        $("<option>0</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "CRYOGLOBULIN (QUALITATIVE)") {
+                        $("select[name = cname] option").remove();
+                        $("<option>950</option>").appendTo($cname);
+                        $("select[name='lname'] option").remove();
+                        $("<option>950</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "IMMUNOGLOBULIN  A") {
+                        $("select[name = cname] option").remove();
+                        $("<option>700</option>").appendTo($cname);
+                        $("select[name='lname'] option").remove();
+                        $("<option>700</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "IMMUNOGLOBULIN  M") {
+                        $("select[name = cname] option").remove();
+                        $("<option>700</option>").appendTo($cname);
+                        $("select[name='lname'] option").remove();
+                        $("<option>700</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "IMMUNOGLOBULIN  M") {
+                        $("select[name = cname] option").remove();
+                        $("<option>700</option>").appendTo($cname);
+                        $("select[name='lname'] option").remove();
+                        $("<option>700</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "IMMUNOGLOBULIN G") {
+                        $("select[name = cname] option").remove();
+                        $("<option>700</option>").appendTo($cname);
+                        $("select[name='lname'] option").remove();
+                        $("<option>700</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "IMMUNOGLOBULINS") {
+                        $("select[name = cname] option").remove();
+                        $("<option>0</option>").appendTo($cname);
+                        $("select[name='lname'] option").remove();
+                        $("<option>0</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "CERULOPLASMIN") {
+                        $("select[name = cname] option").remove();
+                        $("<option>1000</option>").appendTo($cname);
+                        $("select[name='lname'] option").remove();
+                        $("<option>1000</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "PROTEIN") {
+                        $("select[name = cname] option").remove();
+                        $("<option>200</option>").appendTo($cname);
+                        $("select[name='lname'] option").remove();
+                        $("<option>200</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "BENCE JONES PROTEIN") {
+                        $("select[name = cname] option").remove();
+                        $("<option>350</option>").appendTo($cname);
+                        $("select[name='lname'] option").remove();
+                        $("<option>350</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "TRANSFERRIN") {
+                        $("select[name = cname] option").remove();
+                        $("<option>750</option>").appendTo($cname);
+                        $("select[name='lname'] option").remove();
+                        $("<option>750</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "METHAEMOGLOBIN") {
+                        $("select[name = cname] option").remove();
+                        $("<option>950</option>").appendTo($cname);
+                    }
+                    if ($(this).val() == "CSF PROTEINS") {
+                        $("select[name = cname] option").remove();
+                        $("<option>400</option>").appendTo($cname);
+                        $("select[name='lname'] option").remove();
+                        $("<option>400</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "COBALT[SERUM]") {
+                        $("select[name = cname] option").remove();
+                        $("<option>50</option>").appendTo($cname);
+                        $("select[name='lname'] option").remove();
+                        $("<option>50</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "NICKEL") {
+                        $("select[name = cname] option").remove();
+                        $("<option>50</option>").appendTo($cname);
+                        $("select[name='lname'] option").remove();
+                        $("<option>50</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "CADMIUM [SERUM]") {
+                        $("select[name = cname] option").remove();
+                        $("<option>3200</option>").appendTo($cname);
+                        $("select[name='lname'] option").remove();
+                        $("<option>3200</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "LEAD- BLOOD") {
+                        $("select[name = cname] option").remove();
+                        $("<option>1200</option>").appendTo($cname);
+                        $("select[name='lname'] option").remove();
+                        $("<option>1200</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "COPPER") {
+                        $("select[name = cname] option").remove();
+                        $("<option>1900</option>").appendTo($cname);
+                        $("select[name='lname'] option").remove();
+                        $("<option>1900</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "24 HRS GLUCOSE IN URINE") {
+                        $("select[name = cname] option").remove();
+                        $("<option>350</option>").appendTo($cname);
+                        $("select[name='lname'] option").remove();
+                        $("<option>350</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "URINE SUGAR - FASTING") {
+                        $("select[name = cname] option").remove();
+                        $("<option>30</option>").appendTo($cname);
+                        $("select[name='lname'] option").remove();
+                        $("<option>30</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "URINE SUGAR - POSTPRANDIAL") {
+                        $("select[name = cname] option").remove();
+                        $("<option>30</option>").appendTo($cname);
+                        $("select[name='lname'] option").remove();
+                        $("<option>30</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "URINE SUGAR - RANDOM") {
+                        $("select[name = cname] option").remove();
+                        $("<option>50</option>").appendTo($cname);
+                        $("select[name='lname'] option").remove();
+                        $("<option>50</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "KETONE BODIES  IN URINE") {
+                        $("select[name = cname] option").remove();
+                        $("<option>50</option>").appendTo($cname);
+                        $("select[name='lname'] option").remove();
+                        $("<option>50</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "BLOOD IN URINE") {
+                        $("select[name = cname] option").remove();
+                        $("<option>30</option>").appendTo($cname);
+                        $("select[name='lname'] option").remove();
+                        $("<option>30</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "URINE OSMOLALITY") {
+                        $("select[name = cname] option").remove();
+                        $("<option>500</option>").appendTo($cname);
+                        $("select[name='lname'] option").remove();
+                        $("<option>500</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "TOTAL PROTEIN  IN URINE") {
+                        $("select[name = cname] option").remove();
+                        $("<option>50</option>").appendTo($cname);
+                        $("select[name='lname'] option").remove();
+                        $("<option>50</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "ALBUMIN  IN URINE") {
+                        $("select[name = cname] option").remove();
+                        $("<option>100</option>").appendTo($cname);
+                        $("select[name='lname'] option").remove();
+                        $("<option>100</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "GLOBULIN  IN URINE") {
+                        $("select[name = cname] option").remove();
+                        $("<option>50</option>").appendTo($cname);
+                        $("select[name='lname'] option").remove();
+                        $("<option>50</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "URINE FOR MICROALBUMINURIA") {
+                        $("select[name = cname] option").remove();
+                        $("<option>350</option>").appendTo($cname);
+                        $("select[name='lname'] option").remove();
+                        $("<option>350</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "CYSTINE") {
+                        $("select[name = cname] option").remove();
+                        $("<option>500</option>").appendTo($cname);
+                        $("select[name='lname'] option").remove();
+                        $("<option>500</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "URINE SODIUM") {
+                        $("select[name = cname] option").remove();
+                        $("<option>80</option>").appendTo($cname);
+                        $("select[name='lname'] option").remove();
+                        $("<option>80</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "URINE POTASSIUM") {
+                        $("select[name = cname] option").remove();
+                        $("<option>0</option>").appendTo($cname);
+                        $("select[name='lname'] option").remove();
+                        $("<option>0</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "URINE  CHLORIDES") {
+                        $("select[name = cname] option").remove();
+                        $("<option>80</option>").appendTo($cname);
+                        $("select[name='lname'] option").remove();
+                        $("<option>80</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "URINE INORGANIC PHOSPHORUS") {
+                        $("select[name = cname] option").remove();
+                        $("<option>75</option>").appendTo($cname);
+                        $("select[name='lname'] option").remove();
+                        $("<option>75</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "IRON[URINE]") {
+                        $("select[name = cname] option").remove();
+                        $("<option>50</option>").appendTo($cname);
+                        $("select[name='lname'] option").remove();
+                        $("<option>50</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "SULPHUR") {
+                        $("select[name = cname] option").remove();
+                        $("<option>50</option>").appendTo($cname);
+                        $("select[name='lname'] option").remove();
+                        $("<option>50</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "URINE PORPHOBILINOGEN") {
+                        $("select[name = cname] option").remove();
+                        $("<option>50</option>").appendTo($cname);
+                        $("select[name='lname'] option").remove();
+                        $("<option>50</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "UROBILINOGEN") {
+                        $("select[name = cname] option").remove();
+                        $("<option>0</option>").appendTo($cname);
+                        $("select[name='lname'] option").remove();
+                        $("<option>0</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "URINE HOMOGENTISIC ACID") {
+                        $("select[name = cname] option").remove();
+                        $("<option>50</option>").appendTo($cname);
+                        $("select[name='lname'] option").remove();
+                        $("<option>50</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "UREA CLEARANCE TEST") {
+                        $("select[name = cname] option").remove();
+                        $("<option>250</option>").appendTo($cname);
+                        $("select[name='lname'] option").remove();
+                        $("<option>250</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "Creatinine Clearance Test") {
+                        $("select[name = cname] option").remove();
+                        $("<option>250</option>").appendTo($cname);
+                        $("select[name='lname'] option").remove();
+                        $("<option>250</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "CONCENTRATION TEST- URINE") {
+                        $("select[name = cname] option").remove();
+                        $("<option>50</option>").appendTo($cname);
+                        $("select[name='lname'] option").remove();
+                        $("<option>50</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "DILUTION TEST-URINE") {
+                        $("select[name = cname] option").remove();
+                        $("<option>50</option>").appendTo($cname);
+                        $("select[name='lname'] option").remove();
+                        $("<option>50</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "17 KETOSTEROIDS") {
+                        $("select[name = cname] option").remove();
+                        $("<option>50</option>").appendTo($cname);
+                        $("select[name='lname'] option").remove();
+                        $("<option>50</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "17-KETOGENIC STEROIDS") {
+                        $("select[name = cname] option").remove();
+                        $("<option>5500</option>").appendTo($cname);
+                        $("select[name='lname'] option").remove();
+                        $("<option>5500</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "VMA - Vanillyl Mandelic Acid (Urinary)") {
+                        $("select[name = cname] option").remove();
+                        $("<option>2500</option>").appendTo($cname);
+                        $("select[name='lname'] option").remove();
+                        $("<option>2500</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "URINARY PORPHYRIN") {
+                        $("select[name = cname] option").remove();
+                        $("<option>50</option>").appendTo($cname);
+                        $("select[name='lname'] option").remove();
+                        $("<option>50</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "URINARY ALA") {
+                        $("select[name = cname] option").remove();
+                        $("<option>50</option>").appendTo($cname);
+                        $("select[name='lname'] option").remove();
+                        $("<option>50</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "URINARY LEAD") {
+                        $("select[name = cname] option").remove();
+                        $("<option>50</option>").appendTo($cname);
+                        $("select[name='lname'] option").remove();
+                        $("<option>50</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "SEROTONIN") {
+                        $("select[name = cname] option").remove();
+                        $("<option>4000</option>").appendTo($cname);
+                        $("select[name='lname'] option").remove();
+                        $("<option>4000</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "FAT IN URINE") {
+                        $("select[name = cname] option").remove();
+                        $("<option>200</option>").appendTo($cname);
+                        $("select[name='lname'] option").remove();
+                        $("<option>200</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "URINARY AMYLASE") {
+                        $("select[name = cname] option").remove();
+                        $("<option>0</option>").appendTo($cname);
+                        $("select[name='lname'] option").remove();
+                        $("<option>0</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "24HRS URINE UREA  NITROGEN") {
+                        $("select[name = cname] option").remove();
+                        $("<option>350</option>").appendTo($cname);
+                        $("select[name='lname'] option").remove();
+                        $("<option>350</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "24 HRS. URINARY CREATININE") {
+                        $("select[name = cname] option").remove();
+                        $("<option>400</option>").appendTo($cname);
+                        $("select[name='lname'] option").remove();
+                        $("<option>400</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "URINARY AMMONIA") {
+                        $("select[name = cname] option").remove();
+                        $("<option>1000</option>").appendTo($cname);
+                        $("select[name='lname'] option").remove();
+                        $("<option>1000</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "SPECIFIC GRAVITY TEST-URINE") {
+                        $("select[name = cname] option").remove();
+                        $("<option>50</option>").appendTo($cname);
+                        $("select[name='lname'] option").remove();
+                        $("<option>50</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "D -XYLOSE IN URINE") {
+                        $("select[name = cname] option").remove();
+                        $("<option>50</option>").appendTo($cname);
+                        $("select[name='lname'] option").remove();
+                        $("<option>50</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "OXALIC ACID  IN URINE") {
+                        $("select[name = cname] option").remove();
+                        $("<option>50</option>").appendTo($cname);
+                        $("select[name='lname'] option").remove();
+                        $("<option>50</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "5-HIAA IN URINE") {
+                        $("select[name = cname] option").remove();
+                        $("<option>2500</option>").appendTo($cname);
+                        $("select[name='lname'] option").remove();
+                        $("<option>2500</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "GLUCAGON") {
+                        $("select[name = cname] option").remove();
+                        $("<option>8900</option>").appendTo($cname);
+                        $("select[name='lname'] option").remove();
+                        $("<option>8900</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "INSULIN") {
+                        $("select[name = cname] option").remove();
+                        $("<option>800</option>").appendTo($cname);
+                        $("select[name='lname'] option").remove();
+                        $("<option>800</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "T3 - TRIIODOTHYONINE") {
+                        $("select[name = cname] option").remove();
+                        $("<option>170</option>").appendTo($cname);
+                        $("select[name='lname'] option").remove();
+                        $("<option>170</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "T4 - THYROXINE") {
+                        $("select[name = cname] option").remove();
+                        $("<option>170</option>").appendTo($cname);
+                        $("select[name='lname'] option").remove();
+                        $("<option>170</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "TSH") {
+                        $("select[name = cname] option").remove();
+                        $("<option>250</option>").appendTo($cname);
+                        $("select[name='lname'] option").remove();
+                        $("<option>250</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "THYROID FUNCTION TEST") {
+                        $("select[name = cname] option").remove();
+                        $("<option>550</option>").appendTo($cname);
+                        $("select[name='lname'] option").remove();
+                        $("<option>550</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "FSH - Follicular Stimulating Hormone") {
+                        $("select[name = cname] option").remove();
+                        $("<option>500</option>").appendTo($cname);
+                        $("select[name='lname'] option").remove();
+                        $("<option>500</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "FSH") {
+                        $("select[name = cname] option").remove();
+                        $("<option>500</option>").appendTo($cname);
+                        $("select[name='lname'] option").remove();
+                        $("<option>500</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "LH - Leutinizing Hormone") {
+                        $("select[name = cname] option").remove();
+                        $("<option>400</option>").appendTo($cname);
+                        $("select[name='lname'] option").remove();
+                        $("<option>400</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "E2-ESTRADIOL") {
+                        $("select[name = cname] option").remove();
+                        $("<option>650</option>").appendTo($cname);
+                        $("select[name='lname'] option").remove();
+                        $("<option>650</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "TESTOSTERONE- TOTAL") {
+                        $("select[name = cname] option").remove();
+                        $("<option>600</option>").appendTo($cname);
+                        $("select[name='lname'] option").remove();
+                        $("<option>600</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "PROGESTERONE") {
+                        $("select[name = cname] option").remove();
+                        $("<option>700</option>").appendTo($cname);
+                        $("select[name='lname'] option").remove();
+                        $("<option>700</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "PRL - Prolactin") {
+                        $("select[name = cname] option").remove();
+                        $("<option>400</option>").appendTo($cname);
+                        $("select[name='lname'] option").remove();
+                        $("<option>400</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "GH - Growth Hormone") {
+                        $("select[name = cname] option").remove();
+                        $("<option>750</option>").appendTo($cname);
+                        $("select[name='lname'] option").remove();
+                        $("<option>750</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "PARATHYROID HORMONE[PTH]") {
+                        $("select[name = cname] option").remove();
+                        $("<option>1500</option>").appendTo($cname);
+                        $("select[name='lname'] option").remove();
+                        $("<option>1500</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "Calcitonin (Thyroid)") {
+                        $("select[name = cname] option").remove();
+                        $("<option>2100</option>").appendTo($cname);
+                        $("select[name='lname'] option").remove();
+                        $("<option>2100</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "Cortisol Serum (8AM)") {
+                        $("select[name = cname] option").remove();
+                        $("<option>800</option>").appendTo($cname);
+                        $("select[name='lname'] option").remove();
+                        $("<option>800</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "17-HYDROXYPROGESTERONE SERUM") {
+                        $("select[name = cname] option").remove();
+                        $("<option>1300</option>").appendTo($cname);
+                    }
+                    if ($(this).val() == "ADH-ANTI DIURETIC HORMONE/VASOPRESSIN") {
+                        $("select[name = cname] option").remove();
+                        $("<option>4200</option>").appendTo($cname);
+                        $("select[name='lname'] option").remove();
+                        $("<option>4200</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "OXYTOCIN") {
+                        $("select[name = cname] option").remove();
+                        $("<option>50</option>").appendTo($cname);
+                        $("select[name='lname'] option").remove();
+                        $("<option>50</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "ALDOSTERONE [SERUM]") {
+                        $("select[name = cname] option").remove();
+                        $("<option>2000</option>").appendTo($cname);
+                        $("select[name='lname'] option").remove();
+                        $("<option>2000</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "ALDOSTERONE[URINE]") {
+                        $("select[name = cname] option").remove();
+                        $("<option>2000</option>").appendTo($cname);
+                        $("select[name='lname'] option").remove();
+                        $("<option>2000</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "17-HYDROXY CORTICOSTEROIDS IN URINE") {
+                        $("select[name = cname] option").remove();
+                        $("<option>3500</option>").appendTo($cname);
+                        $("select[name='lname'] option").remove();
+                        $("<option>3500</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "CATECHOLAMINES- PLASMA") {
+                        $("select[name = cname] option").remove();
+                        $("<option>5800</option>").appendTo($cname);
+                        $("select[name='lname'] option").remove();
+                        $("<option>5800</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "CATECHOLAMINES- 24HRS URINE") {
+                        $("select[name = cname] option").remove();
+                        $("<option>4500</option>").appendTo($cname);
+                        $("select[name='lname'] option").remove();
+                        $("<option>4500</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "PREGNANEDIOL") {
+                        $("select[name = cname] option").remove();
+                        $("<option>50</option>").appendTo($cname);
+                        $("select[name='lname'] option").remove();
+                        $("<option>50</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "MERCURY[BLOOD]") {
+                        $("select[name = cname] option").remove();
+                        $("<option>4000</option>").appendTo($cname);
+                        $("select[name='lname'] option").remove();
+                        $("<option>4000</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "MERCURY [URINE]") {
+                        $("select[name = cname] option").remove();
+                        $("<option>4000</option>").appendTo($cname);
+                        $("select[name='lname'] option").remove();
+                        $("<option>4000</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "ARSENIC[SERUM]") {
+                        $("select[name = cname] option").remove();
+                        $("<option>2500</option>").appendTo($cname);
+                        $("select[name='lname'] option").remove();
+                        $("<option>2500</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "ARSENIC[URINE]") {
+                        $("select[name = cname] option").remove();
+                        $("<option>2900</option>").appendTo($cname);
+                        $("select[name='lname'] option").remove();
+                        $("<option>2900</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "BISMUTH[BLOOD]") {
+                        $("select[name = cname] option").remove();
+                        $("<option>4000</option>").appendTo($cname);
+                        $("select[name='lname'] option").remove();
+                        $("<option>4000</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "BISMUTH[URINE]") {
+                        $("select[name = cname] option").remove();
+                        $("<option>4500</option>").appendTo($cname);
+                        $("select[name='lname'] option").remove();
+                        $("<option>4500</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "CARBAMAZAPINE") {
+                        $("select[name = cname] option").remove();
+                        $("<option>1000</option>").appendTo($cname);
+                        $("select[name='lname'] option").remove();
+                        $("<option>1000</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "PHENOBARBITAL") {
+                        $("select[name = cname] option").remove();
+                        $("<option>900</option>").appendTo($cname);
+                        $("select[name='lname'] option").remove();
+                        $("<option>900</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "SODIUM VALPROATE") {
+                        $("select[name = cname] option").remove();
+                        $("<option>900</option>").appendTo($cname);
+                        $("select[name='lname'] option").remove();
+                        $("<option>900</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "THEOPHYLLINE") {
+                        $("select[name = cname] option").remove();
+                        $("<option>900</option>").appendTo($cname);
+                        $("select[name='lname'] option").remove();
+                        $("<option>900</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "CYCLOSPORIN") {
+                        $("select[name = cname] option").remove();
+                        $("<option>2300</option>").appendTo($cname);
+                        $("select[name='lname'] option").remove();
+                        $("<option>2300</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "DIGOXIN (LANOXIN)") {
+                        $("select[name = cname] option").remove();
+                        $("<option>600</option>").appendTo($cname);
+                        $("select[name='lname'] option").remove();
+                        $("<option>600</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "DIOXIN") {
+                        $("select[name = cname] option").remove();
+                        $("<option>50</option>").appendTo($cname);
+                        $("select[name='lname'] option").remove();
+                        $("<option>50</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "AMINOGLYCOSIDES") {
+                        $("select[name = cname] option").remove();
+                        $("<option>50</option>").appendTo($cname);
+                        $("select[name='lname'] option").remove();
+                        $("<option>50</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "VALPORIC ACID") {
+                        $("select[name = cname] option").remove();
+                        $("<option>900</option>").appendTo($cname);
+                        $("select[name='lname'] option").remove();
+                        $("<option>900</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "PHENYLALANINE") {
+                        $("select[name = cname] option").remove();
+                        $("<option>50</option>").appendTo($cname);
+                        $("select[name='lname'] option").remove();
+                        $("<option>50</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "TROPONIN - T") {
+                        $("select[name = cname] option").remove();
+                        $("<option>700</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>700</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "TROPONIN - I") {
+                        $("select[name = cname] option").remove();
+                        $("<option>800</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>800</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "CA - 125") {
+                        $("select[name = cname] option").remove();
+                        $("<option>1100</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>1100</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "PSA Free (Free only)") {
+                        $("select[name = cname] option").remove();
+                        $("<option>720</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>720</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "PROTEIN BOUND IODINE[PBI]") {
+                        $("select[name = cname] option").remove();
+                        $("<option>50</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>50</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "TSH (ULTRASENSITIVE)") {
+                        $("select[name = cname] option").remove();
+                        $("<option>200</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>200</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "TBG -THYROID BINDING GLOBULIN") {
+                        $("select[name = cname] option").remove();
+                        $("<option>1800</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>1800</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "TUBULAR REABSORPTION OF PHOSPHATE TEST[TRP]:") {
+                        $("select[name = cname] option").remove();
+                        $("<option>0</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>0</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "CORTISOL STIMULATION TEST") {
+                        $("select[name = cname] option").remove();
+                        $("<option>450</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>450</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "NEUTROPHIL ALKALINE PHOSPHATASE[NAP]") {
+                        $("select[name = cname] option").remove();
+                        $("<option>50</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>50</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "PSP [PHENOLSULPHONAPHTHALEIN]  TEST") {
+                        $("select[name = cname] option").remove();
+                        $("<option>50</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>50</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "MELANOCYTE STIMULATING HORMONE[MSH]") {
+                        $("select[name = cname] option").remove();
+                        $("<option>50</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>50</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "SERUM RENIN") {
+                        $("select[name = cname] option").remove();
+                        $("<option>50</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>50</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "ERYTHROPOIETIN") {
+                        $("select[name = cname] option").remove();
+                        $("<option>2000</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>2000</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "TRH-THYROTOXIN RELEASING HORMONE") {
+                        $("select[name = cname] option").remove();
+                        $("<option>50</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>50</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "METHYL MALONIC ACID") {
+                        $("select[name = cname] option").remove();
+                        $("<option>3000</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>3000</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "THYROID ANTIBODY ESTIMATION") {
+                        $("select[name = cname] option").remove();
+                        $("<option>2300</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>2300</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "ADRENOCORTICAL INHIBITION TEST") {
+                        $("select[name = cname] option").remove();
+                        $("<option>1500</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>1500</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "GONADOTROPIN STIMULATION TEST") {
+                        $("select[name = cname] option").remove();
+                        $("<option>50</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>50</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "ACTH- Adreno Cortico Trophic Hormone") {
+                        $("select[name = cname] option").remove();
+                        $("<option>1900</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>1900</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "24 HRS. URINARY PHOSPHORUS") {
+                        $("select[name = cname] option").remove();
+                        $("<option>150</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>150</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "URINARY-24HRS CALCIUM") {
+                        $("select[name = cname] option").remove();
+                        $("<option>0</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>0</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "URINE CALCIUM/CREATININE RATIO") {
+                        $("select[name = cname] option").remove();
+                        $("<option>0</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>0</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "URINE URIC ACID") {
+                        $("select[name = cname] option").remove();
+                        $("<option>80</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>80</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "24 HRS URINARY PROTEIN") {
+                        $("select[name = cname] option").remove();
+                        $("<option>350</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>350</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "URINARY AMINO ACIDS") {
+                        $("select[name = cname] option").remove();
+                        $("<option>50</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>50</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "LDL CHOLESTROL") {
+                        $("select[name = cname] option").remove();
+                        $("<option>250</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>250</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "SPE - Protein Electrophoresis (Strip & Graph provided)") {
+                        $("select[name = cname] option").remove();
+                        $("<option>910</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>910</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "LIPOPROTEIN ELECTROPHORESIS") {
+                        $("select[name = cname] option").remove();
+                        $("<option>1000</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>1000</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "CADMIUM") {
+                        $("select[name = cname] option").remove();
+                        $("<option>3200</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>3200</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "ZINC") {
+                        $("select[name = cname] option").remove();
+                        $("<option>1000</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>1000</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "ORAL GLUCOSE CHALLENGE TEST") {
+                        $("select[name = cname] option").remove();
+                        $("<option>200</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>200</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "BLOOD AND URINE SUGAR POST PRANDIAL") {
+                        $("select[name = cname] option").remove();
+                        $("<option>60</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>60</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "BLOOD AND URINE SUGAR RANDOM") {
+                        $("select[name = cname] option").remove();
+                        $("<option>60</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>60</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "BLOOD AND URINE SUGAR FASTING") {
+                        $("select[name = cname] option").remove();
+                        $("<option>60</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>60</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "BILIRUBIN") {
+                        $("select[name = cname] option").remove();
+                        $("<option>150</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>150</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "FREE,TESTOSTERONE") {
+                        $("select[name = cname] option").remove();
+                        $("<option>1800</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>1800</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "VITAMIN D") {
+                        $("select[name = cname] option").remove();
+                        $("<option>3000</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>3000</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "ANTI THYROPEROXIDASE ANTIBODY ( ANTI TPO )") {
+                        $("select[name = cname] option").remove();
+                        $("<option>1100</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>1100</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "ANTI PHOSPHOLIPID ANTIBODY, IGM") {
+                        $("select[name = cname] option").remove();
+                        $("<option>850</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>850</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "C3-COMPLIMENT 3") {
+                        $("select[name = cname] option").remove();
+                        $("<option>650</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>650</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "FREE T4") {
+                        $("select[name = cname] option").remove();
+                        $("<option>350</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>350</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "INSULIN- FASTING") {
+                        $("select[name = cname] option").remove();
+                        $("<option>800</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>800</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "INSULIN- PP") {
+                        $("select[name = cname] option").remove();
+                        $("<option>800</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>800</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "IRON PROFILE") {
+                        $("select[name = cname] option").remove();
+                        $("<option>1200</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>1200</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "TACROLIMUSII") {
+                        $("select[name = cname] option").remove();
+                        $("<option>0</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>0</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "CONSUMABLES") {
+                        $("select[name = cname] option").remove();
+                        $("<option>20</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>20</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "CONSUMABLES 2") {
+                        $("select[name = cname] option").remove();
+                        $("<option>10</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>10</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "URINE ACR (ALBUMIN CREATININE RATIO)") {
+                        $("select[name = cname] option").remove();
+                        $("<option>550</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>550</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "CYSTATIN C") {
+                        $("select[name = cname] option").remove();
+                        $("<option>500</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>500</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "24 HRS. URINARY ALBUMIN") {
+                        $("select[name = cname] option").remove();
+                        $("<option>400</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>400</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "Chlorides urine(random/24hrs)") {
+                        $("select[name = cname] option").remove();
+                        $("<option>200</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>200</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "24 HRS. URINARY POTASSIUM") {
+                        $("select[name = cname] option").remove();
+                        $("<option>350</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>350</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "24 HRS. URINARY SODIUM") {
+                        $("select[name = cname] option").remove();
+                        $("<option>350</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>350</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "24 HRS. URINARY UREA") {
+                        $("select[name = cname] option").remove();
+                        $("<option>400</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>400</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "24 HRS. URINARY URIC ACID") {
+                        $("select[name = cname] option").remove();
+                        $("<option>350</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>350</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "24HRS CALCIUM") {
+                        $("select[name = cname] option").remove();
+                        $("<option>250</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>250</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "24HRS CPAD FLUID") {
+                        $("select[name = cname] option").remove();
+                        $("<option>350</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>350</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "24HRS CREATININE CLEARANCE") {
+                        $("select[name = cname] option").remove();
+                        $("<option>350</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>350</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "24HRS METANEPHRINE") {
+                        $("select[name = cname] option").remove();
+                        $("<option>0</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>0</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "24HRS UREA CLEARANCE") {
+                        $("select[name = cname] option").remove();
+                        $("<option>350</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>350</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "24HRS URINARY 17 KETOSTEROID") {
+                        $("select[name = cname] option").remove();
+                        $("<option>0</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>0</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "24HRS URINE CITRATE") {
+                        $("select[name = cname] option").remove();
+                        $("<option>1200</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>1200</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "24HRS URINE KAPPA LIGHT") {
+                        $("select[name = cname] option").remove();
+                        $("<option>0</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>0</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "24HRS URINE LAMBDA LIGHT") {
+                        $("select[name = cname] option").remove();
+                        $("<option>0</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>0</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "MAGNESIUM URINE(24HRS)") {
+                        $("select[name = cname] option").remove();
+                        $("<option>300</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>300</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "24HRS URINE MICROALBUMIN") {
+                        $("select[name = cname] option").remove();
+                        $("<option>500</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>500</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "24HRS URINE OXALATE") {
+                        $("select[name = cname] option").remove();
+                        $("<option>1950</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>1950</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "24HRS URINE PORPHOBILINOGEN") {
+                        $("select[name = cname] option").remove();
+                        $("<option>4000</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>4000</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "24HRS URINE VMA") {
+                        $("select[name = cname] option").remove();
+                        $("<option>3300</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>3300</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "24HRS URINE,PROTEIN ELECTROPHORESIS") {
+                        $("select[name = cname] option").remove();
+                        $("<option>1000</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>1000</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "24HRS URINE-ZINC ATOMIC ABOSRPTION") {
+                        $("select[name = cname] option").remove();
+                        $("<option>2000</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>2000</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "24HRS.URINARY CORTISOL") {
+                        $("select[name = cname] option").remove();
+                        $("<option>0</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>0</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "24HRS.URINARY PROTEIN") {
+                        $("select[name = cname] option").remove();
+                        $("<option>450</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>450</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "Angiotensin-converting enzyme (ACE)") {
+                        $("select[name = cname] option").remove();
+                        $("<option>850</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>850</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "ACETONE URINE") {
+                        $("select[name = cname] option").remove();
+                        $("<option>150</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>150</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "ALBUMIN/CREATININE RATIO (ACR)") {
+                        $("select[name = cname] option").remove();
+                        $("<option>550</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>550</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "ALDOSTERONE,R.I.A") {
+                        $("select[name = cname] option").remove();
+                        $("<option>2000</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>2000</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "COPPER-24HRSURINE-ATOMIC ABSORPTION") {
+                        $("select[name = cname] option").remove();
+                        $("<option>1500</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>1500</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "COPPER-ATOMIC ABSORPTION") {
+                        $("select[name = cname] option").remove();
+                        $("<option>0</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>0</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "DHEAs - Dehydroepiandrostenedione Sulphate") {
+                        $("select[name = cname] option").remove();
+                        $("<option>900</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>900</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "E3-ESTRIOL") {
+                        $("select[name = cname] option").remove();
+                        $("<option>1100</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>1100</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "Free BHCG") {
+                        $("select[name = cname] option").remove();
+                        $("<option>1200</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>1200</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "FREE LIGHT CHAINS (kappa and lambda)") {
+                        $("select[name = cname] option").remove();
+                        $("<option>5000</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>5000</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "FREE LIGHT CHAINS (kappa and lambda) urine") {
+                        $("select[name = cname] option").remove();
+                        $("<option>5000</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>5000</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "FREE T3") {
+                        $("select[name = cname] option").remove();
+                        $("<option>350</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>350</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "FREE (T3 + T4)") {
+                        $("select[name = cname] option").remove();
+                        $("<option>700</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>700</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "GCT (Glucose Challenge Test)") {
+                        $("select[name = cname] option").remove();
+                        $("<option>200</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>200</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "Glucose Tolerance Test (GTT)- 5 samples") {
+                        $("select[name = cname] option").remove();
+                        $("<option>550</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>550</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "Glucose Tolerance Test (GTT)- 3 samples") {
+                        $("select[name = cname] option").remove();
+                        $("<option>300</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>300</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "Urine Sugar") {
+                        $("select[name = cname] option").remove();
+                        $("<option>30</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>30</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "FBS") {
+                        $("select[name = cname] option").remove();
+                        $("<option>55</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>55</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "POSTPRANDIAL URINE SUGAR") {
+                        $("select[name = cname] option").remove();
+                        $("<option>30</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>30</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "PPBS") {
+                        $("select[name = cname] option").remove();
+                        $("<option>55</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>55</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "RBS") {
+                        $("select[name = cname] option").remove();
+                        $("<option>55</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>55</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "HOMOCYSTEINE- SERUM") {
+                        $("select[name = cname] option").remove();
+                        $("<option>1440</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>1440</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "HOMOCYSTEINE-PLASMA") {
+                        $("select[name = cname] option").remove();
+                        $("<option>1440</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>1440</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "IMMUNOGLOBULIN PROFILE; IGG IGM IGA") {
+                        $("select[name = cname] option").remove();
+                        $("<option>1800</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>1800</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "LDL CHOLESTEROL (DIRECT)") {
+                        $("select[name = cname] option").remove();
+                        $("<option>250</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>250</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "LEAD URINE SPOT") {
+                        $("select[name = cname] option").remove();
+                        $("<option>1200</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>1200</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "MICROALBUMIN URINE") {
+                        $("select[name = cname] option").remove();
+                        $("<option>400</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>400</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "PROTEIN C ACTIVITY") {
+                        $("select[name = cname] option").remove();
+                        $("<option>3000</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>3000</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "PROTEIN S ACTIVITY") {
+                        $("select[name = cname] option").remove();
+                        $("<option>3000</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>3000</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "TB GOLD-BLOOD") {
+                        $("select[name = cname] option").remove();
+                        $("<option>2500</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>2500</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "UREA") {
+                        $("select[name = cname] option").remove();
+                        $("<option>120</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>120</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "UREA,CREATININE(FLUID)") {
+                        $("select[name = cname] option").remove();
+                        $("<option>0</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>0</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "URINARY 17-KETOSTEROID") {
+                        $("select[name = cname] option").remove();
+                        $("<option>0</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>0</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "URINARY ALBUMIN, RANDOM") {
+                        $("select[name = cname] option").remove();
+                        $("<option>0</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>0</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "Urinary Calcium (24 hr)") {
+                        $("select[name = cname] option").remove();
+                        $("<option>350</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>350</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "URINARY CHLORIDE") {
+                        $("select[name = cname] option").remove();
+                        $("<option>0</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>0</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "Urinary Creatinine (Random / 24 hr)") {
+                        $("select[name = cname] option").remove();
+                        $("<option>150</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>150</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "URINARY PROTEIN, RANDOM") {
+                        $("select[name = cname] option").remove();
+                        $("<option>0</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>0</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "URINARY SODIUM") {
+                        $("select[name = cname] option").remove();
+                        $("<option>0</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>0</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "URINARY-24HRSMETANEPHRINE") {
+                        $("select[name = cname] option").remove();
+                        $("<option>2500</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>2500</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "VITAMIN B1THIAMINE") {
+                        $("select[name = cname] option").remove();
+                        $("<option>3300</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>3300</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "VITAMIN B2 RIBOFLAVIN") {
+                        $("select[name = cname] option").remove();
+                        $("<option>2000</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>2000</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "VITAMIN B6") {
+                        $("select[name = cname] option").remove();
+                        $("<option>0</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>0</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "VITAMIN C ASCORBIC ACID") {
+                        $("select[name = cname] option").remove();
+                        $("<option>3000</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>3000</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "VITAMIN D 25-HYDROXY") {
+                        $("select[name = cname] option").remove();
+                        $("<option>1500</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>1500</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "Acetyl Choline Receptor Antibodies (ACHR)") {
+                        $("select[name = cname] option").remove();
+                        $("<option>3500</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>3500</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "ALP WITH BONE FRACTION") {
+                        $("select[name = cname] option").remove();
+                        $("<option>4500</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>4500</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "AMA(M2)ANTI MITOCHONDRIAL ANTIBODY  IFA") {
+                        $("select[name = cname] option").remove();
+                        $("<option>1700</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>1700</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "APOLIPO PROTEIN A1/B RATIO") {
+                        $("select[name = cname] option").remove();
+                        $("<option>900</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>900</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "Anti Smooth Muscle Antibody (ASMA)") {
+                        $("select[name = cname] option").remove();
+                        $("<option>1500</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>1500</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "BCR-ABL TRANSCRIPT KARYOTYPING") {
+                        $("select[name = cname] option").remove();
+                        $("<option>3500</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>3500</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "BCR-ABL TRANSCRIPT QUANTIFICATION-PCR") {
+                        $("select[name = cname] option").remove();
+                        $("<option>3600</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>3600</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "BETA-2 MICROGLOBULIN") {
+                        $("select[name = cname] option").remove();
+                        $("<option>1500</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>1500</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "BORRELIA IGG") {
+                        $("select[name = cname] option").remove();
+                        $("<option>1700</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>1700</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "BORRELIA IGM") {
+                        $("select[name = cname] option").remove();
+                        $("<option>1700</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>1700</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "WERTHIEMS HYSTERECTOMY") {
+                        $("select[name = cname] option").remove();
+                        $("<option>0</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>0</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "WHOLE SPINE SCREENING") {
+                        $("select[name = cname] option").remove();
+                        $("<option>0</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>0</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "VASOPRESSIN") {
+                        $("select[name = cname] option").remove();
+                        $("<option>0</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>0</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "URINE-UREA") {
+                        $("select[name = cname] option").remove();
+                        $("<option>0</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>0</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "URINE,CYTOLOGY") {
+                        $("select[name = cname] option").remove();
+                        $("<option>0</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>0</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "URINE SPECIFIC GRAVITY") {
+                        $("select[name = cname] option").remove();
+                        $("<option>0</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>0</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "URINE REDUCING SUBSTANCES") {
+                        $("select[name = cname] option").remove();
+                        $("<option>0</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>0</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "URINE PROTEIN") {
+                        $("select[name = cname] option").remove();
+                        $("<option>0</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>0</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "URINE PHOSPHOROUS") {
+                        $("select[name = cname] option").remove();
+                        $("<option>250</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>250</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "URINE OCCULT BLOOD") {
+                        $("select[name = cname] option").remove();
+                        $("<option>0</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>0</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "URINE KETONE BODIES") {
+                        $("select[name = cname] option").remove();
+                        $("<option>100</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>100</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "URINE HAEMOGLOBIN") {
+                        $("select[name = cname] option").remove();
+                        $("<option>0</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>0</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "URINE  ZN STAIN") {
+                        $("select[name = cname] option").remove();
+                        $("<option>200</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>200</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "TRIPLE TEST(2ND TRIMESTER)") {
+                        $("select[name = cname] option").remove();
+                        $("<option>0</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>0</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "Treponema Pallidum Hemagglutination -TPHA") {
+                        $("select[name = cname] option").remove();
+                        $("<option>1000</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>1000</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "TOCOPHEROL") {
+                        $("select[name = cname] option").remove();
+                        $("<option>0</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>0</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "TNF ALPHA") {
+                        $("select[name = cname] option").remove();
+                        $("<option>0</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>0</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "THROAT SWAB") {
+                        $("select[name = cname] option").remove();
+                        $("<option>0</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>0</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "THALASSEMIA STUDIES") {
+                        $("select[name = cname] option").remove();
+                        $("<option>1500</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>1500</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "TEGRETOL") {
+                        $("select[name = cname] option").remove();
+                        $("<option>0</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>0</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "TB PCR(MYCOTECT)") {
+                        $("select[name = cname] option").remove();
+                        $("<option>0</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>0</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "TB PCR UIRNE") {
+                        $("select[name = cname] option").remove();
+                        $("<option>2500</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>2500</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "T TG-TISSUE TRANSGLUTASMINASE-IGA") {
+                        $("select[name = cname] option").remove();
+                        $("<option>0</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>0</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "SMOOTH MUSCLE ACTIN") {
+                        $("select[name = cname] option").remove();
+                        $("<option>0</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>0</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "SM AB") {
+                        $("select[name = cname] option").remove();
+                        $("<option>0</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>0</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "SMA 12") {
+                        $("select[name = cname] option").remove();
+                        $("<option>0</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>0</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "Sex Hormone binding Globulin") {
+                        $("select[name = cname] option").remove();
+                        $("<option>2350</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>2350</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "QUANTIFERON TB GOLD") {
+                        $("select[name = cname] option").remove();
+                        $("<option>2500</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>2500</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "PTH - Para Thyroid Hormone") {
+                        $("select[name = cname] option").remove();
+                        $("<option>1300</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>1300</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "PHENYTOIN(EPTOIN)") {
+                        $("select[name = cname] option").remove();
+                        $("<option>950</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>950</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "PBS-MICROFILARIA") {
+                        $("select[name = cname] option").remove();
+                        $("<option>150</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>150</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "PAPPA") {
+                        $("select[name = cname] option").remove();
+                        $("<option>1100</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>1100</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "OSMOLALITY-OSMOLARITY-URINE") {
+                        $("select[name = cname] option").remove();
+                        $("<option>900</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>900</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "OESTROGEN") {
+                        $("select[name = cname] option").remove();
+                        $("<option>650</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>650</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "MYOGLOBIN SERUM") {
+                        $("select[name = cname] option").remove();
+                        $("<option>3000</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>3000</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "MYCOBACTERIUM PCR") {
+                        $("select[name = cname] option").remove();
+                        $("<option>0</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>0</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "LIPOPROTEIN(A); LP(A)") {
+                        $("select[name = cname] option").remove();
+                        $("<option>990</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>990</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "LACTATE DEHYDROGENASE") {
+                        $("select[name = cname] option").remove();
+                        $("<option>350</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>350</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "Ionised Calcium") {
+                        $("select[name = cname] option").remove();
+                        $("<option>650</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>650</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "INHIBIN A") {
+                        $("select[name = cname] option").remove();
+                        $("<option>1200</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>1200</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "FOLIC ACID") {
+                        $("select[name = cname] option").remove();
+                        $("<option>1000</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>1000</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "CARBON DIOXIDE") {
+                        $("select[name = cname] option").remove();
+                        $("<option>450</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>450</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "CARDIAC RISK PROFILE") {
+                        $("select[name = cname] option").remove();
+                        $("<option>3300</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>3300</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "CHOL / HDL RATIO") {
+                        $("select[name = cname] option").remove();
+                        $("<option>0</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>0</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "CHROMOGRANIN A") {
+                        $("select[name = cname] option").remove();
+                        $("<option>5800</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>5800</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "CPK Creatine Phospho Kinase") {
+                        $("select[name = cname] option").remove();
+                        $("<option>400</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>400</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "HLA FOR CELIAC DISEASE(DQ2 & DQ8)") {
+                        $("select[name = cname] option").remove();
+                        $("<option>0</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>0</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "HLA-B27") {
+                        $("select[name = cname] option").remove();
+                        $("<option>0</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>0</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "KARYOTYPING - FEMALE") {
+                        $("select[name = cname] option").remove();
+                        $("<option>3700</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>3700</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "KARYOTYPING - HUSBAND & WIFE") {
+                        $("select[name = cname] option").remove();
+                        $("<option>5000</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>5000</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "KARYOTYPING-G BANDING") {
+                        $("select[name = cname] option").remove();
+                        $("<option>3700</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>3700</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "KARYOTYPING-PRODUCTS OF CONCEPTION") {
+                        $("select[name = cname] option").remove();
+                        $("<option>4800</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>4800</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "METABOLIC SCREEN,") {
+                        $("select[name = cname] option").remove();
+                        $("<option>6000</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>6000</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "URINARY POTASSIUM") {
+                        $("select[name = cname] option").remove();
+                        $("<option>250</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>250</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "PR (PROGESTERONE RECEPTOR)") {
+                        $("select[name = cname] option").remove();
+                        $("<option>0</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>0</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "KIDNEY FUNCTION TEST(KFT)") {
+                        $("select[name = cname] option").remove();
+                        $("<option>740</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>740</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "FBS & PPBS") {
+                        $("select[name = cname] option").remove();
+                        $("<option>100</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>100</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "IP LAB") {
+                        $("select[name = cname] option").remove();
+                        $("<option>0</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>0</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "MASTER HEALTH CHECKUP*") {
+                        $("select[name = cname] option").remove();
+                        $("<option>0</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>0</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "NT Pro BNP Serum*") {
+                        $("select[name = cname] option").remove();
+                        $("<option>2500</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>2500</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "ELECTROLYTES") {
+                        $("select[name = cname] option").remove();
+                        $("<option>350</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>350</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "HDL  CHOLESTEROL") {
+                        $("select[name = cname] option").remove();
+                        $("<option>300</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>300</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "TOTAL CHOLESTEROL") {
+                        $("select[name = cname] option").remove();
+                        $("<option>150</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>150</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "Heterophilic TSH- Thyroid Stimulating Hormone") {
+                        $("select[name = cname] option").remove();
+                        $("<option>380</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>380</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "Anti Thyroglobulin Antibody (Anti Tg)") {
+                        $("select[name = cname] option").remove();
+                        $("<option>1300</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>1300</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "Heterophilic PTH - Para Thyroid Hormone") {
+                        $("select[name = cname] option").remove();
+                        $("<option>1800</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>1800</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "Thyroglobulin (Tg)") {
+                        $("select[name = cname] option").remove();
+                        $("<option>1200</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>1200</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "Thyroid Antibodies (TPO & Anti Tg)") {
+                        $("select[name = cname] option").remove();
+                        $("<option>2300</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>2300</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "TPO - Thyroid Peroxidase Auto Antibodies") {
+                        $("select[name = cname] option").remove();
+                        $("<option>1100</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>1100</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "17 OHP - 17 OH PROGESTERONE") {
+                        $("select[name = cname] option").remove();
+                        $("<option>1300</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>1300</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "ALPHA FETO PROTEIN (AFP)") {
+                        $("select[name = cname] option").remove();
+                        $("<option>700</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>700</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "AMH - ANTI MULLERIAN HORMONE") {
+                        $("select[name = cname] option").remove();
+                        $("<option>1800</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>1800</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "BHCG - Beta human Chorionic Gonadotrophin") {
+                        $("select[name = cname] option").remove();
+                        $("<option>600</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>600</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "Testosterone Free") {
+                        $("select[name = cname] option").remove();
+                        $("<option>1200</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>1200</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "PCOS Profile"){
+                        $("select[name = cname] option").remove();
+                        $("<option>4500</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>4500</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "Triple Marker with Risk Chart") {
+                        $("select[name = cname] option").remove();
+                        $("<option>2600</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>2600</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "Double Marker Study") {
+                        $("select[name = cname] option").remove();
+                        $("<option>2500</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>2500</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "Quadruple test (Maternal-Down`s Syndrome) Screen-2") {
+                        $("select[name = cname] option").remove();
+                        $("<option>2400</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>2400</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "TIBC") {
+                        $("select[name = cname] option").remove();
+                        $("<option>100</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>100</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "Folate (Folic Acid) - RBC") {
+                        $("select[name = cname] option").remove();
+                        $("<option>950</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>950</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "C-Peptide") {
+                        $("select[name = cname] option").remove();
+                        $("<option>1000</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>1000</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "PAPPA (Pregnancy Associated Plasma Protein)") {
+                        $("select[name = cname] option").remove();
+                        $("<option>1000</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>1000</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "Estriol (E3)- Unconjugated Urine") {
+                        $("select[name = cname] option").remove();
+                        $("<option>1300</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>1300</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "Free Androgen Index (FAI)") {
+                        $("select[name = cname] option").remove();
+                        $("<option>2400</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>2400</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "Micro Albumin-Urine") {
+                        $("select[name = cname] option").remove();
+                        $("<option>450</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>450</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "Insulin Suppression test for C Peptide (7sample)") {
+                        $("select[name = cname] option").remove();
+                        $("<option>6900</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>6900</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "Chyluria(Urine triglycerides) GPO-POD") {
+                        $("select[name = cname] option").remove();
+                        $("<option>350</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>350</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "Collagen vascular profile") {
+                        $("select[name = cname] option").remove();
+                        $("<option>2800</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>2800</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "TRANSFERRIN SATURATION") {
+                        $("select[name = cname] option").remove();
+                        $("<option>750</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>750</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "APOLIPO PROTEIN  A1") {
+                        $("select[name = cname] option").remove();
+                        $("<option>550</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>550</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "APOLIPO PROTEIN B") {
+                        $("select[name = cname] option").remove();
+                        $("<option>550</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>550</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "Cardiac enzymes") {
+                        $("select[name = cname] option").remove();
+                        $("<option>1500</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>1500</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "BAD Obstetric Profile") {
+                        $("select[name = cname] option").remove();
+                        $("<option>5800</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>5800</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "CA 19 - 9 (Pancreatic)") {
+                        $("select[name = cname] option").remove();
+                        $("<option>1200</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>1200</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "CEA - Carcino Embryonic Antigen") {
+                        $("select[name = cname] option").remove();
+                        $("<option>800</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>800</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "PSA - Prostate Specific Antigen Total") {
+                        $("select[name = cname] option").remove();
+                        $("<option>700</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>700</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "CA15.3") {
+                        $("select[name = cname] option").remove();
+                        $("<option>700</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>700</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "Cortisol Serum (4PM)"){
+                        $("select[name = cname] option").remove();
+                        $("<option>800</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>800</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "Cortisol Serum (RANDOM)"){
+                        $("select[name = cname] option").remove();
+                        $("<option>800</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>800</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "Cortisol Serum (RANDOM)Cortisol Free Salivary"){
+                        $("select[name = cname] option").remove();
+                        $("<option>800</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>800</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "Cortisol Free Urinary 24hrs"){
+                        $("select[name = cname] option").remove();
+                        $("<option>950</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>950</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "Dexamathasone High dose suppression -Cortisol") {
+                        $("select[name = cname] option").remove();
+                        $("<option>925</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>925</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "OT AIR C/S") {
+                        $("select[name = cname] option").remove();
+                        $("<option>600</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>600</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "PUS GRAM STAIN") {
+                        $("select[name = cname] option").remove();
+                        $("<option>250</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>250</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "Calcitonin Bone") {
+                        $("select[name = cname] option").remove();
+                        $("<option>1800</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>1800</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "PTH - Para Thyroid Hormone Bone") {
+                        $("select[name = cname] option").remove();
+                        $("<option>1500</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>1500</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "Vitamin D Total Level (25 Hydroxy Cholecalciferol)") {
+                        $("select[name = cname] option").remove();
+                        $("<option>1500</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>1500</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "Bone Marker 1") {
+                        $("select[name = cname] option").remove();
+                        $("<option>3400</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>3400</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "Bone Marker 2") {
+                        $("select[name = cname] option").remove();
+                        $("<option>4400</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>4400</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "ADA Level") {
+                        $("select[name = cname] option").remove();
+                        $("<option>750</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>750</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "Beta 2 Micro Globulin - B2MG") {
+                        $("select[name = cname] option").remove();
+                        $("<option>1500</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>1500</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "BETA 2GLYCOPROTEIN -IGG") {
+                        $("select[name = cname] option").remove();
+                        $("<option>1500</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>1500</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "BETA 2 GLYCOPROTEIN -IGM") {
+                        $("select[name = cname] option").remove();
+                        $("<option>1500</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>1500</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "Bicarbonates") {
+                        $("select[name = cname] option").remove();
+                        $("<option>230</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>230</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "CCP Antibody to Cyclic Citrullinated Peptide") {
+                        $("select[name = cname] option").remove();
+                        $("<option>2000</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>2000</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "Dengue Profile (Dengue NS1 Antigen + Ig G & IgM)") {
+                        $("select[name = cname] option").remove();
+                        $("<option>800</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>800</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "IgG for H Pylori") {
+                        $("select[name = cname] option").remove();
+                        $("<option>1600</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>1600</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "MYOGLOBIN URINE") {
+                        $("select[name = cname] option").remove();
+                        $("<option>1200</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>1200</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "Urine Osmolality 24hrs") {
+                        $("select[name = cname] option").remove();
+                        $("<option>500</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>500</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "ACID PHOSPHATASE - PROSTATIC") {
+                        $("select[name = cname] option").remove();
+                        $("<option>300</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>300</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "Acid Phosphatase - Total") {
+                        $("select[name = cname] option").remove();
+                        $("<option>300</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>300</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "ALKALINE PHOSPHATASE") {
+                        $("select[name = cname] option").remove();
+                        $("<option>180</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>180</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "ALKALINE PHOSPHATASE") {
+                        $("select[name = cname] option").remove();
+                        $("<option>180</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>180</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "Blood Glucose 2 Hours Post Prandial (Lunch)") {
+                        $("select[name = cname] option").remove();
+                        $("<option>55</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>55</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "Blood Glucose 2 Hours Post Prandial (Dinner)") {
+                        $("select[name = cname] option").remove();
+                        $("<option>55</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>55</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "GLUCOSE POSTPRANDIAL WITH URINE SUGAR") {
+                        $("select[name = cname] option").remove();
+                        $("<option>80</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>80</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "FASTING BLOOD GLUCOSE (FBS) WITH URINE SUGAR") {
+                        $("select[name = cname] option").remove();
+                        $("<option>80</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>80</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "Blood Glucose 2 Hours Post Prandial (Dinner)-urine Sug strip") {
+                        $("select[name = cname] option").remove();
+                        $("<option>80</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>80</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "GFR - Glomerular Filteration Rate") {
+                        $("select[name = cname] option").remove();
+                        $("<option>500</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>500</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "GTT (vein blood) - 2 samples") {
+                        $("select[name = cname] option").remove();
+                        $("<option>150</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>150</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "GTT (vein blood) - 3 samples") {
+                        $("select[name = cname] option").remove();
+                        $("<option>200</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>200</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "GTT (vein blood) - 4 samples") {
+                        $("select[name = cname] option").remove();
+                        $("<option>250</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>250</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "Micro Albumin Creatine Ratio") {
+                        $("select[name = cname] option").remove();
+                        $("<option>500</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>500</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "MICRO ALBUMIN URINE 24 HRS") {
+                        $("select[name = cname] option").remove();
+                        $("<option>500</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>500</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "OGCT") {
+                        $("select[name = cname] option").remove();
+                        $("<option>200</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>200</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "Inorganic phosphorous -Urine(24 hrs)") {
+                        $("select[name = cname] option").remove();
+                        $("<option>120</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>120</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "Inorganic phosphorus - Urine (RANDAM)") {
+                        $("select[name = cname] option").remove();
+                        $("<option>120</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>120</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "SODIUM -URINE 24HRS") {
+                        $("select[name = cname] option").remove();
+                        $("<option>120</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>120</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "POTASSIUM URINE 24 HRS") {
+                        $("select[name = cname] option").remove();
+                        $("<option>120</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>120</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "URINE PROTEIN CREATININE RATIO"){
+                        $("select[name = cname] option").remove();
+                        $("<option>450</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>450</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "PROTEIN URINE RANDAM") {
+                        $("select[name = cname] option").remove();
+                        $("<option>120</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>120</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "RP1") {
+                        $("select[name = cname] option").remove();
+                        $("<option>650</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>650</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "RP2") {
+                        $("select[name = cname] option").remove();
+                        $("<option>1700</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>1700</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "RP3") {
+                        $("select[name = cname] option").remove();
+                        $("<option>220</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>220</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "UREA POST DIALYSIS") {
+                        $("select[name = cname] option").remove();
+                        $("<option>120</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>120</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "UREA PRE DIALYSIS") {
+                        $("select[name = cname] option").remove();
+                        $("<option>120</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>120</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "UREA URINE 24HRS") {
+                        $("select[name = cname] option").remove();
+                        $("<option>90</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>90</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "URIC ACID URINE") {
+                        $("select[name = cname] option").remove();
+                        $("<option>150</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>150</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "Uric Acid Urinary (Random / 24 hr)") {
+                        $("select[name = cname] option").remove();
+                        $("<option>250</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>250</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "Urinary Micro Protein (24 hr)") {
+                        $("select[name = cname] option").remove();
+                        $("<option>350</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>350</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "Egfr (1-12yrs)") {
+                        $("select[name = cname] option").remove();
+                        $("<option>500</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>500</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "Urinary Phosphorous (24 hr)") {
+                        $("select[name = cname] option").remove();
+                        $("<option>250</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>250</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "Urinary Potassium ( 24 hr)") {
+                        $("select[name = cname] option").remove();
+                        $("<option>250</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>250</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "Urinary Sodium (24 hr)") {
+                        $("select[name = cname] option").remove();
+                        $("<option>250</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>250</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "Urinary Microalbumin (24 hr)") {
+                        $("select[name = cname] option").remove();
+                        $("<option>450</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>450</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "Urine Osmolality (24 hr)") {
+                        $("select[name = cname] option").remove();
+                        $("<option>500</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>500</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "OSMOLALITY SERUM") {
+                        $("select[name = cname] option").remove();
+                        $("<option>900</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>900</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "Urine Protein Creatinine Ratio (Random)") {
+                        $("select[name = cname] option").remove();
+                        $("<option>40</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>40</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "Phosplipid IgG & IgM") {
+                        $("select[name = cname] option").remove();
+                        $("<option>0</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>0</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "ANA IMF-IMMUNOFLUORESCENCE") {
+                        $("select[name = cname] option").remove();
+                        $("<option>700</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>700</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "Testosterone Total") {
+                        $("select[name = cname] option").remove();
+                        $("<option>650</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>650</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "HBA1C -GLYCOSYLATED HB") {
+                        $("select[name = cname] option").remove();
+                        $("<option>550</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>550</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "LIPID PROFILE") {
+                        $("select[name = cname] option").remove();
+                        $("<option>0</option>").appendTo($cname);
+                        $("select[name = 'lname'] option").remove();
+                        $("<option>0</option>").appendTo($lname);
+                    }
+                    if ($(this).val() == "LIPID PROFILE") {
 
-            /*An array containing all the country names in the world:*/
-            var TestName = ["BLOOD SUGAR- FASTING", "BLOOD SUGAR- POST PRANDIAL", "BLOOD SUGAR -RANDOM", "GLUCOSE TOLERANCE TEST ( GTT  )", "GLYCOSYLATED HAEMOGLOBIN","CHOLESTEROL","HDL CHOLESTEROL","TRIGLYCERIDES","VLDL CHOLESTEROL","TOTAL LIPIDS","TOTAL  CHOLESTEROL","LDL: HDL RATIO","DIRECT BILIRUBIN","ALBUMIN","TOTAL PROTEIN","A/G RATIO","Blood Urea Nitrogen","BLOOD UREA NITROGEN (BUN)","CREATININE","URIC ACID"];
- 
-      "FIELD8": null,
-     "GR01": "GR02",
-     "FBS": "BLSCLL",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "HE00103",
-     "BLOOD SUGAR- FASTING": "TOTAL GRANULOCYTE COUNT",
-     "FIELD3": "",
-     "30": "0",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "72",
-     "FIELD8": null,
-     "GR01": "GR02",
-     "FBS": "TTLGRNCNT",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "HE00104",
-     "BLOOD SUGAR- FASTING": "PAP SMEAR- LBC",
-     "FIELD3": "",
-     "30": "0",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "73",
-     "FIELD8": null,
-     "GR01": "GR02",
-     "FBS": "PPSMRLBC",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "HE00105",
-     "BLOOD SUGAR- FASTING": "PAP Smear Test",
-     "FIELD3": "",
-     "30": "300",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "74",
-     "FIELD8": null,
-     "GR01": "GR02",
-     "FBS": "PPSMR",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "HE00106",
-     "BLOOD SUGAR- FASTING": "MRA/MRV/MRS(PERIPHERAL)",
-     "FIELD3": "",
-     "30": "0",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "75",
-     "FIELD8": null,
-     "GR01": "GR02",
-     "FBS": "MR/",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "HE00107",
-     "BLOOD SUGAR- FASTING": "LP.",
-     "FIELD3": "",
-     "30": "0",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "76",
-     "FIELD8": null,
-     "GR01": "GR02",
-     "FBS": "LPDPRF(WTA",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "HE00108",
-     "BLOOD SUGAR- FASTING": "HPV DNA & PAP SMEAR",
-     "FIELD3": "",
-     "30": "2900",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "77",
-     "FIELD8": null,
-     "GR01": "GR02",
-     "FBS": "HPVDN&PPSM",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "HE00109",
-     "BLOOD SUGAR- FASTING": "HPV DNA DETECTION AND TYPING",
-     "FIELD3": "",
-     "30": "2350",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "78",
-     "FIELD8": null,
-     "GR01": "GR02",
-     "FBS": "HPVDN",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "HE00110",
-     "BLOOD SUGAR- FASTING": "HPV DNA WITH PAP SMEAR-LBC",
-     "FIELD3": "",
-     "30": "3200",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "79",
-     "FIELD8": null,
-     "GR01": "GR02",
-     "FBS": "HPVDNWTHPP",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "HE00111",
-     "BLOOD SUGAR- FASTING": "HBV DRUG RESISTANCE",
-     "FIELD3": "",
-     "30": "0",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "80",
-     "FIELD8": null,
-     "GR01": "GR02",
-     "FBS": "HBVDRGRSS",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "HE00112",
-     "BLOOD SUGAR- FASTING": "HCV GENOTYPING",
-     "FIELD3": "",
-     "30": "6700",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "81",
-     "FIELD8": null,
-     "GR01": "GR02",
-     "FBS": "HCVGNT",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "HE00113",
-     "BLOOD SUGAR- FASTING": "HCV RNA DETECTION (QUALITATIVE)",
-     "FIELD3": "",
-     "30": "3500",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "82",
-     "FIELD8": null,
-     "GR01": "GR02",
-     "FBS": "HCVRN(QL",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "HE00114",
-     "BLOOD SUGAR- FASTING": "HCV RNA VIRAL LOAD(QUANTITATIVE)",
-     "FIELD3": "",
-     "30": "6500",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "83",
-     "FIELD8": null,
-     "GR01": "GR02",
-     "FBS": "HCVRNVRLLD",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "HE00115",
-     "BLOOD SUGAR- FASTING": "HDV RNA PCR",
-     "FIELD3": "",
-     "30": "5500",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "84",
-     "FIELD8": null,
-     "GR01": "GR02",
-     "FBS": "HDVRNPCR",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "HE00116",
-     "BLOOD SUGAR- FASTING": "HAEMOGLOBIN",
-     "FIELD3": "",
-     "30": "100",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "85",
-     "FIELD8": null,
-     "GR01": "GR02",
-     "FBS": "HB",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "HE00117",
-     "BLOOD SUGAR- FASTING": "Total WBC Count",
-     "FIELD3": "",
-     "30": "0",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "86",
-     "FIELD8": null,
-     "GR01": "GR02",
-     "FBS": "TtlWBCCnt",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "HE00118",
-     "BLOOD SUGAR- FASTING": "COMPLETE HAEMOGRAM",
-     "FIELD3": "",
-     "30": "400",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "87",
-     "FIELD8": null,
-     "GR01": "GR02",
-     "FBS": "CBC",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "HE00119",
-     "BLOOD SUGAR- FASTING": "Bleeding & Clotting Time",
-     "FIELD3": "",
-     "30": "150",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "100",
-     "FIELD8": null,
-     "GR01": "GR02",
-     "FBS": "BT",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "HE00121",
-     "BLOOD SUGAR- FASTING": "D DIMER",
-     "FIELD3": "",
-     "30": "1000",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "88",
-     "FIELD8": null,
-     "GR01": "GR02",
-     "FBS": "DDMR",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "HE00123",
-     "BLOOD SUGAR- FASTING": "DIFFERENTIAL LEUKOCYTIC COUNT (DLC)",
-     "FIELD3": "",
-     "30": "100",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "95",
-     "FIELD8": null,
-     "GR01": "GR02",
-     "FBS": "DC",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "HE00125",
-     "BLOOD SUGAR- FASTING": "FIBRINOGEN*",
-     "FIELD3": "",
-     "30": "900",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "1",
-     "FIELD8": null,
-     "GR01": "GR02",
-     "FBS": "FBR",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "HE00126",
-     "BLOOD SUGAR- FASTING": "Lupus Anticoagulant",
-     "FIELD3": "",
-     "30": "1900",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "2",
-     "FIELD8": null,
-     "GR01": "GR02",
-     "FBS": "LpsAntc",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "HE00127",
-     "BLOOD SUGAR- FASTING": "ACTIVATED PARTIAL THROMBOPLASTIN TIME(APTT)",
-     "FIELD3": "",
-     "30": "350",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "51",
-     "FIELD8": null,
-     "GR01": "GR02",
-     "FBS": "PTT-PrtThr",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "HE00128",
-     "BLOOD SUGAR- FASTING": "Coagulation profile (D-Dimer",
-     "FIELD3": "Fibronogen",
-     "30": "PT",
-     "FIELD5": "APTT)",
-     "FIELD6": "",
-     "90": "2550",
-     "FIELD8": null,
-     "GR01": "",
-     "FBS": "3",
-     "0": null,
-     "FIELD12": "GR02",
-     "FIELD13": "Cglprf(D-",
-     "FIELD14": "1",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "HE00131",
-     "BLOOD SUGAR- FASTING": "ABSOLUTE COUNTS (TRICOLOUR FLOW CYTOMETRY)",
-     "FIELD3": "",
-     "30": "1200",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "4",
-     "FIELD8": null,
-     "GR01": "GR02",
-     "FBS": "ABSLCNT(TR",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "HE00132",
-     "BLOOD SUGAR- FASTING": "ABSOLUTE BASHOPHIL COUNT (ABC)",
-     "FIELD3": "",
-     "30": "150",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "5",
-     "FIELD8": null,
-     "GR01": "GR02",
-     "FBS": "ABC-AbslBs",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "HE00133",
-     "BLOOD SUGAR- FASTING": "ABSOLUTE MONOCYTE COUNT (AMC)",
-     "FIELD3": "",
-     "30": "150",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "6",
-     "FIELD8": null,
-     "GR01": "GR02",
-     "FBS": "AMC-AbslMn",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "HE00135",
-     "BLOOD SUGAR- FASTING": "Blood Group & Rh Factor",
-     "FIELD3": "",
-     "30": "150",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "7",
-     "FIELD8": null,
-     "GR01": "GR02",
-     "FBS": "BldGrp&RhF",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "HE00137",
-     "BLOOD SUGAR- FASTING": "COMPLETE BLOOD PICTURE.",
-     "FIELD3": "",
-     "30": "400",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "8",
-     "FIELD8": null,
-     "GR01": "GR02",
-     "FBS": "CmpBldPctT",
-     "0": "0",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "HE00138",
-     "BLOOD SUGAR- FASTING": "Coombs Test Direct",
-     "FIELD3": "",
-     "30": "430",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "9",
-     "FIELD8": null,
-     "GR01": "GR02",
-     "FBS": "CmbTstDrc",
-     "0": "0",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "HE00140",
-     "BLOOD SUGAR- FASTING": "HAEMOGLOBIN (HB)",
-     "FIELD3": "",
-     "30": "100",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "10",
-     "FIELD8": null,
-     "GR01": "GR02",
-     "FBS": "Hmg",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "HE00141",
-     "BLOOD SUGAR- FASTING": "Malarial Parasite Smear method",
-     "FIELD3": "",
-     "30": "200",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "11",
-     "FIELD8": null,
-     "GR01": "GR02",
-     "FBS": "MlrPrsSmrm",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "HE00142",
-     "BLOOD SUGAR- FASTING": "Microfilaria",
-     "FIELD3": "",
-     "30": "200",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "12",
-     "FIELD8": null,
-     "GR01": "GR02",
-     "FBS": "Mcr",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "HE00144",
-     "BLOOD SUGAR- FASTING": "PS - Peripheral Smear",
-     "FIELD3": "",
-     "30": "180",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "13",
-     "FIELD8": null,
-     "GR01": "GR02",
-     "FBS": "PS-PrpSmr",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "HE00145",
-     "BLOOD SUGAR- FASTING": "Reticulocyte count (Automated)",
-     "FIELD3": "",
-     "30": "300",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "14",
-     "FIELD8": null,
-     "GR01": "GR02",
-     "FBS": "Rtccnt(tm",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "HE00146",
-     "BLOOD SUGAR- FASTING": "Total & Differential Count (TC",
-     "FIELD3": " DC)",
-     "30": "",
-     "FIELD5": "130",
-     "FIELD6": null,
-     "90": "",
-     "FIELD8": "15",
-     "GR01": null,
-     "FBS": "GR02",
-     "0": "Ttl&DffCnt",
-     "FIELD12": "1",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "HE00149",
-     "BLOOD SUGAR- FASTING": "SMEAR FOR AFB -SKIN",
-     "FIELD3": "",
-     "30": "300",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "16",
-     "FIELD8": null,
-     "GR01": "GR02",
-     "FBS": "SMRFRAFB-S",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "HE00150",
-     "BLOOD SUGAR- FASTING": "PS FOR MP",
-     "FIELD3": "",
-     "30": "200",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR02",
-     "FBS": "PSFRMP",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "HE00152",
-     "BLOOD SUGAR- FASTING": "HB",
-     "FIELD3": "",
-     "30": "100",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR02",
-     "FBS": "HB",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "HE00153",
-     "BLOOD SUGAR- FASTING": "G6PD Qualitative",
-     "FIELD3": "",
-     "30": "950",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR02",
-     "FBS": "G6PQlt",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "HE00154",
-     "BLOOD SUGAR- FASTING": "URINE FOR EOSINOPHILS",
-     "FIELD3": "",
-     "30": "200",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR02",
-     "FBS": "URNFRESNP",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "HE00155",
-     "BLOOD SUGAR- FASTING": "Immature Platelet Fraction",
-     "FIELD3": "",
-     "30": "400",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR02",
-     "FBS": "ImmtPltFrc",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "HE00156",
-     "BLOOD SUGAR- FASTING": "Factor V Leiden Mutation",
-     "FIELD3": "",
-     "30": "10000",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR02",
-     "FBS": "FctVLdnMtt",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "HE00157",
-     "BLOOD SUGAR- FASTING": "Protein C",
-     "FIELD3": " Functional",
-     "30": "",
-     "FIELD5": "1500",
-     "FIELD6": null,
-     "90": "",
-     "FIELD8": "0",
-     "GR01": null,
-     "FBS": "GR02",
-     "0": "PrtC",
-     "FIELD12": "Fnc",
-     "FIELD13": "1",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "HE00158",
-     "BLOOD SUGAR- FASTING": "PROTEIN S",
-     "FIELD3": " (FREE) ANTIGEN",
-     "30": "",
-     "FIELD5": "1500",
-     "FIELD6": null,
-     "90": "",
-     "FIELD8": "0",
-     "GR01": null,
-     "FBS": "GR02",
-     "0": "PRTS",
-     "FIELD12": "(FRAN",
-     "FIELD13": "1",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00001",
-     "BLOOD SUGAR- FASTING": "CULTURE & SENSITIVITY ( OTHERS )",
-     "FIELD3": "",
-     "30": "600",
-     "FIELD5": "",
-     "FIELD6": "",
-     "90": "1",
-     "FIELD8": "",
-     "GR01": "GR03",
-     "FBS": "C&S",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00002",
-     "BLOOD SUGAR- FASTING": "BLOOD CULTURE SENSITIVITY AEROBIC AUTOMATED",
-     "FIELD3": "",
-     "30": "850",
-     "FIELD5": "",
-     "FIELD6": "",
-     "90": "2",
-     "FIELD8": "",
-     "GR01": "GR03",
-     "FBS": "BCSA",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00004",
-     "BLOOD SUGAR- FASTING": "CULTURE & SENSITIVITY URINE",
-     "FIELD3": "",
-     "30": "300",
-     "FIELD5": "",
-     "FIELD6": "",
-     "90": "3",
-     "FIELD8": "",
-     "GR01": "GR03",
-     "FBS": "C&S Urine",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00024",
-     "BLOOD SUGAR- FASTING": "AFB ZN stain",
-     "FIELD3": "",
-     "30": "300",
-     "FIELD5": "",
-     "FIELD6": "",
-     "90": "4",
-     "FIELD8": "",
-     "GR01": "GR03",
-     "FBS": "AFB C S",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00025",
-     "BLOOD SUGAR- FASTING": "AFB CULTURE ( OTHERS )",
-     "FIELD3": "",
-     "30": "2800",
-     "FIELD5": "",
-     "FIELD6": "",
-     "90": "5",
-     "FIELD8": "",
-     "GR01": "GR03",
-     "FBS": "AFB C O",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00033",
-     "BLOOD SUGAR- FASTING": "CULTURE FOR DIPHTHERIA",
-     "FIELD3": "",
-     "30": "125",
-     "FIELD5": "",
-     "FIELD6": "",
-     "90": "6",
-     "FIELD8": "",
-     "GR01": "GR03",
-     "FBS": "Diph C",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00034",
-     "BLOOD SUGAR- FASTING": "SMEAR FOR AFB SPUTUM",
-     "FIELD3": "",
-     "30": "70",
-     "FIELD5": "",
-     "FIELD6": "",
-     "90": "7",
-     "FIELD8": "",
-     "GR01": "GR03",
-     "FBS": "S AFBS",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00035",
-     "BLOOD SUGAR- FASTING": "SMEAR FOR AFB URINE",
-     "FIELD3": "",
-     "30": "70",
-     "FIELD5": "",
-     "FIELD6": "",
-     "90": "8",
-     "FIELD8": "",
-     "GR01": "GR03",
-     "FBS": "S AFBU",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00036",
-     "BLOOD SUGAR- FASTING": "SMEAR FOR AFB URINE[24HRS]",
-     "FIELD3": "",
-     "30": "50",
-     "FIELD5": "",
-     "FIELD6": "",
-     "90": "9",
-     "FIELD8": "",
-     "GR01": "GR03",
-     "FBS": "24 S AFBU",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00037",
-     "BLOOD SUGAR- FASTING": "SMEAR FOR AFB PUS",
-     "FIELD3": "",
-     "30": "70",
-     "FIELD5": "",
-     "FIELD6": "",
-     "90": "10",
-     "FIELD8": "",
-     "GR01": "GR03",
-     "FBS": "S AFBPus",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00039",
-     "BLOOD SUGAR- FASTING": "HANGING DROP PREPARATION",
-     "FIELD3": "",
-     "30": "250",
-     "FIELD5": "",
-     "FIELD6": "",
-     "90": "11",
-     "FIELD8": "",
-     "GR01": "GR03",
-     "FBS": "SHDP",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00042",
-     "BLOOD SUGAR- FASTING": "SMEAR FOR AFB-LARYNGEAL SWAB",
-     "FIELD3": "",
-     "30": "35",
-     "FIELD5": "",
-     "FIELD6": "",
-     "90": "12",
-     "FIELD8": "",
-     "GR01": "GR03",
-     "FBS": "S AFB",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00043",
-     "BLOOD SUGAR- FASTING": "GRAM STAIN",
-     "FIELD3": "",
-     "30": "250",
-     "FIELD5": "",
-     "FIELD6": "",
-     "90": "13",
-     "FIELD8": "",
-     "GR01": "GR03",
-     "FBS": "Gram St",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00044",
-     "BLOOD SUGAR- FASTING": "SPUTUM GRAM STAIN",
-     "FIELD3": "",
-     "30": "180",
-     "FIELD5": "",
-     "FIELD6": "",
-     "90": "14",
-     "FIELD8": "",
-     "GR01": "GR03",
-     "FBS": "SGS",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00049",
-     "BLOOD SUGAR- FASTING": "SCRAPPING FOR FUNGUS",
-     "FIELD3": "",
-     "30": "200",
-     "FIELD5": "",
-     "FIELD6": "",
-     "90": "15",
-     "FIELD8": "",
-     "GR01": "GR03",
-     "FBS": "SFung",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00050",
-     "BLOOD SUGAR- FASTING": "SKIN CLIPPING FOR AFB",
-     "FIELD3": "",
-     "30": "70",
-     "FIELD5": "",
-     "FIELD6": "",
-     "90": "16",
-     "FIELD8": "",
-     "GR01": "GR03",
-     "FBS": "AFBC",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00051",
-     "BLOOD SUGAR- FASTING": "SMEAR FOR DIPHTHERIA (ALBERT'S STAIN)",
-     "FIELD3": "",
-     "30": "100",
-     "FIELD5": "",
-     "FIELD6": "",
-     "90": "17",
-     "FIELD8": "",
-     "GR01": "GR03",
-     "FBS": "SDim",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00052",
-     "BLOOD SUGAR- FASTING": "SMEAR FOR GONOCOCCUS",
-     "FIELD3": "",
-     "30": "35",
-     "FIELD5": "",
-     "FIELD6": "",
-     "90": "18",
-     "FIELD8": "",
-     "GR01": "GR03",
-     "FBS": "SGon",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00053",
-     "BLOOD SUGAR- FASTING": "SKIN SCRAPPING FOR FUNGUS",
-     "FIELD3": "",
-     "30": "200",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "19",
-     "FIELD8": null,
-     "GR01": "GR03",
-     "FBS": "SKNSCRFRFN",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00054",
-     "BLOOD SUGAR- FASTING": "URETHRAL SWAB FOR GONOCOCCI",
-     "FIELD3": "",
-     "30": "100",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "20",
-     "FIELD8": null,
-     "GR01": "GR03",
-     "FBS": "URTHSWBFRG",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00056",
-     "BLOOD SUGAR- FASTING": "AFB CULTURE BLOOD",
-     "FIELD3": "",
-     "30": "850",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "21",
-     "FIELD8": null,
-     "GR01": "GR03",
-     "FBS": "AFBCLTBLD",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00057",
-     "BLOOD SUGAR- FASTING": "AFB CULTURE BODY FLUID",
-     "FIELD3": "",
-     "30": "0",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "22",
-     "FIELD8": null,
-     "GR01": "GR03",
-     "FBS": "AFBCLTBDYF",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00058",
-     "BLOOD SUGAR- FASTING": "AFB CULTURE BY CONVENTIONAL LJ MEDIUM",
-     "FIELD3": "",
-     "30": "0",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "23",
-     "FIELD8": null,
-     "GR01": "GR03",
-     "FBS": "AFBCLTBYCN",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00059",
-     "BLOOD SUGAR- FASTING": "AFB CULTURE PUS",
-     "FIELD3": "",
-     "30": "0",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "24",
-     "FIELD8": null,
-     "GR01": "GR03",
-     "FBS": "AFBCLTPS",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00060",
-     "BLOOD SUGAR- FASTING": "AFB CULTURE URINE",
-     "FIELD3": "",
-     "30": "0",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "25",
-     "FIELD8": null,
-     "GR01": "GR03",
-     "FBS": "AFBCLTURN",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00061",
-     "BLOOD SUGAR- FASTING": "AFB CYTOLOGY/MALIGNANT CELL",
-     "FIELD3": "",
-     "30": "0",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "26",
-     "FIELD8": null,
-     "GR01": "GR03",
-     "FBS": "AFBCYTCLL",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00062",
-     "BLOOD SUGAR- FASTING": "AFB LJ SUSCEPTIBILITY- 10 DRUGS",
-     "FIELD3": "",
-     "30": "0",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "27",
-     "FIELD8": null,
-     "GR01": "GR03",
-     "FBS": "AFBLJSSC10",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00063",
-     "BLOOD SUGAR- FASTING": "AFB LJ SUSCEPTIBILITY- 5 DRUGS",
-     "FIELD3": "",
-     "30": "0",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "28",
-     "FIELD8": null,
-     "GR01": "GR03",
-     "FBS": "AFBLJSSC5D",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00065",
-     "BLOOD SUGAR- FASTING": "AFB",
-     "FIELD3": "RAPID CULTURE(VERSATREK)",
-     "30": "",
-     "FIELD5": "0",
-     "FIELD6": null,
-     "90": "",
-     "FIELD8": "29",
-     "GR01": null,
-     "FBS": "GR03",
-     "0": "AFB",
-     "FIELD12": "CLT",
-     "FIELD13": "1",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00066",
-     "BLOOD SUGAR- FASTING": "CULTURE FLUID",
-     "FIELD3": "",
-     "30": "300",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "30",
-     "FIELD8": null,
-     "GR01": "GR03",
-     "FBS": "CLTFLD",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00067",
-     "BLOOD SUGAR- FASTING": "CULTURE FUNGAL",
-     "FIELD3": "",
-     "30": "400",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "31",
-     "FIELD8": null,
-     "GR01": "GR03",
-     "FBS": "CLTFNG",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00068",
-     "BLOOD SUGAR- FASTING": "CULTURE SEMEN",
-     "FIELD3": "",
-     "30": "0",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "32",
-     "FIELD8": null,
-     "GR01": "GR03",
-     "FBS": "CLTSMN",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00069",
-     "BLOOD SUGAR- FASTING": "CULTURE SPUTUM",
-     "FIELD3": "",
-     "30": "0",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "33",
-     "FIELD8": null,
-     "GR01": "GR03",
-     "FBS": "CLTSPT",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00070",
-     "BLOOD SUGAR- FASTING": "CULTURE SWAB",
-     "FIELD3": "",
-     "30": "600",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "34",
-     "FIELD8": null,
-     "GR01": "GR03",
-     "FBS": "CLTSWB",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00071",
-     "BLOOD SUGAR- FASTING": "CULTURE WATER",
-     "FIELD3": "",
-     "30": "1500",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "35",
-     "FIELD8": null,
-     "GR01": "GR03",
-     "FBS": "CLTWTR",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00072",
-     "BLOOD SUGAR- FASTING": "PUS CULTURE",
-     "FIELD3": "",
-     "30": "600",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "36",
-     "FIELD8": null,
-     "GR01": "GR03",
-     "FBS": "PSCLT",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00073",
-     "BLOOD SUGAR- FASTING": "PUS FOR GRAM STAIN",
-     "FIELD3": "",
-     "30": "0",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "37",
-     "FIELD8": null,
-     "GR01": "GR03",
-     "FBS": "PSFRGRMSTN",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00074",
-     "BLOOD SUGAR- FASTING": "ALLERGEN - AMOXYCILLIN",
-     "FIELD3": "",
-     "30": "0",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "38",
-     "FIELD8": null,
-     "GR01": "GR03",
-     "FBS": "ALLR-AMXY",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00075",
-     "BLOOD SUGAR- FASTING": "ALLERGEN - AMPICILLIN",
-     "FIELD3": "",
-     "30": "0",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "39",
-     "FIELD8": null,
-     "GR01": "GR03",
-     "FBS": "ALLR-AMPC",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00076",
-     "BLOOD SUGAR- FASTING": "ALLERGEN - COMPREHENSIVE ALLERGY PANEL",
-     "FIELD3": "",
-     "30": "0",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "40",
-     "FIELD8": null,
-     "GR01": "GR03",
-     "FBS": "ALLR-CMPAL",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00077",
-     "BLOOD SUGAR- FASTING": "ALLERGEN - DRUG ALLERGY",
-     "FIELD3": "",
-     "30": "0",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "41",
-     "FIELD8": null,
-     "GR01": "GR03",
-     "FBS": "ALLR-DRGAL",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00078",
-     "BLOOD SUGAR- FASTING": "ALLERGEN - DUST ALLERGY",
-     "FIELD3": "",
-     "30": "0",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "42",
-     "FIELD8": null,
-     "GR01": "GR03",
-     "FBS": "ALLR-DSTAL",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00079",
-     "BLOOD SUGAR- FASTING": "ALLERGEN - FOOD PANEL-2",
-     "FIELD3": "",
-     "30": "0",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "43",
-     "FIELD8": null,
-     "GR01": "GR03",
-     "FBS": "ALLR-FDPNL",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00080",
-     "BLOOD SUGAR- FASTING": "ALLERGEN - FOOD PANEL-3",
-     "FIELD3": "",
-     "30": "0",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "44",
-     "FIELD8": null,
-     "GR01": "GR03",
-     "FBS": "ALLR-FDPNL",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00081",
-     "BLOOD SUGAR- FASTING": "ALLERGEN - FOOD PANEL-7",
-     "FIELD3": "",
-     "30": "0",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "45",
-     "FIELD8": null,
-     "GR01": "GR03",
-     "FBS": "ALLR-FDPNL",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00082",
-     "BLOOD SUGAR- FASTING": "ALLERGEN - MOLD PANEL",
-     "FIELD3": "",
-     "30": "0",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "46",
-     "FIELD8": null,
-     "GR01": "GR03",
-     "FBS": "ALLR-MLDPN",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00083",
-     "BLOOD SUGAR- FASTING": "ALLERGEN PANEL - (NON-VEG & VEG PANEL)",
-     "FIELD3": "",
-     "30": "0",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "47",
-     "FIELD8": null,
-     "GR01": "GR03",
-     "FBS": "ALLRPNL-(N",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00084",
-     "BLOOD SUGAR- FASTING": "ALLERGEN PANEL - ANIMAL MIX",
-     "FIELD3": "",
-     "30": "0",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "48",
-     "FIELD8": null,
-     "GR01": "GR03",
-     "FBS": "ALLRPNL-AN",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00085",
-     "BLOOD SUGAR- FASTING": "ALLERGEN PANEL - INHALANT",
-     "FIELD3": "",
-     "30": "0",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "49",
-     "FIELD8": null,
-     "GR01": "GR03",
-     "FBS": "ALLRPNL-IN",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00086",
-     "BLOOD SUGAR- FASTING": "ALLERGEN PANEL - NONVEG",
-     "FIELD3": "",
-     "30": "0",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "50",
-     "FIELD8": null,
-     "GR01": "GR03",
-     "FBS": "ALLRPNL-NN",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00087",
-     "BLOOD SUGAR- FASTING": "ALLERGEN PANEL - VEG",
-     "FIELD3": "",
-     "30": "0",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "51",
-     "FIELD8": null,
-     "GR01": "GR03",
-     "FBS": "ALLRPNL-VG",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00090",
-     "BLOOD SUGAR- FASTING": "BLOOD CULTURE RAPID",
-     "FIELD3": "",
-     "30": "0",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "52",
-     "FIELD8": null,
-     "GR01": "GR03",
-     "FBS": "BLDCLTRPD",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00091",
-     "BLOOD SUGAR- FASTING": "VAGINAL CULTURE &SENSITIVITY",
-     "FIELD3": "",
-     "30": "0",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "53",
-     "FIELD8": null,
-     "GR01": "GR03",
-     "FBS": "VGNCLT&SN",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00092",
-     "BLOOD SUGAR- FASTING": "URINE CULTURE &SENSITIVITY",
-     "FIELD3": "",
-     "30": "350",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "54",
-     "FIELD8": null,
-     "GR01": "GR03",
-     "FBS": "URCS",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00093",
-     "BLOOD SUGAR- FASTING": "SUDAN STAINING",
-     "FIELD3": "",
-     "30": "0",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "55",
-     "FIELD8": null,
-     "GR01": "GR03",
-     "FBS": "SDNSTN",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00094",
-     "BLOOD SUGAR- FASTING": "STOOL ROUTINE",
-     "FIELD3": "",
-     "30": "140",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "56",
-     "FIELD8": null,
-     "GR01": "GR03",
-     "FBS": "STLRTN",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00096",
-     "BLOOD SUGAR- FASTING": "STOOL FOR OCCULT BLOOD",
-     "FIELD3": "",
-     "30": "140",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "58",
-     "FIELD8": null,
-     "GR01": "GR03",
-     "FBS": "STLFROCCLB",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00097",
-     "BLOOD SUGAR- FASTING": "STOOL CULTURE&SENSITIVITY",
-     "FIELD3": "",
-     "30": "600",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "59",
-     "FIELD8": null,
-     "GR01": "GR03",
-     "FBS": "STLCLT",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00098",
-     "BLOOD SUGAR- FASTING": "SPUTUM MALIGNANT CELL",
-     "FIELD3": "",
-     "30": "300",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "60",
-     "FIELD8": null,
-     "GR01": "GR03",
-     "FBS": "SPTMLGCLL",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00099",
-     "BLOOD SUGAR- FASTING": "NAIL FUNGAL",
-     "FIELD3": "",
-     "30": "0",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "61",
-     "FIELD8": null,
-     "GR01": "GR03",
-     "FBS": "NLFNG",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00100",
-     "BLOOD SUGAR- FASTING": "MALIGNANT CELL (URINE)",
-     "FIELD3": "",
-     "30": "0",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "62",
-     "FIELD8": null,
-     "GR01": "GR03",
-     "FBS": "MLGCLL(RN",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00101",
-     "BLOOD SUGAR- FASTING": "MALIGNANT CELL (PLEURAL FLUID)",
-     "FIELD3": "",
-     "30": "0",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "63",
-     "FIELD8": null,
-     "GR01": "GR03",
-     "FBS": "MLGCLL(PLF",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00102",
-     "BLOOD SUGAR- FASTING": "MALIGNANT CELL (BODY FLUID)",
-     "FIELD3": "",
-     "30": "300",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "64",
-     "FIELD8": null,
-     "GR01": "GR03",
-     "FBS": "MLGCLL(BDF",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00103",
-     "BLOOD SUGAR- FASTING": "HIGH SENSITIVE CRP",
-     "FIELD3": "",
-     "30": "0",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "65",
-     "FIELD8": null,
-     "GR01": "GR03",
-     "FBS": "HGHSNSCRP",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00104",
-     "BLOOD SUGAR- FASTING": "FUNGAL STAIN",
-     "FIELD3": "NAIL",
-     "30": "",
-     "FIELD5": "0",
-     "FIELD6": null,
-     "90": "",
-     "FIELD8": "66",
-     "GR01": null,
-     "FBS": "GR03",
-     "0": "FNGSTN",
-     "FIELD12": "1",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00105",
-     "BLOOD SUGAR- FASTING": "FUNGAL STAIN(KOH)",
-     "FIELD3": "",
-     "30": "250",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "67",
-     "FIELD8": null,
-     "GR01": "GR03",
-     "FBS": "FNGSTN",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00106",
-     "BLOOD SUGAR- FASTING": "FOOD ALLERGY PANEL",
-     "FIELD3": "",
-     "30": "5000",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "68",
-     "FIELD8": null,
-     "GR01": "GR03",
-     "FBS": "FDALLRPNL",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00107",
-     "BLOOD SUGAR- FASTING": "ENDOMETRIUM AFB RAPID CULTURE",
-     "FIELD3": "",
-     "30": "0",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "69",
-     "FIELD8": null,
-     "GR01": "GR03",
-     "FBS": "ENDMAFBRPD",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00108",
-     "BLOOD SUGAR- FASTING": "OSTEOCALCIN",
-     "FIELD3": "",
-     "30": "0",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "70",
-     "FIELD8": null,
-     "GR01": "GR03",
-     "FBS": "OSTC",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00109",
-     "BLOOD SUGAR- FASTING": "OSTEOPOROSIS PANEL- 1(MINI)",
-     "FIELD3": "",
-     "30": "0",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "71",
-     "FIELD8": null,
-     "GR01": "GR03",
-     "FBS": "OSTPPNL1(M",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00110",
-     "BLOOD SUGAR- FASTING": "OSTEOPOROSIS PANEL- II(MAXI)",
-     "FIELD3": "",
-     "30": "0",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "72",
-     "FIELD8": null,
-     "GR01": "GR03",
-     "FBS": "OSTPPNLI(M",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00111",
-     "BLOOD SUGAR- FASTING": "Culture & Sensitivity Blood",
-     "FIELD3": "",
-     "30": "600",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "73",
-     "FIELD8": null,
-     "GR01": "GR03",
-     "FBS": "Clt&SnsBld",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00112",
-     "BLOOD SUGAR- FASTING": "Culture & Sensitivity Fluid ",
-     "FIELD3": " Nasal Swab",
-     "30": " Pus",
-     "FIELD5": " Semen",
-     "FIELD6": " Stool",
-     "90": "",
-     "FIELD8": "",
-     "GR01": "600",
-     "FBS": null,
-     "0": "",
-     "FIELD12": "74",
-     "FIELD13": null,
-     "FIELD14": "GR03",
-     "FIELD15": "Clt&SnsFld",
-     "FIELD16": 1,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00113",
-     "BLOOD SUGAR- FASTING": "Culture & Sensitivity Blood-BACTEC (Aerobic)",
-     "FIELD3": "",
-     "30": "850",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "75",
-     "FIELD8": null,
-     "GR01": "GR03",
-     "FBS": "Clt&SnsBld",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00114",
-     "BLOOD SUGAR- FASTING": "Catheter Tip/CVP TIP Culture & Sensitivity (Aerobic)",
-     "FIELD3": "",
-     "30": "600",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "76",
-     "FIELD8": null,
-     "GR01": "GR03",
-     "FBS": "CthTp/TPCl",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00115",
-     "BLOOD SUGAR- FASTING": "ET Culture & Sensitivity (Aerobic)",
-     "FIELD3": "",
-     "30": "800",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "77",
-     "FIELD8": null,
-     "GR01": "GR03",
-     "FBS": "ETClt&Sns(",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00116",
-     "BLOOD SUGAR- FASTING": "Water Culture",
-     "FIELD3": "",
-     "30": "600",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "78",
-     "FIELD8": null,
-     "GR01": "GR03",
-     "FBS": "WtrClt",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00117",
-     "BLOOD SUGAR- FASTING": "Clostridium difficile Toxin A & B",
-     "FIELD3": "",
-     "30": "1900",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "79",
-     "FIELD8": null,
-     "GR01": "GR03",
-     "FBS": "ClsdffTxnA",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00118",
-     "BLOOD SUGAR- FASTING": "Echinococcus detection -Cystic Fluid",
-     "FIELD3": "",
-     "30": "600",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "80",
-     "FIELD8": null,
-     "GR01": "GR03",
-     "FBS": "Echndtc-Cy",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00119",
-     "BLOOD SUGAR- FASTING": "Fungal Culture",
-     "FIELD3": "",
-     "30": "800",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "81",
-     "FIELD8": null,
-     "GR01": "GR03",
-     "FBS": "FngClt",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00120",
-     "BLOOD SUGAR- FASTING": "Endomysial Antibody",
-     "FIELD3": "",
-     "30": "1600",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "82",
-     "FIELD8": null,
-     "GR01": "GR03",
-     "FBS": "EndmAntb",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00121",
-     "BLOOD SUGAR- FASTING": "ENDOTREACHEL TIP (SWAB )",
-     "FIELD3": "",
-     "30": "300",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "83",
-     "FIELD8": null,
-     "GR01": "GR03",
-     "FBS": "ENDTTP(SW)",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00122",
-     "BLOOD SUGAR- FASTING": "FOLEY S TIP CULTURE",
-     "FIELD3": "",
-     "30": "600",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "84",
-     "FIELD8": null,
-     "GR01": "GR03",
-     "FBS": "FLYSTPCLT",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00123",
-     "BLOOD SUGAR- FASTING": "AFB Culture - MGIT",
-     "FIELD3": "",
-     "30": "2800",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "85",
-     "FIELD8": null,
-     "GR01": "GR03",
-     "FBS": "AFBClt-MGT",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00124",
-     "BLOOD SUGAR- FASTING": "ANA - I M F",
-     "FIELD3": "",
-     "30": "1000",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "86",
-     "FIELD8": null,
-     "GR01": "GR03",
-     "FBS": "AN-IMF",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00125",
-     "BLOOD SUGAR- FASTING": "ANCA",
-     "FIELD3": "",
-     "30": "1700",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "87",
-     "FIELD8": null,
-     "GR01": "GR03",
-     "FBS": "ANC",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00126",
-     "BLOOD SUGAR- FASTING": "Androstenedione",
-     "FIELD3": "",
-     "30": "1800",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "88",
-     "FIELD8": null,
-     "GR01": "GR03",
-     "FBS": "Andr",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00127",
-     "BLOOD SUGAR- FASTING": "Anti G B M Antibody",
-     "FIELD3": "",
-     "30": "1550",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "89",
-     "FIELD8": null,
-     "GR01": "GR03",
-     "FBS": "AntGBMAntb",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00128",
-     "BLOOD SUGAR- FASTING": "Anti Gliadin Ig A",
-     "FIELD3": "",
-     "30": "1900",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "90",
-     "FIELD8": null,
-     "GR01": "GR03",
-     "FBS": "AntGldIgA",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00129",
-     "BLOOD SUGAR- FASTING": "Anti Gliadin Ig G",
-     "FIELD3": "",
-     "30": "1900",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "91",
-     "FIELD8": null,
-     "GR01": "GR03",
-     "FBS": "AntGldIgG",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00130",
-     "BLOOD SUGAR- FASTING": "Anti HB core Ag IgM",
-     "FIELD3": "",
-     "30": "1080",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "92",
-     "FIELD8": null,
-     "GR01": "GR03",
-     "FBS": "AntHBcrAgI",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00131",
-     "BLOOD SUGAR- FASTING": "Anti Mitochondrial Antibody (AMA)",
-     "FIELD3": "",
-     "30": "1300",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "93",
-     "FIELD8": null,
-     "GR01": "GR03",
-     "FBS": "AntMtcAntb",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00132",
-     "BLOOD SUGAR- FASTING": "ANTI MICOBACTERIAL ANTIBODYES-IGG",
-     "FIELD3": "",
-     "30": "400",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "94",
-     "FIELD8": null,
-     "GR01": "GR03",
-     "FBS": "ANTMCBANTB",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00133",
-     "BLOOD SUGAR- FASTING": "ANTI MICROBACTERIAL ANTIBODYES -IGM",
-     "FIELD3": "",
-     "30": "400",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "95",
-     "FIELD8": null,
-     "GR01": "GR03",
-     "FBS": "ANTMCRANTB",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00134",
-     "BLOOD SUGAR- FASTING": "ANTI NEUTROPHIL CYTOPLASMIC ANTIBODY(ANCA )",
-     "FIELD3": "",
-     "30": "1650",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "96",
-     "FIELD8": null,
-     "GR01": "GR03",
-     "FBS": "ANTNTRCYTA",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00135",
-     "BLOOD SUGAR- FASTING": "Anti Parietal Cell Antibody (APCA)",
-     "FIELD3": "",
-     "30": "3500",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "97",
-     "FIELD8": null,
-     "GR01": "GR03",
-     "FBS": "AntPrtCllA",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00136",
-     "BLOOD SUGAR- FASTING": "Anti Thrombin III Antigen",
-     "FIELD3": "",
-     "30": "4800",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "98",
-     "FIELD8": null,
-     "GR01": "GR03",
-     "FBS": "AntThrIAnt",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00137",
-     "BLOOD SUGAR- FASTING": "Antibodies to Hepatitis A Virus IgG",
-     "FIELD3": "",
-     "30": "1100",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "99",
-     "FIELD8": null,
-     "GR01": "GR03",
-     "FBS": "AntbtHptAV",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00138",
-     "BLOOD SUGAR- FASTING": "HEPATITIS B PROFILE",
-     "FIELD3": "",
-     "30": "3000",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "100",
-     "FIELD8": null,
-     "GR01": "GR03",
-     "FBS": "HPTBPRF",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00139",
-     "BLOOD SUGAR- FASTING": "Antibody to Smooth Muscle",
-     "FIELD3": "",
-     "30": "1900",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "101",
-     "FIELD8": null,
-     "GR01": "GR03",
-     "FBS": "AntbtSmtMs",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00140",
-     "BLOOD SUGAR- FASTING": "Benzodiazapine (Qualitative)",
-     "FIELD3": "",
-     "30": "800",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "102",
-     "FIELD8": null,
-     "GR01": "GR03",
-     "FBS": "Bnz(Ql",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00141",
-     "BLOOD SUGAR- FASTING": "Bioavailable Testosterone",
-     "FIELD3": "",
-     "30": "2400",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "103",
-     "FIELD8": null,
-     "GR01": "GR03",
-     "FBS": "BvlTst",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00142",
-     "BLOOD SUGAR- FASTING": "Brucella Antibody Ig M",
-     "FIELD3": "",
-     "30": "1200",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "104",
-     "FIELD8": null,
-     "GR01": "GR03",
-     "FBS": "BrcAntbIgM",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00143",
-     "BLOOD SUGAR- FASTING": "Brucella Antibody-IgG",
-     "FIELD3": "",
-     "30": "1200",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "105",
-     "FIELD8": null,
-     "GR01": "GR03",
-     "FBS": "BrcAntb",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00144",
-     "BLOOD SUGAR- FASTING": "BRUCELLA TUBE AGGLUTINATION TEST",
-     "FIELD3": "",
-     "30": "700",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "106",
-     "FIELD8": null,
-     "GR01": "GR03",
-     "FBS": "BRCTBAGGLT",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00145",
-     "BLOOD SUGAR- FASTING": "CD4/CD8 Count",
-     "FIELD3": " EDTA",
-     "30": "",
-     "FIELD5": "1000",
-     "FIELD6": null,
-     "90": "",
-     "FIELD8": "107",
-     "GR01": null,
-     "FBS": "GR03",
-     "0": "CD4CntEDT",
-     "FIELD12": "1",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00146",
-     "BLOOD SUGAR- FASTING": "Chlamydia Trachomatis DNA PCR",
-     "FIELD3": "",
-     "30": "4000",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "108",
-     "FIELD8": null,
-     "GR01": "GR03",
-     "FBS": "ChlTrcDNPC",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00147",
-     "BLOOD SUGAR- FASTING": "Chlamydia Trachomatis IGG",
-     "FIELD3": "",
-     "30": "950",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "109",
-     "FIELD8": null,
-     "GR01": "GR03",
-     "FBS": "ChlTrcIGG",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00148",
-     "BLOOD SUGAR- FASTING": "Chlamydia Trachomatis IGA",
-     "FIELD3": "",
-     "30": "950",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "110",
-     "FIELD8": null,
-     "GR01": "GR03",
-     "FBS": "ChlTrcIG",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00149",
-     "BLOOD SUGAR- FASTING": "Chromogranin A",
-     "FIELD3": " Serum",
-     "30": "",
-     "FIELD5": "5800",
-     "FIELD6": null,
-     "90": "",
-     "FIELD8": "111",
-     "GR01": null,
-     "FBS": "GR03",
-     "0": "ChrA",
-     "FIELD12": "Srm",
-     "FIELD13": "1",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00150",
-     "BLOOD SUGAR- FASTING": "Cystatin C microbiology",
-     "FIELD3": "",
-     "30": "1250",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "112",
-     "FIELD8": null,
-     "GR01": "GR03",
-     "FBS": "CysCmcr",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00151",
-     "BLOOD SUGAR- FASTING": "Cysticercosis IgG antibody",
-     "FIELD3": "",
-     "30": "1600",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "113",
-     "FIELD8": null,
-     "GR01": "GR03",
-     "FBS": "CysIgGantb",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00152",
-     "BLOOD SUGAR- FASTING": "Cytomegalo Virus DNA PCR Viral Load",
-     "FIELD3": "",
-     "30": "7000",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "114",
-     "FIELD8": null,
-     "GR01": "GR03",
-     "FBS": "CytVrsDNPC",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00153",
-     "BLOOD SUGAR- FASTING": "DHEA (Dehydroxi Epi Androsterone)",
-     "FIELD3": "",
-     "30": "2500",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "115",
-     "FIELD8": null,
-     "GR01": "GR03",
-     "FBS": "DH(DhEpAnd",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00154",
-     "BLOOD SUGAR- FASTING": "Dihydro Testosterone - DHT",
-     "FIELD3": "",
-     "30": "2500",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "116",
-     "FIELD8": null,
-     "GR01": "GR03",
-     "FBS": "DhyTst-DHT",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00155",
-     "BLOOD SUGAR- FASTING": "Erythropoietin Serum",
-     "FIELD3": "",
-     "30": "2000",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "117",
-     "FIELD8": null,
-     "GR01": "GR03",
-     "FBS": "ErytSrm",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00156",
-     "BLOOD SUGAR- FASTING": "Factor 5 leiden",
-     "FIELD3": " mutant detection",
-     "30": "",
-     "FIELD5": "3850",
-     "FIELD6": null,
-     "90": "",
-     "FIELD8": "118",
-     "GR01": null,
-     "FBS": "GR03",
-     "0": "Fct5ldnmtn",
-     "FIELD12": "1",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00157",
-     "BLOOD SUGAR- FASTING": "FDP - Fibrin Degradation Particles",
-     "FIELD3": "",
-     "30": "1100",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "119",
-     "FIELD8": null,
-     "GR01": "GR03",
-     "FBS": "FDP-FbrDgr",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00158",
-     "BLOOD SUGAR- FASTING": "GAD Antibody",
-     "FIELD3": "",
-     "30": "5100",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "120",
-     "FIELD8": null,
-     "GR01": "GR03",
-     "FBS": "GDAntb",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00159",
-     "BLOOD SUGAR- FASTING": "GAD-65 (Glutamic Acid Decarboxylase) antibody",
-     "FIELD3": "",
-     "30": "",
-     "FIELD5": "6200",
-     "FIELD6": null,
-     "90": "",
-     "FIELD8": "121",
-     "GR01": null,
-     "FBS": "GR03",
-     "0": "GD-(GlAcdD",
-     "FIELD12": "1",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00160",
-     "BLOOD SUGAR- FASTING": "H L A B27 Level Flow cytometry",
-     "FIELD3": "",
-     "30": "2400",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "122",
-     "FIELD8": null,
-     "GR01": "GR03",
-     "FBS": "HLAB27LvlF",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00161",
-     "BLOOD SUGAR- FASTING": "Haptoglobin",
-     "FIELD3": "",
-     "30": "2300",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "123",
-     "FIELD8": null,
-     "GR01": "GR03",
-     "FBS": "Hpt",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00162",
-     "BLOOD SUGAR- FASTING": "Hb Electrophoresis",
-     "FIELD3": " EDTA",
-     "30": "",
-     "FIELD5": "1200",
-     "FIELD6": null,
-     "90": "",
-     "FIELD8": "124",
-     "GR01": null,
-     "FBS": "GR03",
-     "0": "HbElctEDT",
-     "FIELD12": "1",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00163",
-     "BLOOD SUGAR- FASTING": "TUBERCULIN TEST",
-     "FIELD3": "",
-     "30": "220",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "125",
-     "FIELD8": null,
-     "GR01": "GR03",
-     "FBS": "TBRTST",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00164",
-     "BLOOD SUGAR- FASTING": "HbcAb-Total antibodies to Hepatitis B Core Antibody",
-     "FIELD3": "",
-     "30": "2000",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "126",
-     "FIELD8": null,
-     "GR01": "GR03",
-     "FBS": "HbcantbtHp",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00166",
-     "BLOOD SUGAR- FASTING": "HBV-DNA Detection (Qualitative)",
-     "FIELD3": "",
-     "30": "4400",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "128",
-     "FIELD8": null,
-     "GR01": "GR03",
-     "FBS": "HBVDtc(Ql",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00167",
-     "BLOOD SUGAR- FASTING": "UIRNE BENCE JONES PROTEIN",
-     "FIELD3": "",
-     "30": "100",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "129",
-     "FIELD8": null,
-     "GR01": "GR03",
-     "FBS": "URNBNCJNSP",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00169",
-     "BLOOD SUGAR- FASTING": "Histone antibody",
-     "FIELD3": "",
-     "30": "1650",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "131",
-     "FIELD8": null,
-     "GR01": "GR03",
-     "FBS": "Hstantb",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00174",
-     "BLOOD SUGAR- FASTING": "HCV PCR Qualitative",
-     "FIELD3": " Plasma",
-     "30": "",
-     "FIELD5": "3900",
-     "FIELD6": null,
-     "90": "",
-     "FIELD8": "136",
-     "GR01": null,
-     "FBS": "GR03",
-     "0": "HCVPCRQltP",
-     "FIELD12": "1",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00175",
-     "BLOOD SUGAR- FASTING": "HCV PCR QUANTITATIVE( GENEXPERT )",
-     "FIELD3": "",
-     "30": "5200",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "137",
-     "FIELD8": null,
-     "GR01": "GR03",
-     "FBS": "HCVPCRQNTG",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00176",
-     "BLOOD SUGAR- FASTING": "Human Papilloma Virus Cervical scrapping",
-     "FIELD3": "",
-     "30": "2350",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "138",
-     "FIELD8": null,
-     "GR01": "GR03",
-     "FBS": "HmnPplVrsC",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00177",
-     "BLOOD SUGAR- FASTING": "HSV2IGM",
-     "FIELD3": "",
-     "30": "870",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "139",
-     "FIELD8": null,
-     "GR01": "GR03",
-     "FBS": "HSV",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00178",
-     "BLOOD SUGAR- FASTING": "HSV2IGG",
-     "FIELD3": "",
-     "30": "720",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "140",
-     "FIELD8": null,
-     "GR01": "GR03",
-     "FBS": "HSV",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00179",
-     "BLOOD SUGAR- FASTING": "HSV 1 IGM",
-     "FIELD3": "",
-     "30": "870",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "141",
-     "FIELD8": null,
-     "GR01": "GR03",
-     "FBS": "HSV1IGM",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00180",
-     "BLOOD SUGAR- FASTING": "HSV-DNA detection for type 1&2",
-     "FIELD3": "",
-     "30": "4000",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "142",
-     "FIELD8": null,
-     "GR01": "GR03",
-     "FBS": "HSVdtcfrty",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00181",
-     "BLOOD SUGAR- FASTING": "TSH Receptor Antibody",
-     "FIELD3": "Serum",
-     "30": "",
-     "FIELD5": "4100",
-     "FIELD6": null,
-     "90": "",
-     "FIELD8": "143",
-     "GR01": null,
-     "FBS": "GR03",
-     "0": "TSHRcpAntb",
-     "FIELD12": "1",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00182",
-     "BLOOD SUGAR- FASTING": "IgA for H Pylori",
-     "FIELD3": "",
-     "30": "1600",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "144",
-     "FIELD8": null,
-     "GR01": "GR03",
-     "FBS": "IgfrHPyl",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00183",
-     "BLOOD SUGAR- FASTING": "IgM for H Pylori",
-     "FIELD3": "",
-     "30": "1600",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "145",
-     "FIELD8": null,
-     "GR01": "GR03",
-     "FBS": "IgMfrHPyl",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00184",
-     "BLOOD SUGAR- FASTING": "IGF-1 (Somatomedin C) Serum",
-     "FIELD3": "",
-     "30": "2800",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "146",
-     "FIELD8": null,
-     "GR01": "GR03",
-     "FBS": "IGF-(SmC)S",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00185",
-     "BLOOD SUGAR- FASTING": "IMMUNOFIXATION ELECTROPHORESIS",
-     "FIELD3": "",
-     "30": "5810",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "147",
-     "FIELD8": null,
-     "GR01": "GR03",
-     "FBS": "IMMNELCT",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00186",
-     "BLOOD SUGAR- FASTING": "India Ink Preparation",
-     "FIELD3": "",
-     "30": "300",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "148",
-     "FIELD8": null,
-     "GR01": "GR03",
-     "FBS": "IndInkPrp",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00187",
-     "BLOOD SUGAR- FASTING": "KOH PREPARETION",
-     "FIELD3": "",
-     "30": "250",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "149",
-     "FIELD8": null,
-     "GR01": "GR03",
-     "FBS": "KHPRP",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00188",
-     "BLOOD SUGAR- FASTING": "Insulin like Growth Factor BP - 3",
-     "FIELD3": "",
-     "30": "3200",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "150",
-     "FIELD8": null,
-     "GR01": "GR03",
-     "FBS": "InsllkGrwF",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00189",
-     "BLOOD SUGAR- FASTING": "Intrinsic factor antibody",
-     "FIELD3": "",
-     "30": "3500",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "151",
-     "FIELD8": null,
-     "GR01": "GR03",
-     "FBS": "Intrfctant",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00190",
-     "BLOOD SUGAR- FASTING": "Jak 2 mutation",
-     "FIELD3": "",
-     "30": "5500",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "152",
-     "FIELD8": null,
-     "GR01": "GR03",
-     "FBS": "Jk2mtt",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00191",
-     "BLOOD SUGAR- FASTING": "LKM1 -Antibodies (Liver profile)",
-     "FIELD3": "",
-     "30": "4500",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "153",
-     "FIELD8": null,
-     "GR01": "GR03",
-     "FBS": "LKM-nt(Lvp",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00192",
-     "BLOOD SUGAR- FASTING": "Measles (Rubeola) IgG",
-     "FIELD3": " Serum",
-     "30": "",
-     "FIELD5": "1600",
-     "FIELD6": null,
-     "90": "",
-     "FIELD8": "154",
-     "GR01": null,
-     "FBS": "GR03",
-     "0": "Msl(RbIgG",
-     "FIELD12": "",
-     "FIELD13": "1",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00193",
-     "BLOOD SUGAR- FASTING": "Measles (Rubeola) IgM",
-     "FIELD3": " Serum",
-     "30": "",
-     "FIELD5": "1600",
-     "FIELD6": null,
-     "90": "",
-     "FIELD8": "155",
-     "GR01": null,
-     "FBS": "GR03",
-     "0": "Msl(RbIgM",
-     "FIELD12": "",
-     "FIELD13": "1",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00194",
-     "BLOOD SUGAR- FASTING": "Mumps Ig G Antibodies",
-     "FIELD3": "",
-     "30": "1600",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "156",
-     "FIELD8": null,
-     "GR01": "GR03",
-     "FBS": "MmpIgGAntb",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00195",
-     "BLOOD SUGAR- FASTING": "Mumps Ig M Antibodies",
-     "FIELD3": " Serum",
-     "30": "",
-     "FIELD5": "1600",
-     "FIELD6": null,
-     "90": "",
-     "FIELD8": "157",
-     "GR01": null,
-     "FBS": "GR03",
-     "0": "MmpIgMAntb",
-     "FIELD12": "1",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00196",
-     "BLOOD SUGAR- FASTING": "NT-PRO BNP (B Type Natriuretic Pepitide)",
-     "FIELD3": "",
-     "30": "1500",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "158",
-     "FIELD8": null,
-     "GR01": "GR03",
-     "FBS": "NT-BNP(BTy",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00197",
-     "BLOOD SUGAR- FASTING": "PLA2 receptor antibody",
-     "FIELD3": " Serum",
-     "30": "",
-     "FIELD5": "4500",
-     "FIELD6": null,
-     "90": "",
-     "FIELD8": "159",
-     "GR01": null,
-     "FBS": "GR03",
-     "0": "PL2rcpantb",
-     "FIELD12": "1",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00198",
-     "BLOOD SUGAR- FASTING": "Procalcitonin",
-     "FIELD3": "",
-     "30": "2000",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "160",
-     "FIELD8": null,
-     "GR01": "GR03",
-     "FBS": "Prc",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00199",
-     "BLOOD SUGAR- FASTING": "Protein C Antigen",
-     "FIELD3": "",
-     "30": "4500",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "161",
-     "FIELD8": null,
-     "GR01": "GR03",
-     "FBS": "PrtCAntg",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00200",
-     "BLOOD SUGAR- FASTING": "Protein S Antigen (Free)",
-     "FIELD3": "",
-     "30": "5500",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "162",
-     "FIELD8": null,
-     "GR01": "GR03",
-     "FBS": "PrtSAntg(F",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00201",
-     "BLOOD SUGAR- FASTING": "Scrub Typhus IGM",
-     "FIELD3": "",
-     "30": "1000",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "163",
-     "FIELD8": null,
-     "GR01": "GR03",
-     "FBS": "ScrTypIGM",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00202",
-     "BLOOD SUGAR- FASTING": "TACROLIMUS LEVELS",
-     "FIELD3": "",
-     "30": "3600",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "164",
-     "FIELD8": null,
-     "GR01": "GR03",
-     "FBS": "TCRLVL",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00203",
-     "BLOOD SUGAR- FASTING": "TB PCR",
-     "FIELD3": "",
-     "30": "1950",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "165",
-     "FIELD8": null,
-     "GR01": "GR03",
-     "FBS": "TBPCR",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00204",
-     "BLOOD SUGAR- FASTING": "TB-Quantiferon GOLD",
-     "FIELD3": " Heparin",
-     "30": "",
-     "FIELD5": "2550",
-     "FIELD6": null,
-     "90": "",
-     "FIELD8": "166",
-     "GR01": null,
-     "FBS": "GR03",
-     "0": "TB-GLDHpr",
-     "FIELD12": "1",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00205",
-     "BLOOD SUGAR- FASTING": "Marijuna (Qualitative)",
-     "FIELD3": "",
-     "30": "650",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "167",
-     "FIELD8": null,
-     "GR01": "GR03",
-     "FBS": "Mrj(Ql",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00206",
-     "BLOOD SUGAR- FASTING": "Tissue Transglutaminase Antibody IgA",
-     "FIELD3": "",
-     "30": "1150",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "168",
-     "FIELD8": null,
-     "GR01": "GR03",
-     "FBS": "TssTrnAntb",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00207",
-     "BLOOD SUGAR- FASTING": "TTG Antibody-IgG",
-     "FIELD3": "",
-     "30": "1300",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "169",
-     "FIELD8": null,
-     "GR01": "GR03",
-     "FBS": "TTGAntb",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00208",
-     "BLOOD SUGAR- FASTING": "Urine for Drug - Opiates (Qualitative)",
-     "FIELD3": "",
-     "30": "650",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "170",
-     "FIELD8": null,
-     "GR01": "GR03",
-     "FBS": "UrnfrDrg-O",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00209",
-     "BLOOD SUGAR- FASTING": "Urine for Drugs - Barbiturate - (Qualitative)",
-     "FIELD3": "",
-     "30": "650",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "171",
-     "FIELD8": null,
-     "GR01": "GR03",
-     "FBS": "UrnfrDrg-B",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00210",
-     "BLOOD SUGAR- FASTING": "Varicella Ig G",
-     "FIELD3": " Serum",
-     "30": "",
-     "FIELD5": "1600",
-     "FIELD6": null,
-     "90": "",
-     "FIELD8": "172",
-     "GR01": null,
-     "FBS": "GR03",
-     "0": "VrcIgG",
-     "FIELD12": "Srm",
-     "FIELD13": "1",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00211",
-     "BLOOD SUGAR- FASTING": "Varicella Ig M",
-     "FIELD3": " Serum",
-     "30": "",
-     "FIELD5": "1600",
-     "FIELD6": null,
-     "90": "",
-     "FIELD8": "173",
-     "GR01": null,
-     "FBS": "GR03",
-     "0": "VrcIgM",
-     "FIELD12": "Srm",
-     "FIELD13": "1",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00212",
-     "BLOOD SUGAR- FASTING": "Reverse T3",
-     "FIELD3": "",
-     "30": "1500",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "174",
-     "FIELD8": null,
-     "GR01": "GR03",
-     "FBS": "RvrT3",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00214",
-     "BLOOD SUGAR- FASTING": "ER / PR/ HER2",
-     "FIELD3": "",
-     "30": "6000",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "175",
-     "FIELD8": null,
-     "GR01": "GR03",
-     "FBS": "ER/PR/HR2",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00215",
-     "BLOOD SUGAR- FASTING": "H1N1(swine Flu)",
-     "FIELD3": "",
-     "30": "3750",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "176",
-     "FIELD8": null,
-     "GR01": "GR03",
-     "FBS": "H1NFl)",
-     "0": "0",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00216",
-     "BLOOD SUGAR- FASTING": "Serum Protein Electrophoresis",
-     "FIELD3": "",
-     "30": "910",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "177",
-     "FIELD8": null,
-     "GR01": "GR03",
-     "FBS": "SrmPrtElct",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00217",
-     "BLOOD SUGAR- FASTING": "Beta 2 Microglobulin",
-     "FIELD3": "",
-     "30": "1500",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "178",
-     "FIELD8": null,
-     "GR01": "GR03",
-     "FBS": "Bt2Mcr",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00218",
-     "BLOOD SUGAR- FASTING": "Stone Analysis",
-     "FIELD3": "",
-     "30": "600",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "179",
-     "FIELD8": null,
-     "GR01": "GR03",
-     "FBS": "StnAnly",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00219",
-     "BLOOD SUGAR- FASTING": "Acid Fast Bacilli (AFB) stain",
-     "FIELD3": "",
-     "30": "250",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "180",
-     "FIELD8": null,
-     "GR01": "GR03",
-     "FBS": "AFB",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00220",
-     "BLOOD SUGAR- FASTING": "SPUTUM CULTURE",
-     "FIELD3": "",
-     "30": "600",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR03",
-     "FBS": "SPTCLT",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00221",
-     "BLOOD SUGAR- FASTING": "SPUTUM FOR AFB",
-     "FIELD3": "",
-     "30": "300",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR03",
-     "FBS": "SPTFRAFB",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00222",
-     "BLOOD SUGAR- FASTING": "IHC  LYMPHOMA PANEL",
-     "FIELD3": "",
-     "30": "4000",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR03",
-     "FBS": "IHCLYMPNL",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00223",
-     "BLOOD SUGAR- FASTING": "SPUTUM FOR AFB-1ST DAY",
-     "FIELD3": "",
-     "30": "300",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR03",
-     "FBS": "SPTFRAFB-D",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00224",
-     "BLOOD SUGAR- FASTING": "SPUTUM FOR AFB-2ND DAY",
-     "FIELD3": "",
-     "30": "300",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR03",
-     "FBS": "SPTFRAFB-D",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00225",
-     "BLOOD SUGAR- FASTING": "SPUTUM FOR AFB-3RD DAY",
-     "FIELD3": "",
-     "30": "300",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR03",
-     "FBS": "SPTFRAFB-D",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00226",
-     "BLOOD SUGAR- FASTING": "OT Culture",
-     "FIELD3": "",
-     "30": "150",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR03",
-     "FBS": "OTClt",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00227",
-     "BLOOD SUGAR- FASTING": "OT-I",
-     "FIELD3": "",
-     "30": "150",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR03",
-     "FBS": "OT-",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00228",
-     "BLOOD SUGAR- FASTING": "OT-II",
-     "FIELD3": "",
-     "30": "150",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR03",
-     "FBS": "OT-",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00229",
-     "BLOOD SUGAR- FASTING": "OT SWAB CULTURE",
-     "FIELD3": "",
-     "30": "1350",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR03",
-     "FBS": "OTSWBCLT",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00230",
-     "BLOOD SUGAR- FASTING": "OT CULTURE 15 NUMBER",
-     "FIELD3": "",
-     "30": "2250",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR03",
-     "FBS": "OTCLT15NMB",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00231",
-     "BLOOD SUGAR- FASTING": "COVID -19 ANTIBODY IGG",
-     "FIELD3": "",
-     "30": "1400",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR03",
-     "FBS": "CVD-19ANTB",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00232",
-     "BLOOD SUGAR- FASTING": "COVID -19 ANTIBODY TOTAL",
-     "FIELD3": "",
-     "30": "950",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR03",
-     "FBS": "ANTBTTL",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00233",
-     "BLOOD SUGAR- FASTING": "COVID -19 ANTIBODY IGG IGM RAPID",
-     "FIELD3": "",
-     "30": "500",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR03",
-     "FBS": "CVD-19ANTB",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00234",
-     "BLOOD SUGAR- FASTING": "OT SWAB CULTURE (6 Swabs)",
-     "FIELD3": "",
-     "30": "900",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR03",
-     "FBS": "OTSWBCLT(6",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00235",
-     "BLOOD SUGAR- FASTING": "OT Swabs Culture 7",
-     "FIELD3": "",
-     "30": "1050",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR03",
-     "FBS": "OTSwbClt7",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00236",
-     "BLOOD SUGAR- FASTING": "OT Swab Culture-2",
-     "FIELD3": "",
-     "30": "300",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR03",
-     "FBS": "OTSwbClt",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00237",
-     "BLOOD SUGAR- FASTING": "ISLET CELL ANTIBODY",
-     "FIELD3": "",
-     "30": "1800",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR03",
-     "FBS": "ISLTCLLANT",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00238",
-     "BLOOD SUGAR- FASTING": "Helicobacter Pylori Antigen",
-     "FIELD3": " Rapid Stool Test",
-     "30": "",
-     "FIELD5": "1500",
-     "FIELD6": null,
-     "90": "",
-     "FIELD8": "0",
-     "GR01": null,
-     "FBS": "GR03",
-     "0": "HlcPylAntg",
-     "FIELD12": "1",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00239",
-     "BLOOD SUGAR- FASTING": "SARS COV-2 RAPID ANTIGEN TEST",
-     "FIELD3": "",
-     "30": "400",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR03",
-     "FBS": "SRSC-2RPDA",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00240",
-     "BLOOD SUGAR- FASTING": "TIP C/S",
-     "FIELD3": "",
-     "30": "600",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR03",
-     "FBS": "TPC/S",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00241",
-     "BLOOD SUGAR- FASTING": "CULTURE-AFB (TB CULTURE )",
-     "FIELD3": "",
-     "30": "850",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR03",
-     "FBS": "CLT(TBCLT)",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00242",
-     "BLOOD SUGAR- FASTING": "CULTURE-AFB WITH DRUG SENSITIVITY",
-     "FIELD3": "",
-     "30": "3500",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR03",
-     "FBS": "CLTWTHDRGS",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00243",
-     "BLOOD SUGAR- FASTING": "CULTURE AND SENSITIVITY",
-     "FIELD3": "BODY ANAEROBIC",
-     "30": "",
-     "FIELD5": "1000",
-     "FIELD6": null,
-     "90": "",
-     "FIELD8": "0",
-     "GR01": null,
-     "FBS": "GR03",
-     "0": "CLTANDSNSA",
-     "FIELD12": "1",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00244",
-     "BLOOD SUGAR- FASTING": "CULTURE AND SENSITIVITY BODY FLUIDS",
-     "FIELD3": "",
-     "30": "650",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR03",
-     "FBS": "CLTANDSNSB",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MB00245",
-     "BLOOD SUGAR- FASTING": "Water Culture 8 Samples",
-     "FIELD3": "",
-     "30": "4800",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR03",
-     "FBS": "WtrClt8Smp",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MOL0001",
-     "BLOOD SUGAR- FASTING": "H1N1 (Swine Flu)",
-     "FIELD3": "",
-     "30": "5000",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR14",
-     "FBS": "H1N(Swfl)",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MOL0002",
-     "BLOOD SUGAR- FASTING": "HBV DNA VIRAL LOAD",
-     "FIELD3": "",
-     "30": "3500",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR14",
-     "FBS": "HBVDNVRLLD",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MOL0003",
-     "BLOOD SUGAR- FASTING": "HCV RNA VIRAL LOAD",
-     "FIELD3": "",
-     "30": "3500",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR14",
-     "FBS": "HCVRNVRLLD",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MOL0004",
-     "BLOOD SUGAR- FASTING": "HSV 1& 2 Qualitative Real time PCR",
-     "FIELD3": "",
-     "30": "2500",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR14",
-     "FBS": "HSV1&2QltR",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MOL0005",
-     "BLOOD SUGAR- FASTING": "HIV Viral Load-Real time PCR",
-     "FIELD3": "",
-     "30": "4900",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR14",
-     "FBS": "HVVrlLd-tm",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MOL0006",
-     "BLOOD SUGAR- FASTING": "GENEXPERT MTB",
-     "FIELD3": "",
-     "30": "2500",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR14",
-     "FBS": "GNXTB",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MOL0007",
-     "BLOOD SUGAR- FASTING": "MENINGITIS PANEL -  BACTERIAL",
-     "FIELD3": "",
-     "30": "4500",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR14",
-     "FBS": "MNNPNL-BCT",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MOL0008",
-     "BLOOD SUGAR- FASTING": "MENINGITIS PANEL - VIRAL",
-     "FIELD3": "",
-     "30": "5000",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR14",
-     "FBS": "MNNPNL-VRL",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MOL0009",
-     "BLOOD SUGAR- FASTING": "Bacterial and Viral Meningitis Profile",
-     "FIELD3": "",
-     "30": "9000",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR14",
-     "FBS": "BctandVrlM",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MOL0010",
-     "BLOOD SUGAR- FASTING": "SARS CoV-2 RT PCR",
-     "FIELD3": "",
-     "30": "1600",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR14",
-     "FBS": "SRSCV-RTPC",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MOL0011",
-     "BLOOD SUGAR- FASTING": "COVID-19 Virus Qualitative PCR",
-     "FIELD3": "",
-     "30": "800",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR14",
-     "FBS": "CVDVrsQltP",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MOL0012",
-     "BLOOD SUGAR- FASTING": "CBNAAT-SARS Cov-2 RT PCR",
-     "FIELD3": "",
-     "30": "2500",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR14",
-     "FBS": "CBNCv-RTPC",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MOL0013",
-     "BLOOD SUGAR- FASTING": "RT PCR HOME COLLECTION",
-     "FIELD3": "",
-     "30": "1200",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR14",
-     "FBS": "RTPCRHMCLL",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MRI0001",
-     "BLOOD SUGAR- FASTING": "MRI SPINE",
-     "FIELD3": "",
-     "30": "6500",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR11",
-     "FBS": "MRI",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MRI0002",
-     "BLOOD SUGAR- FASTING": "MRI-NECK",
-     "FIELD3": "",
-     "30": "6500",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR11",
-     "FBS": "MR-",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MRI0003",
-     "BLOOD SUGAR- FASTING": "MRI BOTH JOINTS WITH CONTRAST",
-     "FIELD3": "",
-     "30": "13000",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR11",
-     "FBS": "MROFJNT",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MRI0004",
-     "BLOOD SUGAR- FASTING": "MRI OF  UPPER & LOWER EXTREMITIES",
-     "FIELD3": "",
-     "30": "0",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR11",
-     "FBS": "MROFUPPR&L",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MRI0005",
-     "BLOOD SUGAR- FASTING": "MRI  BRAIN",
-     "FIELD3": "",
-     "30": "6500",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR11",
-     "FBS": "MRHD/NC",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MRI0006",
-     "BLOOD SUGAR- FASTING": "MRI -ABDOMEN/UROGRAM/CHEST/PELVIS/MRCP",
-     "FIELD3": "",
-     "30": "0",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR11",
-     "FBS": "MR-BD",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MRI0007",
-     "BLOOD SUGAR- FASTING": "CERVICAL POLYP",
-     "FIELD3": "",
-     "30": "0",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR11",
-     "FBS": "CRVPLY",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MRI0009",
-     "BLOOD SUGAR- FASTING": "MRI BRAIN WITHOUT CONTRAST",
-     "FIELD3": "",
-     "30": "6500",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR11",
-     "FBS": "MRBRN",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MRI0010",
-     "BLOOD SUGAR- FASTING": "MRI BRAIN WITH CONTRAST",
-     "FIELD3": "",
-     "30": "9000",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR11",
-     "FBS": "MRBRN&CNT",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MRI0011",
-     "BLOOD SUGAR- FASTING": "MRI ORBIT WITH CONTRAST",
-     "FIELD3": "",
-     "30": "9000",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR11",
-     "FBS": "MRORBT&CNT",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MRI0012",
-     "BLOOD SUGAR- FASTING": "MRI PELVIS WITH CONTRAST",
-     "FIELD3": "",
-     "30": "9000",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR11",
-     "FBS": "MRPLV",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MRI0013",
-     "BLOOD SUGAR- FASTING": "MRI ABDOMEN WITH CONTRAST",
-     "FIELD3": "",
-     "30": "9000",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR11",
-     "FBS": "MRABDM",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MRI0014",
-     "BLOOD SUGAR- FASTING": "MRI BOTH KNEE WITH CONTRAST",
-     "FIELD3": "",
-     "30": "15500",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR11",
-     "FBS": "MRBTHKN",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MRI0015",
-     "BLOOD SUGAR- FASTING": "MRI BOTH SHOLDER WITH CONTRAST",
-     "FIELD3": "",
-     "30": "15500",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR11",
-     "FBS": "MRBTHSHL",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MRI0017",
-     "BLOOD SUGAR- FASTING": "MRI PNS WITHOUT CONTRAST",
-     "FIELD3": "",
-     "30": "6500",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR11",
-     "FBS": "MRPNS",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MRI0018",
-     "BLOOD SUGAR- FASTING": "MR for Salivary Glands with Sialography",
-     "FIELD3": "",
-     "30": "",
-     "FIELD5": "",
-     "FIELD6": "",
-     "90": "",
-     "FIELD8": "",
-     "GR01": "",
-     "FBS": "",
-     "0": "",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "",
-     "BLOOD SUGAR- FASTING": "6500",
-     "FIELD3": null,
-     "30": "",
-     "FIELD5": "0",
-     "FIELD6": null,
-     "90": "GR11",
-     "FIELD8": "MRfrSlvGln",
-     "GR01": "1",
-     "FBS": "",
-     "0": "",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MRI0019",
-     "BLOOD SUGAR- FASTING": "MRI NECK WITHOUT CONTRAST",
-     "FIELD3": "",
-     "30": "6500",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR11",
-     "FBS": "MRNCKWTHCN",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MRI0020",
-     "BLOOD SUGAR- FASTING": "MRI NECK WITH CONTRAST",
-     "FIELD3": "",
-     "30": "9000",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR11",
-     "FBS": "MRNCKWTHCN",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MRI0021",
-     "BLOOD SUGAR- FASTING": "MRI SHOULDER WITHOUT CONTRAST",
-     "FIELD3": "",
-     "30": "6500",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR11",
-     "FBS": "MRSHLWTHCN",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MRI0022",
-     "BLOOD SUGAR- FASTING": "MRI Shoulder With contrast",
-     "FIELD3": "",
-     "30": "9000",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR11",
-     "FBS": "MRShlWthcn",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MRI0023",
-     "BLOOD SUGAR- FASTING": "MRI shoulder both Joints  Without contrast",
-     "FIELD3": "",
-     "30": "13000",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR11",
-     "FBS": "MRshlbthJn",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MRI0024",
-     "BLOOD SUGAR- FASTING": "MRI Shoulder both joints – With contrast",
-     "FIELD3": "",
-     "30": "15500",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR11",
-     "FBS": "MRShlbthjn",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MRI0025",
-     "BLOOD SUGAR- FASTING": "MRI Wrist Single joint - Without contrast",
-     "FIELD3": "",
-     "30": "6500",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR11",
-     "FBS": "MRWrsSngjn",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MRI0026",
-     "BLOOD SUGAR- FASTING": "MRI Wrist Single joint - With contrast",
-     "FIELD3": "",
-     "30": "9000",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR11",
-     "FBS": "MRWrsSngjn",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MRI0027",
-     "BLOOD SUGAR- FASTING": "MRI Wrist both joints - Without contrast",
-     "FIELD3": "",
-     "30": "13000",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR11",
-     "FBS": "MRWrsbthjn",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MRI0028",
-     "BLOOD SUGAR- FASTING": "MRI Wrist Both joints - With contrast",
-     "FIELD3": "",
-     "30": "15500",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR11",
-     "FBS": "MRWrsBthjn",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MRI0029",
-     "BLOOD SUGAR- FASTING": "MRI knee Single joint - Without contrast",
-     "FIELD3": "",
-     "30": "6500",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR11",
-     "FBS": "MRknSngjnt",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MRI0030",
-     "BLOOD SUGAR- FASTING": "MRI knee Single joint - With contrast",
-     "FIELD3": "",
-     "30": "9000",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR11",
-     "FBS": "MRknSngjnt",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MRI0031",
-     "BLOOD SUGAR- FASTING": "MRI knee both joints - Without contrast",
-     "FIELD3": "",
-     "30": "13000",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR11",
-     "FBS": "MRknbthjnt",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MRI0032",
-     "BLOOD SUGAR- FASTING": "MRI knee both joints - With contrast",
-     "FIELD3": "",
-     "30": "15500",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR11",
-     "FBS": "MRknbthjnt",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MRI0033",
-     "BLOOD SUGAR- FASTING": "MRI Ankle Single joint - Without contrast",
-     "FIELD3": "",
-     "30": "6500",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR11",
-     "FBS": "MRAnklSngj",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MRI0034",
-     "BLOOD SUGAR- FASTING": "MRI Ankle single joint - With contrast",
-     "FIELD3": "",
-     "30": "9000",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR11",
-     "FBS": "MRAnklsngj",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MRI0035",
-     "BLOOD SUGAR- FASTING": "MRI Ankle both joints - With contrast",
-     "FIELD3": "",
-     "30": "15500",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR11",
-     "FBS": "MRAnklbthj",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MRI0036",
-     "BLOOD SUGAR- FASTING": "MRI Ankle both joints - Without contrast",
-     "FIELD3": "",
-     "30": "13000",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR11",
-     "FBS": "MRAnklbthj",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MRI0037",
-     "BLOOD SUGAR- FASTING": "MRI Hip - With contrast",
-     "FIELD3": "",
-     "30": "9000",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR11",
-     "FBS": "MRHp-Wthcn",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MRI0038",
-     "BLOOD SUGAR- FASTING": "MRI Hip – without contrast",
-     "FIELD3": "",
-     "30": "6500",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR11",
-     "FBS": "MRHp–wthcn",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MRI0039",
-     "BLOOD SUGAR- FASTING": "MRI Pelvis – Without Contrast",
-     "FIELD3": "",
-     "30": "6500",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR11",
-     "FBS": "MRPlv–WthC",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MRI0040",
-     "BLOOD SUGAR- FASTING": "MRCP",
-     "FIELD3": "",
-     "30": "6500",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR11",
-     "FBS": "MRC",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MRI0041",
-     "BLOOD SUGAR- FASTING": "MRI Extremities - With contrast",
-     "FIELD3": "",
-     "30": "9000",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR11",
-     "FBS": "MRExtr-Wth",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MRI0042",
-     "BLOOD SUGAR- FASTING": "MRI Extremities - Without contrast",
-     "FIELD3": "",
-     "30": "6500",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR11",
-     "FBS": "MRExtr-Wth",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MRI0043",
-     "BLOOD SUGAR- FASTING": "MRI Temporomandibular – B/L - With contrast",
-     "FIELD3": "",
-     "30": "15500",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR11",
-     "FBS": "MRTmp–B/L-",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MRI0044",
-     "BLOOD SUGAR- FASTING": "MRI Temporomandibular – B/L - Without contrast",
-     "FIELD3": "",
-     "30": "13000",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR11",
-     "FBS": "MRTmp–B/L-",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MRI0045",
-     "BLOOD SUGAR- FASTING": "MR Temporal Bone/ Inner ear without contrast",
-     "FIELD3": "",
-     "30": "6500",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR11",
-     "FBS": "MRTmpBn/In",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MRI0046",
-     "BLOOD SUGAR- FASTING": "MRI Abdomen – Without Contrast",
-     "FIELD3": "",
-     "30": "6500",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR11",
-     "FBS": "MRAbdm–Wth",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MRI0047",
-     "BLOOD SUGAR- FASTING": "MRI Abdomen – With Contrast",
-     "FIELD3": "",
-     "30": "9000",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR11",
-     "FBS": "MRAbdm–Wth",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MRI0048",
-     "BLOOD SUGAR- FASTING": "MRI Breast - With Contrast",
-     "FIELD3": "",
-     "30": "9000",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR11",
-     "FBS": "MRBrs-WthC",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MRI0049",
-     "BLOOD SUGAR- FASTING": "MRI Breast - Without Contrast",
-     "FIELD3": "",
-     "30": "6500",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR11",
-     "FBS": "MRBrs-WthC",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MRI0050",
-     "BLOOD SUGAR- FASTING": "MRI Screening - Without Contrast",
-     "FIELD3": "",
-     "30": "4000",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR11",
-     "FBS": "MRSpnScr-W",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MRI0051",
-     "BLOOD SUGAR- FASTING": "MRI Chest – Without Contrast",
-     "FIELD3": "",
-     "30": "6500",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR11",
-     "FBS": "MRChs–WthC",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MRI0052",
-     "BLOOD SUGAR- FASTING": "MRI Chest – With Contrast",
-     "FIELD3": "",
-     "30": "9000",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR11",
-     "FBS": "MRChs–WthC",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MRI0053",
-     "BLOOD SUGAR- FASTING": "MRI Cervical/Cervico Dorsal Spine",
-     "FIELD3": "",
-     "30": "6500",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR11",
-     "FBS": "MRCrvDrsSp",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MRI0054",
-     "BLOOD SUGAR- FASTING": "MRI Dynamic Pituitary with contrast",
-     "FIELD3": "",
-     "30": "9000",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR11",
-     "FBS": "MRDynPttwt",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MRI0055",
-     "BLOOD SUGAR- FASTING": "MRI Dynamic Pituitary without contrast",
-     "FIELD3": "",
-     "30": "6500",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR11",
-     "FBS": "MRDynPttwt",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MRI0056",
-     "BLOOD SUGAR- FASTING": "MRI Elbow Single joint-without contrast",
-     "FIELD3": "",
-     "30": "6500",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR11",
-     "FBS": "MRElbwSngj",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MRI0057",
-     "BLOOD SUGAR- FASTING": "MRI Elbow Single joint-with Contrast",
-     "FIELD3": "",
-     "30": "9000",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR11",
-     "FBS": "MRElbwSngj",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MRI0058",
-     "BLOOD SUGAR- FASTING": "MRI Arm Single with contrast",
-     "FIELD3": "",
-     "30": "9000",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR11",
-     "FBS": "MRArmSngwt",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MRI0059",
-     "BLOOD SUGAR- FASTING": "MRI Arm Single without contrast",
-     "FIELD3": "",
-     "30": "6500",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR11",
-     "FBS": "MRArmSngwt",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MRI0060",
-     "BLOOD SUGAR- FASTING": "MRI Forearm Single without contrast",
-     "FIELD3": "",
-     "30": "6500",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR11",
-     "FBS": "MRFrrSngwt",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MRI0061",
-     "BLOOD SUGAR- FASTING": "MRI Forearm Single with contrast",
-     "FIELD3": "",
-     "30": "9000",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR11",
-     "FBS": "MRFrrSngwt",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MRI0062",
-     "BLOOD SUGAR- FASTING": "MRI Hand Single without contrast",
-     "FIELD3": "",
-     "30": "6500",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR11",
-     "FBS": "MRHndSngwt",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MRI0063",
-     "BLOOD SUGAR- FASTING": "MRI Hand Single with contrast",
-     "FIELD3": "",
-     "30": "9000",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR11",
-     "FBS": "MRHndSngwt",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MRI0064",
-     "BLOOD SUGAR- FASTING": "MRI Foot Single without contrast",
-     "FIELD3": "",
-     "30": "6500",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR11",
-     "FBS": "MRFtSngwth",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MRI0065",
-     "BLOOD SUGAR- FASTING": "MRI Foot Single with contrast",
-     "FIELD3": "",
-     "30": "9000",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR11",
-     "FBS": "MRFtSngwth",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MRI0066",
-     "BLOOD SUGAR- FASTING": "MRI Thigh Single without contrast",
-     "FIELD3": "",
-     "30": "6500",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR11",
-     "FBS": "MRThgSngwt",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MRI0067",
-     "BLOOD SUGAR- FASTING": "MRI Thigh Single with contrast",
-     "FIELD3": "",
-     "30": "9000",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR11",
-     "FBS": "MRThgSngwt",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MRI0068",
-     "BLOOD SUGAR- FASTING": "MRI Leg Single without contrast",
-     "FIELD3": "",
-     "30": "6500",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR11",
-     "FBS": "MRLgSngwth",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MRI0069",
-     "BLOOD SUGAR- FASTING": "MRI Leg Single with contrast",
-     "FIELD3": "",
-     "30": "9000",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR11",
-     "FBS": "MRLgSngwth",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MRI0070",
-     "BLOOD SUGAR- FASTING": "MRI Defecography",
-     "FIELD3": "",
-     "30": "6500",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR11",
-     "FBS": "MRDfc",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MRI0071",
-     "BLOOD SUGAR- FASTING": "MRI Cervical Spine without contrast",
-     "FIELD3": "",
-     "30": "6500",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR11",
-     "FBS": "MRCrvSpnwt",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MRI0072",
-     "BLOOD SUGAR- FASTING": "MRI Cervical Spine with Contrast",
-     "FIELD3": "",
-     "30": "9000",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR11",
-     "FBS": "MRCrvSpnwt",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MRI0073",
-     "BLOOD SUGAR- FASTING": "MRI Dorsal Spine without Contrast",
-     "FIELD3": "",
-     "30": "6500",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR11",
-     "FBS": "MRDrsSpnwt",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MRI0074",
-     "BLOOD SUGAR- FASTING": "MRI L  S Spine without Contrast",
-     "FIELD3": "",
-     "30": "6500",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR11",
-     "FBS": "MRLSSpnwth",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MRI0075",
-     "BLOOD SUGAR- FASTING": "MRI L  S Spine with Contrast",
-     "FIELD3": "",
-     "30": "9000",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR11",
-     "FBS": "MRLSSpnwth",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MRI0076",
-     "BLOOD SUGAR- FASTING": "MRI Whole Spine Screening",
-     "FIELD3": "",
-     "30": "4000",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR11",
-     "FBS": "MRWhlSpnSc",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MRI0077",
-     "BLOOD SUGAR- FASTING": "MRI SI Joint without contrast",
-     "FIELD3": "",
-     "30": "6500",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR11",
-     "FBS": "MRSJntwthc",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MRI0078",
-     "BLOOD SUGAR- FASTING": "MRI SI Joint with contrast",
-     "FIELD3": "",
-     "30": "9000",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR11",
-     "FBS": "MRSJntwthc",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MRI0079",
-     "BLOOD SUGAR- FASTING": "MRS",
-     "FIELD3": "",
-     "30": "6500",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR11",
-     "FBS": "MRS",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MRI0080",
-     "BLOOD SUGAR- FASTING": "MRI-Brain- Giddiness Protocal",
-     "FIELD3": "",
-     "30": "9000",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR11",
-     "FBS": "MR-GddPrt",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MRI0081",
-     "BLOOD SUGAR- FASTING": "MRI Cerebral Angio only",
-     "FIELD3": "",
-     "30": "5000",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR11",
-     "FBS": "MRCrbAngon",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MRI0082",
-     "BLOOD SUGAR- FASTING": "MRI Neck Angio only",
-     "FIELD3": "",
-     "30": "5000",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR11",
-     "FBS": "MRNckAngon",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MRI0083",
-     "BLOOD SUGAR- FASTING": "MRI Head   Neck Angio",
-     "FIELD3": "",
-     "30": "11500",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR11",
-     "FBS": "MRHdNckAng",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MRI0084",
-     "BLOOD SUGAR- FASTING": "MRI Venography without contrast",
-     "FIELD3": "",
-     "30": "5000",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR11",
-     "FBS": "MRVngwthcn",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MRI0085",
-     "BLOOD SUGAR- FASTING": "MRI Venography with contrast",
-     "FIELD3": "",
-     "30": "5000",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR11",
-     "FBS": "MRVngwthcn",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MRI0086",
-     "BLOOD SUGAR- FASTING": "MRI Urography",
-     "FIELD3": "",
-     "30": "6500",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR11",
-     "FBS": "MRUrgr",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MRI0087",
-     "BLOOD SUGAR- FASTING": "MRI Fistulogram without contrast",
-     "FIELD3": "",
-     "30": "6500",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR11",
-     "FBS": "MRFstwthcn",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MRI0088",
-     "BLOOD SUGAR- FASTING": "MRI Fistulogram with contrast",
-     "FIELD3": "",
-     "30": "9000",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR11",
-     "FBS": "MRFstwthcn",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MRI0089",
-     "BLOOD SUGAR- FASTING": "MRI Peripheral Angio",
-     "FIELD3": "",
-     "30": "8500",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR11",
-     "FBS": "MRPrpAng",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MRI0090",
-     "BLOOD SUGAR- FASTING": "MRI BRAIN & ORBITS WITH CONTRAST",
-     "FIELD3": "",
-     "30": "15500",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR11",
-     "FBS": "MRBrnwthOr",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MRI0091",
-     "BLOOD SUGAR- FASTING": "MRI CV Junction with Contrast",
-     "FIELD3": "",
-     "30": "9000",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR11",
-     "FBS": "MRCVJncwth",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MRI0092",
-     "BLOOD SUGAR- FASTING": "MRI CV Junction without Contrast",
-     "FIELD3": "",
-     "30": "6500",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR11",
-     "FBS": "MRCVJncwth",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MRI0093",
-     "BLOOD SUGAR- FASTING": "MRI Stroke Protocol (Head Screen Angio BR Neck)",
-     "FIELD3": "",
-     "30": "9000",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR11",
-     "FBS": "MRStrPrt(H",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MRI0094",
-     "BLOOD SUGAR- FASTING": "MRI CONTRAST",
-     "FIELD3": "",
-     "30": "2500",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR11",
-     "FBS": "MRCNT",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MRI0095",
-     "BLOOD SUGAR- FASTING": "MRI ABDOMEN & PELVIS",
-     "FIELD3": "",
-     "30": "13000",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR11",
-     "FBS": "MRABDM&PLV",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MRI0096",
-     "BLOOD SUGAR- FASTING": "MRI FILMS(EACH FILMS 250/RS)",
-     "FIELD3": "",
-     "30": "500",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR11",
-     "FBS": "MRFLMFLM25",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MRI0097",
-     "BLOOD SUGAR- FASTING": "MRI WHOLE BODY",
-     "FIELD3": "",
-     "30": "30000",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR11",
-     "FBS": "MRWHLBDY",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MRI0098",
-     "BLOOD SUGAR- FASTING": "MRI PROSTATE DYNAMIC STUDY",
-     "FIELD3": "",
-     "30": "6500",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR11",
-     "FBS": "MRPRSDYNST",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MRI0099",
-     "BLOOD SUGAR- FASTING": "MRI BRAIN - SCREENING",
-     "FIELD3": "",
-     "30": "4000",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR11",
-     "FBS": "MRBRN-SCR",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MRI0100",
-     "BLOOD SUGAR- FASTING": "MRI CERVICAL SPINE SCREENING",
-     "FIELD3": "",
-     "30": "4000",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR11",
-     "FBS": "MRCRVSPNSC",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MRI0101",
-     "BLOOD SUGAR- FASTING": "MRI BRIAN SCREENING",
-     "FIELD3": "",
-     "30": "4000",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR11",
-     "FBS": "MRBRNSCR",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MRI0102",
-     "BLOOD SUGAR- FASTING": "MRI BRAIN & NECK ANGIO",
-     "FIELD3": "",
-     "30": "5000",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR11",
-     "FBS": "MRBRNANJ",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MRI0103",
-     "BLOOD SUGAR- FASTING": "MRI HIP JOINTS SCREENING",
-     "FIELD3": "",
-     "30": "4000",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR11",
-     "FBS": "MRHPJNTSCR",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MRI0104",
-     "BLOOD SUGAR- FASTING": "MRI DORSAL SPINE WITH CONTRAST",
-     "FIELD3": "",
-     "30": "9000",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR11",
-     "FBS": "MRDRSSPNWT",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MRI0105",
-     "BLOOD SUGAR- FASTING": "MRI BRAIN ANGIO",
-     "FIELD3": "",
-     "30": "6000",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR11",
-     "FBS": "MRBRNANG",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MRI0106",
-     "BLOOD SUGAR- FASTING": "MRI CVJ",
-     "FIELD3": "",
-     "30": "4000",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR11",
-     "FBS": "MRCVJ",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MRI0107",
-     "BLOOD SUGAR- FASTING": "MRI BRAIN & ORBITS PLAIN",
-     "FIELD3": "",
-     "30": "11500",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR11",
-     "FBS": "MRBRN&ORBT",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MRI0108",
-     "BLOOD SUGAR- FASTING": "MRI SECOND OPINION",
-     "FIELD3": "",
-     "30": "600",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR11",
-     "FBS": "MRSCNOPNN",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MRI0109",
-     "BLOOD SUGAR- FASTING": "MRCP COMPLIMENRTY",
-     "FIELD3": "",
-     "30": "4000",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR11",
-     "FBS": "MRCCMP",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MRI0110",
-     "BLOOD SUGAR- FASTING": "MRI BRIAN EPILEPSY PROTOCOL",
-     "FIELD3": "",
-     "30": "9000",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR11",
-     "FBS": "MRBRNEPLPP",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MRI0111",
-     "BLOOD SUGAR- FASTING": "MRI LS SPINE SCREENING",
-     "FIELD3": "",
-     "30": "4000",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR11",
-     "FBS": "MRLSSPNSCR",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MRI0112",
-     "BLOOD SUGAR- FASTING": "MRI SHOULDER SCREENING",
-     "FIELD3": "",
-     "30": "4000",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR11",
-     "FBS": "MRSHLSCR",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MRI0113",
-     "BLOOD SUGAR- FASTING": "MRI JOINTS SCREENING",
-     "FIELD3": "",
-     "30": "4000",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR11",
-     "FBS": "MRJNTSCR",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MRI0114",
-     "BLOOD SUGAR- FASTING": "MRI C SPINE SCREENING",
-     "FIELD3": "",
-     "30": "4000",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR11",
-     "FBS": "MRCSPNSCR",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MRI0115",
-     "BLOOD SUGAR- FASTING": "MRI CARDIAC",
-     "FIELD3": "",
-     "30": "8500",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR11",
-     "FBS": "MRCRD",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MRI0116",
-     "BLOOD SUGAR- FASTING": "MRI FILMS(EACH FILMS 250/RS)4 FILMS",
-     "FIELD3": "",
-     "30": "800",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR11",
-     "FBS": "MRFLMFLM25",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MRI0117",
-     "BLOOD SUGAR- FASTING": "MRI ORBIT PLAIN",
-     "FIELD3": "",
-     "30": "6500",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR11",
-     "FBS": "MRORBTPLN",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MRI0118",
-     "BLOOD SUGAR- FASTING": "MRI SCREENING PELVIS",
-     "FIELD3": "",
-     "30": "4000",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR11",
-     "FBS": "MRSCRPLV",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MRI0119",
-     "BLOOD SUGAR- FASTING": "MRI PNS WITH CONTRAST",
-     "FIELD3": "",
-     "30": "7500",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR11",
-     "FBS": "MRPNSWTHCN",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MRI0120",
-     "BLOOD SUGAR- FASTING": "MRI BRACHIAL PLEXUS",
-     "FIELD3": "",
-     "30": "6500",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR11",
-     "FBS": "MRBRCPLX",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MRI0121",
-     "BLOOD SUGAR- FASTING": "MRI HAND",
-     "FIELD3": "",
-     "30": "6500",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR11",
-     "FBS": "MRHND",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MRI0122",
-     "BLOOD SUGAR- FASTING": "MRI BOTH HEELS",
-     "FIELD3": "",
-     "30": "13000",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR11",
-     "FBS": "MRBTHHLS",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MRI0123",
-     "BLOOD SUGAR- FASTING": "MRI SINGLE HEEL",
-     "FIELD3": "",
-     "30": "6500",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR11",
-     "FBS": "MRSNGHL",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MRI0124",
-     "BLOOD SUGAR- FASTING": "MRI COMPLEMENTRY",
-     "FIELD3": "",
-     "30": "0",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR11",
-     "FBS": "MRCMP",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MRI0125",
-     "BLOOD SUGAR- FASTING": "MRI THORACIC SPINE",
-     "FIELD3": "",
-     "30": "6500",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR11",
-     "FBS": "MRTHRSPN",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MRI0126",
-     "BLOOD SUGAR- FASTING": "MRI PITUTORY WITH CONTRAST",
-     "FIELD3": "",
-     "30": "9000",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR11",
-     "FBS": "MRPTTWTHCN",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MRI0127",
-     "BLOOD SUGAR- FASTING": "MRI BRAIN SCREENING",
-     "FIELD3": "",
-     "30": "1500",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR11",
-     "FBS": "MRBRNSCR",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MRI0128",
-     "BLOOD SUGAR- FASTING": "MRI SACRUM & COCAYX",
-     "FIELD3": "",
-     "30": "6500",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR11",
-     "FBS": "MRSCR&CCY",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MRI0129",
-     "BLOOD SUGAR- FASTING": "MRI GLUTEAL REGION-SOFT TISSUE",
-     "FIELD3": "",
-     "30": "6500",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR11",
-     "FBS": "MRGLTRGNTS",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MRI0130",
-     "BLOOD SUGAR- FASTING": "MRI SI JOINT SCREENING",
-     "FIELD3": "",
-     "30": "4000",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR11",
-     "FBS": "MRSJNTSCR",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MRI0131",
-     "BLOOD SUGAR- FASTING": "MRI MANDIBLE",
-     "FIELD3": "",
-     "30": "6500",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR11",
-     "FBS": "MRMND",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MRI0132",
-     "BLOOD SUGAR- FASTING": "MRI T L SPINE",
-     "FIELD3": "",
-     "30": "6500",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR11",
-     "FBS": "MRTLSPN",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MRI0133",
-     "BLOOD SUGAR- FASTING": "MRI FETAL",
-     "FIELD3": "",
-     "30": "9000",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR11",
-     "FBS": "MRFTL",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MRI0134",
-     "BLOOD SUGAR- FASTING": "MRI THORACIC SPINE SCREENING",
-     "FIELD3": "",
-     "30": "4000",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR11",
-     "FBS": "MRTHRSPNSC",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MRI0135",
-     "BLOOD SUGAR- FASTING": "MRI KNEE JOINTS SCREENING",
-     "FIELD3": "",
-     "30": "4000",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR11",
-     "FBS": "MRKNJNTSCR",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MRI0136",
-     "BLOOD SUGAR- FASTING": "MRI ANY ONE REGION STUDY",
-     "FIELD3": "",
-     "30": "6500",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR11",
-     "FBS": "MRANYONRGN",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MRI0137",
-     "BLOOD SUGAR- FASTING": "MRI EXTREMITES",
-     "FIELD3": "",
-     "30": "6500",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR11",
-     "FBS": "MREXTR",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MRI0138",
-     "BLOOD SUGAR- FASTING": "MRI RENAL ANGIOGRAM",
-     "FIELD3": "",
-     "30": "7500",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR11",
-     "FBS": "MRRNLANGG",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MRI0139",
-     "BLOOD SUGAR- FASTING": "MRI THORAX",
-     "FIELD3": "",
-     "30": "6500",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR11",
-     "FBS": "MRTHR",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MRI0140",
-     "BLOOD SUGAR- FASTING": "MRI SPECTROSCOPY",
-     "FIELD3": "",
-     "30": "6500",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR11",
-     "FBS": "MRSPC",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MRI0141",
-     "BLOOD SUGAR- FASTING": "MRI PNS SCREENING",
-     "FIELD3": "",
-     "30": "4000",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR11",
-     "FBS": "MRPNSSCR",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MRI0142",
-     "BLOOD SUGAR- FASTING": "MRI BOTH HAND WITHOUT CONTRAST",
-     "FIELD3": "",
-     "30": "13000",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR11",
-     "FBS": "MRBTHHNDWT",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MRI0143",
-     "BLOOD SUGAR- FASTING": "MRI THIGH BOTH WITHOUT CONTRAST",
-     "FIELD3": "",
-     "30": "13000",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR11",
-     "FBS": "MRTHGBTHWT",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MRI0144",
-     "BLOOD SUGAR- FASTING": "MRI COMPLIMENTARY SCREENING",
-     "FIELD3": "",
-     "30": "0",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR11",
-     "FBS": "MRCMPSCR",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MRI0145",
-     "BLOOD SUGAR- FASTING": "MRI THUMB SINGLE WITHOUT CONTRAST",
-     "FIELD3": "",
-     "30": "6500",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR11",
-     "FBS": "MRTHMSNGWT",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MRI0146",
-     "BLOOD SUGAR- FASTING": "MRI COCOX SCREENING",
-     "FIELD3": "",
-     "30": "4000",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR11",
-     "FBS": "MRCCXSCR",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MRI0147",
-     "BLOOD SUGAR- FASTING": "MRI TM JOINT",
-     "FIELD3": "",
-     "30": "6500",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR11",
-     "FBS": "MRTMJNT",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "MRI0148",
-     "BLOOD SUGAR- FASTING": "MRI ORBIT SCREENING",
-     "FIELD3": "",
-     "30": "4000",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR11",
-     "FBS": "MRORBTSCR",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "O000003",
-     "BLOOD SUGAR- FASTING": "BLOOD PRESSURE",
-     "FIELD3": "",
-     "30": "20",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "2",
-     "FIELD8": null,
-     "GR01": "GR07",
-     "FBS": "BLDPRS",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "O000004",
-     "BLOOD SUGAR- FASTING": "CONSULTATION",
-     "FIELD3": "",
-     "30": "300",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "3",
-     "FIELD8": null,
-     "GR01": "GR07",
-     "FBS": "CNS",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "O000005",
-     "BLOOD SUGAR- FASTING": "PHYSIOTHERAPY",
-     "FIELD3": "",
-     "30": "300",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "4",
-     "FIELD8": null,
-     "GR01": "GR07",
-     "FBS": "PHY",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "O000006",
-     "BLOOD SUGAR- FASTING": "PULMONARY FUNCTION TEST",
-     "FIELD3": "",
-     "30": "1000",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "5",
-     "FIELD8": null,
-     "GR01": "GR07",
-     "FBS": "PFT",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "O000008",
-     "BLOOD SUGAR- FASTING": "BRCA 1 & 2 Full Gene Sequencing(With Sanger Validation)",
-     "FIELD3": "",
-     "30": "25000",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR07",
-     "FBS": "BRC1&2",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "O000009",
-     "BLOOD SUGAR- FASTING": "AMNIOCENTESIS PROCEDURE",
-     "FIELD3": "",
-     "30": "2500",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "1",
-     "FIELD8": null,
-     "GR01": "GR07",
-     "FBS": "AMNCPRC",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "O000010",
-     "BLOOD SUGAR- FASTING": "KARYOTYPING - AMNIOTIC FLUID",
-     "FIELD3": "",
-     "30": "7000",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "2",
-     "FIELD8": null,
-     "GR01": "GR07",
-     "FBS": "KRY-AMNTFL",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "O000011",
-     "BLOOD SUGAR- FASTING": "INJECTION IM CHARGES",
-     "FIELD3": "",
-     "30": "50",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "3",
-     "FIELD8": null,
-     "GR01": "GR07",
-     "FBS": "INJCCHR",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "O000012",
-     "BLOOD SUGAR- FASTING": "DRESSING CHARGES -SMALL-",
-     "FIELD3": "",
-     "30": "400",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "4",
-     "FIELD8": null,
-     "GR01": "GR07",
-     "FBS": "DRSCHR-SM",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "O000013",
-     "BLOOD SUGAR- FASTING": "DRESSING CHARGES-BIG",
-     "FIELD3": "",
-     "30": "200",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "5",
-     "FIELD8": null,
-     "GR01": "GR07",
-     "FBS": "DRSCHR",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "O000014",
-     "BLOOD SUGAR- FASTING": "IV INJECTION",
-     "FIELD3": "",
-     "30": "100",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "6",
-     "FIELD8": null,
-     "GR01": "GR07",
-     "FBS": "IVINJC",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "O000015",
-     "BLOOD SUGAR- FASTING": "IV DRIPS INJECTION",
-     "FIELD3": "",
-     "30": "350",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "7",
-     "FIELD8": null,
-     "GR01": "GR07",
-     "FBS": "IVDRPINJC",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "O000016",
-     "BLOOD SUGAR- FASTING": "CONSULTATION WITH GYNAECOLOGIST",
-     "FIELD3": "",
-     "30": "400",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "8",
-     "FIELD8": null,
-     "GR01": "GR07",
-     "FBS": "CNSWTHGYN",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "O000017",
-     "BLOOD SUGAR- FASTING": "FNAC",
-     "FIELD3": "",
-     "30": "550",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "1",
-     "FIELD8": null,
-     "GR01": "GR07",
-     "FBS": "FNC",
-     "0": "0",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "O000018",
-     "BLOOD SUGAR- FASTING": "AMNIOCENTESIS - PROCEDURE",
-     "FIELD3": "",
-     "30": "5000",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR07",
-     "FBS": "AMNC-PRC",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "O000019",
-     "BLOOD SUGAR- FASTING": "FISH FOR CHR 13",
-     "FIELD3": "18",
-     "30": "21",
-     "FIELD5": "",
-     "FIELD6": "7500",
-     "90": null,
-     "FIELD8": "",
-     "GR01": "0",
-     "FBS": null,
-     "0": "GR07",
-     "FIELD12": "FSHFRCHR13",
-     "FIELD13": "1",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "O000020",
-     "BLOOD SUGAR- FASTING": "FISH FOR CHR21",
-     "FIELD3": "",
-     "30": "4500",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR07",
-     "FBS": "FSH21",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "O000021",
-     "BLOOD SUGAR- FASTING": "MTP PROCEDURE CHARGES",
-     "FIELD3": "",
-     "30": "3000",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR07",
-     "FBS": "MTPPRCCHR",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "O000022",
-     "BLOOD SUGAR- FASTING": "HOME COLLECTION CHARGES",
-     "FIELD3": "",
-     "30": "500",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR07",
-     "FBS": "HMCLLCHR",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "O000023",
-     "BLOOD SUGAR- FASTING": "ENDOSCOPY",
-     "FIELD3": "",
-     "30": "3000",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR07",
-     "FBS": "ENDS",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "O000024",
-     "BLOOD SUGAR- FASTING": "PROCEDURE CHARGES",
-     "FIELD3": "",
-     "30": "1500",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR07",
-     "FBS": "PRCCHR",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "O000025",
-     "BLOOD SUGAR- FASTING": "HOME COLLECTION CHARGES 1",
-     "FIELD3": "",
-     "30": "700",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR07",
-     "FBS": "HOME",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "O000026",
-     "BLOOD SUGAR- FASTING": "QUESTIONNAIRE",
-     "FIELD3": "",
-     "30": "65",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR07",
-     "FBS": "MDCEXMN",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "O000027",
-     "BLOOD SUGAR- FASTING": "AMBULANCE CHARGES",
-     "FIELD3": "",
-     "30": "500",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR07",
-     "FBS": "AMBLCHR",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "O000028",
-     "BLOOD SUGAR- FASTING": "NERVE CONDUCTION STUDY 2 LIMBS",
-     "FIELD3": "",
-     "30": "3000",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR07",
-     "FBS": "NRVCNDSTD",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "O000029",
-     "BLOOD SUGAR- FASTING": "NERVE CONDUCTION STUDY 4LIMBS",
-     "FIELD3": "",
-     "30": "4000",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR07",
-     "FBS": "NRVCNDSTD4",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "O000030",
-     "BLOOD SUGAR- FASTING": "PFT-PULMONARY FUNCTION TEST",
-     "FIELD3": "",
-     "30": "750",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR07",
-     "FBS": "PFTFNCTST",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "O000031",
-     "BLOOD SUGAR- FASTING": "COLONOSCOPY",
-     "FIELD3": "",
-     "30": "4000",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR07",
-     "FBS": "CLN",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "O000032",
-     "BLOOD SUGAR- FASTING": "BONE MINERAL DENSITY",
-     "FIELD3": "",
-     "30": "1300",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR07",
-     "FBS": "BNMNRDNS",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "O000033",
-     "BLOOD SUGAR- FASTING": "EYE CHECKUP",
-     "FIELD3": "",
-     "30": "300",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR07",
-     "FBS": "EYCHC",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "O000034",
-     "BLOOD SUGAR- FASTING": "CARDIAC CONSULTATION",
-     "FIELD3": "",
-     "30": "500",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR07",
-     "FBS": "CRDCNS",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "O000035",
-     "BLOOD SUGAR- FASTING": "DIET REVIEW",
-     "FIELD3": "",
-     "30": "300",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR07",
-     "FBS": "DTRVW",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "O000036",
-     "BLOOD SUGAR- FASTING": "AUDIOMETRY",
-     "FIELD3": "",
-     "30": "900",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR07",
-     "FBS": "ADMT",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "O000037",
-     "BLOOD SUGAR- FASTING": "SERVICE TAX",
-     "FIELD3": "",
-     "30": "320",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR07",
-     "FBS": "SRVTX",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "O000038",
-     "BLOOD SUGAR- FASTING": "SERVICE CHARGES",
-     "FIELD3": "",
-     "30": "100",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR07",
-     "FBS": "SRVCHR",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "O000039",
-     "BLOOD SUGAR- FASTING": "LIC FMR (BELOW 15 LAC )",
-     "FIELD3": "",
-     "30": "110",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR07",
-     "FBS": "LCFMR(PT16",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "O000040",
-     "BLOOD SUGAR- FASTING": "SBT-13",
-     "FIELD3": "",
-     "30": "1000",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR07",
-     "FBS": "SB-",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "O000041",
-     "BLOOD SUGAR- FASTING": "LIC RUA",
-     "FIELD3": "",
-     "30": "30",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR07",
-     "FBS": "R",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "O000042",
-     "BLOOD SUGAR- FASTING": "LIC ECG",
-     "FIELD3": "",
-     "30": "110",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR07",
-     "FBS": "LCECG",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "O000043",
-     "BLOOD SUGAR- FASTING": "LIC HAEMOGRAM",
-     "FIELD3": "",
-     "30": "80",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR07",
-     "FBS": "LCHMG",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "O000044",
-     "BLOOD SUGAR- FASTING": "LIC FMR  ABOVE 25 LAC",
-     "FIELD3": "",
-     "30": "160",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR07",
-     "FBS": "LCFMRABV25",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "O000045",
-     "BLOOD SUGAR- FASTING": "LIC FMR  ABOVE 50 LAC",
-     "FIELD3": "",
-     "30": "175",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR07",
-     "FBS": "LCFMRABV50",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "O000046",
-     "BLOOD SUGAR- FASTING": "LIC FMR  ABOVE 1CR",
-     "FIELD3": "",
-     "30": "200",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR07",
-     "FBS": "LCFMRABV1C",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "O000047",
-     "BLOOD SUGAR- FASTING": "LIC FMR (BELOW 25  LAC )",
-     "FIELD3": "",
-     "30": "130",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR07",
-     "FBS": "LCFMR(BL25",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "O000048",
-     "BLOOD SUGAR- FASTING": "LIC HB",
-     "FIELD3": "",
-     "30": "80",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR07",
-     "FBS": "LCHB",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "O000049",
-     "BLOOD SUGAR- FASTING": "LIC FBS",
-     "FIELD3": "",
-     "30": "40",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR07",
-     "FBS": "LCFBS",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "O000050",
-     "BLOOD SUGAR- FASTING": "LIC HBA1C",
-     "FIELD3": "",
-     "30": "250",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR07",
-     "FBS": "LCHB1",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "O000051",
-     "BLOOD SUGAR- FASTING": "LIC  URINE CONTININE",
-     "FIELD3": "",
-     "30": "550",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR07",
-     "FBS": "LCURNCNT",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "O000052",
-     "BLOOD SUGAR- FASTING": "Medical Examination 1",
-     "FIELD3": "",
-     "30": "200",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR07",
-     "FBS": "MdcExmn1",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "O000053",
-     "BLOOD SUGAR- FASTING": "Medical Examination 2",
-     "FIELD3": "",
-     "30": "110",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR07",
-     "FBS": "MdcExmn2",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "O000054",
-     "BLOOD SUGAR- FASTING": "Medical Examination 3",
-     "FIELD3": "",
-     "30": "130",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR07",
-     "FBS": "MdcExmn3",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "O000055",
-     "BLOOD SUGAR- FASTING": "ENMG B/L LOWER LOMB",
-     "FIELD3": "",
-     "30": "2700",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR07",
-     "FBS": "ENMGB/LLWR",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "O000056",
-     "BLOOD SUGAR- FASTING": "GYNAECOLOGIST",
-     "FIELD3": "",
-     "30": "65",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR07",
-     "FBS": "GYN",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "O000057",
-     "BLOOD SUGAR- FASTING": "INJECTION IV CHARGES",
-     "FIELD3": "",
-     "30": "100",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR07",
-     "FBS": "INJCIVCHR",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "O000058",
-     "BLOOD SUGAR- FASTING": "NEBULIZATION CHARGES",
-     "FIELD3": "",
-     "30": "50",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR07",
-     "FBS": "NBLCHR",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "O000059",
-     "BLOOD SUGAR- FASTING": "ENMG ALL 4 LIMBS",
-     "FIELD3": "",
-     "30": "3700",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR07",
-     "FBS": "ENMGALL4LM",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "O000060",
-     "BLOOD SUGAR- FASTING": "COLONOSCOPY PROCEDURE CHARGES",
-     "FIELD3": "",
-     "30": "500",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR07",
-     "FBS": "CLNPRCCHR",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "O000061",
-     "BLOOD SUGAR- FASTING": "HOME COLLECTION CHARGES -RAJAJINAGAR",
-     "FIELD3": "",
-     "30": "100",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR07",
-     "FBS": "HMCLLCHR-R",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "O000062",
-     "BLOOD SUGAR- FASTING": "Electroencephalogram (EEG)",
-     "FIELD3": "",
-     "30": "3000",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR07",
-     "FBS": "Elct(G)",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "O000063",
-     "BLOOD SUGAR- FASTING": "QUESTIONNAIRE-1",
-     "FIELD3": "",
-     "30": "65",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR07",
-     "FBS": "QST",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "O000064",
-     "BLOOD SUGAR- FASTING": "PHYSCIAN REPORT 1 &2",
-     "FIELD3": "",
-     "30": "65",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR07",
-     "FBS": "PHYRPR1&2",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "O000065",
-     "BLOOD SUGAR- FASTING": "X RAY REPORT",
-     "FIELD3": "",
-     "30": "50",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR07",
-     "FBS": "XRYRPR",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "O000066",
-     "BLOOD SUGAR- FASTING": "ENDOSCOPY PROCEDURE CHARGES",
-     "FIELD3": "",
-     "30": "500",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR07",
-     "FBS": "ENDSPRCCHR",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "O000067",
-     "BLOOD SUGAR- FASTING": "CLO TEST (RAPID UREASE TEST)",
-     "FIELD3": "",
-     "30": "800",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR07",
-     "FBS": "CLTST(RPUR",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "O000068",
-     "BLOOD SUGAR- FASTING": "MEOP",
-     "FIELD3": "",
-     "30": "350",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR07",
-     "FBS": "MP",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "O000069",
-     "BLOOD SUGAR- FASTING": "COUNSULTATION DR.RAMESH D",
-     "FIELD3": "",
-     "30": "600",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR07",
-     "FBS": "CNSDR.D",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "O000070",
-     "BLOOD SUGAR- FASTING": "AMBULANCE CHARGES-1",
-     "FIELD3": "",
-     "30": "300",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR07",
-     "FBS": "AMBLCHR",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "O000071",
-     "BLOOD SUGAR- FASTING": "HP SLIDE",
-     "FIELD3": "",
-     "30": "250",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR07",
-     "FBS": "HPSLD",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "O000072",
-     "BLOOD SUGAR- FASTING": "DISPOSABLE GOWN",
-     "FIELD3": "",
-     "30": "800",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR07",
-     "FBS": "DSPGWN",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "O000073",
-     "BLOOD SUGAR- FASTING": "HOME COLLECTION CHARGES 2",
-     "FIELD3": "",
-     "30": "200",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR07",
-     "FBS": "HMCLLCHR2",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "O000074",
-     "BLOOD SUGAR- FASTING": "SIGMOIDOSCOPY",
-     "FIELD3": "",
-     "30": "3000",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR07",
-     "FBS": "SGM",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "O000075",
-     "BLOOD SUGAR- FASTING": "AMBULANCE CHARGES 2",
-     "FIELD3": "",
-     "30": "100",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR07",
-     "FBS": "AMBLCHR2",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "O000076",
-     "BLOOD SUGAR- FASTING": "HSG PROCEDURE  (Hysterosalpingogram)",
-     "FIELD3": "",
-     "30": "3000",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR07",
-     "FBS": "HSGPRC(Hy",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "O000077",
-     "BLOOD SUGAR- FASTING": "PP KIT CHARGES",
-     "FIELD3": "",
-     "30": "300",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR07",
-     "FBS": "PPKTCHR",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "O000078",
-     "BLOOD SUGAR- FASTING": "USG GUIDED LIVER BIOPSY",
-     "FIELD3": "",
-     "30": "2000",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR07",
-     "FBS": "USGGDDLVRB",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "O000079",
-     "BLOOD SUGAR- FASTING": "MEDICAL CERTIFICATE",
-     "FIELD3": "",
-     "30": "500",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR07",
-     "FBS": "MDCCRT",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "O000080",
-     "BLOOD SUGAR- FASTING": "COAXIAL BIOPSY GUN",
-     "FIELD3": "",
-     "30": "3800",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR07",
-     "FBS": "CXLBPSGN",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "O000081",
-     "BLOOD SUGAR- FASTING": "PERNICIOUS ANEMIA PANEL",
-     "FIELD3": "",
-     "30": "3900",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR07",
-     "FBS": "PRNANMPNL",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "O000082",
-     "BLOOD SUGAR- FASTING": "USG GUIDED BIOPSY PROCEDURE",
-     "FIELD3": "",
-     "30": "3000",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR07",
-     "FBS": "USGGDDBPS",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "O000083",
-     "BLOOD SUGAR- FASTING": "USG GUIDED KIDNEY BIOPSY WITH HISTOPATHOLOGY",
-     "FIELD3": "",
-     "30": "8000",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR07",
-     "FBS": "USGGDDKDNB",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "O000084",
-     "BLOOD SUGAR- FASTING": "CT GUIDED BIOPSY WITH HISTOPATHOLOGY",
-     "FIELD3": "",
-     "30": "9000",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR07",
-     "FBS": "CTGDDBPSWT",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "O000085",
-     "BLOOD SUGAR- FASTING": "ADA FLUIED",
-     "FIELD3": "",
-     "30": "750",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR07",
-     "FBS": "ADFLD",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "O000086",
-     "BLOOD SUGAR- FASTING": "FACIAL NERVE CONDITION STUDY",
-     "FIELD3": "",
-     "30": "3000",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR07",
-     "FBS": "FCLNRVCNDS",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "O000087",
-     "BLOOD SUGAR- FASTING": "VEP (VISUAL EVOKED POTENTIALS)",
-     "FIELD3": "",
-     "30": "1800",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR07",
-     "FBS": "VP(VSEVKDP",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "O000088",
-     "BLOOD SUGAR- FASTING": "L P NEEDLE",
-     "FIELD3": "",
-     "30": "100",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR07",
-     "FBS": "LPNDL",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "O000089",
-     "BLOOD SUGAR- FASTING": "PROCEDURE CHARGES 2",
-     "FIELD3": "",
-     "30": "2000",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR07",
-     "FBS": "PRCCHR2",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "O000090",
-     "BLOOD SUGAR- FASTING": "HOMECOLLECTION CHARGES-3",
-     "FIELD3": "",
-     "30": "350",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR07",
-     "FBS": "HMCCHR",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "O000091",
-     "BLOOD SUGAR- FASTING": "SKIN PROCEDURE CHARGES",
-     "FIELD3": "",
-     "30": "2500",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR07",
-     "FBS": "SKNPRCCHR",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "O000092",
-     "BLOOD SUGAR- FASTING": "ENDOMETRIAL PIPELLING CHARGES",
-     "FIELD3": "",
-     "30": "4000",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR07",
-     "FBS": "ENDMPPLCHR",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "O000093",
-     "BLOOD SUGAR- FASTING": "CT EACH FILM",
-     "FIELD3": "",
-     "30": "250",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR07",
-     "FBS": "CTESCHFLM",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "O000094",
-     "BLOOD SUGAR- FASTING": "SKIN BIOPSY CHARGES-1",
-     "FIELD3": "",
-     "30": "1500",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR07",
-     "FBS": "SKNBPSCHR",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "O000095",
-     "BLOOD SUGAR- FASTING": "SKIN PROCEDURE CHARGES-2",
-     "FIELD3": "",
-     "30": "2000",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR07",
-     "FBS": "SKNPRCCHR",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "O000096",
-     "BLOOD SUGAR- FASTING": "SKIN PROCEDURE CHARGES-3",
-     "FIELD3": "",
-     "30": "3000",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR07",
-     "FBS": "SKNPRCCHR",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "O000097",
-     "BLOOD SUGAR- FASTING": "SKIN PROCEDURE CHARGES-4",
-     "FIELD3": "",
-     "30": "4000",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR07",
-     "FBS": "SKNPRCCHR",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "O000098",
-     "BLOOD SUGAR- FASTING": "SKIN PROCEDURE CHARGES-1",
-     "FIELD3": "",
-     "30": "500",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR07",
-     "FBS": "SKNPRCCHR",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "O000099",
-     "BLOOD SUGAR- FASTING": "COLLECTION CHARGES-1",
-     "FIELD3": "",
-     "30": "300",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR07",
-     "FBS": "CLLCHR",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "O000100",
-     "BLOOD SUGAR- FASTING": "COLLECTION CHARGES-2",
-     "FIELD3": "",
-     "30": "500",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR07",
-     "FBS": "CLLCHR",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "O000101",
-     "BLOOD SUGAR- FASTING": "COLLECTION CHARGES-3",
-     "FIELD3": "",
-     "30": "700",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR07",
-     "FBS": "CLLCHR",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "O000102",
-     "BLOOD SUGAR- FASTING": "POLYPECTOMY INCLUDING HISTOPATHOLOGY",
-     "FIELD3": "",
-     "30": "12500",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR07",
-     "FBS": "PLYENDSINC",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "O000103",
-     "BLOOD SUGAR- FASTING": "TRUCUT BIOPSY PROCEDURE CHARGES",
-     "FIELD3": "",
-     "30": "2000",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR07",
-     "FBS": "TRCBPSPRCC",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "O000104",
-     "BLOOD SUGAR- FASTING": "DRIP CHARGES",
-     "FIELD3": "",
-     "30": "200",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR07",
-     "FBS": "DRPCHR",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "O000105",
-     "BLOOD SUGAR- FASTING": "OT CHARGES-(MINOR)",
-     "FIELD3": "",
-     "30": "3500",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR07",
-     "FBS": "OTCHR",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "O000106",
-     "BLOOD SUGAR- FASTING": "SKIN PROCEDURE CHARGES-5",
-     "FIELD3": "",
-     "30": "5000",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR07",
-     "FBS": "SKNPRCCHR",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "O000107",
-     "BLOOD SUGAR- FASTING": "DRESSING CHRGES SMALL 01",
-     "FIELD3": "",
-     "30": "100",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR07",
-     "FBS": "DRSCHRSML0",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "O000108",
-     "BLOOD SUGAR- FASTING": "SKIN DIF",
-     "FIELD3": "",
-     "30": "4000",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR07",
-     "FBS": "SKNDF",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "O000109",
-     "BLOOD SUGAR- FASTING": "SKIN NEEDLING",
-     "FIELD3": "",
-     "30": "3000",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR07",
-     "FBS": "SKNNDL",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "O000110",
-     "BLOOD SUGAR- FASTING": "CONSUMBALES",
-     "FIELD3": "",
-     "30": "6000",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR07",
-     "FBS": "CNS",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "O000111",
-     "BLOOD SUGAR- FASTING": "PSYCHIATRY THERAPY SESSION",
-     "FIELD3": "",
-     "30": "1000",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR07",
-     "FBS": "PSYTHRSSS",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "O000112",
-     "BLOOD SUGAR- FASTING": "PSYCHIATRY COUPLE THERAPY",
-     "FIELD3": "",
-     "30": "2000",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR07",
-     "FBS": "PSYCPLTHR",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "O000113",
-     "BLOOD SUGAR- FASTING": "OXYGEN CHAREGS",
-     "FIELD3": "",
-     "30": "100",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR07",
-     "FBS": "OXYGCHR",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "O000114",
-     "BLOOD SUGAR- FASTING": "ANTI NMDA RECEPTOR ANTIBODY",
-     "FIELD3": "",
-     "30": "6200",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR07",
-     "FBS": "ANTNMDRCPA",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "O000115",
-     "BLOOD SUGAR- FASTING": "PHYSIO-ULTRASOUND IFT SINGLE REGION",
-     "FIELD3": "",
-     "30": "600",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR07",
-     "FBS": "PHYIFTCHR",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "O000116",
-     "BLOOD SUGAR- FASTING": "PHYSIO-ULTRASOUND IFT BILATERAL",
-     "FIELD3": "",
-     "30": "1200",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR07",
-     "FBS": "PHYIFTBLT",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "O000117",
-     "BLOOD SUGAR- FASTING": "PHYSIO-LASER PHYSIOTHEREPHY",
-     "FIELD3": "",
-     "30": "800",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR07",
-     "FBS": "PHYPHY",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "O000118",
-     "BLOOD SUGAR- FASTING": "SKIN PRICK TEST",
-     "FIELD3": "",
-     "30": "3000",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR07",
-     "FBS": "SKNPRCTST",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "RAD0001",
-     "BLOOD SUGAR- FASTING": "2D - ECHO",
-     "FIELD3": "",
-     "30": "0",
-     "FIELD5": "",
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": "",
-     "GR01": "GR06",
-     "FBS": "2dE",
-     "0": "0",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "RAD0006",
-     "BLOOD SUGAR- FASTING": "SCROTAL ULTRASOUND..",
-     "FIELD3": "",
-     "30": "1200",
-     "FIELD5": "",
-     "FIELD6": "",
-     "90": "1",
-     "FIELD8": "",
-     "GR01": "GR06",
-     "FBS": "SUltra",
-     "0": "0",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "RAD0007",
-     "BLOOD SUGAR- FASTING": "BREAST SINGLE ULTRASOUND..",
-     "FIELD3": "",
-     "30": "700",
-     "FIELD5": "",
-     "FIELD6": "",
-     "90": "2",
-     "FIELD8": "",
-     "GR01": "GR06",
-     "FBS": "BrUsnd",
-     "0": "0",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "RAD0008",
-     "BLOOD SUGAR- FASTING": "EARLY PREGNANCY(BELOW 10 WKS)..",
-     "FIELD3": "",
-     "30": "700",
-     "FIELD5": "",
-     "FIELD6": "",
-     "90": "3",
-     "FIELD8": "",
-     "GR01": "GR06",
-     "FBS": "PrUsg",
-     "0": "0",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "RAD0010",
-     "BLOOD SUGAR- FASTING": "PELVIC ULTRASOUND..",
-     "FIELD3": "",
-     "30": "700",
-     "FIELD5": "",
-     "FIELD6": "",
-     "90": "4",
-     "FIELD8": "",
-     "GR01": "GR06",
-     "FBS": "PU",
-     "0": "0",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "RAD0011",
-     "BLOOD SUGAR- FASTING": "FOLLICULAR ULTRASOUND..",
-     "FIELD3": "",
-     "30": "1000",
-     "FIELD5": "",
-     "FIELD6": "",
-     "90": "5",
-     "FIELD8": "",
-     "GR01": "GR06",
-     "FBS": "FU",
-     "0": "0",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "RAD0013",
-     "BLOOD SUGAR- FASTING": "THYROID SCAN..",
-     "FIELD3": "",
-     "30": "1000",
-     "FIELD5": "",
-     "FIELD6": "",
-     "90": "6",
-     "FIELD8": "",
-     "GR01": "GR06",
-     "FBS": "Thy S",
-     "0": "0",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "RAD0014",
-     "BLOOD SUGAR- FASTING": "BARIUM SWALLOW..",
-     "FIELD3": "",
-     "30": "1200",
-     "FIELD5": "",
-     "FIELD6": "",
-     "90": "7",
-     "FIELD8": "",
-     "GR01": "GR06",
-     "FBS": "Bar Sw",
-     "0": "0",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "RAD0015",
-     "BLOOD SUGAR- FASTING": "BARIUM UPPER GI SERIES ROUTINE..",
-     "FIELD3": "",
-     "30": "600",
-     "FIELD5": "",
-     "FIELD6": "",
-     "90": "8",
-     "FIELD8": "",
-     "GR01": "GR06",
-     "FBS": "Bar Up",
-     "0": "0",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "RAD0016",
-     "BLOOD SUGAR- FASTING": "ROUTINE X RAY..",
-     "FIELD3": "",
-     "30": "300",
-     "FIELD5": "",
-     "FIELD6": "",
-     "90": "9",
-     "FIELD8": "",
-     "GR01": "GR06",
-     "FBS": "XRAY R",
-     "0": "0",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "RAD0017",
-     "BLOOD SUGAR- FASTING": "PLAIN XRAY ABDOMEN..",
-     "FIELD3": "",
-     "30": "400",
-     "FIELD5": "",
-     "FIELD6": "",
-     "90": "10",
-     "FIELD8": "",
-     "GR01": "GR06",
-     "FBS": "XRAY A P",
-     "0": "0",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "RAD0019",
-     "BLOOD SUGAR- FASTING": "X RAY CERVICAL SPINE AP..",
-     "FIELD3": "",
-     "30": "300",
-     "FIELD5": "",
-     "FIELD6": "",
-     "90": "11",
-     "FIELD8": "",
-     "GR01": "GR06",
-     "FBS": "CS AP",
-     "0": "0",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "RAD0021",
-     "BLOOD SUGAR- FASTING": "THORACO LUMBAR SPINE AP & LATERAL..",
-     "FIELD3": "",
-     "30": "600",
-     "FIELD5": "",
-     "FIELD6": "",
-     "90": "12",
-     "FIELD8": "",
-     "GR01": "GR06",
-     "FBS": "TS A&L",
-     "0": "0",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "RAD0022",
-     "BLOOD SUGAR- FASTING": "LUMBAR SPINE-AP & LATERAL..",
-     "FIELD3": "",
-     "30": "600",
-     "FIELD5": "",
-     "FIELD6": "",
-     "90": "13",
-     "FIELD8": "",
-     "GR01": "GR06",
-     "FBS": "LS A&L",
-     "0": "0",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "RAD0023",
-     "BLOOD SUGAR- FASTING": "XRAY MASTOIDS..",
-     "FIELD3": "",
-     "30": "300",
-     "FIELD5": "",
-     "FIELD6": "",
-     "90": "14",
-     "FIELD8": "",
-     "GR01": "GR06",
-     "FBS": "XRAY M",
-     "0": "0",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "RAD0024",
-     "BLOOD SUGAR- FASTING": "XRAY OF PNS..",
-     "FIELD3": "",
-     "30": "300",
-     "FIELD5": "",
-     "FIELD6": "",
-     "90": "15",
-     "FIELD8": "",
-     "GR01": "GR06",
-     "FBS": "XRAY P",
-     "0": "0",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "RAD0025",
-     "BLOOD SUGAR- FASTING": "PLAIN XRAY KUB REGION..",
-     "FIELD3": "",
-     "30": "300",
-     "FIELD5": "",
-     "FIELD6": "",
-     "90": "16",
-     "FIELD8": "",
-     "GR01": "GR06",
-     "FBS": "XRAY KR",
-     "0": "0",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "RAD0026",
-     "BLOOD SUGAR- FASTING": "X RAY OF PELVIS WITH BOTH HIP JOINTS..",
-     "FIELD3": "",
-     "30": "400",
-     "FIELD5": "",
-     "FIELD6": "",
-     "90": "17",
-     "FIELD8": "",
-     "GR01": "GR06",
-     "FBS": "XRAY P",
-     "0": "0",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "RAD0027",
-     "BLOOD SUGAR- FASTING": "IVP WITH PLAIN X RAY..",
-     "FIELD3": "",
-     "30": "300",
-     "FIELD5": "",
-     "FIELD6": "",
-     "90": "18",
-     "FIELD8": "",
-     "GR01": "GR06",
-     "FBS": "XRAY IVP",
-     "0": "0",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "RAD0029",
-     "BLOOD SUGAR- FASTING": "X RAY CHEST..",
-     "FIELD3": "",
-     "30": "300",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "19",
-     "FIELD8": null,
-     "GR01": "GR06",
-     "FBS": "CHSXRY",
-     "0": "0",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "RAD0030",
-     "BLOOD SUGAR- FASTING": "X RAY BOTH KNEE AP & LATERAL..",
-     "FIELD3": "",
-     "30": "600",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "20",
-     "FIELD8": null,
-     "GR01": "GR06",
-     "FBS": "XRYBTHKNAP",
-     "0": "0",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "RAD0031",
-     "BLOOD SUGAR- FASTING": "X RAY FOOT AP & LATERAL VIEW..",
-     "FIELD3": "",
-     "30": "300",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "21",
-     "FIELD8": null,
-     "GR01": "GR06",
-     "FBS": "XRYFTAP&LT",
-     "0": "0",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "RAD0032",
-     "BLOOD SUGAR- FASTING": "X RAY KNEE AP VIEW..",
-     "FIELD3": "",
-     "30": "300",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "22",
-     "FIELD8": null,
-     "GR01": "GR06",
-     "FBS": "XRYKNAPVW",
-     "0": "0",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "RAD0033",
-     "BLOOD SUGAR- FASTING": "X RAY KNEE AP & LATERAL VIEW..",
-     "FIELD3": "",
-     "30": "400",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "23",
-     "FIELD8": null,
-     "GR01": "GR06",
-     "FBS": "XRYKNAP&LT",
-     "0": "0",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "RAD0034",
-     "BLOOD SUGAR- FASTING": "X RAY SHOULDER AP VIEW..",
-     "FIELD3": "",
-     "30": "300",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "24",
-     "FIELD8": null,
-     "GR01": "GR06",
-     "FBS": "XRYSHLAPVW",
-     "0": "0",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "RAD0035",
-     "BLOOD SUGAR- FASTING": "X RAY SHOULDER AP & LATERAL VIEW..",
-     "FIELD3": "",
-     "30": "600",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "25",
-     "FIELD8": null,
-     "GR01": "GR06",
-     "FBS": "XRYSHLAP&L",
-     "0": "0",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "RAD0036",
-     "BLOOD SUGAR- FASTING": "X RAY CERVICAL SPINE AP & LATERAL..",
-     "FIELD3": "",
-     "30": "600",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "26",
-     "FIELD8": null,
-     "GR01": "GR06",
-     "FBS": "CRVSPNAP&L",
-     "0": "0",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "RAD0037",
-     "BLOOD SUGAR- FASTING": "XRAY HAND AP VIWE..",
-     "FIELD3": "",
-     "30": "300",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "27",
-     "FIELD8": null,
-     "GR01": "GR06",
-     "FBS": "XRYHNDAPVW",
-     "0": "0",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "RAD0038",
-     "BLOOD SUGAR- FASTING": "MAMMOGRAPHY BOTH BREAST..",
-     "FIELD3": "",
-     "30": "2500",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "28",
-     "FIELD8": null,
-     "GR01": "GR06",
-     "FBS": "MMMBTHBRS",
-     "0": "0",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "RAD0039",
-     "BLOOD SUGAR- FASTING": "USG ABDOMEN &PELVIS..",
-     "FIELD3": "",
-     "30": "800",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "29",
-     "FIELD8": null,
-     "GR01": "GR06",
-     "FBS": "ABDM&PL",
-     "0": "0",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "RAD0040",
-     "BLOOD SUGAR- FASTING": "ANOMALY SCAN..",
-     "FIELD3": "",
-     "30": "1500",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "30",
-     "FIELD8": null,
-     "GR01": "GR06",
-     "FBS": "ANMLSCN",
-     "0": "0",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "RAD0041",
-     "BLOOD SUGAR- FASTING": "GENITAL SCAN..",
-     "FIELD3": "",
-     "30": "1200",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "31",
-     "FIELD8": null,
-     "GR01": "GR06",
-     "FBS": "GNTSCN",
-     "0": "0",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "RAD0042",
-     "BLOOD SUGAR- FASTING": "FOLLICULAR SINGLE SITTING..",
-     "FIELD3": "",
-     "30": "200",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "32",
-     "FIELD8": null,
-     "GR01": "GR06",
-     "FBS": "FLLSNGSTT",
-     "0": "0",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "RAD0043",
-     "BLOOD SUGAR- FASTING": "FOLLICULAR SINGLE SITTING(TVS)..",
-     "FIELD3": "",
-     "30": "250",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "33",
-     "FIELD8": null,
-     "GR01": "GR06",
-     "FBS": "FLLSNGSTT",
-     "0": "0",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "RAD0044",
-     "BLOOD SUGAR- FASTING": "TVS -TRANS VAGINAL SCAN..",
-     "FIELD3": "",
-     "30": "1000",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "34",
-     "FIELD8": null,
-     "GR01": "GR06",
-     "FBS": "TVS-TRVGNS",
-     "0": "0",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "RAD0045",
-     "BLOOD SUGAR- FASTING": "XRAY LS LAT..",
-     "FIELD3": "",
-     "30": "300",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "35",
-     "FIELD8": null,
-     "GR01": "GR06",
-     "FBS": "XRYLSLT",
-     "0": "0",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "RAD0046",
-     "BLOOD SUGAR- FASTING": "XRAY LS AP..",
-     "FIELD3": "",
-     "30": "300",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "36",
-     "FIELD8": null,
-     "GR01": "GR06",
-     "FBS": "XRYLSAP",
-     "0": "0",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "RAD0047",
-     "BLOOD SUGAR- FASTING": "XRAY C SPINE AP..",
-     "FIELD3": "",
-     "30": "300",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "37",
-     "FIELD8": null,
-     "GR01": "GR06",
-     "FBS": "XRYCSPNAP",
-     "0": "0",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "RAD0048",
-     "BLOOD SUGAR- FASTING": "XRAY C SPINE LAT..",
-     "FIELD3": "",
-     "30": "300",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "38",
-     "FIELD8": null,
-     "GR01": "GR06",
-     "FBS": "XRYCSPNLT",
-     "0": "0",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "RAD0049",
-     "BLOOD SUGAR- FASTING": "XRAY WRIST JOINTS..",
-     "FIELD3": "",
-     "30": "300",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "39",
-     "FIELD8": null,
-     "GR01": "GR06",
-     "FBS": "XRYWRSJNT",
-     "0": "0",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "RAD0050",
-     "BLOOD SUGAR- FASTING": "ARTERIAL & VENOUS DOPPLER BOTH LOWER LIMB..",
-     "FIELD3": "",
-     "30": "4500",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "40",
-     "FIELD8": null,
-     "GR01": "GR06",
-     "FBS": "ARTR&VNSDP",
-     "0": "0",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "RAD0051",
-     "BLOOD SUGAR- FASTING": "PENILE DOPPLER..",
-     "FIELD3": "",
-     "30": "4500",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "41",
-     "FIELD8": null,
-     "GR01": "GR06",
-     "FBS": "PNLDPP",
-     "0": "0",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "RAD0052",
-     "BLOOD SUGAR- FASTING": "PENILE DOPPLER SCREENING..",
-     "FIELD3": "",
-     "30": "500",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "42",
-     "FIELD8": null,
-     "GR01": "GR06",
-     "FBS": "PNLDPPSCR",
-     "0": "0",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "RAD0053",
-     "BLOOD SUGAR- FASTING": "ULTRASOUND GUIDED FNAC +SMEAR..",
-     "FIELD3": "",
-     "30": "2000",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "43",
-     "FIELD8": null,
-     "GR01": "GR06",
-     "FBS": "ULTRGDDFNC",
-     "0": "0",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "RAD0054",
-     "BLOOD SUGAR- FASTING": "VENOUS DOPPLER ONE LOWER LIMB..",
-     "FIELD3": "",
-     "30": "1250",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "44",
-     "FIELD8": null,
-     "GR01": "GR06",
-     "FBS": "VNSDPPONLW",
-     "0": "0",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "RAD0055",
-     "BLOOD SUGAR- FASTING": "VENOUS DOPPLER FOR BOTH LOWER LIMB..",
-     "FIELD3": "",
-     "30": "2500",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "45",
-     "FIELD8": null,
-     "GR01": "GR06",
-     "FBS": "VNSDPPFRBT",
-     "0": "0",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "RAD0056",
-     "BLOOD SUGAR- FASTING": "USG  THORAX..",
-     "FIELD3": "",
-     "30": "1000",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "46",
-     "FIELD8": null,
-     "GR01": "GR06",
-     "FBS": "USGTHR",
-     "0": "0",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "RAD0057",
-     "BLOOD SUGAR- FASTING": "MRI BRAIN SCREENING..",
-     "FIELD3": "",
-     "30": "0",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "47",
-     "FIELD8": null,
-     "GR01": "GR06",
-     "FBS": "MRBRNSCR",
-     "0": "0",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "RAD0058",
-     "BLOOD SUGAR- FASTING": "CT BRAIN..",
-     "FIELD3": "",
-     "30": "0",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "48",
-     "FIELD8": null,
-     "GR01": "GR06",
-     "FBS": "CTBRN",
-     "0": "0",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "RAD0059",
-     "BLOOD SUGAR- FASTING": "Electroencephalogram (EEG)..",
-     "FIELD3": "",
-     "30": "2000",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "49",
-     "FIELD8": null,
-     "GR01": "GR06",
-     "FBS": "Elct(G)",
-     "0": "0",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "RAD0060",
-     "BLOOD SUGAR- FASTING": "USG KUB..",
-     "FIELD3": "",
-     "30": "600",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "50",
-     "FIELD8": null,
-     "GR01": "GR06",
-     "FBS": "USGKB",
-     "0": "0",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "RAD0061",
-     "BLOOD SUGAR- FASTING": "CAROTID VERTIBLE DOPPLER..",
-     "FIELD3": "",
-     "30": "1500",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "51",
-     "FIELD8": null,
-     "GR01": "GR06",
-     "FBS": "CRTVRTDPP",
-     "0": "0",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "RAD0062",
-     "BLOOD SUGAR- FASTING": "NT SCAN   ABOVE  12 WKS..",
-     "FIELD3": "",
-     "30": "1300",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "52",
-     "FIELD8": null,
-     "GR01": "GR06",
-     "FBS": "NTSCN",
-     "0": "0",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "RAD0063",
-     "BLOOD SUGAR- FASTING": "PORTAL VENOUS DOPPLER..",
-     "FIELD3": "",
-     "30": "1000",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "53",
-     "FIELD8": null,
-     "GR01": "GR06",
-     "FBS": "PRTVNSDPP",
-     "0": "0",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "RAD0064",
-     "BLOOD SUGAR- FASTING": "USG BREAST BOTH..",
-     "FIELD3": "",
-     "30": "1500",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "54",
-     "FIELD8": null,
-     "GR01": "GR06",
-     "FBS": "USGBRSBTH",
-     "0": "0",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "RAD0065",
-     "BLOOD SUGAR- FASTING": "ARTERIAL & VENOUS DOPPLER ONE LIMB..",
-     "FIELD3": "",
-     "30": "2500",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "55",
-     "FIELD8": null,
-     "GR01": "GR06",
-     "FBS": "ARTR&VNSDP",
-     "0": "0",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "RAD0066",
-     "BLOOD SUGAR- FASTING": "XRAY L S SPINE AP LAT..",
-     "FIELD3": "",
-     "30": "600",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "56",
-     "FIELD8": null,
-     "GR01": "GR06",
-     "FBS": "XRYLSSPNAP",
-     "0": "0",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "RAD0067",
-     "BLOOD SUGAR- FASTING": "ULTRASOUND SOFT TISSUE..",
-     "FIELD3": "",
-     "30": "1300",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "57",
-     "FIELD8": null,
-     "GR01": "GR06",
-     "FBS": "ULTRSFTTSS",
-     "0": "0",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "RAD0068",
-     "BLOOD SUGAR- FASTING": "USG GUIDED FNAC/BIOPSY..",
-     "FIELD3": "",
-     "30": "1350",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "58",
-     "FIELD8": null,
-     "GR01": "GR06",
-     "FBS": "USGGDDFNC",
-     "0": "0",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "RAD0069",
-     "BLOOD SUGAR- FASTING": "USG SHOULDER..",
-     "FIELD3": "",
-     "30": "1200",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "59",
-     "FIELD8": null,
-     "GR01": "GR06",
-     "FBS": "USGSHL",
-     "0": "0",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "RAD0070",
-     "BLOOD SUGAR- FASTING": "USG SOFT TISSUE..",
-     "FIELD3": "",
-     "30": "1300",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "60",
-     "FIELD8": null,
-     "GR01": "GR06",
-     "FBS": "USGSFTTSS",
-     "0": "0",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "RAD0071",
-     "BLOOD SUGAR- FASTING": "ARTERIAL DOPPLER BOTH LOWER LIMB..",
-     "FIELD3": "",
-     "30": "2500",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "61",
-     "FIELD8": null,
-     "GR01": "GR06",
-     "FBS": "ARTRDPPBTH",
-     "0": "0",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "RAD0072",
-     "BLOOD SUGAR- FASTING": "XRAY FOOT AP..",
-     "FIELD3": "",
-     "30": "300",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "62",
-     "FIELD8": null,
-     "GR01": "GR06",
-     "FBS": "XRYFTAP",
-     "0": "0",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "RAD0073",
-     "BLOOD SUGAR- FASTING": "USG NECK..",
-     "FIELD3": "",
-     "30": "1000",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "63",
-     "FIELD8": null,
-     "GR01": "GR06",
-     "FBS": "USGNCK",
-     "0": "0",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "RAD0074",
-     "BLOOD SUGAR- FASTING": "USG PAROTID..",
-     "FIELD3": "",
-     "30": "1100",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "64",
-     "FIELD8": null,
-     "GR01": "GR06",
-     "FBS": "USGPRT",
-     "0": "0",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "RAD0075",
-     "BLOOD SUGAR- FASTING": "PREGNANCY SCAN -ABOVE 11 WKS..",
-     "FIELD3": "",
-     "30": "0",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "65",
-     "FIELD8": null,
-     "GR01": "GR06",
-     "FBS": "PRGSCN-BV1",
-     "0": "0",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "RAD0076",
-     "BLOOD SUGAR- FASTING": "DOPPLER PREGNANCY..",
-     "FIELD3": "",
-     "30": "1100",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "66",
-     "FIELD8": null,
-     "GR01": "GR06",
-     "FBS": "DPPPRG",
-     "0": "0",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "RAD0077",
-     "BLOOD SUGAR- FASTING": "FILM CHARGES..",
-     "FIELD3": "",
-     "30": "1000",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "67",
-     "FIELD8": null,
-     "GR01": "GR06",
-     "FBS": "FLMCHR",
-     "0": "0",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "RAD0079",
-     "BLOOD SUGAR- FASTING": "OBSTETRIC GROWTH  SCAN  ABOVE 8 MONTH..",
-     "FIELD3": "",
-     "30": "1300",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "68",
-     "FIELD8": null,
-     "GR01": "GR06",
-     "FBS": "OBSTLTSCN8",
-     "0": "0",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "RAD0080",
-     "BLOOD SUGAR- FASTING": "X RAY HAND AP & LATERAL VIEW..",
-     "FIELD3": "",
-     "30": "500",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "69",
-     "FIELD8": null,
-     "GR01": "GR06",
-     "FBS": "XRYHNDAP&L",
-     "0": "0",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "RAD0081",
-     "BLOOD SUGAR- FASTING": "ELBOW X RAY AP/LAT..",
-     "FIELD3": "",
-     "30": "400",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "70",
-     "FIELD8": null,
-     "GR01": "GR06",
-     "FBS": "ELBWXRYAP/",
-     "0": "0",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "RAD0083",
-     "BLOOD SUGAR- FASTING": "USG GUIDED PIG TAIL..",
-     "FIELD3": "",
-     "30": "4500",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "71",
-     "FIELD8": null,
-     "GR01": "GR06",
-     "FBS": "USGGDDPGTL",
-     "0": "0",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "RAD0084",
-     "BLOOD SUGAR- FASTING": "PHYSICIAN REPORT",
-     "FIELD3": "",
-     "30": "65",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "72",
-     "FIELD8": null,
-     "GR01": "GR06",
-     "FBS": "QST",
-     "0": "0",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "RAD0085",
-     "BLOOD SUGAR- FASTING": "X RAY L S SPINE FLEXION/EXTENSION..",
-     "FIELD3": "",
-     "30": "600",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "73",
-     "FIELD8": null,
-     "GR01": "GR06",
-     "FBS": "XRYLSSPNFL",
-     "0": "0",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "RAD0086",
-     "BLOOD SUGAR- FASTING": "QUESTIONNAIRE-1..",
-     "FIELD3": "",
-     "30": "65",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "74",
-     "FIELD8": null,
-     "GR01": "GR06",
-     "FBS": "QST",
-     "0": "0",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "RAD0087",
-     "BLOOD SUGAR- FASTING": "MRI SACRUM & COCAYX..",
-     "FIELD3": "",
-     "30": "6500",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "75",
-     "FIELD8": null,
-     "GR01": "GR06",
-     "FBS": "MRSCR&CCY",
-     "0": "0",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "RAD0088",
-     "BLOOD SUGAR- FASTING": "MAMMOGRAM SINGLE SIDE..",
-     "FIELD3": "",
-     "30": "1200",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "76",
-     "FIELD8": null,
-     "GR01": "GR06",
-     "FBS": "MMMSNGSD",
-     "0": "0",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "RAD0089",
-     "BLOOD SUGAR- FASTING": "XRAY ROUTINE..",
-     "FIELD3": "",
-     "30": "300",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "77",
-     "FIELD8": null,
-     "GR01": "GR06",
-     "FBS": "XRYRTN",
-     "0": "0",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "RAD0090",
-     "BLOOD SUGAR- FASTING": "XRAY HEELS..",
-     "FIELD3": "",
-     "30": "300",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "78",
-     "FIELD8": null,
-     "GR01": "GR06",
-     "FBS": "XRYHLS",
-     "0": "0",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "RAD0091",
-     "BLOOD SUGAR- FASTING": "CT FORE ARM WITH 3D RECONSTRUCTION",
-     "FIELD3": "",
-     "30": "4000",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "79",
-     "FIELD8": null,
-     "GR01": "GR06",
-     "FBS": "CTFRARMWTH",
-     "0": "0",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "RAD0092",
-     "BLOOD SUGAR- FASTING": "XRAY T L SPINE AP LAT..",
-     "FIELD3": "",
-     "30": "600",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "80",
-     "FIELD8": null,
-     "GR01": "GR06",
-     "FBS": "XRYTLSPNAP",
-     "0": "0",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "RAD0093",
-     "BLOOD SUGAR- FASTING": "USG BOTH AXIALLA",
-     "FIELD3": "",
-     "30": "1200",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR06",
-     "FBS": "USGBTHAXLL",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "RAD0094",
-     "BLOOD SUGAR- FASTING": "VENOUS DOPPLER FOR SINGLE FOREARAM",
-     "FIELD3": "",
-     "30": "1500",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR06",
-     "FBS": "VNSDPPFRSN",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "RAD0095",
-     "BLOOD SUGAR- FASTING": "VENOUS DOPPLER FOR BOTH FOREARAM",
-     "FIELD3": "",
-     "30": "2500",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR06",
-     "FBS": "VNSDPPFRBT",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "SE00001",
-     "BLOOD SUGAR- FASTING": "WIDAL TEST",
-     "FIELD3": "",
-     "30": "300",
-     "FIELD5": "",
-     "FIELD6": "",
-     "90": "148",
-     "FIELD8": "",
-     "GR01": "GR04",
-     "FBS": "WIDAL",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "SE00002",
-     "BLOOD SUGAR- FASTING": "HIV I & II (Screening Test)",
-     "FIELD3": "",
-     "30": "450",
-     "FIELD5": "",
-     "FIELD6": "",
-     "90": "149",
-     "FIELD8": "",
-     "GR01": "GR04",
-     "FBS": "HIV",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "SE00003",
-     "BLOOD SUGAR- FASTING": "VDRL",
-     "FIELD3": "",
-     "30": "300",
-     "FIELD5": "",
-     "FIELD6": "",
-     "90": "150",
-     "FIELD8": "",
-     "GR01": "GR04",
-     "FBS": "VDRL",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "SE00004",
-     "BLOOD SUGAR- FASTING": "MANTOUX TEST",
-     "FIELD3": "",
-     "30": "80",
-     "FIELD5": "",
-     "FIELD6": "",
-     "90": "151",
-     "FIELD8": "",
-     "GR01": "GR04",
-     "FBS": "MANT",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "SE00006",
-     "BLOOD SUGAR- FASTING": "HIV1&2(WESTERN BLOT)",
-     "FIELD3": "",
-     "30": "0",
-     "FIELD5": "",
-     "FIELD6": "",
-     "90": "152",
-     "FIELD8": "",
-     "GR01": "GR04",
-     "FBS": "HIV1&2",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "SE00008",
-     "BLOOD SUGAR- FASTING": "RA Factor - Rheumatoid Arthritis Factor (Quantitative)",
-     "FIELD3": "",
-     "30": "400",
-     "FIELD5": "",
-     "FIELD6": "",
-     "90": "153",
-     "FIELD8": "",
-     "GR01": "GR04",
-     "FBS": "Rheumat F",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "SE00009",
-     "BLOOD SUGAR- FASTING": "HERPES SIMPLEX 1: Ig M",
-     "FIELD3": "",
-     "30": "300",
-     "FIELD5": "",
-     "FIELD6": "",
-     "90": "154",
-     "FIELD8": "",
-     "GR01": "GR04",
-     "FBS": "HS1 IgM",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "SE00010",
-     "BLOOD SUGAR- FASTING": "HERPES SIMPLEX 2: Ig M",
-     "FIELD3": "",
-     "30": "300",
-     "FIELD5": "",
-     "FIELD6": "",
-     "90": "155",
-     "FIELD8": "",
-     "GR01": "GR04",
-     "FBS": "HS2 IgM",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "SE00011",
-     "BLOOD SUGAR- FASTING": "Herpes Simplex Virus 1 & 2 - Ig G",
-     "FIELD3": "",
-     "30": "600",
-     "FIELD5": "",
-     "FIELD6": "",
-     "90": "156",
-     "FIELD8": "",
-     "GR01": "GR04",
-     "FBS": "HS1 IgG",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "SE00013",
-     "BLOOD SUGAR- FASTING": "HERPES SIMPLEX 2: Ig G",
-     "FIELD3": "",
-     "30": "300",
-     "FIELD5": "",
-     "FIELD6": "",
-     "90": "157",
-     "FIELD8": "",
-     "GR01": "GR04",
-     "FBS": "HS2 IgG",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "SE00014",
-     "BLOOD SUGAR- FASTING": "ANTI DNA ANTIBODY[ELISA]",
-     "FIELD3": "",
-     "30": "1000",
-     "FIELD5": "",
-     "FIELD6": "",
-     "90": "158",
-     "FIELD8": "",
-     "GR01": "GR04",
-     "FBS": "ADA",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "SE00015",
-     "BLOOD SUGAR- FASTING": "C REACTIVE PROTEIN (CRP)-QUANTITATIVE",
-     "FIELD3": "",
-     "30": "450",
-     "FIELD5": "",
-     "FIELD6": "",
-     "90": "159",
-     "FIELD8": "",
-     "GR01": "GR04",
-     "FBS": "C-Reac P",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "SE00017",
-     "BLOOD SUGAR- FASTING": "ANA - Anti Nuclear Antibodies",
-     "FIELD3": "",
-     "30": "600",
-     "FIELD5": "",
-     "FIELD6": "",
-     "90": "160",
-     "FIELD8": "",
-     "GR01": "GR04",
-     "FBS": "ANA-A",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "SE00019",
-     "BLOOD SUGAR- FASTING": "ANTI-NUCLEAR AB.IMMUNOFLUORESENCE",
-     "FIELD3": "",
-     "30": "0",
-     "FIELD5": "",
-     "FIELD6": "",
-     "90": "161",
-     "FIELD8": "",
-     "GR01": "GR04",
-     "FBS": "ANTI-N",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "SE00020",
-     "BLOOD SUGAR- FASTING": "BRUCELLA AGGLUTINATION TEST",
-     "FIELD3": "",
-     "30": "600",
-     "FIELD5": "",
-     "FIELD6": "",
-     "90": "162",
-     "FIELD8": "",
-     "GR01": "GR04",
-     "FBS": "BAT",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "SE00021",
-     "BLOOD SUGAR- FASTING": "PAUL BUNNEL( LATEX AGGLUTINATION METHOD)",
-     "FIELD3": "",
-     "30": "350",
-     "FIELD5": "",
-     "FIELD6": "",
-     "90": "163",
-     "FIELD8": "",
-     "GR01": "GR04",
-     "FBS": "PBT",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "SE00022",
-     "BLOOD SUGAR- FASTING": "Leptospira Ig M",
-     "FIELD3": "",
-     "30": "1000",
-     "FIELD5": "",
-     "FIELD6": "",
-     "90": "164",
-     "FIELD8": "",
-     "GR01": "GR04",
-     "FBS": "L IGM",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "SE00023",
-     "BLOOD SUGAR- FASTING": "DENGUE FEVER PROFILE",
-     "FIELD3": " ELISA",
-     "30": "",
-     "FIELD5": "900",
-     "FIELD6": "",
-     "90": "",
-     "FIELD8": "165",
-     "GR01": "",
-     "FBS": "GR04",
-     "0": "D IGM",
-     "FIELD12": "1",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "SE00024",
-     "BLOOD SUGAR- FASTING": "WEIL-FELIX TEST",
-     "FIELD3": "",
-     "30": "900",
-     "FIELD5": "",
-     "FIELD6": "",
-     "90": "166",
-     "FIELD8": "",
-     "GR01": "GR04",
-     "FBS": "WFT",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "SE00025",
-     "BLOOD SUGAR- FASTING": "TEST FOR HCV",
-     "FIELD3": "",
-     "30": "500",
-     "FIELD5": "",
-     "FIELD6": "",
-     "90": "167",
-     "FIELD8": "",
-     "GR01": "GR04",
-     "FBS": "HCV",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "SE00026",
-     "BLOOD SUGAR- FASTING": "TYPHI DOT",
-     "FIELD3": "",
-     "30": "350",
-     "FIELD5": "",
-     "FIELD6": "",
-     "90": "168",
-     "FIELD8": "",
-     "GR01": "GR04",
-     "FBS": "Typhi D",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "SE00027",
-     "BLOOD SUGAR- FASTING": "TORCH IGM",
-     "FIELD3": "",
-     "30": "0",
-     "FIELD5": "",
-     "FIELD6": "",
-     "90": "169",
-     "FIELD8": "",
-     "GR01": "GR04",
-     "FBS": "Tor IGM",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "SE00029",
-     "BLOOD SUGAR- FASTING": "MUMPS IGM ANTIBODIES",
-     "FIELD3": "",
-     "30": "0",
-     "FIELD5": "",
-     "FIELD6": "",
-     "90": "170",
-     "FIELD8": "",
-     "GR01": "GR04",
-     "FBS": "MIgmA",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "SE00030",
-     "BLOOD SUGAR- FASTING": "MEASLES ANTIBODY TEST",
-     "FIELD3": "",
-     "30": "1200",
-     "FIELD5": "",
-     "FIELD6": "",
-     "90": "171",
-     "FIELD8": "",
-     "GR01": "GR04",
-     "FBS": "MAT",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "SE00031",
-     "BLOOD SUGAR- FASTING": "RUBELLA ANTIBODY TEST",
-     "FIELD3": "",
-     "30": "500",
-     "FIELD5": "",
-     "FIELD6": "",
-     "90": "172",
-     "FIELD8": "",
-     "GR01": "GR04",
-     "FBS": "RAT",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "SE00032",
-     "BLOOD SUGAR- FASTING": "CYTOMEGALOVIRUS TEST",
-     "FIELD3": "",
-     "30": "50",
-     "FIELD5": "",
-     "FIELD6": "",
-     "90": "173",
-     "FIELD8": "",
-     "GR01": "GR04",
-     "FBS": "CmT",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "SE00033",
-     "BLOOD SUGAR- FASTING": "Toxoplasma - Ig M",
-     "FIELD3": "",
-     "30": "600",
-     "FIELD5": "",
-     "FIELD6": "",
-     "90": "174",
-     "FIELD8": "",
-     "GR01": "GR04",
-     "FBS": "TP-IGM",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "SE00034",
-     "BLOOD SUGAR- FASTING": "Toxoplasma - Ig G",
-     "FIELD3": "",
-     "30": "600",
-     "FIELD5": "",
-     "FIELD6": "",
-     "90": "175",
-     "FIELD8": "",
-     "GR01": "GR04",
-     "FBS": "TP-IGG",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "SE00036",
-     "BLOOD SUGAR- FASTING": "THYROID ANTIBODY-THYROGLOBULIN TEST",
-     "FIELD3": "",
-     "30": "2500",
-     "FIELD5": "",
-     "FIELD6": "",
-     "90": "176",
-     "FIELD8": "",
-     "GR01": "GR04",
-     "FBS": "TA-TGl",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "SE00037",
-     "BLOOD SUGAR- FASTING": "THYROID ANTI MICROSOMAL ANTIBODY",
-     "FIELD3": "",
-     "30": "1800",
-     "FIELD5": "",
-     "FIELD6": "",
-     "90": "177",
-     "FIELD8": "",
-     "GR01": "GR04",
-     "FBS": "TA-MA",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "SE00041",
-     "BLOOD SUGAR- FASTING": "HAV- TOTAL & IGM AB",
-     "FIELD3": "",
-     "30": "0",
-     "FIELD5": "",
-     "FIELD6": "",
-     "90": "178",
-     "FIELD8": "",
-     "GR01": "GR04",
-     "FBS": "HAV T",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "SE00042",
-     "BLOOD SUGAR- FASTING": "HEPATITIS C VIRUS ANTIBODY",
-     "FIELD3": "",
-     "30": "950",
-     "FIELD5": "",
-     "FIELD6": "",
-     "90": "179",
-     "FIELD8": "",
-     "GR01": "GR04",
-     "FBS": "HCVA",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "SE00043",
-     "BLOOD SUGAR- FASTING": "ROSE WALLER TEST",
-     "FIELD3": "",
-     "30": "50",
-     "FIELD5": "",
-     "FIELD6": "",
-     "90": "180",
-     "FIELD8": "",
-     "GR01": "GR04",
-     "FBS": "RWT",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "SE00044",
-     "BLOOD SUGAR- FASTING": "C4 - Complement 4",
-     "FIELD3": "",
-     "30": "780",
-     "FIELD5": "",
-     "FIELD6": "",
-     "90": "181",
-     "FIELD8": "",
-     "GR01": "GR04",
-     "FBS": "C4-Comp",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "SE00046",
-     "BLOOD SUGAR- FASTING": "ANTISPERM ANTIBODY",
-     "FIELD3": "",
-     "30": "50",
-     "FIELD5": "",
-     "FIELD6": "",
-     "90": "182",
-     "FIELD8": "",
-     "GR01": "GR04",
-     "FBS": "AA",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "SE00047",
-     "BLOOD SUGAR- FASTING": "CASONI'S TEST",
-     "FIELD3": "",
-     "30": "50",
-     "FIELD5": "",
-     "FIELD6": "",
-     "90": "183",
-     "FIELD8": "",
-     "GR01": "GR04",
-     "FBS": "CasoT",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "SE00048",
-     "BLOOD SUGAR- FASTING": "TOXOPLASMA ANTIBODY",
-     "FIELD3": "",
-     "30": "900",
-     "FIELD5": "",
-     "FIELD6": "",
-     "90": "184",
-     "FIELD8": "",
-     "GR01": "GR04",
-     "FBS": "TA",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "SE00049",
-     "BLOOD SUGAR- FASTING": "ANTIAMOEBIC ANTIBODY",
-     "FIELD3": "",
-     "30": "50",
-     "FIELD5": "",
-     "FIELD6": "",
-     "90": "185",
-     "FIELD8": "",
-     "GR01": "GR04",
-     "FBS": "AntiamoA",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "SE00051",
-     "BLOOD SUGAR- FASTING": "SLE SLIDE TEST",
-     "FIELD3": "",
-     "30": "50",
-     "FIELD5": "",
-     "FIELD6": "",
-     "90": "186",
-     "FIELD8": "",
-     "GR01": "GR04",
-     "FBS": "SLE ST",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "SE00052",
-     "BLOOD SUGAR- FASTING": "RPR CARD TEST",
-     "FIELD3": "",
-     "30": "50",
-     "FIELD5": "",
-     "FIELD6": "",
-     "90": "187",
-     "FIELD8": "",
-     "GR01": "GR04",
-     "FBS": "RPRC",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "SE00053",
-     "BLOOD SUGAR- FASTING": "TUBERCULOSIS Ig M/Ig G TEST",
-     "FIELD3": "",
-     "30": "0",
-     "FIELD5": "",
-     "FIELD6": "",
-     "90": "188",
-     "FIELD8": "",
-     "GR01": "GR04",
-     "FBS": "TIM",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "SE00054",
-     "BLOOD SUGAR- FASTING": "Rubella - Ig G",
-     "FIELD3": "",
-     "30": "600",
-     "FIELD5": "",
-     "FIELD6": "",
-     "90": "189",
-     "FIELD8": "",
-     "GR01": "GR04",
-     "FBS": "RIggA",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "SE00055",
-     "BLOOD SUGAR- FASTING": "Rubella - Ig M",
-     "FIELD3": "",
-     "30": "600",
-     "FIELD5": "",
-     "FIELD6": "",
-     "90": "190",
-     "FIELD8": "",
-     "GR01": "GR04",
-     "FBS": "RIgmA",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "SE00056",
-     "BLOOD SUGAR- FASTING": "CA-15.3",
-     "FIELD3": "",
-     "30": "0",
-     "FIELD5": "",
-     "FIELD6": "",
-     "90": "191",
-     "FIELD8": "",
-     "GR01": "GR04",
-     "FBS": "CA-15.3",
-     "0": "0",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "SE00058",
-     "BLOOD SUGAR- FASTING": "CA 19-9 ANTIGEN-BLOOD",
-     "FIELD3": "",
-     "30": "1500",
-     "FIELD5": "",
-     "FIELD6": "",
-     "90": "192",
-     "FIELD8": "",
-     "GR01": "GR04",
-     "FBS": "CA 19-9 ",
-     "0": "0",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "SE00059",
-     "BLOOD SUGAR- FASTING": "CA 50 ANTIGEN-BLOOD",
-     "FIELD3": "",
-     "30": "0",
-     "FIELD5": "",
-     "FIELD6": "",
-     "90": "193",
-     "FIELD8": "",
-     "GR01": "GR04",
-     "FBS": "CA 50",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "SE00060",
-     "BLOOD SUGAR- FASTING": "CA - 125 ANTIGEN-BLOOD",
-     "FIELD3": "",
-     "30": "1000",
-     "FIELD5": "",
-     "FIELD6": "",
-     "90": "194",
-     "FIELD8": "",
-     "GR01": "GR04",
-     "FBS": "CA - 125",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "SE00062",
-     "BLOOD SUGAR- FASTING": "CEA (CARCINO-EMBRYONIC ANTIGEN)",
-     "FIELD3": "",
-     "30": "0",
-     "FIELD5": "",
-     "FIELD6": "",
-     "90": "195",
-     "FIELD8": "",
-     "GR01": "GR04",
-     "FBS": "CEA",
-     "0": "0",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "SE00063",
-     "BLOOD SUGAR- FASTING": "CHIKUNGUNYA-IGM",
-     "FIELD3": "",
-     "30": "850",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "196",
-     "FIELD8": null,
-     "GR01": "GR04",
-     "FBS": "CHKANTB",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "SE00064",
-     "BLOOD SUGAR- FASTING": "Weil Felix",
-     "FIELD3": "",
-     "30": "700",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "197",
-     "FIELD8": null,
-     "GR01": "GR04",
-     "FBS": "WLFLX",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "SE00065",
-     "BLOOD SUGAR- FASTING": "ANTI-CCP",
-     "FIELD3": "",
-     "30": "2000",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "198",
-     "FIELD8": null,
-     "GR01": "GR04",
-     "FBS": "ANTCCP(CYC",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "SE00066",
-     "BLOOD SUGAR- FASTING": "AMH-MULLERIAN INHIBITING SUBSTANCE",
-     "FIELD3": "",
-     "30": "2750",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "199",
-     "FIELD8": null,
-     "GR01": "GR04",
-     "FBS": "ANTMLLHRM",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "SE00067",
-     "BLOOD SUGAR- FASTING": "CALCIM IONIC SERUM",
-     "FIELD3": "",
-     "30": "120",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "200",
-     "FIELD8": null,
-     "GR01": "GR04",
-     "FBS": "CLCINCSRM",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "SE00068",
-     "BLOOD SUGAR- FASTING": "H.PYLORI ANTIBODY ( ANTIBODY TO HELICOBACTER PYLORI)",
-     "FIELD3": "",
-     "30": "2100",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "201",
-     "FIELD8": null,
-     "GR01": "GR04",
-     "FBS": "H.PANTB(AN",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "SE00069",
-     "BLOOD SUGAR- FASTING": "HBSAG(CONFIRMATION&QUANTIFICATION)",
-     "FIELD3": "",
-     "30": "0",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "206",
-     "FIELD8": null,
-     "GR01": "GR04",
-     "FBS": "HPTBSRFANT",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "SE00070",
-     "BLOOD SUGAR- FASTING": "HBE-AG",
-     "FIELD3": "",
-     "30": "700",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "202",
-     "FIELD8": null,
-     "GR01": "GR04",
-     "FBS": "HPTBENVLAN",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "SE00071",
-     "BLOOD SUGAR- FASTING": "HEPATIS B CORE ANTIBODY ( HBcAg ANTIBODY )",
-     "FIELD3": "",
-     "30": "800",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "203",
-     "FIELD8": null,
-     "GR01": "GR04",
-     "FBS": "HPTBCRANTB",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "SE00072",
-     "BLOOD SUGAR- FASTING": "HBCAB-IGM",
-     "FIELD3": "",
-     "30": "0",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "204",
-     "FIELD8": null,
-     "GR01": "GR04",
-     "FBS": "HPTBCRANTB",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "SE00073",
-     "BLOOD SUGAR- FASTING": "HBE-AB",
-     "FIELD3": "",
-     "30": "0",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "205",
-     "FIELD8": null,
-     "GR01": "GR04",
-     "FBS": "HPTBENVLAN",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "SE00074",
-     "BLOOD SUGAR- FASTING": "HLA B27",
-     "FIELD3": "",
-     "30": "1600",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "207",
-     "FIELD8": null,
-     "GR01": "GR04",
-     "FBS": "HLB27",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "SE00075",
-     "BLOOD SUGAR- FASTING": "*MANTOUX TEST",
-     "FIELD3": "",
-     "30": "100",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR04",
-     "FBS": "MNTTST",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "SE00076",
-     "BLOOD SUGAR- FASTING": "MONOSPOT",
-     "FIELD3": "",
-     "30": "0",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "209",
-     "FIELD8": null,
-     "GR01": "GR04",
-     "FBS": "MNSTST",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "SE00077",
-     "BLOOD SUGAR- FASTING": "TORCH IgG & IgM ELISA",
-     "FIELD3": "",
-     "30": "2000",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "210",
-     "FIELD8": null,
-     "GR01": "GR04",
-     "FBS": "TRCIgG&IgM",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "SE00078",
-     "BLOOD SUGAR- FASTING": "HS CRP - C Reactive Protein (Quantitative)",
-     "FIELD3": "",
-     "30": "450",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "211",
-     "FIELD8": null,
-     "GR01": "GR04",
-     "FBS": "CRCTPRTHS",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "SE00079",
-     "BLOOD SUGAR- FASTING": "HEPATITIS B \"E\" ANTIBODY (ANTI HBe)",
-     "FIELD3": "",
-     "30": "900",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "212",
-     "FIELD8": null,
-     "GR01": "GR04",
-     "FBS": "HPTB\"\"ANTB",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "SE00081",
-     "BLOOD SUGAR- FASTING": "ANTI HBS-TITRE",
-     "FIELD3": "",
-     "30": "875",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "213",
-     "FIELD8": null,
-     "GR01": "GR04",
-     "FBS": "ANTHBS",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "SE00082",
-     "BLOOD SUGAR- FASTING": "DENGUE IGG*",
-     "FIELD3": "",
-     "30": "500",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "214",
-     "FIELD8": null,
-     "GR01": "GR04",
-     "FBS": "DNGIGG*",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "SE00083",
-     "BLOOD SUGAR- FASTING": "H PYLORI IGG",
-     "FIELD3": "",
-     "30": "0",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "215",
-     "FIELD8": null,
-     "GR01": "GR04",
-     "FBS": "HPYLIGG",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "SE00084",
-     "BLOOD SUGAR- FASTING": "H PYLORI IGM",
-     "FIELD3": "",
-     "30": "0",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "216",
-     "FIELD8": null,
-     "GR01": "GR04",
-     "FBS": "HPYLIGM",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "SE00086",
-     "BLOOD SUGAR- FASTING": "HBA1C",
-     "FIELD3": "",
-     "30": "550",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "0",
-     "FIELD8": null,
-     "GR01": "GR04",
-     "FBS": "HB1",
-     "0": "0",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "SE00087",
-     "BLOOD SUGAR- FASTING": "HBSAB-SURFACE ANTIGEN",
-     "FIELD3": "",
-     "30": "0",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "49",
-     "FIELD8": null,
-     "GR01": "GR04",
-     "FBS": "HBSANTG",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "SE00088",
-     "BLOOD SUGAR- FASTING": "HBsAg",
-     "FIELD3": "",
-     "30": "500",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "50",
-     "FIELD8": null,
-     "GR01": "GR04",
-     "FBS": "HBSSCR",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "SE00089",
-     "BLOOD SUGAR- FASTING": "HAV IGG -CLIA",
-     "FIELD3": "",
-     "30": "1200",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "51",
-     "FIELD8": null,
-     "GR01": "GR04",
-     "FBS": "HPTA(HVIGG",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "SE00090",
-     "BLOOD SUGAR- FASTING": "HAV- IGM AB",
-     "FIELD3": "",
-     "30": "0",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "52",
-     "FIELD8": null,
-     "GR01": "GR04",
-     "FBS": "HPTA(HVIGM",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "SE00091",
-     "BLOOD SUGAR- FASTING": "HEPATITIS A VIRUS (HAV)",
-     "FIELD3": " IGG & IGM",
-     "30": "",
-     "FIELD5": "2100",
-     "FIELD6": null,
-     "90": "",
-     "FIELD8": "53",
-     "GR01": null,
-     "FBS": "GR04",
-     "0": "HPTAVRS(HV",
-     "FIELD12": "1",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "SE00093",
-     "BLOOD SUGAR- FASTING": "HERPES SIMPLEX ANTIBODIES I & II (IGG & IGM)",
-     "FIELD3": "",
-     "30": "0",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "54",
-     "FIELD8": null,
-     "GR01": "GR04",
-     "FBS": "HRPSMPANTB",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "SE00094",
-     "BLOOD SUGAR- FASTING": "HERPES SIMPLEX( I&II) IGM AB.",
-     "FIELD3": "",
-     "30": "0",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "55",
-     "FIELD8": null,
-     "GR01": "GR04",
-     "FBS": "HRPSMPI&)I",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "SE00095",
-     "BLOOD SUGAR- FASTING": "HERPES SIMPLEX(I) IGG AB.",
-     "FIELD3": "",
-     "30": "0",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "56",
-     "FIELD8": null,
-     "GR01": "GR04",
-     "FBS": "HRPSMPIGGA",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "SE00096",
-     "BLOOD SUGAR- FASTING": "HIV 1 DNA QUALITATIVE",
-     "FIELD3": "",
-     "30": "0",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "57",
-     "FIELD8": null,
-     "GR01": "GR04",
-     "FBS": "HV1DNQLT",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "SE00097",
-     "BLOOD SUGAR- FASTING": "HIV ANTI-BODY (I & II) & P24 AG",
-     "FIELD3": "",
-     "30": "0",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "58",
-     "FIELD8": null,
-     "GR01": "GR04",
-     "FBS": "HVANT-(&I)",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "SE00098",
-     "BLOOD SUGAR- FASTING": "HIV DUO ANTIGEN&ANTIBODY SCREEN",
-     "FIELD3": "",
-     "30": "0",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "59",
-     "FIELD8": null,
-     "GR01": "GR04",
-     "FBS": "HVDANTGSCR",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "SE00099",
-     "BLOOD SUGAR- FASTING": "LEPTOSPIRA DETECTION",
-     "FIELD3": "",
-     "30": "2000",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "60",
-     "FIELD8": null,
-     "GR01": "GR04",
-     "FBS": "LPTDTC",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "SE00100",
-     "BLOOD SUGAR- FASTING": "Leptospira Ig G",
-     "FIELD3": "",
-     "30": "1000",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "61",
-     "FIELD8": null,
-     "GR01": "GR04",
-     "FBS": "LPTIGG",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "SE00101",
-     "BLOOD SUGAR- FASTING": "MEASELES(RUBEOLA)IGM",
-     "FIELD3": "",
-     "30": "0",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "62",
-     "FIELD8": null,
-     "GR01": "GR04",
-     "FBS": "MSL",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "SE00102",
-     "BLOOD SUGAR- FASTING": "MEASLES-IGG",
-     "FIELD3": "",
-     "30": "0",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "63",
-     "FIELD8": null,
-     "GR01": "GR04",
-     "FBS": "MSL",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "SE00103",
-     "BLOOD SUGAR- FASTING": "MUMPS-IGG",
-     "FIELD3": "",
-     "30": "0",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "64",
-     "FIELD8": null,
-     "GR01": "GR04",
-     "FBS": "MMP",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "SE00104",
-     "BLOOD SUGAR- FASTING": "RHEUMATOID FACTOR(QUANTITATIVE)",
-     "FIELD3": "",
-     "30": "0",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "65",
-     "FIELD8": null,
-     "GR01": "GR04",
-     "FBS": "RHMFCT",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "SE00105",
-     "BLOOD SUGAR- FASTING": "SLE DIAGNOSTIC PANEL",
-     "FIELD3": "",
-     "30": "0",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "66",
-     "FIELD8": null,
-     "GR01": "GR04",
-     "FBS": "SLDGNPNL",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "SE00106",
-     "BLOOD SUGAR- FASTING": "SLIDES/BLOCKS OF HPE",
-     "FIELD3": "",
-     "30": "250",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "67",
-     "FIELD8": null,
-     "GR01": "GR04",
-     "FBS": "SLDOFHP",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "SE00107",
-     "BLOOD SUGAR- FASTING": "TORCH PANEL",
-     "FIELD3": "",
-     "30": "0",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "68",
-     "FIELD8": null,
-     "GR01": "GR04",
-     "FBS": "TRCPNL",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "SE00108",
-     "BLOOD SUGAR- FASTING": "TOXOPLASMA",
-     "FIELD3": "AVIDITY TEST",
-     "30": "",
-     "FIELD5": "0",
-     "FIELD6": null,
-     "90": "",
-     "FIELD8": "69",
-     "GR01": null,
-     "FBS": "GR04",
-     "0": "TXPTST",
-     "FIELD12": "1",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "SE00109",
-     "BLOOD SUGAR- FASTING": "TUBERCULOSIS(MTB)",
-     "FIELD3": "RT PCR",
-     "30": "",
-     "FIELD5": "0",
-     "FIELD6": null,
-     "90": "",
-     "FIELD8": "70",
-     "GR01": null,
-     "FBS": "GR04",
-     "0": "TBRPCR",
-     "FIELD12": "1",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "SE00110",
-     "BLOOD SUGAR- FASTING": "ANA-IFA",
-     "FIELD3": "",
-     "30": "850",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "71",
-     "FIELD8": null,
-     "GR01": "GR04",
-     "FBS": "ANAIF",
-     "0": "0",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "SE00112",
-     "BLOOD SUGAR- FASTING": "C-ANCA",
-     "FIELD3": "",
-     "30": "950",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "72",
-     "FIELD8": null,
-     "GR01": "GR04",
-     "FBS": "ANCP-N",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "SE00113",
-     "BLOOD SUGAR- FASTING": "ANCA-(MPO&PR3)",
-     "FIELD3": "",
-     "30": "1700",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "73",
-     "FIELD8": null,
-     "GR01": "GR04",
-     "FBS": "ANC-",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "SE00115",
-     "BLOOD SUGAR- FASTING": "ANTI CARDIOLIPIN ANTIBODY",
-     "FIELD3": " SCREENING",
-     "30": "",
-     "FIELD5": "0",
-     "FIELD6": null,
-     "90": "",
-     "FIELD8": "74",
-     "GR01": null,
-     "FBS": "GR04",
-     "0": "ANTCRDANTB",
-     "FIELD12": "1",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "SE00116",
-     "BLOOD SUGAR- FASTING": "ANTI DNASE B",
-     "FIELD3": "",
-     "30": "0",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "75",
-     "FIELD8": null,
-     "GR01": "GR04",
-     "FBS": "ANTDNSB",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "SE00118",
-     "BLOOD SUGAR- FASTING": "HBV ANTI HBCAG-CORE ANTIGEN-TOTAL",
-     "FIELD3": "",
-     "30": "0",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "76",
-     "FIELD8": null,
-     "GR01": "GR04",
-     "FBS": "ANTHBCANTG",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "SE00119",
-     "BLOOD SUGAR- FASTING": "ANTI HCV AB",
-     "FIELD3": "SCREENING",
-     "30": "",
-     "FIELD5": "0",
-     "FIELD6": null,
-     "90": "",
-     "FIELD8": "77",
-     "GR01": null,
-     "FBS": "GR04",
-     "0": "ANTHCVAB",
-     "FIELD12": "S",
-     "FIELD13": "1",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "SE00120",
-     "BLOOD SUGAR- FASTING": "ANTI MICROFILARIAL AB",
-     "FIELD3": "",
-     "30": "0",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "78",
-     "FIELD8": null,
-     "GR01": "GR04",
-     "FBS": "ANTMCRAB",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "SE00121",
-     "BLOOD SUGAR- FASTING": "ANTI THROMBIN III ACTIVITY (FUNCTIONAL)",
-     "FIELD3": "",
-     "30": "2200",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "79",
-     "FIELD8": null,
-     "GR01": "GR04",
-     "FBS": "ANTTHRIACT",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "SE00122",
-     "BLOOD SUGAR- FASTING": "ANTI THYROGLOBULIN",
-     "FIELD3": "",
-     "30": "0",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "80",
-     "FIELD8": null,
-     "GR01": "GR04",
-     "FBS": "ANTTHY",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "SE00123",
-     "BLOOD SUGAR- FASTING": "ANTI-HEV-IGM",
-     "FIELD3": "",
-     "30": "1300",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "81",
-     "FIELD8": null,
-     "GR01": "GR04",
-     "FBS": "ANT-",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "SE00124",
-     "BLOOD SUGAR- FASTING": "Antibodies to HIV I & II",
-     "FIELD3": "",
-     "30": "500",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "82",
-     "FIELD8": null,
-     "GR01": "GR04",
-     "FBS": "ANT-ANTB(1",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "SE00125",
-     "BLOOD SUGAR- FASTING": "ANTI-HSV (II)-IGG AB",
-     "FIELD3": "",
-     "30": "0",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "83",
-     "FIELD8": null,
-     "GR01": "GR04",
-     "FBS": "ANT-()-AB",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "SE00126",
-     "BLOOD SUGAR- FASTING": "ANTI-MYCOBACTERIAL ANTIBODY",
-     "FIELD3": "",
-     "30": "0",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "84",
-     "FIELD8": null,
-     "GR01": "GR04",
-     "FBS": "ANT-ANTB",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "SE00127",
-     "BLOOD SUGAR- FASTING": "ANTIHEV-IGG",
-     "FIELD3": "",
-     "30": "0",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "85",
-     "FIELD8": null,
-     "GR01": "GR04",
-     "FBS": "ANTH",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "SE00128",
-     "BLOOD SUGAR- FASTING": "ASO-TITRE",
-     "FIELD3": "",
-     "30": "450",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "86",
-     "FIELD8": null,
-     "GR01": "GR04",
-     "FBS": "AS-T",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "SE00129",
-     "BLOOD SUGAR- FASTING": "ASPERGILLUS FUMIGATES DNA DETECTOR (PCR)",
-     "FIELD3": "",
-     "30": "0",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "87",
-     "FIELD8": null,
-     "GR01": "GR04",
-     "FBS": "ASPRFMGDND",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "SE00130",
-     "BLOOD SUGAR- FASTING": "AST",
-     "FIELD3": "",
-     "30": "0",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "88",
-     "FIELD8": null,
-     "GR01": "GR04",
-     "FBS": "AST",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "SE00131",
-     "BLOOD SUGAR- FASTING": "BNP-B TYPE NATRIURETIC PEPTIDE",
-     "FIELD3": "",
-     "30": "0",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "89",
-     "FIELD8": null,
-     "GR01": "GR04",
-     "FBS": "BNPTYPNTRP",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "SE00132",
-     "BLOOD SUGAR- FASTING": "C-PEPTIDE*",
-     "FIELD3": "",
-     "30": "0",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "90",
-     "FIELD8": null,
-     "GR01": "GR04",
-     "FBS": "C-P",
-     "0": "0",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "SE00133",
-     "BLOOD SUGAR- FASTING": "VARICELLA ZOSTER VIRUS IGM",
-     "FIELD3": "",
-     "30": "0",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "91",
-     "FIELD8": null,
-     "GR01": "GR04",
-     "FBS": "VRCZSTVRSI",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "SE00134",
-     "BLOOD SUGAR- FASTING": "VARICELLA ZOSTER VIRUS IGG",
-     "FIELD3": "",
-     "30": "0",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "92",
-     "FIELD8": null,
-     "GR01": "GR04",
-     "FBS": "VRCZSTVRSI",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "SE00135",
-     "BLOOD SUGAR- FASTING": "SCL-70 AB",
-     "FIELD3": "",
-     "30": "0",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "93",
-     "FIELD8": null,
-     "GR01": "GR04",
-     "FBS": "SCLAB",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "SE00136",
-     "BLOOD SUGAR- FASTING": "SCI-70",
-     "FIELD3": "ANTIBODY",
-     "30": "",
-     "FIELD5": "0",
-     "FIELD6": null,
-     "90": "",
-     "FIELD8": "94",
-     "GR01": null,
-     "FBS": "GR04",
-     "0": "SC-",
-     "FIELD12": "1",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "SE00137",
-     "BLOOD SUGAR- FASTING": "RO & LA AB",
-     "FIELD3": "",
-     "30": "0",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "95",
-     "FIELD8": null,
-     "GR01": "GR04",
-     "FBS": "R&LAB",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "SE00138",
-     "BLOOD SUGAR- FASTING": "RNP- AB",
-     "FIELD3": "",
-     "30": "0",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "96",
-     "FIELD8": null,
-     "GR01": "GR04",
-     "FBS": "RNPAB",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "SE00139",
-     "BLOOD SUGAR- FASTING": "Phospholipid Ig G",
-     "FIELD3": "",
-     "30": "750",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "97",
-     "FIELD8": null,
-     "GR01": "GR04",
-     "FBS": "PHS",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "SE00140",
-     "BLOOD SUGAR- FASTING": "NS1 DENGUE ANTIGEN",
-     "FIELD3": "",
-     "30": "0",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "98",
-     "FIELD8": null,
-     "GR01": "GR04",
-     "FBS": "NS1DNGANTG",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "SE00141",
-     "BLOOD SUGAR- FASTING": "NEURONAL ANTIGEN PROFILE",
-     "FIELD3": "",
-     "30": "0",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "99",
-     "FIELD8": null,
-     "GR01": "GR04",
-     "FBS": "NRNANTGPRF",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "SE00142",
-     "BLOOD SUGAR- FASTING": "MICROSOMAL (TPO) ANTIBODY",
-     "FIELD3": "",
-     "30": "0",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "100",
-     "FIELD8": null,
-     "GR01": "GR04",
-     "FBS": "MCR(TPANTB",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "SE00143",
-     "BLOOD SUGAR- FASTING": "ANTI LKM1 ANTIBODYS",
-     "FIELD3": "",
-     "30": "1750",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "101",
-     "FIELD8": null,
-     "GR01": "GR04",
-     "FBS": "LKMAB",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "SE00145",
-     "BLOOD SUGAR- FASTING": "LA (SS-B) AB",
-     "FIELD3": "",
-     "30": "0",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "102",
-     "FIELD8": null,
-     "GR01": "GR04",
-     "FBS": "L(SSAB",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "SE00146",
-     "BLOOD SUGAR- FASTING": "INTRINSIC FACTOR ANTIBODY",
-     "FIELD3": "SERUM",
-     "30": "",
-     "FIELD5": "0",
-     "FIELD6": null,
-     "90": "",
-     "FIELD8": "103",
-     "GR01": null,
-     "FBS": "GR04",
-     "0": "INTRFCTANT",
-     "FIELD12": "1",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "SE00147",
-     "BLOOD SUGAR- FASTING": "IGM BY NEPHELOMETRY",
-     "FIELD3": "",
-     "30": "0",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "104",
-     "FIELD8": null,
-     "GR01": "GR04",
-     "FBS": "IGMBYNPH",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "SE00148",
-     "BLOOD SUGAR- FASTING": "IGG BY NEPHELOMETRY",
-     "FIELD3": "",
-     "30": "0",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "105",
-     "FIELD8": null,
-     "GR01": "GR04",
-     "FBS": "IGGBYNPH",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "SE00149",
-     "BLOOD SUGAR- FASTING": "RO",
-     "FIELD3": "",
-     "30": "0",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "106",
-     "FIELD8": null,
-     "GR01": "GR04",
-     "FBS": "R",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "SE00150",
-     "BLOOD SUGAR- FASTING": "LKM1-DILUTION",
-     "FIELD3": "",
-     "30": "0",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "107",
-     "FIELD8": null,
-     "GR01": "GR04",
-     "FBS": "LKM",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "SE00151",
-     "BLOOD SUGAR- FASTING": "IGE- ASPERGILLUS AB",
-     "FIELD3": "",
-     "30": "0",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "108",
-     "FIELD8": null,
-     "GR01": "GR04",
-     "FBS": "IG-ASPRAB",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "SE00152",
-     "BLOOD SUGAR- FASTING": "IGA BY NEPHELOMETRY",
-     "FIELD3": "",
-     "30": "0",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "109",
-     "FIELD8": null,
-     "GR01": "GR04",
-     "FBS": "IGBYNPH",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "SE00153",
-     "BLOOD SUGAR- FASTING": "HSV 1&2 IGM",
-     "FIELD3": "",
-     "30": "2000",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "110",
-     "FIELD8": null,
-     "GR01": "GR04",
-     "FBS": "HSV1&2IGG",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "SE00154",
-     "BLOOD SUGAR- FASTING": "HSV 1 &2 IGG",
-     "FIELD3": "",
-     "30": "2000",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "111",
-     "FIELD8": null,
-     "GR01": "GR04",
-     "FBS": "HSV1&2IGM",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "SE00155",
-     "BLOOD SUGAR- FASTING": "HEVANTIBODIES(IGG+IGM)",
-     "FIELD3": "",
-     "30": "2600",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "112",
-     "FIELD8": null,
-     "GR01": "GR04",
-     "FBS": "HVN",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "SE00156",
-     "BLOOD SUGAR- FASTING": "HEV-IGM ANTIBODY",
-     "FIELD3": "",
-     "30": "1300",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "113",
-     "FIELD8": null,
-     "GR01": "GR04",
-     "FBS": "HV-ABS",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "SE00157",
-     "BLOOD SUGAR- FASTING": "HEV-ANTI HEV IGG",
-     "FIELD3": "",
-     "30": "1300",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "114",
-     "FIELD8": null,
-     "GR01": "GR04",
-     "FBS": "HV-HVIGG",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "SE00158",
-     "BLOOD SUGAR- FASTING": "HER-2/ NEU",
-     "FIELD3": "",
-     "30": "0",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "115",
-     "FIELD8": null,
-     "GR01": "GR04",
-     "FBS": "HR-N",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "SE00159",
-     "BLOOD SUGAR- FASTING": "HDV-IGG AB",
-     "FIELD3": "",
-     "30": "0",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "116",
-     "FIELD8": null,
-     "GR01": "GR04",
-     "FBS": "HDVAB",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "SE00160",
-     "BLOOD SUGAR- FASTING": "HCV-TOTAL ANTIBODIES CARD TEST",
-     "FIELD3": "",
-     "30": "250",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "117",
-     "FIELD8": null,
-     "GR01": "GR04",
-     "FBS": "HCVANTBCRD",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "SE00161",
-     "BLOOD SUGAR- FASTING": "HCV-IGM AB",
-     "FIELD3": "",
-     "30": "0",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "118",
-     "FIELD8": null,
-     "GR01": "GR04",
-     "FBS": "HCVAB",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "SE00162",
-     "BLOOD SUGAR- FASTING": "HBV DNA(QUALITATIVE)",
-     "FIELD3": "",
-     "30": "3500",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "119",
-     "FIELD8": null,
-     "GR01": "GR04",
-     "FBS": "HBVDN(",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "SE00163",
-     "BLOOD SUGAR- FASTING": "HBV DNA VIRAL LOAD QUANTITATIVE",
-     "FIELD3": "",
-     "30": "5500",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "120",
-     "FIELD8": null,
-     "GR01": "GR04",
-     "FBS": "HBVDNVRLLD",
-     "0": "1",
-     "FIELD12": "",
-     "FIELD13": "",
-     "FIELD14": "",
-     "FIELD15": "",
-     "FIELD16": null,
-     "FIELD17": ""
- },
- {
-     "B000003": "SE00167",
-     "BLOOD SUGAR- FASTING": "GLIADIN IGA",
-     "FIELD3": "",
-     "30": "0",
-     "FIELD5": null,
-     "FIELD6": "",
-     "90": "121",
-     "FIELD8": null,
-     "GR01": "GR04",
-     "FBS": "GLDIG",
-   
-    /*initiate the autocomplete function on the "myInput" element, and pass along the countries array as possible autocomplete values:*/
-            autocomplete(document.getElementById("myInput"), TestName);
-</script>
+                    }
+                    if ($(this).val() == "Department") {
+                        $("select[name='cname'] option").remove();
+                        $("<option>Amount</option>").appendTo($cname);
+                    }
+                    if ($(this).val() == "Department") {
+                        $("select[name='lname'] option").remove();
+                        $("<option>NetAmount</option>").appendTo($lname);
+                    }
+                });
+            });
+        </script>
     </form>
 </body>
 </html>
